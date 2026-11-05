@@ -17,67 +17,63 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#002C6C",
+  themeColor: "#070D24",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brasilpiscinas.com.br"),
+  metadataBase: new URL("https://modelopiscinas.com.br"),
   title:
-    "Brasil Piscinas — Construção e Reforma de Piscinas em Belo Horizonte e Região | 4.8★",
+    "Modelo Piscinas — Produtos, Equipamentos & Aquecimento em Belo Horizonte | 4,9★",
   description:
-    "Referência em construção de piscinas em concreto armado, vinil e fibra, piscinas com borda infinita, prainhas integradas, spas de hidromassagem, aquecimento solar e reformas em BH e Grande BH. Av. Francisco Negrão de Lima, 860 - Lj A - Pampulha. Telefone: (31) 2520-7776.",
+    "Sua piscina em boas mãos: do tratamento ao aquecimento. Loja completa de cloro Clorofort, filtros, motobombas, crepinas Sibrape, aquecimento solar e assistência técnica na Região Leste de BH. Av. Itaituba, 173 - Boa Vista. WhatsApp: (31) 98396-1882.",
   keywords: [
-    "Brasil Piscinas",
-    "Brasil Piscinas BH",
-    "Brasil Piscinas Pampulha",
-    "Construção de piscinas BH",
-    "Construção de piscinas Belo Horizonte",
-    "Piscina borda infinita BH",
-    "Piscina concreto armado BH",
-    "Piscina de vinil BH",
-    "Reforma de piscinas Belo Horizonte",
-    "Troca de vinil de piscina BH",
-    "Spas e banheiras hidromassagem BH",
+    "Modelo Piscinas",
+    "Modelo Piscinas BH",
+    "Loja de piscinas Belo Horizonte",
+    "Produtos para piscina Boa Vista BH",
+    "Cloro Clorofort BH",
+    "Crepina Sibrape BH",
+    "Filtros e bombas de piscina BH",
     "Aquecimento solar piscina BH",
-    "Bomba e filtro piscina BH",
-    "Iluminação piscina LED BH",
-    "Piscinas Pampulha BH",
-    "Construção de piscinas Minas Gerais",
+    "Limpeza e manutenção de piscina BH",
+    "Loja de piscinas Região Leste BH",
+    "Equipamentos de piscina Belo Horizonte",
+    "Peças para filtro de piscina BH",
   ],
-  authors: [{ name: "Brasil Piscinas — Belo Horizonte - MG" }],
-  creator: "Brasil Piscinas",
-  publisher: "Brasil Piscinas",
+  authors: [{ name: "Modelo Piscinas — Belo Horizonte - MG" }],
+  creator: "Modelo Piscinas",
+  publisher: "Modelo Piscinas",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=brasil1", sizes: "any" },
-      { url: "/icon-32x32.png?v=brasil1", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=brasil1", type: "image/png", sizes: "16x16" },
-      { url: "/icon-48x48.png?v=brasil1", type: "image/png", sizes: "48x48" },
-      { url: "/icon-192x192.png?v=brasil1", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=brasil1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=modelo1", sizes: "any" },
+      { url: "/icon-32x32.png?v=modelo1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=modelo1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-48x48.png?v=modelo1", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192x192.png?v=modelo1", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png?v=modelo1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=brasil1",
-    apple: [{ url: "/apple-icon.png?v=brasil1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=modelo1",
+    apple: [{ url: "/apple-icon.png?v=modelo1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://brasilpiscinas.com.br",
+    url: "https://modelopiscinas.com.br",
     title:
-      "Brasil Piscinas — Construção e Reforma de Piscina em BH e Região",
+      "Modelo Piscinas — Do Tratamento ao Aquecimento em Belo Horizonte",
     description:
-      "Empresa especializada em construção e reforma de piscinas: concreto armado, vinil, spas, borda infinita e equipamentos com 4,8★ no Google. Av. Francisco Negrão de Lima, 860 - Pampulha.",
-    siteName: "Brasil Piscinas",
+      "Loja completa de produtos químicos, cloro Clorofort, bombas, filtros, crepinas Sibrape e aquecimento solar com nota 4,9★ no Google. Av. Itaituba, 173 - Boa Vista.",
+    siteName: "Modelo Piscinas",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Brasil Piscinas — Belo Horizonte - MG",
+        alt: "Modelo Piscinas — Belo Horizonte - MG",
       },
     ],
   },
@@ -90,38 +86,41 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    name: "Brasil Piscinas",
-    alternateName: "Brasil Piscinas • Construção e Reforma",
+    "@type": "Store",
+    name: "Modelo Piscinas",
+    alternateName: "Modelo Piscinas BH • Do Tratamento ao Aquecimento",
     description:
-      "Empresa especializada em construção e reforma de piscinas em concreto armado, vinil e fibra, spas de hidromassagem, borda infinita, aquecimento solar e equipamentos em Belo Horizonte e Região.",
-    telephone: "+553125207776",
-    url: "https://brasilpiscinas.com.br",
-    image: "https://brasilpiscinas.com.br/logo.png",
+      "Loja de produtos para piscinas, cloro Clorofort, motobombas, filtros, crepinas Sibrape, aquecimento solar, peças de reposição e assistência técnica em Belo Horizonte - MG.",
+    telephone: "+5531983961882",
+    url: "https://modelopiscinas.com.br",
+    image: "https://modelopiscinas.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Francisco Negrão de Lima, 860 - Lj A",
-      addressLocality: "Pampulha, Belo Horizonte",
+      streetAddress: "Av. Itaituba, 173",
+      addressLocality: "Boa Vista, Belo Horizonte",
       addressRegion: "MG",
-      postalCode: "31545-000",
+      postalCode: "31060-427",
       addressCountry: "BR",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "58",
+      ratingValue: "4.9",
+      reviewCount: "23",
     },
     areaServed: [
       "Belo Horizonte",
+      "Boa Vista",
+      "Santa Inês",
+      "Sagrada Família",
+      "Horto",
+      "Nova Floresta",
+      "Floresta",
       "Pampulha",
       "Nova Lima",
-      "Lagoa Santa",
+      "Sabará",
       "Contagem",
       "Betim",
-      "Vespasiano",
-      "Santa Luzia",
-      "Sabará",
       "Grande BH",
       "Minas Gerais",
     ],
@@ -135,7 +134,7 @@ export default function RootLayout({
           "Thursday",
           "Friday",
         ],
-        opens: "07:00",
+        opens: "08:00",
         closes: "18:00",
       },
       {
@@ -161,7 +160,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#F8FAFC] text-[#07172B] font-sans antialiased selection:bg-[#00C4EE] selection:text-[#001433]"
+        className="min-h-screen bg-[#F8FAFC] text-[#070F26] font-sans antialiased selection:bg-[#00B4F5] selection:text-[#070D24]"
       >
         {children}
       </body>

@@ -27,51 +27,52 @@ import {
   Check,
   ExternalLink,
   MessageCircle,
-  Hammer,
-  Users,
+  PackageCheck,
+  ShieldCheck,
+  Zap,
+  Tag,
+  Store,
   type LucideIcon,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Informações Oficiais — Brasil Piscinas (Belo Horizonte - MG)
-const COMPANY_NAME = "Brasil Piscinas";
+// Informações Oficiais — Modelo Piscinas (Belo Horizonte - MG)
+const COMPANY_NAME = "Modelo Piscinas";
 const COMPANY_FULL_NAME =
-  "Brasil Piscinas • Construção, Reforma & Equipamentos em Belo Horizonte";
+  "Modelo Piscinas BH • Produtos, Equipamentos & Aquecimento";
 const BRAND_SUBTITLE =
-  "Projetos personalizados, borda infinita, prainhas integradas, spas de hidromassagem, aquecimento solar e equipamentos completos com pontualidade comprovada e 4,8★ no Google.";
+  "Sua piscina em boas mãos: do tratamento ao aquecimento. A loja mais recomendada da Região Leste e de Belo Horizonte. Cloro Clorofort a pronta entrega, crepinas Sibrape, filtros, bombas, aquecedores e manutenção especializada com nota 4,9★ no Google.";
 
-const WHATSAPP_NUMBER = "5531999220269";
-const PHONE_DISPLAY = "(31) 99922-0269";
-const LANDLINE_DISPLAY = "(31) 2520-7776";
-const EMAIL_CONTACT = "contato@brasilpiscinas.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/brasilpiscinas/";
-const INSTAGRAM_HANDLE = "@brasilpiscinas";
-const LINKTREE_URL = "https://linktr.ee/brasilpiscinas";
+const WHATSAPP_NUMBER = "5531983961882";
+const PHONE_DISPLAY = "(31) 98396-1882";
+const LANDLINE_DISPLAY = "(31) 3786-4004";
+const EMAIL_CONTACT = "contato@modelopiscinas.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/modelopiscinas/";
+const INSTAGRAM_HANDLE = "@modelopiscinas";
 
 const ADDRESS_DISPLAY =
-  "Av. Francisco Negrão de Lima, 860 - Lj A - Pampulha, Belo Horizonte - MG, 31545-000";
+  "Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG, 31060-427";
 const CITIES_SERVED =
-  "Belo Horizonte, Pampulha, Nova Lima, Lagoa Santa, Contagem, Betim, Vespasiano, Santa Luzia, Sabará e toda Região Metropolitana de BH";
+  "Belo Horizonte (Região Leste, Boa Vista, Santa Inês, Sagrada Família, Horto, Nova Floresta, Floresta, Pampulha, Centro-Sul), Sabará, Santa Luzia, Contagem, Betim e toda Grande BH";
 
-const GOOGLE_REVIEW_COUNT = "58";
-const GOOGLE_RATING = "4.8";
+const GOOGLE_REVIEW_COUNT = "23";
+const GOOGLE_RATING = "4.9";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Brasil+Piscinas+BH%0AC%C3%A9u+Azul+%C2%B7+Belo+Horizonte+%C2%B7+MG&sourceid=chrome&ie=UTF-8#";
+  "https://www.google.com/search?q=Modelo+Piscinas+Boa+Vista+Belo+Horizonte+MG";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+Francisco+Negr%C3%A3o+de+Lima%2C+860+-+Lj+A+-+Pampulha%2C+Belo+Horizonte+-+MG%2C+31545-000";
+  "https://www.google.com/maps/search/?api=1&query=Av.+Itaituba%2C+173+-+Boa+Vista%2C+Belo+Horizonte+-+MG%2C+31060-427";
 const WAZE_MAPS_URL =
-  "https://waze.com/ul?q=Av+Francisco+Negrao+de+Lima+860+Pampulha+Belo+Horizonte+MG";
+  "https://waze.com/ul?q=Av+Itaituba+173+Boa+Vista+Belo+Horizonte+MG";
 
-// Assets Oficiais da Brasil Piscinas
-const LOGO_SRC = "/logo-brasil-piscinas.png";
-const LOGO_ANAPP = "/logo-anapp.png";
+// Assets Oficiais da Modelo Piscinas
+const LOGO_SRC = "/logo.png";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá! Gostaria de solicitar um orçamento para construção, reforma ou equipamentos de piscina com a Brasil Piscinas.";
+    "Olá! Gostaria de falar com a Modelo Piscinas sobre produtos, peças ou assistência técnica para a minha piscina.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -119,7 +120,7 @@ function InstagramIcon({
   );
 }
 
-// Interface dos Serviços da Brasil Piscinas
+// Interface dos Serviços e Linhas de Produtos da Modelo Piscinas
 interface ServiceItem {
   id: string;
   title: string;
@@ -135,278 +136,282 @@ interface ServiceItem {
 
 const SERVICES: ServiceItem[] = [
   {
-    id: "concreto-armado-borda-infinita",
-    title: "Piscinas de Concreto Armado & Borda Infinita",
+    id: "produtos-quimicos-clorofort",
+    title: "Produtos Químicos & Cloro Clorofort",
     shortDesc:
-      "Engenharia estrutural de alto padrão para piscinas personalizadas, suspensas ou em terrenos declivosos, com efeito borda infinita e revestimentos nobres.",
-    badge: "Engenharia de Alto Padrão",
+      "Linha completa de tratamento químico com Cloro Clorofort sempre disponível, algicidas, clarificantes, elevadores/redutores de pH e kits de teste com orientação técnica especializada.",
+    badge: "Cloro Clorofort em Estoque",
+    icon: Droplets,
+    image: "/tratamento-agua.jpg",
+    fullDesc:
+      "Na Modelo Piscinas você sempre encontra cloro de alta pureza e ação prolongada. Como destacam nossos clientes no Google, 'sempre tem cloro da Clorofort disponível'. Trabalhamos com produtos certificados para manter a sua piscina limpa, cristalina e protegida de bactérias, algas e turbidez, com consultoria personalizada para a dosagem exata do seu volume de água.",
+    benefits: [
+      "Cloro Clorofort granulado e em pastilhas sempre à pronta entrega",
+      "Clarificantes de ação rápida e algicidas de choque e manutenção",
+      "Kits de medição de pH, alcalinidade e cloro livre para controle perfeito",
+      "Consultoria técnica gratuita na loja para recuperar água verde ou turva",
+    ],
+    ctaText: "Consultar Produtos Químicos no WhatsApp",
+    whatsappMessage:
+      "Olá! Gostaria de consultar os preços e disponibilidade de cloro Clorofort e produtos químicos na Modelo Piscinas.",
+  },
+  {
+    id: "pecas-sibrape-reposicao",
+    title: "Peças de Reposição & Linha Sibrape Rara",
+    shortDesc:
+      "O endereço em BH para encontrar crepinas de filtro Sibrape, uniões, tampas de acrílico, borrachas de vedação e conexões específicas que você não acha em lugar nenhum.",
+    badge: "Especialista em Peças Raras",
+    icon: Wrench,
+    image: "/filtro-bomba.jpg",
+    fullDesc:
+      "Quantas vezes você procurou uma peça específica de filtro ou bomba e não encontrou em loja nenhuma de Belo Horizonte? Na Modelo Piscinas, clientes como Romero Fernandes comemoram: 'Achei crepina do filtro Sibrape que não achava em lugar nenhum!'. Temos um estoque abrangente de peças originais, crepinas, manômetros, cestos de pré-filtro e uniões para resolver o seu problema no mesmo dia.",
+    benefits: [
+      "Crepinas originais Sibrape e multimarcas para todos os modelos de filtro",
+      "Manômetros de pressão em inox e válvulas multivias completas",
+      "Tampas transparentes de pré-filtro, anéis O-ring e juntas de vedação",
+      "Atendimento técnico que ajuda a identificar o modelo exato da sua peça",
+    ],
+    ctaText: "Verificar Disponibilidade de Peça",
+    whatsappMessage:
+      "Olá! Estou procurando uma peça de reposição / crepina Sibrape e gostaria de checar se vocês têm na Modelo Piscinas.",
+  },
+  {
+    id: "filtros-bombas-equipamentos",
+    title: "Filtros & Motobombas de Alta Eficiência",
+    shortDesc:
+      "Motobombas silenciosas autoescorvantes e filtros de areia de alta retenção para piscinas residenciais, sítios e condomínios com o melhor preço da região.",
+    badge: "Equipamentos com Garantia",
     icon: Waves,
-    image: "/piscina-obra-1.jpg",
+    image: "/piscina-obra-6.jpg",
     fullDesc:
-      "A Brasil Piscinas é especialista em projetos desafiadores e imponentes de concreto armado. Desenvolvemos piscinas de borda infinita com visual deslumbrante, calculadas milimetricamente com ferragem dupla, impermeabilização de alta estanqueidade e revestimentos premium em pastilhas de porcelana, pedras Hijau ou mármore atérmico. Como relatam nossos clientes, transformamos sonhos complexos em obras perfeitamente concluídas.",
+      "O coração da sua piscina precisa de equipamentos confiáveis e duráveis. A Modelo Piscinas trabalha com as marcas líderes do mercado nacional em motobombas e tanques de filtro rotomoldados e soprados. Nossos consultores calculam a vazão exata necessária para a litragem da sua piscina, evitando desperdício de energia e garantindo uma recirculação perfeita.",
     benefits: [
-      "Execução de borda infinita com espelho d'água perfeitamente nivelado",
-      "Estrutura armada resistente para qualquer topografia e declive",
-      "Impermeabilização técnica com testes rigorosos de estanqueidade",
-      "Acompanhamento direto pelos gestores Alberto e Eudes em todas as fases",
+      "Filtros de areia de alto rendimento que reduzem o uso de químicos",
+      "Motobombas autoescorvantes com pré-filtro transparente e motor silencioso",
+      "Areia especial tratada e lavada para recarga periódica de filtros",
+      "Preços justos e condições facilitadas com pronta entrega em BH",
     ],
-    ctaText: "Solicitar Projeto em Concreto Armado",
+    ctaText: "Pedir Cotação de Filtro ou Bomba",
     whatsappMessage:
-      "Olá! Gostaria de um orçamento para construção de piscina em concreto armado / borda infinita com a Brasil Piscinas.",
+      "Olá! Gostaria de um orçamento para filtro, bomba ou troca de areia com a Modelo Piscinas.",
   },
   {
-    id: "piscinas-vinil",
-    title: "Piscinas de Vinil & Troca de Bolsão",
+    id: "aquecimento-solar-bombas-calor",
+    title: "Aquecimento Solar & Bombas de Calor",
     shortDesc:
-      "Construção rápida, versátil e de excelente custo-benefício, além de troca especializada de bolsão com vácuo perfeito e estampas modernas.",
-    badge: "Versatilidade & Rapidez",
-    icon: Sparkles,
-    image: "/piscina-obra-4.jpg",
+      "Piscina aquecida os 365 dias do ano. Sistemas econômicos com placas solares de polipropileno de alta absorção e trocadores de calor inverter silenciosos.",
+    badge: "Piscina Quente o Ano Todo",
+    icon: Flame,
+    image: "/aquecedores.jpg",
     fullDesc:
-      "As piscinas de vinil oferecem beleza incomparável, toque suave e rápida execução. Na Brasil Piscinas, executamos a alvenaria estrutural reforçada com manta amortecedora e vinil de alta espessura resistente a raios UV e químicos. Também somos referência na troca de vinil e substituição de bolsões antigos em Belo Horizonte e região metropolitana, restaurando sua piscina com máxima precisão.",
+      "Aproveite ao máximo a sua área de lazer em qualquer estação! A Modelo Piscinas oferece sistemas completos de aquecimento solar e bombas de calor modernas. Dimensionamos a quantidade ideal de placas solares ou a potência do trocador de calor de acordo com a área do espelho d'água, exposição solar e temperatura desejada, acompanhados de capa térmica e controladores digitais automáticos.",
     benefits: [
-      "Amplo catálogo de estampas contemporâneas imitando pastilhas e pedras",
-      "Instalação com bomba de sucção a vácuo para acabamento sem rugas",
-      "Economia estrutural e flexibilidade para curvas, prainhas e degraus",
-      "Troca rápida de vinil antigo com assistência técnica especializada",
+      "Coletores solares de alta absorção resistentes ao sol e ao cloro",
+      "Bombas de calor tipo trocador de calor elétrico com economia de energia",
+      "Capas térmicas sob medida para reter o calor durante a noite",
+      "Controladores eletrônicos digitais com acionamento programado da bomba",
     ],
-    ctaText: "Pedir Orçamento de Piscina de Vinil",
+    ctaText: "Dimensionar Aquecedor para Minha Piscina",
     whatsappMessage:
-      "Olá! Tenho interesse em piscina de vinil ou troca de bolsão com a equipe da Brasil Piscinas.",
+      "Olá! Tenho interesse em aquecimento solar ou bomba de calor para minha piscina com a Modelo Piscinas.",
   },
   {
-    id: "spas-banheiras",
-    title: "Spas de Hidromassagem & Banheiras",
+    id: "limpeza-manutencao-assistencia",
+    title: "Limpeza, Manutenção & Assistência Técnica",
     shortDesc:
-      "Refúgios de hidroterapia e relaxamento com jatos direcionais reguláveis, cromoterapia em LED e aquecimento independente para sua família.",
+      "Serviços pontuais e profissionais de tratamento de choque, conserto de vazamentos, troca de areia, revisão de casa de máquinas e manutenção preventiva.",
+    badge: "Serviço Entregue no Prazo",
+    icon: ShieldCheck,
+    image: "/sobre-lazer-pool.jpg",
+    fullDesc:
+      "Sua piscina está verde, turva ou com perda de nível de água? A Modelo Piscinas possui equipe experiente e dedicada para prestar assistência técnica de qualidade. Como avaliou Wilson Hermogenes no Google: 'PERFEITO, FUI BEM ATENDIDO, ENTREGOU O SERVIÇO NA DATA'. Cuidamos da sua piscina com pontualidade, honestidade e excelência técnica comprovada.",
+    benefits: [
+      "Recuperação rápida de água verde com produtos de choque profissionais",
+      "Troca periódica de areia de filtro com desinfecção interna do tanque",
+      "Diagnóstico e reparo de vazamentos hidráulicos em casas de máquinas",
+      "Equipe confiável, pontual e respeitosa com a sua residência ou clube",
+    ],
+    ctaText: "Agendar Manutenção ou Assistência",
+    whatsappMessage:
+      "Olá! Preciso de assistência técnica / manutenção ou recuperação de água para a minha piscina com a Modelo Piscinas.",
+  },
+  {
+    id: "iluminacao-led-cascatas",
+    title: "Iluminação em LED & Cascatas em Inox",
+    shortDesc:
+      "Transforme sua piscina à noite: refletores subaquáticos em LED SMD/RGB em 12V com controle remoto e lindas cascatas em aço inox escovado 304 e 316.",
+    badge: "Visual & Sofisticação",
+    icon: Sun,
+    image: "/cascata-real.jpg",
+    fullDesc:
+      "Dê vida nova à sua piscina e desfrute de banhos noturnos espetaculares. Instalamos e fornecemos refletores em LED subaquáticos em 12V seguros, de baixíssimo consumo, com troca de cores RGB via controle remoto ou comando manual. Complementamos o cenário com cascatas em inox de embutir ou de piso, garantindo oxigenação constante da água e um som relaxante.",
+    benefits: [
+      "Refletores LED de alta potência com segurança total em 12V",
+      "Cascatas duráveis em aço inox resistentes aos raios UV e intempéries",
+      "Central de comando com controle remoto wireless para múltiplos efeitos",
+      "Peças de reposição e nichos compatíveis com instalações antigas",
+    ],
+    ctaText: "Ver Cascatas e Refletores LED",
+    whatsappMessage:
+      "Olá! Gostaria de conhecer os modelos de cascatas e refletores LED disponíveis na Modelo Piscinas.",
+  },
+  {
+    id: "spas-banheiras-hidro",
+    title: "Spas, Banheiras & Acessórios de Relaxamento",
+    shortDesc:
+      "Produtos químicos suaves especiais para spas, aquecedores compactos, jatos de hidromassagem direcionais e saunas para seu bem-estar completo.",
     badge: "Hidroterapia & Conforto",
     icon: Bath,
     image: "/spa-relax.jpg",
     fullDesc:
-      "Integre bem-estar absoluto à sua área de lazer. A Brasil Piscinas fornece e constrói spas de hidromassagem e banheiras integradas à piscina ou em decks privativos. Equipados com motobombas potentes, bicos direcionais terapêuticos para alívio da coluna e pernas, controle digital de temperatura e iluminação subaquática relaxante.",
+      "Seja um spa de hidromassagem acoplado à sua piscina ou uma banheira independente, a Modelo Piscinas tem a linha completa de químicos específicos que não formam espuma indesejada nem agridem a pele. Também fornecemos motobombas de hidromassagem, jatos de ar e água e geradores de vapor para saunas.",
     benefits: [
-      "Projetos integrados: piscina, prainha, spa e sauna no mesmo ambiente",
-      "Jatos pulsantes e direcionais ergonômicos de alta performance",
-      "Aquecimento rápido dedicado e painel de comando intuitivo",
-      "Estrutura com isolamento térmico e tubulações técnicas testadas",
+      "Produtos formulados especialmente para altas temperaturas de spas",
+      "Bicos direcionais reguláveis para massagem terapêutica profunda",
+      "Bombas compactas de hidromassagem de alta vazão e baixo ruído",
+      "Consultoria completa para manutenção da pureza da água aquecida",
     ],
-    ctaText: "Consultar Modelos de Spas",
+    ctaText: "Consultar Produtos para Spas",
     whatsappMessage:
-      "Olá! Gostaria de conhecer opções de spas de hidromassagem e banheiras com a Brasil Piscinas.",
+      "Olá! Gostaria de informações sobre produtos e equipamentos para spas e banheiras com a Modelo Piscinas.",
   },
   {
-    id: "aquecimento-solar-trocadores",
-    title: "Aquecimento Solar & Bombas de Calor",
+    id: "acessorios-aspiracao-limpeza",
+    title: "Acessórios de Aspiração & Limpeza Prática",
     shortDesc:
-      "Água na temperatura ideal os 365 dias do ano. Sistemas ecológicos com coletores solares de alto rendimento e bombas de calor inverter silenciosas.",
-    badge: "Água Aquecida o Ano Todo",
-    icon: Flame,
-    image: "/aquecedores.jpg",
+      "Mangueiras flutuantes, cabos telescópicos, peneiras, escovas curvas, aspiradores com cerdas e robôs automáticos para facilitar o seu dia a dia.",
+    badge: "Linha Completa de Acessórios",
+    icon: PackageCheck,
+    image: "/loja-showroom-pool.jpg",
     fullDesc:
-      "Aproveite a sua piscina em qualquer estação! A Brasil Piscinas dimensiona a capacidade térmica ideal para o volume e incidência solar da sua área. Trabalhamos com placas solares de polipropileno de alta absorção e trocadores de calor com tecnologia inverter, garantindo aquecimento rápido, conforto pleno e baixo consumo elétrico.",
+      "Limpar a sua piscina não precisa ser uma tarefa pesada. Na Modelo Piscinas, temos tudo que você precisa para uma aspiração eficiente: aspiradores com esferas para piscina de alvenaria e vinil, escovas de cerdas macias e de aço, mangueiras corrugadas resistentes e adaptadores universais. A loja mais completa da Região Leste de Belo Horizonte!",
     benefits: [
-      "Dimensionamento térmico preciso sem subdimensionamento",
-      "Sistemas sustentáveis de energia solar com rápido retorno do investimento",
-      "Bombas de calor de alta eficiência para banhos noturnos e dias frios",
-      "Instalação de controladores automáticos digitais e capas térmicas",
+      "Aspiradores com pesos balanceados que não riscam nem danificam o fundo",
+      "Mangueiras flutuantes de alta durabilidade com ponteiras giratórias",
+      "Peneiras cata-folha com tela de nylon reforçada e armação anatômica",
+      "Preços justos e atendimento cordial para tirar qualquer dúvida",
     ],
-    ctaText: "Dimensionar Aquecedor da Minha Piscina",
+    ctaText: "Falar sobre Acessórios de Piscina",
     whatsappMessage:
-      "Olá! Gostaria de um orçamento para aquecimento solar ou bomba de calor com a Brasil Piscinas.",
-  },
-  {
-    id: "casas-de-maquinas-bombas-filtros",
-    title: "Filtros, Bombas & Instalação Hidráulica",
-    shortDesc:
-      "Coração da piscina com montagem técnica profissional: motobombas silenciosas, filtros de areia de alta vazão e registros organizados.",
-    badge: "Engenharia Hidráulica",
-    icon: Wrench,
-    image: "/filtro-bomba.jpg",
-    fullDesc:
-      "Uma casa de máquinas bem executada garante água cristalina sem esforço e segurança total. A equipe da Brasil Piscinas (com profissionais elogiados como Jayson e técnicos especializados) realiza a instalação completa de filtros de alta retenção, bombas autoescorvantes econômicas, quadros de comando elétrico com proteção DR e tubulações de PVC soldável reforçado.",
-    benefits: [
-      "Tubulações identificadas com registros de fácil acesso para operação",
-      "Filtragem otimizada que reduz uso de produtos químicos e energia",
-      "Proteção elétrica contra sobrecargas e risco de choques elétricos",
-      "Assistência e treinamento pós-obra para você manusear com total tranquilidade",
-    ],
-    ctaText: "Falar sobre Filtros e Bombas",
-    whatsappMessage:
-      "Olá! Preciso de instalação ou revisão de bomba, filtro ou casa de máquinas com a Brasil Piscinas.",
-  },
-  {
-    id: "iluminacao-led-cascatas",
-    title: "Iluminação Cênica em LED & Cascatas",
-    shortDesc:
-      "Cenografia aquática noturna marcante: refletores LED RGB subaquáticos em 12V com controle remoto e cascatas elegantes em aço inox 304/316.",
-    badge: "Design & Sofisticação",
-    icon: Sun,
-    image: "/cascata-real.jpg",
-    fullDesc:
-      "Valorize seu imóvel e transforme as noites em momentos inesquecíveis. Instalamos refletores LED subaquáticos modernos, seguros e econômicos, com controle de efeitos luminosos, troca de cores e opções de sincronização. Complementamos com cascatas embutidas ou de piso em aço inox escovado, produzindo o relaxante som de água em queda suave.",
-    benefits: [
-      "Total segurança com alimentação em baixa tensão de 12V",
-      "Controle remoto wireless prático para mudar cores e intensidade",
-      "Cascatas duráveis com acabamento fino resistentes ao sol e ao cloro",
-      "Troca rápida de lâmpadas antigas e modernização de piscinas existentes",
-    ],
-    ctaText: "Ver Cascatas e Iluminação",
-    whatsappMessage:
-      "Olá! Gostaria de informações sobre iluminação em LED e cascatas para piscina com a Brasil Piscinas.",
-  },
-  {
-    id: "prainhas-saunas-lazer",
-    title: "Prainhas Integradas & Saunas a Vapor",
-    shortDesc:
-      "Conceito resort no seu quintal: prainhas rasas para banho de sol e segurança das crianças, bancos subaquáticos e saunas integradas.",
-    badge: "Conceito Resort Privativo",
-    icon: Droplets,
-    image: "/piscina-obra-3.jpg",
-    fullDesc:
-      "Crie o espaço perfeito para receber amigos e desfrutar momentos memoráveis em família. Desenhamos prainhas molhadas sob medida com hidromassagem e pontos para ombrelones, escadas suaves de acesso e saunas a vapor integradas que possibilitam o mergulho direto da sauna para a piscina através do visor subaquático em vidro.",
-    benefits: [
-      "Área rasa de 20 a 40cm ideal para relaxar na espreguiçadeira",
-      "Ambiente seguro e divertido para crianças e pets",
-      "Saunas com geradores certificados, porta de vidro hermética e termostato digital",
-      "Harmonização paisagística com deck de madeira ou pedras atérmicas",
-    ],
-    ctaText: "Projetar Prainha e Lazer",
-    whatsappMessage:
-      "Olá! Gostaria de um projeto de piscina com prainha ou sauna com a Brasil Piscinas.",
-  },
-  {
-    id: "reforma-manutencao-especializada",
-    title: "Reformas Completas & Manutenção de Piscinas",
-    shortDesc:
-      "Renovação de piscinas antigas, resolução de vazamentos, troca de revestimento, troca de lâmpadas, modernização estética e reparos rápidos.",
-    badge: "Especialistas em Reforma",
-    icon: Hammer,
-    image: "/brasil-reforma.png",
-    fullDesc:
-      "Sua piscina antiga está com vazamento, revestimento desgastado ou casa de máquinas obsoleta? A Brasil Piscinas é reconhecida em Belo Horizonte pela agilidade e competência em reformas completas. Refazemos a impermeabilização, trocamos azulejos por vinil ou pastilhas, modernizamos a iluminação e substituímos componentes com prazo recorde e respeito à sua casa.",
-    benefits: [
-      "Diagnóstico preciso de vazamentos e trincas estruturais",
-      "Repaginação visual completa transformando piscinas antigas em modelos modernos",
-      "Serviços pontuais elogiados por clientes: troca de lâmpadas, troca de areia e registros",
-      "Limpeza e organização impecáveis durante todo o processo da obra",
-    ],
-    ctaText: "Solicitar Orçamento de Reforma",
-    whatsappMessage:
-      "Olá! Gostaria de reformar ou fazer manutenção na minha piscina com a Brasil Piscinas.",
+      "Olá! Gostaria de consultar os acessórios de limpeza (aspirador, mangueira, peneira) na Modelo Piscinas.",
   },
 ];
 
-// Depoimentos Reais do Google Maps da Brasil Piscinas (4,8 Estrelas · 58 Avaliações)
+// 13 Depoimentos Reais do Google Maps da Modelo Piscinas (4,9 Estrelas · 23 Avaliações)
 const REVIEWS = [
   {
-    name: "Flavia Scotellaro",
-    tag: "6 avaliações · Cliente Verificada",
+    name: "Mery Inez",
+    tag: "2 avaliações · Cliente Verificada",
     rating: 5,
-    service: "Piscina com Borda Infinita",
+    highlight: "Equipe de Confiança & Profissionalismo",
     comment:
-      "Só Gratidão a Brasil Piscina pelo meu sonho realizado de uma Piscina com borda infinita. Ficou maravilhosa, muito bem feita e apesar dos desafios para a construção dela eles foram super profissionais e competentes. Recomendo demais essa empresa. Pode confiar!",
+      "Atendimento de qualidade, equipe de confiança e sempre disposta a ajudar. A loja está de parabéns pelo profissionalismo!",
   },
   {
-    name: "Angela Ribeiro",
-    tag: "5 avaliações · Cliente Verificada",
-    rating: 5,
-    service: "Piscina com Prainha, SPA e Sauna",
-    comment:
-      "Melhor experiência da minha vida em termos de construção. São sérios, honestos, pontuais e super responsáveis! Fizeram uma piscina com prainha, SPA e sauna! Ficou simplesmente PERFEITA! Todas as pessoas que têm o prazer de desfrutar elogiam.",
-  },
-  {
-    name: "Walter Motta",
-    tag: "Local Guide · 27 avaliações · 3 fotos",
-    rating: 5,
-    service: "Piscina Completa, Bomba, Aquecimento e Iluminação",
-    comment:
-      "Contratei todas etapas da minha piscina, bomba, aquecimento, iluminação, etc, fiquei 100% satisfeito com o trabalho e a seriedade da empresa. Respostas rápidas, prazos cumpridos e cordialidade no atendimento. Indico de olhos fechados.",
-  },
-  {
-    name: "Ronan Melo",
-    tag: "7 avaliações · Cliente Verificado",
-    rating: 5,
-    service: "Construção do Orçamento à Entrega",
-    comment:
-      "Fiquei muito satisfeito com o resultado dos serviços prestados. Desde a etapa de orçamentos até a entrega da piscina tudo foi cumprido como havíamos contratado. Igor, Jayson, Reni, Alberto e Eudes sempre muito solícitos e profissionais.",
-  },
-  {
-    name: "Bruno Lopes",
-    tag: "Local Guide · 33 avaliações · 5 fotos",
-    rating: 5,
-    service: "Execução Técnica & Confiança",
-    comment:
-      "Muito profissionais, muito competentes, e o valor cobrado por eles é o justo, não foi o mais barato e nem o mais caro orçado na ocasião, fechamos por conta da confiança passada pelo Alberto no ato da contratação. No período da execução tudo impecável!",
-  },
-  {
-    name: "Mônica Guerra",
-    tag: "1 avaliação · Cliente Verificada",
-    rating: 5,
-    service: "Troca de Vinil, Aquecimento Solar & Casa de Máquinas",
-    comment:
-      "Contratei a Brasil Piscinas para troca do vinil, instalação de aquecimento solar, reforma na casa de máquinas e troca de bomba e filtro da piscina. Super indico a empresa pois realizaram um excelente trabalho, além da pontualidade e assistência técnica impecáveis.",
-  },
-  {
-    name: "Anderson Cruvinel Magalhães Maciel",
-    tag: "Local Guide · 9 avaliações · 9 fotos",
-    rating: 5,
-    service: "Manutenção & Troca de Iluminação",
-    comment:
-      "Minha experiência com a Brasil Piscinas foi excelente! Contratei a empresa para realizar a troca da lâmpada da piscina e fiquei muito satisfeito com a qualidade do atendimento e do serviço prestado.",
-  },
-  {
-    name: "Edgar Toledo",
-    tag: "5 avaliações · Cliente Verificado",
-    rating: 5,
-    service: "Comprometimento e Dedicação",
-    comment:
-      "Experiência muito gratificante. Tudo o que você espera de uma empresa de serviços é o comprometimento, e a Brasil Piscinas demonstrou muito comprometimento com o serviço prestado. Fiquei muito satisfeito e muito agradecido pelo empenho e dedicação. Super recomendo!",
-  },
-  {
-    name: "Driele Polanski",
-    tag: "6 avaliações · 1 foto",
-    rating: 5,
-    service: "Pontualidade e Qualidade",
-    comment:
-      "Excelente empresa, muito comprometimento, entrega muito rápida e na data, serviço maravilhoso, excelente qualidade!",
-  },
-  {
-    name: "Célio Pacheco",
-    tag: "Local Guide · 147 avaliações · 11 fotos",
-    rating: 5,
-    service: "Atendimento Direto pelos Donos",
-    comment:
-      "Atendimento de qualidade, serviços de excelência. Os donos te atendem e prestam serviços.",
-  },
-  {
-    name: "Camilla Alvim Seabra Neves",
+    name: "Karine Ferreira",
     tag: "8 avaliações · Cliente Verificada",
     rating: 5,
-    service: "Piscina Pronta no Prazo",
+    highlight: "Melhor Preço da Região",
     comment:
-      "A Brasil Piscinas tem um excelente atendimento e ótimos profissionais! A minha piscina ficou pronta no prazo acordado, de acordo com o projeto definido e muito bem feita! Tivemos uma experiência muito positiva com a empresa!",
+      "Melhor atendimento! Produtos com o melhor preço da região.",
   },
   {
-    name: "Frederico Madeira",
-    tag: "8 avaliações · 4 fotos",
+    name: "Romero Fernandes",
+    tag: "1 avaliação · Cliente Verificado",
     rating: 5,
-    service: "Reforma Executada com Perfeição",
+    highlight: "Crepina do Filtro Sibrape Encontrada",
     comment:
-      "Gostaria de agradecer ao pessoal da Brasil Piscinas pelo profissionalismo e bom atendimento. Um agradecimento especial ao Jayson, profissional da melhor qualidade, executou muito bem a reforma da piscina.",
+      "Melhor atendimento, tem de tudo e um preço justo. Achei crepina do filtro sibrape não achava em lugar nenhum!",
   },
   {
-    name: "Helbert Antonio Mendes Xavier",
+    name: "Mateus Henrique",
+    tag: "Local Guide · 211 avaliações · 18 fotos",
+    rating: 5,
+    highlight: "Loja Completa & Cloro Clorofort",
+    comment:
+      "Loja bem completa, sempre tem cloro da clorofort disponível. Atendimento nota 10",
+  },
+  {
+    name: "Beatriz Souza",
+    tag: "9 avaliações · Cliente Verificada",
+    rating: 5,
+    highlight: "Melhor Lugar da Região Leste",
+    comment:
+      "Na região leste o melhor lugar de se encontrar produtos. Fácil acesso, excelente prévias e aqui se encontra todos os produtos necessários. Excelente atendimento.",
+  },
+  {
+    name: "Erika Souza",
+    tag: "Local Guide · 5 avaliações · 35 fotos",
+    rating: 5,
+    highlight: "Empresa Séria & Serviço de Qualidade",
+    comment:
+      "Excelente atendimento, empresa seria, melhores preços do mercado, e além de tudo um serviço bem executado feito com muita qualidade PARABÉNS...",
+  },
+  {
+    name: "Wilson Hermogenes",
     tag: "2 avaliações · Cliente Verificado",
     rating: 5,
-    service: "Consultoria e Capricho na Execução",
+    highlight: "Serviço Entregue Rigorosamente na Data",
     comment:
-      "Super atenciosos! Toda a equipe é sensacional, mas não poderia deixar de mencionar o Alberto, prestativo ao extremo, tirando todas as dúvidas, aconselhando e ajudando nas decisões. Já Geison se desdobra na execução do serviço, com capricho!",
+      "PERFEITO, FUI BEM ATENDIDO, ENTREGOU O SERVIÇO NA DATA. RECOMENDEI A EMPRESA PARA MEUS AMIGOS ELES ADORÃO.",
+  },
+  {
+    name: "Leonardo Rafael",
+    tag: "Local Guide · 16 avaliações · 2 fotos",
+    rating: 5,
+    highlight: "Atendimento Excelente & Bons Produtos",
+    comment:
+      "Atendimento excelente! Bons produtos",
+  },
+  {
+    name: "Alisson Costa",
+    tag: "1 avaliação · Cliente Verificado",
+    rating: 5,
+    highlight: "Ótimo Preço & Serviço de Qualidade",
+    comment:
+      "Excelente Atendimento ótimo Preço Serviço de qualidade..",
+  },
+  {
+    name: "Gustavo Araujo",
+    tag: "1 avaliação · Cliente Verificado",
+    rating: 5,
+    highlight: "Total Satisfação dos Clientes",
+    comment:
+      "RECOMENDO, serviço prestado com total satisfação de seus clientes...",
+  },
+  {
+    name: "Vera Lucia",
+    tag: "2 avaliações · Cliente Verificada",
+    rating: 5,
+    highlight: "Loja Linda & Atendimento Toppp",
+    comment:
+      "Loja linda. Atendimento toppp",
+  },
+  {
+    name: "Cláudia Daniella Alves",
+    tag: "Local Guide · 77 avaliações · 29 fotos",
+    rating: 5,
+    highlight: "Perto de Casa com Preço Justo",
+    comment:
+      "Perto de casa, excelente atendimento e o preço justo.",
+  },
+  {
+    name: "Eliezer Ribeiro",
+    tag: "4 avaliações · Cliente Verificado",
+    rating: 5,
+    highlight: "Melhor Preço e Serviço da Região, Nota 10",
+    comment:
+      "Melhor preço e serviço da região, Nota 10",
   },
 ];
 
-type GalleryCategory = "todas" | "concreto" | "vinil" | "spas" | "equipamentos";
+type GalleryCategory =
+  | "todas"
+  | "produtos"
+  | "filtros"
+  | "aquecimento"
+  | "iluminacao";
 
-// Galeria de Projetos Reais da Brasil Piscinas
 interface GalleryProject {
   src: string;
   title: string;
@@ -417,94 +422,94 @@ interface GalleryProject {
 
 const GALLERY_PROJECTS: GalleryProject[] = [
   {
-    src: "/piscina-obra-1.jpg",
-    title: "Piscina de Borda Infinita com Deck Panorâmico",
-    category: "concreto",
-    tag: "Concreto Armado & Borda Infinita",
-    desc: "Obra de alto padrão em terreno com vista deslumbrante, revestida em pastilhas e pedras nobres.",
-  },
-  {
-    src: "/piscina-obra-3.jpg",
-    title: "Área de Lazer Completa com Prainha e Spa",
-    category: "concreto",
-    tag: "Prainha Integrada & Spa",
-    desc: "Conceito resort integrado à casa com hidroterapia, degraus amplos e revestimento acetinado.",
-  },
-  {
-    src: "/piscina-obra-4.jpg",
-    title: "Piscina de Vinil com Estampa Exclusiva",
-    category: "vinil",
-    tag: "Piscina de Vinil Premium",
-    desc: "Construção de vinil de alta durabilidade com vácuo perfeito e borda atérmica clara.",
-  },
-  {
-    src: "/spa-relax.jpg",
-    title: "Spa de Hidroterapia com Cromoterapia Noturna",
-    category: "spas",
-    tag: "Spa de Hidromassagem",
-    desc: "Spa privativo com jatos terapêuticos direcionais, aquecedor dedicado e LEDs RGB.",
-  },
-  {
-    src: "/piscina-obra-2.jpg",
-    title: "Piscina com Cascata Laminada e Iluminação",
-    category: "concreto",
-    tag: "Cascata Inox & LED",
-    desc: "Harmonização de cascata embutida com iluminação subaquática para banhos noturnos.",
+    src: "/tratamento-agua.jpg",
+    title: "Linha Completa de Químicos e Cloro Clorofort",
+    category: "produtos",
+    tag: "Tratamento de Água",
+    desc: "Produtos de alto rendimento para deixar sua piscina cristalina e segura para o banho.",
   },
   {
     src: "/filtro-bomba.jpg",
-    title: "Casa de Máquinas Normatizada e Automatizada",
-    category: "equipamentos",
+    title: "Casa de Máquinas Montada com Filtro e Motobomba",
+    category: "filtros",
     tag: "Filtros & Bombas Silenciosas",
-    desc: "Tubulações de alta vazão organizadas com registros acessíveis e quadro de comando seguro com DR.",
+    desc: "Dimensionamento e reposição com registros organizados, fácil manuseio e alta durabilidade.",
   },
   {
     src: "/aquecedores.jpg",
-    title: "Sistema de Aquecimento Solar & Trocador de Calor",
-    category: "equipamentos",
+    title: "Sistema de Aquecimento Solar de Alta Absorção",
+    category: "aquecimento",
     tag: "Aquecimento Solar",
-    desc: "Coletores de alta absorção solar dimensionados para temperatura agradável em todas as épocas.",
+    desc: "Placas solares projetadas para aquecer sua piscina de maneira ecológica com excelente rendimento térmico.",
   },
   {
-    src: "/piscina-obra-5.jpg",
-    title: "Piscina com Escada Ergonômica e Deck Molhado",
-    category: "vinil",
-    tag: "Vinil & Prainha",
-    desc: "Projeto moderno e aconchegante perfeito para famílias com crianças e momentos de descanso.",
+    src: "/cascata-real.jpg",
+    title: "Cascata em Aço Inox Escovado com Queda Suave",
+    category: "iluminacao",
+    tag: "Cascatas em Inox",
+    desc: "Elegância e som terapêutico de água caindo, produzida com inox resistente ao sol e ao cloro.",
+  },
+  {
+    src: "/iluminacao-real.jpg",
+    title: "Refletores LED Subaquáticos RGB Noturnos",
+    category: "iluminacao",
+    tag: "Iluminação em LED 12V",
+    desc: "Efeitos cênicos coloridos com controle remoto sem fio e total segurança elétrica.",
+  },
+  {
+    src: "/spa-relax.jpg",
+    title: "Spa de Hidromassagem Aquecido e Relaxante",
+    category: "aquecimento",
+    tag: "Spas & Hidroterapia",
+    desc: "Jatos direcionais terapêuticos e químicos próprios que preservam o equipamento.",
+  },
+  {
+    src: "/piscina-obra-1.jpg",
+    title: "Piscina Cristalina com Manutenção Periódica",
+    category: "produtos",
+    tag: "Água Impecável",
+    desc: "Equilíbrio químico perfeito de cloro, pH e alcalinidade orientado pelos técnicos da loja.",
+  },
+  {
+    src: "/loja-showroom-pool.jpg",
+    title: "Loja Ampla com Pronta Entrega na Região Leste",
+    category: "produtos",
+    tag: "Sede Av. Itaituba, 173",
+    desc: "Estrutura completa com estacionamento fácil e consultores prontos para tirar suas dúvidas.",
   },
 ];
 
-// Perguntas Frequentes
+// Perguntas Frequentes Reais sobre a Modelo Piscinas
 const FAQS = [
   {
-    question: "A Brasil Piscinas atende em toda a região de Belo Horizonte?",
+    question: "Onde fica a Modelo Piscinas e qual o horário de funcionamento?",
     answer:
-      "Sim! Nossa sede está localizada na Av. Francisco Negrão de Lima, 860 na Pampulha, e atendemos toda a capital (Pampulha, Belvedere, Mangabeiras, Buritis, etc.), Nova Lima, Lagoa Santa, Contagem, Betim, Vespasiano, Santa Luzia, Sabará e toda a Região Metropolitana de BH.",
+      "A nossa loja está situada na Av. Itaituba, 173 - Bairro Boa Vista, Belo Horizonte - MG (CEP 31060-427), na Região Leste da capital. Nosso horário de funcionamento é de segunda a sexta-feira, das 08:00 às 18:00, e aos sábados, das 08:00 às 12:00. Temos fácil acesso e facilidade para estacionar e retirar seus produtos.",
   },
   {
-    question: "Qual a diferença entre construir em concreto armado ou vinil?",
+    question: "Vocês realmente têm crepinas e peças para filtro Sibrape?",
     answer:
-      "A piscina de concreto armado (alvenaria armada) proporciona máxima liberdade arquitetônica para bordas infinitas, piscinas suspensas e revestimentos nobres como pedras Hijau e pastilhas. Já a piscina de vinil oferece um custo inicial mais econômico, prazo de construção ágil e grande variedade de estampas modernas com toque liso e agradável. Nossa equipe analisa seu terreno e objetivo para recomendar a melhor opção.",
+      "Sim! Essa é uma das peças mais difíceis de encontrar em BH e um dos pontos mais elogiados pelos nossos clientes. Mantemos em estoque crepinas originais Sibrape para diversos modelos de filtro, manômetros, tampas de pré-filtro, borrachas de vedação, rotores e uniões.",
   },
   {
-    question: "É verdade que os donos da Brasil Piscinas acompanham a obra?",
+    question: "Vocês têm cloro da marca Clorofort a pronta entrega?",
     answer:
-      "Sim! Esse é um dos nossos maiores diferenciais e muito elogiado nas avaliações do Google. Alberto e Eudes cuidam pessoalmente da consultoria, orçamento e acompanhamento técnico das obras junto com nossa equipe de mestres de acabamento, como Jayson, garantindo cumprimento rígido de cronogramas.",
+      "Com certeza! Como destacam vários clientes no Google, 'sempre tem cloro da Clorofort disponível'. Trabalhamos com estoques sempre abastecidos para que você nunca fique sem cloro para sua piscina, além de clarificantes, algicidas, barrilha e sulfato.",
   },
   {
-    question: "A Brasil Piscinas realiza reformas e troca de bolsão de vinil?",
+    question: "A Modelo Piscinas realiza serviços de manutenção e troca de areia?",
     answer:
-      "Com certeza! Somos especialistas na reforma completa de piscinas antigas com vazamento ou revestimentos danificados, bem como na medição precisa e troca de bolsão de vinil com sucção a vácuo, devolvendo vida nova à sua piscina em poucos dias.",
+      "Sim! Além da venda de produtos e peças na loja física, realizamos serviços técnicos especializados como recuperação de água verde, troca de areia do filtro, conserto de vazamentos hidráulicos em casas de máquinas e revisões gerais, sempre com pontualidade comprovada e serviço entregue na data.",
   },
   {
-    question: "Quanto tempo leva para construir uma piscina?",
+    question: "Vocês trabalham com aquecimento solar e bombas de calor?",
     answer:
-      "O prazo varia conforme o tipo estrutural, dimensões e complexidade do terreno. Piscinas de vinil normalmente ficam prontas entre 25 a 45 dias úteis, enquanto piscinas de concreto armado com borda infinita levam de 60 a 90 dias úteis. Trabalhamos com cronograma detalhado em contrato e temos orgulho de nossa pontualidade histórica.",
+      "Sim! Dimensionamos o sistema ideal para o tamanho da sua piscina, fornecendo coletores solares de alta absorção térmica, bombas de calor (trocadores de calor com tecnologia inverter), capas térmicas sob medida e termostatos digitais para sua piscina ficar aquecida os 365 dias do ano.",
   },
   {
-    question: "Como solicitar um orçamento ou visita técnica no meu terreno?",
+    question: "Como posso pedir um orçamento ou tirar dúvidas pelo WhatsApp?",
     answer:
-      "Basta clicar nos botões de WhatsApp desta página ou ligar para (31) 2520-7776. Você conversará diretamente com nossos especialistas para tirar dúvidas, agendar visita técnica no local e receber um orçamento detalhado e transparente.",
+      "É muito simples! Basta clicar nos botões de WhatsApp espalhados por esta página ou chamar no número (31) 98396-1882. Nossa equipe está sempre disposta a ajudar, responder perguntas técnicas, enviar fotos de peças e montar orçamentos sem compromisso.",
   },
 ];
 
@@ -522,411 +527,419 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
-      {/* 1. TOP BAR INSTITUCIONAL — PAMPULHA, BELO HORIZONTE */}
-      <div className="bg-[#001433] text-white text-xs py-2 px-4 border-b border-[#002766]">
+      {/* 1. TOP BAR INSTITUCIONAL — BOA VISTA, BELO HORIZONTE */}
+      <div className="bg-[#070D24] text-white text-xs py-2 px-4 border-b border-[#121F54]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4">
             <a
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-slate-300 hover:text-[#00C4EE] transition-colors"
+              className="flex items-center gap-1.5 text-slate-300 hover:text-[#00B4F5] transition-colors"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#00C4EE]" />
-              <span>Av. Francisco Negrão de Lima, 860 - Lj A - Pampulha, BH</span>
+              <MapPin className="w-3.5 h-3.5 text-[#00B4F5]" />
+              <span>Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG</span>
             </a>
             <div className="hidden md:flex items-center gap-1.5 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-[#00C4EE]" />
-              <span>Seg a Sex: 07:00 às 18:00</span>
+              <Clock className="w-3.5 h-3.5 text-[#00B4F5]" />
+              <span>Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
             </div>
             <a
               href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#001F4D] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#134B9C] hover:border-[#00C4EE] transition-colors"
+              className="inline-flex items-center gap-1.5 bg-[#0D163B] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#1E3485] hover:border-[#00B4F5] transition-colors"
             >
               <div className="flex text-[#F59E0B]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
               </div>
-              <span className="font-bold text-[#00C4EE]">{GOOGLE_RATING}★</span>
-              <span className="text-slate-300">({GOOGLE_REVIEW_COUNT} avaliações no Google)</span>
+              <span className="font-bold text-[#F59E0B]">{GOOGLE_RATING}★</span>
+              <span className="text-slate-400">({GOOGLE_REVIEW_COUNT} avaliações Google)</span>
             </a>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 text-slate-300">
             <a
               href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
-              className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-[#00C4EE]" />
-              <span className="font-semibold">{LANDLINE_DISPLAY}</span>
+              <Phone className="w-3 h-3 text-[#00B4F5]" />
+              <span>{LANDLINE_DISPLAY}</span>
             </a>
             <a
-              href={INSTAGRAM_URL}
+              href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram da Brasil Piscinas"
-              className="text-slate-300 hover:text-[#00C4EE] transition-colors flex items-center gap-1"
-            >
-              <InstagramIcon size={14} />
-              <span className="hidden lg:inline">{INSTAGRAM_HANDLE}</span>
-            </a>
-            <a
-              href={getWhatsAppUrl("Olá! Gostaria de falar com o atendimento da Brasil Piscinas.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
+              className="flex items-center gap-1.5 text-[#00D0FF] font-semibold hover:underline"
             >
               <WhatsAppIcon size={14} />
-              <span>{PHONE_DISPLAY}</span>
+              <span>WhatsApp: {PHONE_DISPLAY}</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* 2. HEADER & NAVEGAÇÃO PRINCIPAL */}
+      {/* 2. NAVBAR PRINCIPAL */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
-          {/* Logotipo Oficial Brasil Piscinas */}
-          <a href="#" className="flex items-center group py-1 flex-shrink-0">
-            <div className="relative h-12 sm:h-14 w-36 sm:w-44 transition-transform group-hover:scale-102">
-              <Image
-                src={LOGO_SRC}
-                alt="Brasil Piscinas — Construção e Reforma de Piscinas em BH"
-                fill
-                priority
-                sizes="(max-width: 640px) 144px, 176px"
-                className="object-contain object-left"
-              />
-            </div>
-          </a>
-
-          {/* Links Desktop */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-[13px] xl:text-sm font-semibold text-slate-700">
-            <a href="#servicos" className="hover:text-[#002C6C] transition-colors py-1">
-              Serviços
-            </a>
-            <a href="#diferenciais" className="hover:text-[#002C6C] transition-colors py-1">
-              Diferenciais
-            </a>
-            <a href="#galeria" className="hover:text-[#002C6C] transition-colors py-1">
-              Projetos
-            </a>
-            <a href="#sobre" className="hover:text-[#002C6C] transition-colors py-1">
-              Sobre Nós
-            </a>
-            <a href="#depoimentos" className="hover:text-[#002C6C] transition-colors py-1">
-              Depoimentos
-            </a>
-            <a href="#faq" className="hover:text-[#002C6C] transition-colors py-1">
-              Dúvidas
-            </a>
-            <a href="#localizacao" className="hover:text-[#002C6C] transition-colors py-1">
-              Contato
-            </a>
-          </nav>
-
-          {/* CTA Header */}
-          <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
-            <GlowingButton
-              href={getWhatsAppUrl(
-                "Olá! Gostaria de um orçamento para construção ou reforma de piscina com a Brasil Piscinas."
-              )}
-              target="_blank"
-              variant="whatsapp"
-              size="sm"
-            >
-              <WhatsAppIcon size={16} />
-              <span>Orçamento via WhatsApp</span>
-            </GlowingButton>
-          </div>
-
-          {/* Botão Mobile Menu */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-700 hover:text-[#002C6C]"
-            aria-label="Abrir menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Menu Mobile Dropdown */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg">
-            <a
-              href="#servicos"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Serviços Especializados
-            </a>
-            <a
-              href="#diferenciais"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Diferenciais da Brasil Piscinas
-            </a>
-            <a
-              href="#galeria"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Projetos Executados
-            </a>
-            <a
-              href="#sobre"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Nossa Equipe (Alberto, Eudes, Jayson)
-            </a>
-            <a
-              href="#depoimentos"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Avaliações Google (4,8★)
-            </a>
-            <a
-              href="#faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Perguntas Frequentes
-            </a>
-            <a
-              href="#localizacao"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 font-medium hover:text-[#002C6C]"
-            >
-              Onde Estamos (Pampulha - BH)
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo Oficial Modelo Piscinas */}
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src={LOGO_SRC}
+                  alt="Modelo Piscinas Logo Oficial"
+                  fill
+                  priority
+                  sizes="64px"
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col justify-center">
+                <span className="text-xl sm:text-2xl font-black italic tracking-tight text-[#070D24] font-heading leading-tight flex items-center gap-1.5">
+                  <span className="text-[#070D24]">MODELO</span>
+                  <span className="text-[#00B4F5]">PISCINAS</span>
+                </span>
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                  Do Tratamento ao Aquecimento • BH
+                </span>
+              </div>
             </a>
 
-            <div className="pt-2 flex flex-col gap-2">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-7 text-[14px] font-semibold text-slate-700">
+              <a href="#produtos" className="hover:text-[#00B4F5] transition-colors">
+                Produtos &amp; Serviços
+              </a>
+              <a href="#diferenciais" className="hover:text-[#00B4F5] transition-colors">
+                Diferenciais
+              </a>
+              <a href="#sobre" className="hover:text-[#00B4F5] transition-colors">
+                A Loja
+              </a>
+              <a href="#galeria" className="hover:text-[#00B4F5] transition-colors">
+                Galeria
+              </a>
+              <a href="#depoimentos" className="hover:text-[#00B4F5] transition-colors flex items-center gap-1">
+                <span>Avaliações</span>
+                <span className="bg-[#FEF3C7] text-[#D97706] text-[11px] px-1.5 py-0.2 rounded-full font-bold">
+                  4,9★
+                </span>
+              </a>
+              <a href="#faq" className="hover:text-[#00B4F5] transition-colors">
+                Dúvidas
+              </a>
+              <a href="#localizacao" className="hover:text-[#00B4F5] transition-colors">
+                Como Chegar
+              </a>
+            </nav>
+
+            {/* Action Buttons */}
+            <div className="hidden sm:flex items-center gap-3">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da Modelo Piscinas"
+                className="p-2.5 rounded-lg border border-slate-200 text-slate-600 hover:text-[#00B4F5] hover:border-[#00B4F5] transition-colors"
+              >
+                <InstagramIcon size={18} />
+              </a>
+
               <GlowingButton
                 href={getWhatsAppUrl(
-                  "Olá! Gostaria de um orçamento para piscina com a equipe da Brasil Piscinas."
+                  "Olá! Encontrei o site da Modelo Piscinas e gostaria de atendimento sobre produtos e equipamentos."
                 )}
                 target="_blank"
                 variant="whatsapp"
-                size="md"
-                className="w-full justify-center"
+                size="sm"
               >
-                <WhatsAppIcon size={18} />
-                <span>Conversar no WhatsApp</span>
+                <WhatsAppIcon size={16} />
+                <span>Pedir no WhatsApp</span>
               </GlowingButton>
-              <a
-                href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
-                className="text-center text-sm font-semibold text-[#002C6C] py-2"
+            </div>
+
+            {/* Mobile Menu Trigger */}
+            <div className="flex lg:hidden items-center gap-2">
+              <GlowingButton
+                href={getWhatsAppUrl()}
+                target="_blank"
+                variant="whatsapp"
+                size="sm"
+                className="text-xs px-3 py-1.5"
               >
-                Ligar: {LANDLINE_DISPLAY}
-              </a>
+                <WhatsAppIcon size={14} />
+                <span>WhatsApp</span>
+              </GlowingButton>
+
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-slate-700 hover:text-[#00B4F5] focus:outline-none"
+                aria-label="Alternar menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
-        )}
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3"
+            >
+              <div className="flex flex-col space-y-2 text-sm font-semibold text-slate-700">
+                <a
+                  href="#produtos"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50"
+                >
+                  Produtos &amp; Serviços
+                </a>
+                <a
+                  href="#diferenciais"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50"
+                >
+                  Diferenciais Modelo Piscinas
+                </a>
+                <a
+                  href="#sobre"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50"
+                >
+                  Sobre a Loja
+                </a>
+                <a
+                  href="#galeria"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50"
+                >
+                  Galeria de Fotos
+                </a>
+                <a
+                  href="#depoimentos"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50 flex items-center justify-between"
+                >
+                  <span>Avaliações no Google</span>
+                  <span className="bg-[#FEF3C7] text-[#D97706] text-xs px-2 py-0.5 rounded-full font-bold">
+                    4,9★ (23)
+                  </span>
+                </a>
+                <a
+                  href="#faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50"
+                >
+                  Perguntas Frequentes
+                </a>
+                <a
+                  href="#localizacao"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="py-2 px-3 rounded hover:bg-slate-50"
+                >
+                  Endereço &amp; Rotas (Av. Itaituba, 173)
+                </a>
+              </div>
+
+              <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <GlowingButton
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  variant="whatsapp"
+                  size="md"
+                  className="w-full"
+                >
+                  <WhatsAppIcon size={18} />
+                  <span>Chamar no WhatsApp ({PHONE_DISPLAY})</span>
+                </GlowingButton>
+                <a
+                  href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
+                  className="text-center py-2 text-xs font-bold text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50"
+                >
+                  Ligar para a Loja: {LANDLINE_DISPLAY}
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
-      {/* 3. HERO SECTION — ALTO PADRÃO, SOFISTICAÇÃO E AUTORIDADE */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#001433] via-[#001F4D] to-[#002C6C] text-white pt-12 pb-20 lg:pt-20 lg:pb-28">
+      {/* 3. HERO SECTION — ALTA CONVERSÃO */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#070D24] via-[#0D163B] to-[#121F54] text-white pt-12 pb-20 lg:pt-20 lg:pb-28">
         {/* Elementos Gráficos de Fundo */}
-        <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#00C4EE_1px,transparent_1px)] [background-size:24px_24px]" />
-        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#00C4EE]/20 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#002C6C]/40 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#00B4F5_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="absolute top-1/4 -right-40 w-96 h-96 bg-[#00B4F5]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#2524A8]/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Lado Esquerdo: Textos & CTAs */}
+            {/* Coluna Texto / Copywriting */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              {/* Emblema & Logo Oficial no Topo do Hero */}
-              <div className="flex items-center justify-center lg:justify-start gap-4 mb-2">
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 drop-shadow-[0_10px_25px_rgba(0,196,238,0.45)]">
-                  <Image
-                    src={LOGO_SRC}
-                    alt="Brasil Piscinas Logo Oficial"
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 64px, 80px"
-                    className="object-contain"
-                  />
-                </div>
-                <div className="text-left">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#002766]/90 border border-[#00C4EE]/50 text-xs sm:text-sm font-semibold text-[#BAF1FB]">
-                    <span className="w-2 h-2 rounded-full bg-[#00C4EE] animate-pulse" />
-                    <span>Pampulha · Belo Horizonte &amp; Região</span>
-                  </div>
-                  <span className="text-xs sm:text-sm font-bold text-slate-200 block mt-1 tracking-wide">
-                    Especialistas em Construção &amp; Reforma
-                  </span>
-                </div>
+              {/* Badge de Credibilidade */}
+              <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-3.5 py-1.5 rounded-full bg-[#00B4F5]/15 text-[#BAE6FD] text-xs font-bold border border-[#00B4F5]/30">
+                <Sparkles className="w-4 h-4 text-[#00B4F5]" />
+                <span>Loja de Piscinas em Belo Horizonte · Região Leste</span>
+                <span className="hidden sm:inline text-slate-400">•</span>
+                <span className="inline-flex items-center text-[#F59E0B]">
+                  <Star className="w-3.5 h-3.5 fill-current" />
+                  <span className="ml-1 font-bold">4,9★ no Google</span>
+                </span>
               </div>
 
               {/* H1 Principal */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold leading-[1.12] tracking-tight font-heading">
-                Piscinas em Concreto Armado, Vinil e{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C4EE] via-[#70E1FF] to-white">
-                  Borda Infinita
-                </span>{" "}
-                com Excelência em BH
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black italic tracking-tight font-heading leading-[1.12]">
+                Sua Piscina em Boas Mãos:{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] via-[#00B4F5] to-[#70E5FF]">
+                  Do Tratamento ao Aquecimento
+                </span>
               </h1>
 
               {/* Subtítulo / Proposta de Valor */}
-              <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                {BRAND_SUBTITLE}
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                A loja e assistência técnica mais completa da Região Leste e de BH. Cloro Clorofort sempre disponível, filtros, bombas, aquecedores, manutenção especializada e as peças Sibrape que você não acha em lugar nenhum.
               </p>
 
-              {/* Selos de Confiança Rápidos */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs sm:text-sm text-slate-300">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#00C4EE]" />
-                  <span>Atendimento direto pelos sócios</span>
+              {/* Badges de Diferenciais Rápidos */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2 max-w-xl mx-auto lg:mx-0 text-left">
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
+                  <span>Cloro Clorofort em estoque</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#00C4EE]" />
-                  <span>100% dos prazos cumpridos</span>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
+                  <span>Crepina Sibrape original</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#00C4EE]" />
-                  <span>Garantia estrutural comprovada</span>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
+                  <span>Aquecimento solar &amp; bomba</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
+                  <span>Melhor preço da região</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
+                  <span>Serviço entregue na data</span>
+                </div>
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
+                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
+                  <span>Atendimento nota 10</span>
                 </div>
               </div>
 
-              {/* CTAs do Hero */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+              {/* Botões de Conversão */}
+              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    "Olá! Gostaria de solicitar um orçamento para meu projeto de piscina com a Brasil Piscinas."
+                    "Olá! Gostaria de consultar preços de produtos e equipamentos na Modelo Piscinas."
                   )}
                   target="_blank"
                   variant="whatsapp"
                   size="lg"
-                  className="w-full sm:w-auto shadow-lg shadow-emerald-950/40"
+                  className="w-full sm:w-auto text-base"
                 >
                   <WhatsAppIcon size={20} />
-                  <span>Solicitar Orçamento Gratuito</span>
+                  <span>Falar no WhatsApp ({PHONE_DISPLAY})</span>
                 </GlowingButton>
 
                 <GlowingButton
-                  href="#galeria"
+                  href="#produtos"
                   variant="outlineCyan"
                   size="lg"
-                  className="w-full sm:w-auto text-white border-[#00C4EE]/50 hover:bg-[#00C4EE]/10"
+                  className="w-full sm:w-auto text-white border-[#00B4F5]/60 hover:bg-[#00B4F5]/10"
                 >
-                  <Camera className="w-4 h-4 text-[#00C4EE]" />
-                  <span>Ver Projetos Executados</span>
+                  <span>Ver Linha de Produtos</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </GlowingButton>
               </div>
 
-              {/* Prova Social Google no Hero */}
-              <div className="pt-4 flex items-center justify-center lg:justify-start gap-3 border-t border-slate-700/60">
-                <a
-                  href={GOOGLE_SEARCH_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 group cursor-pointer"
-                >
+              {/* Prova Social Rápida no Hero */}
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs text-slate-300">
+                <div className="flex items-center gap-2">
                   <div className="flex text-[#F59E0B]">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="font-extrabold text-white text-sm group-hover:text-[#00C4EE] transition-colors">
-                    {GOOGLE_RATING} de 5,0 estrelas
-                  </span>
-                  <span className="text-slate-400 text-xs">
-                    ({GOOGLE_REVIEW_COUNT} clientes reais no Google Maps)
-                  </span>
-                </a>
+                  <span className="font-bold text-white">4,9 de 5</span>
+                  <span className="text-slate-400">no Google Maps</span>
+                </div>
+                <span className="hidden sm:inline text-slate-500">•</span>
+                <span className="text-slate-300">Av. Itaituba, 173 - Boa Vista</span>
+                <span className="hidden sm:inline text-slate-500">•</span>
+                <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  Atendimento Aberto
+                </span>
               </div>
             </div>
 
-            {/* Lado Direito: Card Visual Interativo com Foto de Piscina Real */}
+            {/* Coluna Visual do Hero */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Glow decorativo */}
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#00C4EE] to-[#002C6C] opacity-40 blur-lg" />
+                {/* Glow de Fundo */}
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#00B4F5] via-[#2524A8] to-[#00D0FF] opacity-35 blur-xl animate-subtle-pulse" />
 
-                {/* Card com Foto de Obra Real */}
-                <div className="relative rounded-2xl overflow-hidden border border-[#134B9C] bg-[#001F4D] shadow-2xl">
-                  <div className="relative h-72 sm:h-96 w-full">
+                {/* Card com Foto Real da Piscina e Equipamentos */}
+                <div className="relative rounded-2xl overflow-hidden bg-[#0D163B] border border-[#1E3485] shadow-2xl">
+                  <div className="relative h-80 sm:h-96 w-full">
                     <Image
                       src="/hero-pool.jpg"
-                      alt="Piscina de alto padrão construída pela Brasil Piscinas"
+                      alt="Piscina cristalina com equipamentos e tratamento Modelo Piscinas"
                       fill
                       priority
-                      sizes="(max-width: 1024px) 100vw, 540px"
+                      sizes="(max-width: 768px) 100vw, 500px"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#001433] via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070D24] via-transparent to-black/20" />
 
-                    {/* Tag Superior */}
-                    <div className="absolute top-4 left-4 bg-[#001433]/85 backdrop-blur-md border border-[#00C4EE]/40 px-3 py-1.5 rounded-lg flex items-center gap-2">
-                      <Award className="w-4 h-4 text-[#00C4EE]" />
-                      <span className="text-xs font-bold text-white tracking-wide">
-                        Borda Infinita &amp; Concreto Armado
-                      </span>
+                    {/* Badge Superior: Selo Oficial */}
+                    <div className="absolute top-4 left-4 bg-[#070D24]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#00B4F5]/40 text-xs text-white font-bold flex items-center gap-1.5 shadow-lg">
+                      <Store className="w-3.5 h-3.5 text-[#00B4F5]" />
+                      <span>Loja Física &amp; Assistência Técnica</span>
                     </div>
 
-                    {/* Selo Flutuante com o Logo Oficial */}
-                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-2 shadow-xl border border-[#00C4EE]/60 flex items-center gap-2">
-                      <div className="relative w-12 h-10 flex-shrink-0">
-                        <Image
-                          src={LOGO_SRC}
-                          alt="Logo Brasil Piscinas"
-                          fill
-                          sizes="48px"
-                          className="object-contain"
-                        />
-                      </div>
-                      <div className="border-l border-slate-200 pl-2 pr-1">
-                        <div className="text-[11px] font-black text-[#002C6C] font-heading leading-tight">
-                          Brasil Piscinas
+                    {/* Card Flutuante 1: Avaliação Google */}
+                    <div className="absolute bottom-4 left-4 right-4 bg-[#070D24]/95 backdrop-blur-md p-4 rounded-xl border border-[#1E3485] shadow-xl">
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-full bg-[#00B4F5]/20 flex items-center justify-center text-[#00B4F5] font-black text-xs">
+                            M
+                          </div>
+                          <div>
+                            <p className="text-xs font-bold text-white leading-tight">
+                              Modelo Piscinas BH
+                            </p>
+                            <p className="text-[10px] text-slate-400">
+                              Av. Itaituba, 173 - Boa Vista
+                            </p>
+                          </div>
                         </div>
-                        <div className="text-[9px] text-slate-500 font-semibold">
-                          Pampulha · BH
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Badge Flutuante Inferior */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3.5 border border-slate-200 text-slate-900 shadow-lg">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-[11px] font-bold text-[#002C6C] uppercase tracking-wider">
-                            Realização de Sonhos
-                          </p>
-                          <p className="text-sm font-extrabold text-slate-900">
-                            Projetos sob medida em Belo Horizonte
-                          </p>
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-[#00C4EE]/20 flex items-center justify-center text-[#002C6C]">
-                          <Waves className="w-5 h-5 text-[#002C6C]" />
+                        <div className="flex items-center gap-1 bg-[#0D163B] px-2 py-1 rounded text-xs font-bold text-[#F59E0B] border border-[#1E3485]">
+                          <Star className="w-3 h-3 fill-current" />
+                          <span>4,9★</span>
                         </div>
                       </div>
+                      <p className="text-[11px] text-slate-200 italic line-clamp-2">
+                        &ldquo;Achei crepina do filtro Sibrape que não achava em lugar nenhum! Loja bem completa, sempre tem cloro Clorofort e atendimento nota 10.&rdquo;
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Card Flutuante Lateral de Avaliação */}
-                <div className="hidden sm:block absolute -bottom-6 -left-6 bg-white rounded-xl p-3.5 shadow-xl border border-slate-200 max-w-[240px]">
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="flex text-[#F59E0B]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-bold text-slate-900">5.0</span>
-                  </div>
-                  <p className="text-[11px] text-slate-700 leading-snug italic">
-                    &ldquo;Sonho realizado com borda infinita maravilhosa e profissionais nota 10.&rdquo;
-                  </p>
-                  <p className="text-[10px] font-semibold text-[#002C6C] mt-1">
-                    — Flavia Scotellaro
-                  </p>
+                {/* Floating Badge Extra */}
+                <div className="absolute -bottom-5 -right-3 hidden sm:flex items-center gap-2 bg-[#16A34A] text-white px-3.5 py-2 rounded-xl shadow-xl font-bold text-xs border border-emerald-400/40">
+                  <WhatsAppIcon size={16} />
+                  <span>Pronta Entrega em BH</span>
                 </div>
               </div>
             </div>
@@ -934,105 +947,216 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. BARRA DE DIFERENCIAIS EM NÚMEROS & CREDIBILIDADE */}
+      {/* 4. BARRA DE NÚMEROS E AUTORIDADE */}
       <section className="bg-white border-y border-slate-200 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-[#002C6C] font-heading flex items-center justify-center gap-1">
+              <div className="text-3xl sm:text-4xl font-black text-[#121F54] font-heading flex items-center justify-center gap-1">
                 <span>{GOOGLE_RATING}</span>
-                <Star className="w-6 h-6 text-[#F59E0B] fill-current inline" />
+                <Star className="w-6 h-6 text-[#F59E0B] fill-current inline-block" />
               </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-600">
-                {GOOGLE_REVIEW_COUNT}+ Avaliações no Google
+              <p className="text-xs sm:text-sm font-bold text-slate-800">
+                Avaliação no Google
+              </p>
+              <p className="text-[11px] text-slate-500">
+                23 reviews públicas reais
               </p>
             </div>
 
-            <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-[#002C6C] font-heading">
+            <div className="space-y-1 border-l border-slate-200">
+              <div className="text-3xl sm:text-4xl font-black text-[#00B4F5] font-heading">
                 100%
               </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-600">
-                Prazos Cumpridos em Contrato
+              <p className="text-xs sm:text-sm font-bold text-slate-800">
+                Produtos Originais
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Clorofort, Sibrape e líderes
               </p>
             </div>
 
-            <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-[#002C6C] font-heading">
-                Alberto &amp; Eudes
+            <div className="space-y-1 border-l border-slate-200">
+              <div className="text-3xl sm:text-4xl font-black text-[#2524A8] font-heading">
+                +10 Anos
               </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-600">
-                Gestão e Atendimento Direto
+              <p className="text-xs sm:text-sm font-bold text-slate-800">
+                Tradição &amp; Confiança
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Sede própria no Boa Vista
               </p>
             </div>
 
-            <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-[#002C6C] font-heading">
-                Pampulha
+            <div className="space-y-1 border-l border-slate-200">
+              <div className="text-3xl sm:text-4xl font-black text-[#16A34A] font-heading">
+                Pontual
               </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-600">
-                Sede Própria em Belo Horizonte
+              <p className="text-xs sm:text-sm font-bold text-slate-800">
+                Entrega &amp; Manutenção
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Serviço entregue na data
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. SEÇÃO DE PILARES DE ATUAÇÃO & SERVIÇOS (COM FOTOS REAIS E MODAL INTERATIVO) */}
-      <section id="servicos" className="py-16 sm:py-24 bg-[#F8FAFC]">
+      {/* 5. SEÇÃO DESTAQUE ESPECIAL: OS DIFERENCIAIS DA MODELO PISCINAS */}
+      <section id="diferenciais" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow">Soluções Completas</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001433] tracking-tight font-heading">
-              Especialistas em Construção, Reforma e Equipamentos de Piscinas
+            <span className="eyebrow-royal">Por Que Escolher a Modelo Piscinas</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+              O Diferencial Que os Clientes Comprovam no Google
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg">
-              Desde a escavação e cálculo de ferragem até o fornecimento de equipamentos, aquecimento e manutenção contínua em BH.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Mais do que vender produtos, nós resolvemos o problema da sua água e dos seus equipamentos com transparência, estoque garantido e o melhor preço de Belo Horizonte.
             </p>
           </div>
 
-          {/* Grid dos 8 Serviços da Brasil Piscinas */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SERVICES.map((serv) => {
-              const IconComp = serv.icon;
+            {/* Card 1: Peças Sibrape */}
+            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#00B4F5]">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-[#F0F9FF] border border-[#BAE6FD] flex items-center justify-center text-[#00B4F5]">
+                  <Wrench className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-[#070D24] font-heading">
+                  Peças Sibrape &amp; Reposição Difícil
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Romero Fernandes avaliou: <em className="text-slate-800 font-medium">&ldquo;Achei crepina do filtro sibrape não achava em lugar nenhum!&rdquo;</em> Nós mantemos estoque de peças e conexões raras.
+                </p>
+              </div>
+              <div className="pt-2">
+                <span className="text-[11px] font-bold text-[#00B4F5] uppercase tracking-wider block">
+                  Estoque Especializado
+                </span>
+              </div>
+            </div>
+
+            {/* Card 2: Cloro Clorofort */}
+            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#2524A8]">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-[#2524A8]">
+                  <Droplets className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-[#070D24] font-heading">
+                  Cloro Clorofort Sempre em Estoque
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Mateus Henrique (Local Guide) destacou: <em className="text-slate-800 font-medium">&ldquo;Loja bem completa, sempre tem cloro da clorofort disponível. Atendimento nota 10.&rdquo;</em>
+                </p>
+              </div>
+              <div className="pt-2">
+                <span className="text-[11px] font-bold text-[#2524A8] uppercase tracking-wider block">
+                  Pronta Entrega Garantida
+                </span>
+              </div>
+            </div>
+
+            {/* Card 3: Preço Justo e Atendimento */}
+            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#121F54]">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#121F54]">
+                  <Tag className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-[#070D24] font-heading">
+                  Melhor Preço da Região Leste
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Karine e Eliezer atestam: <em className="text-slate-800 font-medium">&ldquo;Melhor atendimento! Produtos com o melhor preço da região, Nota 10.&rdquo;</em> Você compra qualidade pelo valor mais justo.
+                </p>
+              </div>
+              <div className="pt-2">
+                <span className="text-[11px] font-bold text-[#121F54] uppercase tracking-wider block">
+                  Economia Real Comprovada
+                </span>
+              </div>
+            </div>
+
+            {/* Card 4: Pontualidade Rigorosa */}
+            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#16A34A]">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#16A34A]">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-[#070D24] font-heading">
+                  Serviço Entregue Rigorosamente na Data
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Wilson Hermogenes comentou: <em className="text-slate-800 font-medium">&ldquo;PERFEITO, FUI BEM ATENDIDO, ENTREGOU O SERVIÇO NA DATA. RECOMENDEI PARA MEUS AMIGOS.&rdquo;</em>
+                </p>
+              </div>
+              <div className="pt-2">
+                <span className="text-[11px] font-bold text-[#16A34A] uppercase tracking-wider block">
+                  Compromisso &amp; Respeito
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. PRODUTOS & SERVIÇOS PRINCIPAIS */}
+      <section id="produtos" className="py-16 sm:py-24 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+            <span className="eyebrow-cyan">Nossas Linhas &amp; Soluções</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+              Produtos &amp; Serviços Especializados para Sua Piscina
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Do tratamento da água com cloro de alta performance aos filtros, motobombas, peças raras, aquecimento e manutenção preventiva. Clique em qualquer card para ver todos os detalhes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {SERVICES.map((service) => {
+              const IconComponent = service.icon;
               return (
                 <div
-                  key={serv.id}
-                  className="card-brasil rounded-2xl overflow-hidden flex flex-col group cursor-pointer"
-                  onClick={() => setSelectedService(serv)}
+                  key={service.id}
+                  className="card-modelo rounded-2xl overflow-hidden flex flex-col group cursor-pointer"
+                  onClick={() => setSelectedService(service)}
                 >
                   {/* Foto do Serviço */}
-                  <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                  <div className="relative h-44 w-full overflow-hidden bg-slate-100">
                     <Image
-                      src={serv.image}
-                      alt={serv.title}
+                      src={service.image}
+                      alt={service.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      className="object-cover group-hover:scale-106 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 300px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#001433]/70 via-transparent to-transparent" />
-                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-bold bg-[#002C6C] text-white shadow-xs">
-                      {serv.badge}
-                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                    <div className="absolute top-3 left-3 bg-[#070D24]/85 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#BAE6FD] border border-[#00B4F5]/30">
+                      {service.badge}
+                    </div>
                   </div>
 
-                  {/* Conteúdo */}
-                  <div className="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="w-10 h-10 rounded-lg bg-[#F0FDFE] text-[#002C6C] flex items-center justify-center mb-3 group-hover:bg-[#00C4EE] group-hover:text-[#001433] transition-colors">
-                        <IconComp className="w-5 h-5" />
+                  {/* Conteúdo do Card */}
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="p-1.5 rounded-lg bg-[#F0F9FF] text-[#00B4F5]">
+                          <IconComponent className="w-4 h-4" />
+                        </div>
+                        <h3 className="font-bold text-[16px] text-[#070D24] group-hover:text-[#00B4F5] transition-colors line-clamp-1">
+                          {service.title}
+                        </h3>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#002C6C] transition-colors line-clamp-2">
-                        {serv.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 mt-2 line-clamp-3 leading-relaxed">
-                        {serv.shortDesc}
+                      <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                        {service.shortDesc}
                       </p>
                     </div>
 
-                    <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#002C6C]">
-                      <span>Ver Detalhes do Serviço</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#00C4EE]" />
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#00B4F5] group-hover:translate-x-1 transition-transform">
+                      <span>Ver detalhes e itens</span>
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
@@ -1042,68 +1166,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. MODAL INTERATIVO DE SERVIÇO DETALHADO */}
+      {/* 7. MODAL DETALHADO DO SERVIÇO / PRODUTO */}
       <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200"
             >
-              <div className="relative h-56 sm:h-64 w-full">
+              {/* Header do Modal com Imagem */}
+              <div className="relative h-56 w-full">
                 <Image
                   src={selectedService.image}
                   alt={selectedService.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 672px"
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070D24] via-black/40 to-transparent" />
                 <button
                   type="button"
                   onClick={() => setSelectedService(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors cursor-pointer"
+                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
                   aria-label="Fechar"
                 >
                   <X className="w-5 h-5" />
                 </button>
-                <div className="absolute bottom-4 left-4">
-                  <span className="px-3 py-1 rounded-md text-xs font-bold bg-[#00C4EE] text-[#001433]">
+                <div className="absolute bottom-4 left-6 right-6">
+                  <span className="inline-block px-2.5 py-1 rounded bg-[#00B4F5] text-[#070D24] text-[11px] font-black uppercase tracking-wider mb-1">
                     {selectedService.badge}
                   </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
+                    {selectedService.title}
+                  </h3>
                 </div>
               </div>
 
-              <div className="p-6 space-y-4">
-                <h3 className="text-2xl font-bold text-[#001433] font-heading">
-                  {selectedService.title}
-                </h3>
-                <p className="text-sm text-slate-700 leading-relaxed">
+              {/* Corpo do Modal */}
+              <div className="p-6 space-y-5">
+                <p className="text-slate-700 text-sm leading-relaxed">
                   {selectedService.fullDesc}
                 </p>
 
-                <div className="space-y-2 pt-2">
-                  <h4 className="text-xs font-extrabold text-[#002C6C] uppercase tracking-wider">
-                    Principais Benefícios &amp; Padrão Técnico
+                <div className="space-y-3">
+                  <h4 className="text-xs font-bold text-[#070D24] uppercase tracking-wider">
+                    Principais Vantagens &amp; Itens Disponíveis:
                   </h4>
                   <ul className="space-y-2">
-                    {selectedService.benefits.map((b, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                        <Check className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span>{b}</span>
+                    {selectedService.benefits.map((benefit, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2.5 text-xs text-slate-700"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0 mt-0.5" />
+                        <span>{benefit}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center gap-3">
                   <GlowingButton
                     href={getWhatsAppUrl(selectedService.whatsappMessage)}
                     target="_blank"
                     variant="whatsapp"
                     size="md"
-                    className="flex-1 justify-center"
+                    className="w-full sm:flex-1"
                   >
                     <WhatsAppIcon size={18} />
                     <span>{selectedService.ctaText}</span>
@@ -1111,7 +1240,7 @@ export default function HomePage() {
                   <button
                     type="button"
                     onClick={() => setSelectedService(null)}
-                    className="px-4 py-2.5 rounded-lg border border-slate-300 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition-colors"
+                    className="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:bg-slate-100 text-sm"
                   >
                     Fechar
                   </button>
@@ -1122,117 +1251,94 @@ export default function HomePage() {
         )}
       </AnimatePresence>
 
-      {/* 7. SEÇÃO SOBRE A EQUIPE E DIFERENCIAIS (ALBERTO, EUDES, JAYSON) */}
+      {/* 8. SOBRE A MODELO PISCINAS — HISTÓRIA E COMPROMISSO */}
       <section id="sobre" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Lado Esquerdo: Imagem e Certificação ANAPP */}
+            {/* Imagem Institucional */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-slate-50">
-                <div className="relative h-80 sm:h-96 w-full">
-                  <Image
-                    src="/sobre-lazer-pool.jpg"
-                    alt="Equipe técnica da Brasil Piscinas em Belo Horizonte"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 500px"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001433]/80 via-transparent to-transparent" />
-                </div>
-
-                {/* Selo ANAPP oficial & Logo da Empresa */}
-                <div className="p-4 sm:p-5 bg-white border-t border-slate-100 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
-                      <Image
-                        src={LOGO_SRC}
-                        alt="Brasil Piscinas Logo"
-                        fill
-                        sizes="56px"
-                        className="object-contain"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-[10px] sm:text-xs font-bold text-[#002C6C] uppercase tracking-wider">
-                        Qualidade Comprovada
-                      </p>
-                      <p className="text-xs sm:text-sm font-extrabold text-slate-900">
-                        Brasil Piscinas BH
-                      </p>
-                    </div>
-                  </div>
-                  <div className="relative w-16 sm:w-20 h-10 sm:h-12 flex-shrink-0 border-l border-slate-200 pl-3">
-                    <Image
-                      src={LOGO_ANAPP}
-                      alt="Selo ANAPP Brasil Piscinas"
-                      fill
-                      sizes="80px"
-                      className="object-contain"
-                    />
-                  </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 aspect-[4/3]">
+                <Image
+                  src="/sobre-lazer-pool.jpg"
+                  alt="Área de lazer tratada pela Modelo Piscinas em Belo Horizonte"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#070D24]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white p-3 rounded-xl bg-[#070D24]/90 backdrop-blur-md border border-[#1E3485]">
+                  <p className="text-xs font-bold flex items-center gap-1.5 text-[#00B4F5]">
+                    <MapPin className="w-3.5 h-3.5 text-[#00B4F5]" />
+                    <span>Av. Itaituba, 173 - Boa Vista, Belo Horizonte</span>
+                  </p>
+                  <p className="text-[11px] text-slate-300 mt-0.5">
+                    Fácil estacionamento e atendimento técnico de confiança na Região Leste.
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Lado Direito: História, Gestão e Compromisso */}
-            <div className="lg:col-span-7 space-y-5">
-              <span className="eyebrow">Quem Somos</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001433] tracking-tight font-heading">
-                Uma Empresa Sólida Onde os Donos Te Atendem e Cuidam da Sua Obra
-              </h2>
+            {/* Texto Institucional */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="space-y-2">
+                <span className="eyebrow">Sobre a Modelo Piscinas</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+                  Tradição, Atendimento Humano e Qualidade Técnica em Belo Horizonte
+                </h2>
+              </div>
+
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                A <strong>Brasil Piscinas</strong> consolidou-se como referência em Belo Horizonte e em toda a região metropolitana graças a uma postura simples e rara no mercado: honestidade técnica, pontualidade britânica no cumprimento de prazos e acompanhamento direto pelos sócios fundadores.
+                Localizada estrategicamente na Av. Itaituba, 173, no bairro Boa Vista, a <strong>Modelo Piscinas</strong> consolidou-se como a principal referência para donos de piscinas, síndicos, clubes e profissionais de manutenção em Belo Horizonte.
               </p>
 
-              {/* Destaque para os gestores citados nos depoimentos */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-[#F0FDFE] border border-[#BAF1FB]">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <Users className="w-5 h-5 text-[#002C6C]" />
-                    <h3 className="font-bold text-slate-900 text-sm">Alberto &amp; Eudes</h3>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Nossa missão é simples e direta: <strong>manter a sua piscina sempre limpa, aquecida e pronta para o lazer</strong>, sem dores de cabeça e sem gastos desnecessários. Combinamos um catálogo completo com marcas renomadas como <em>Clorofort, Sibrape, Sodramar e Jacuzzi</em> com um atendimento técnico de verdade, que orienta você sobre a quantidade exata de cada produto químico e a peça correta para a sua bomba ou filtro.
+              </p>
+
+              {/* 3 Pilares da Empresa */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[#00B4F5] font-bold text-sm">
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Confiança Total</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Gestores comerciais e operacionais elogiados pela atenção prestativa, esclarecimento minucioso e cumprimento de todos os compromissos contratuais.
+                  <p className="text-xs text-slate-600">
+                    Equipe honesta e disposta a orientar você a gastar apenas o necessário.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <Wrench className="w-5 h-5 text-[#002C6C]" />
-                    <h3 className="font-bold text-slate-900 text-sm">Jayson, Igor &amp; Reni</h3>
+                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[#2524A8] font-bold text-sm">
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Estoque Raro</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Especialistas em acabamento e instalação hidráulica/elétrica reconhecidos pelo capricho nos detalhes, limpeza e pontualidade na entrega.
+                  <p className="text-xs text-slate-600">
+                    Crepinas Sibrape, conexões específicas e peças que você não acha em BH.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[#16A34A] font-bold text-sm">
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>Pontualidade</span>
+                  </div>
+                  <p className="text-xs text-slate-600">
+                    Serviços e revisões entregues rigorosamente no dia e na hora combinados.
                   </p>
                 </div>
               </div>
 
-              {/* Lista de Compromissos */}
-              <div className="space-y-2.5 pt-2">
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-[#00C4EE] flex-shrink-0 mt-0.5" />
-                  <span><strong>Preço Justo e Transparência:</strong> nem o mais barato que compromete a estrutura, nem valores abusivos. Orçamento detalhado item por item.</span>
-                </div>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-[#00C4EE] flex-shrink-0 mt-0.5" />
-                  <span><strong>Sede Própria na Pampulha:</strong> loja e escritório consolidados na Av. Francisco Negrão de Lima, 860, prontos para receber você.</span>
-                </div>
-                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-[#00C4EE] flex-shrink-0 mt-0.5" />
-                  <span><strong>Pós-Venda Atencioso:</strong> assistência contínua para manutenção, troca de lâmpadas, produtos e dúvidas operacionais.</span>
-                </div>
-              </div>
-
-              <div className="pt-3">
+              {/* Botão de Contato */}
+              <div className="pt-2">
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    "Olá! Gostaria de conversar com o Alberto ou o Eudes sobre um projeto de piscina."
+                    "Olá! Gostaria de conversar com a equipe da Modelo Piscinas."
                   )}
                   target="_blank"
                   variant="primary"
                   size="md"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#00C4EE]" />
+                  <WhatsAppIcon size={18} />
                   <span>Falar com Nossos Especialistas</span>
                 </GlowingButton>
               </div>
@@ -1241,37 +1347,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. GALERIA DE PROJETOS EXECUTADOS COM ABAS */}
+      {/* 9. GALERIA DE PROJETOS E PRODUTOS */}
       <section id="galeria" className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-            <span className="eyebrow">Nosso Portfólio</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001433] tracking-tight font-heading">
-              Projetos Executados com Orgulho em BH e Região
+            <span className="eyebrow-cyan">Galeria Visual</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+              Piscinas Impecáveis, Equipamentos &amp; Estrutura
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
-              Explore obras concluídas de borda infinita, piscinas em alvenaria e vinil, spas e áreas de lazer completas.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Confira a qualidade visual da água, sistemas de aquecimento, iluminação e equipamentos fornecidos e mantidos pela Modelo Piscinas.
             </p>
 
-            {/* Abas de Filtro */}
+            {/* Abas de Filtro da Galeria */}
             <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
               {[
-                { key: "todas", label: "Todas as Obras" },
-                { key: "concreto", label: "Concreto & Borda Infinita" },
-                { key: "vinil", label: "Piscinas em Vinil" },
-                { key: "spas", label: "Spas & Prainhas" },
-                { key: "equipamentos", label: "Aquecimento & Casas de Máquinas" },
+                { key: "todas", label: "Todas as Fotos" },
+                { key: "produtos", label: "Químicos & Água" },
+                { key: "filtros", label: "Filtros & Bombas" },
+                { key: "aquecimento", label: "Aquecimento Solar" },
+                { key: "iluminacao", label: "Iluminação & Cascatas" },
               ].map((tab) => (
                 <button
                   key={tab.key}
                   type="button"
-                  onClick={() =>
-                    setActiveGalleryTab(tab.key as GalleryCategory)
-                  }
-                  className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  onClick={() => setActiveGalleryTab(tab.key as GalleryCategory)}
+                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                     activeGalleryTab === tab.key
-                      ? "bg-[#002C6C] text-white shadow-sm"
-                      : "bg-white text-slate-700 border border-slate-200 hover:border-[#00C4EE] hover:text-[#002C6C]"
+                      ? "bg-[#121F54] text-white shadow-sm"
+                      : "bg-white text-slate-700 border border-slate-200 hover:border-[#00B4F5]"
                   }`}
                 >
                   {tab.label}
@@ -1285,110 +1389,100 @@ export default function HomePage() {
             {filteredGallery.map((proj, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-xs hover:shadow-xl transition-all"
+                className="card-modelo rounded-2xl overflow-hidden group flex flex-col"
               >
-                <div className="relative h-60 w-full overflow-hidden">
+                <div className="relative h-60 w-full overflow-hidden bg-slate-100">
                   <Image
                     src={proj.src}
                     alt={proj.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-106 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 300px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001433]/85 via-[#001433]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                  <span className="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold bg-[#00C4EE] text-[#001433]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <div className="absolute top-3 left-3 bg-[#070D24]/85 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-bold text-[#BAE6FD] border border-[#00B4F5]/30">
                     {proj.tag}
-                  </span>
-                </div>
-
-                <div className="p-4 space-y-1">
-                  <h4 className="font-bold text-sm text-slate-900 group-hover:text-[#002C6C] transition-colors">
-                    {proj.title}
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-snug">
-                    {proj.desc}
-                  </p>
+                  </div>
+                  <div className="absolute bottom-3 left-3 right-3 text-white">
+                    <h4 className="font-bold text-sm leading-tight">
+                      {proj.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-200 mt-1 line-clamp-2">
+                      {proj.desc}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Chamada para Orçamento Abaixo da Galeria */}
-          <div className="mt-12 text-center">
-            <p className="text-sm text-slate-600 mb-4">
-              Quer ver mais fotos ou levar a Brasil Piscinas para o seu terreno?
-            </p>
-            <GlowingButton
-              href={getWhatsAppUrl("Olá! Vi a galeria de projetos da Brasil Piscinas e gostaria de solicitar um orçamento para o meu terreno.")}
-              target="_blank"
-              variant="whatsapp"
-              size="md"
-            >
-              <WhatsAppIcon size={18} />
-              <span>Solicitar Orçamento no WhatsApp</span>
-            </GlowingButton>
-          </div>
         </div>
       </section>
 
-      {/* 9. PROVA SOCIAL — DEPOIMENTOS REAIS DO GOOGLE MAPS (4,8★ · 58 AVALIAÇÕES) */}
+      {/* 10. DEPOIMENTOS REAIS DO GOOGLE MAPS — 4,9 ESTRELAS */}
       <section id="depoimentos" className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow">Avaliações Reais</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001433] tracking-tight font-heading">
-              O Que Nossos Clientes Dizem no Google Maps
+            <span className="eyebrow-gold">Prova Social &amp; Avaliações Reais</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+              O Que Dizem Quem Compra na Modelo Piscinas
             </h2>
-            <div className="flex items-center justify-center gap-2 pt-1">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Nossa melhor propaganda é a satisfação real dos nossos clientes no Google Maps. São 23 avaliações públicas com média de <strong>4,9 estrelas</strong>.
+            </p>
+
+            <div className="pt-2 inline-flex items-center gap-2 bg-[#FEF3C7] border border-[#FDE68A] px-4 py-2 rounded-full text-xs font-bold text-[#D97706]">
               <div className="flex text-[#F59E0B]">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-current" />
+                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
                 ))}
               </div>
-              <span className="text-lg font-black text-slate-900">{GOOGLE_RATING} de 5,0</span>
-              <span className="text-sm text-slate-500 font-medium">({GOOGLE_REVIEW_COUNT} avaliações reais)</span>
+              <span>4,9 de 5 Estrelas no Google</span>
+              <span className="text-slate-400">•</span>
+              <a
+                href={GOOGLE_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-black flex items-center gap-1"
+              >
+                <span>Ver no Google</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
-            <p className="text-slate-600 text-sm sm:text-base">
-              A satisfação dos nossos clientes é o reflexo do nosso compromisso diário com qualidade, seriedade e cumprimento de prazos.
-            </p>
           </div>
 
-          {/* Grid de Depoimentos Reais */}
+          {/* Grid de Depoimentos */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {REVIEWS.map((rev, index) => (
               <div
                 key={index}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex flex-col justify-between hover:border-[#BAF1FB] hover:shadow-md transition-all"
+                className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-[#00B4F5] transition-all"
               >
                 <div className="space-y-3">
+                  {/* Estrelas e Tag de Destaque */}
                   <div className="flex items-center justify-between">
                     <div className="flex text-[#F59E0B]">
                       {[...Array(rev.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-current" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
-                      Google Review
+                    <span className="text-[10px] font-bold text-[#00B4F5] bg-[#F0F9FF] px-2 py-0.5 rounded border border-[#BAE6FD]">
+                      {rev.highlight}
                     </span>
                   </div>
 
-                  <p className="text-xs font-semibold text-[#002C6C]">
-                    Serviço: {rev.service}
-                  </p>
-
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
+                  {/* Depoimento Real */}
+                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed italic">
                     &ldquo;{rev.comment}&rdquo;
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-200 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#002C6C] text-white font-bold text-xs flex items-center justify-center">
+                {/* Autor do Depoimento */}
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#121F54] text-white flex items-center justify-center font-bold text-xs shrink-0">
                     {rev.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                      {rev.name}
-                    </h4>
+                    <p className="text-xs font-bold text-[#070D24]">{rev.name}</p>
                     <p className="text-[10px] text-slate-500">{rev.tag}</p>
                   </div>
                 </div>
@@ -1396,182 +1490,165 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Link para Avaliações no Google */}
-          <div className="mt-10 text-center">
+          {/* Link para Avaliar no Google */}
+          <div className="text-center pt-10">
             <a
               href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#002C6C] hover:text-[#00C4EE] transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#121F54] hover:text-[#00B4F5] transition-colors"
             >
-              <span>Ver todas as 58 avaliações públicas no Google</span>
-              <ExternalLink className="w-4 h-4" />
+              <span>Ver todas as 23 avaliações e comentários no Google</span>
+              <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* 10. FAQ (PERGUNTAS FREQUENTES) */}
+      {/* 11. PERGUNTAS FREQUENTES (FAQ) */}
       <section id="faq" className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="eyebrow">Tire Suas Dúvidas</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001433] tracking-tight font-heading">
-              Perguntas Frequentes sobre Piscinas em BH
+            <span className="eyebrow-cyan">Tire Suas Dúvidas</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+              Perguntas Frequentes sobre a Modelo Piscinas
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
-              Confira as respostas para as principais questões antes de iniciar sua obra ou reforma.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Reunimos as respostas para as principais dúvidas de quem visita nossa loja ou solicita produtos e serviços em Belo Horizonte.
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {FAQS.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
                 <div
                   key={index}
-                  className="rounded-xl border border-slate-200 bg-white overflow-hidden transition-all shadow-2xs"
+                  className="card-modelo rounded-xl overflow-hidden border border-slate-200 transition-colors"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-slate-900 hover:text-[#002C6C] cursor-pointer"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[#070D24] hover:text-[#00B4F5] transition-colors"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-500 transition-transform flex-shrink-0 ${
-                        isOpen ? "rotate-180 text-[#00C4EE]" : ""
+                      className={`w-5 h-5 text-[#00B4F5] shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
-                  {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                      {faq.answer}
-                    </div>
-                  )}
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3"
+                      >
+                        {faq.answer}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
           </div>
-
-          {/* Dúvida adicional */}
-          <div className="mt-10 p-6 rounded-2xl bg-gradient-to-r from-[#001F4D] to-[#002C6C] text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
-            <div>
-              <h3 className="font-bold text-base">Ainda tem alguma dúvida específica?</h3>
-              <p className="text-xs text-slate-200 mt-1">
-                Fale agora mesmo com nossos especialistas pelo WhatsApp.
-              </p>
-            </div>
-            <GlowingButton
-              href={getWhatsAppUrl(
-                "Olá! Tenho uma dúvida sobre construção de piscina com a Brasil Piscinas."
-              )}
-              target="_blank"
-              variant="whatsapp"
-              size="md"
-              className="flex-shrink-0"
-            >
-              <WhatsAppIcon size={18} />
-              <span>Tirar Dúvida no WhatsApp</span>
-            </GlowingButton>
-          </div>
         </div>
       </section>
 
-      {/* 11. LOCALIZAÇÃO, MAPA & CONTATO (SEDE NA PAMPULHA) */}
+      {/* 12. LOCALIZAÇÃO, SEDE & COMO CHEGAR */}
       <section id="localizacao" className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Informações da Loja e Escritório */}
+            {/* Informações de Contato & Endereço */}
             <div className="lg:col-span-5 space-y-6">
-              <span className="eyebrow">Nossa Sede</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001433] tracking-tight font-heading">
-                Venha nos Visitar na Pampulha
-              </h2>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Nossa sede física e loja estão estrategicamente localizadas na Pampulha, com fácil acesso, estacionamento e equipe pronta para apresentar revestimentos, equipamentos e detalhes técnicos para o seu projeto.
-              </p>
+              <div className="space-y-2">
+                <span className="eyebrow">Onde Estamos</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
+                  Venha Nos Conhecer no Bairro Boa Vista
+                </h2>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Localização estratégica na Região Leste de Belo Horizonte, de fácil acesso para bairros vizinhos e toda a capital.
+                </p>
+              </div>
 
-              <div className="space-y-4 text-xs sm:text-sm">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#F0FDFE] text-[#002C6C] flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-[#00C4EE]" />
-                  </div>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
+                  <MapPin className="w-5 h-5 text-[#00B4F5] shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-bold text-slate-900">Endereço Oficial</h3>
-                    <p className="text-slate-600 mt-0.5">{ADDRESS_DISPLAY}</p>
-                    <div className="flex items-center gap-3 mt-2">
-                      <a
-                        href={GOOGLE_MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-bold text-[#002C6C] hover:text-[#00C4EE] flex items-center gap-1"
-                      >
-                        <Navigation className="w-3.5 h-3.5" />
-                        <span>Google Maps</span>
-                      </a>
-                      <span className="text-slate-300">|</span>
-                      <a
-                        href={WAZE_MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-bold text-[#002C6C] hover:text-[#00C4EE] flex items-center gap-1"
-                      >
-                        <Navigation className="w-3.5 h-3.5" />
-                        <span>Waze</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#F0FDFE] text-[#002C6C] flex-shrink-0">
-                    <Phone className="w-5 h-5 text-[#00C4EE]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900">Telefones &amp; WhatsApp</h3>
-                    <p className="text-slate-600 mt-0.5">
-                      Fixo Comercial: <a href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`} className="font-semibold text-[#002C6C] hover:underline">{LANDLINE_DISPLAY}</a>
+                    <p className="font-bold text-xs text-[#070D24]">Endereço da Loja</p>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      {ADDRESS_DISPLAY}
                     </p>
-                    <p className="text-slate-600">
-                      WhatsApp Direto: <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-600 hover:underline">{PHONE_DISPLAY}</a>
+                    <p className="text-[11px] text-slate-500 mt-0.5">
+                      (Bairro Boa Vista · Belo Horizonte - MG)
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#F0FDFE] text-[#002C6C] flex-shrink-0">
-                    <Clock className="w-5 h-5 text-[#00C4EE]" />
-                  </div>
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
+                  <Clock className="w-5 h-5 text-[#00B4F5] shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-bold text-slate-900">Horário de Funcionamento</h3>
-                    <p className="text-slate-600 mt-0.5">Segunda a Sexta: 07:00 às 18:00</p>
-                    <p className="text-slate-600">Sábado: 08:00 às 12:00</p>
+                    <p className="font-bold text-xs text-[#070D24]">Horário de Atendimento</p>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Segunda a Sexta: <strong>08:00 às 18:00</strong>
+                    </p>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Sábado: <strong>08:00 às 12:00</strong>
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-[#F0FDFE] text-[#002C6C] flex-shrink-0">
-                    <Mail className="w-5 h-5 text-[#00C4EE]" />
-                  </div>
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
+                  <Phone className="w-5 h-5 text-[#00B4F5] shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-bold text-slate-900">E-mail de Contato</h3>
-                    <p className="text-slate-600 mt-0.5">{EMAIL_CONTACT}</p>
+                    <p className="font-bold text-xs text-[#070D24]">Telefones de Contato</p>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      Telefone da Loja: <strong>{LANDLINE_DISPLAY}</strong>
+                    </p>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      WhatsApp Comercial: <strong>{PHONE_DISPLAY}</strong>
+                    </p>
                   </div>
                 </div>
               </div>
+
+              {/* Botões de Rotas */}
+              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-lg bg-[#121F54] hover:bg-[#0D163B] text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm"
+                >
+                  <Navigation className="w-4 h-4 text-[#00B4F5]" />
+                  <span>Traçar Rota no Google Maps</span>
+                </a>
+
+                <a
+                  href={WAZE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-lg border border-slate-300 hover:border-[#00B4F5] text-slate-800 font-bold text-xs flex items-center justify-center gap-2 transition-colors hover:bg-slate-50"
+                >
+                  <ExternalLink className="w-4 h-4 text-[#00B4F5]" />
+                  <span>Abrir no Waze</span>
+                </a>
+              </div>
             </div>
 
-            {/* Mapa Interativo do Google Maps */}
+            {/* Mapa Interativo / Embed do Google Maps */}
             <div className="lg:col-span-7">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-96 w-full">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-96 relative bg-slate-100">
                 <iframe
-                  title="Mapa de Localização da Brasil Piscinas na Pampulha"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.6457318728287!2d-43.98595562414707!3d-19.85497258151525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa690f9189ef999%3A0xddf1ce8965efea7!2sAv.+Francisco+Negr%C3%A3o+de+Lima%2C+860+-+Pampulha%2C+Belo+Horizonte+-+MG%2C+31545-000!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr"
+                  title="Localização Modelo Piscinas no Google Maps"
+                  src="https://maps.google.com/maps?q=Av.+Itaituba,+173+-+Boa+Vista,+Belo+Horizonte+-+MG,+31060-427&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen={false}
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full"
@@ -1582,48 +1659,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. BANNER FINAL DE CONVERSÃO / CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#001433] via-[#001F4D] to-[#002C6C] text-white">
+      {/* 13. CTA FINAL DE ALTA CONVERSÃO */}
+      <section className="py-16 bg-gradient-to-r from-[#070D24] via-[#0D163B] to-[#121F54] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00C4EE]/20 text-[#BAF1FB] text-xs font-bold">
-            <Sparkles className="w-4 h-4 text-[#00C4EE]" />
-            <span>Transforme Seu Espaço em um Verdadeiro Paraíso de Lazer</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00B4F5]/20 text-[#BAE6FD] text-xs font-bold">
+            <Sparkles className="w-4 h-4 text-[#00B4F5]" />
+            <span>Sua Piscina Sempre Pronta para o Lazer</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-heading">
-            Pronto para Construir ou Reformar Sua Piscina dos Sonhos?
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-heading italic">
+            Pronto para Deixar Sua Piscina em Boas Mãos?
           </h2>
 
           <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Converse diretamente com Alberto, Eudes e a equipe da Brasil Piscinas. Garantimos acompanhamento sério, pontualidade de cronograma e o melhor custo-benefício de Belo Horizonte.
+            Converse diretamente com a equipe da Modelo Piscinas. Garantimos atendimento atencioso, estoque completo de produtos e peças Sibrape, e os melhores preços de Belo Horizonte.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <GlowingButton
               href={getWhatsAppUrl(
-                "Olá! Quero solicitar um orçamento para o meu projeto de piscina com a Brasil Piscinas."
+                "Olá! Quero solicitar produtos ou tirar dúvidas com a Modelo Piscinas."
               )}
               target="_blank"
               variant="whatsapp"
               size="lg"
             >
               <WhatsAppIcon size={20} />
-              <span>Solicitar Orçamento Gratuito</span>
+              <span>Falar no WhatsApp Agora</span>
             </GlowingButton>
 
             <a
               href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
-              className="px-6 py-3.5 rounded-lg border border-[#00C4EE]/40 text-white font-bold hover:bg-[#00C4EE]/10 transition-colors flex items-center gap-2 text-[15px]"
+              className="px-6 py-3.5 rounded-lg border border-[#00B4F5]/40 text-white font-bold hover:bg-[#00B4F5]/10 transition-colors flex items-center gap-2 text-[15px]"
             >
-              <Phone className="w-4 h-4 text-[#00C4EE]" />
+              <Phone className="w-4 h-4 text-[#00B4F5]" />
               <span>Ligar: {LANDLINE_DISPLAY}</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* 13. FOOTER COMPLETO */}
-      <footer className="bg-[#001433] text-slate-400 text-xs border-t border-[#002766] py-14">
+      {/* 14. FOOTER COMPLETO */}
+      <footer className="bg-[#070D24] text-slate-400 text-xs border-t border-[#121F54] py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Coluna 1: Logo & Resumo */}
@@ -1632,32 +1709,32 @@ export default function HomePage() {
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
                   <Image
                     src={LOGO_SRC}
-                    alt="Brasil Piscinas Logo"
+                    alt="Modelo Piscinas Logo"
                     fill
                     sizes="64px"
                     className="object-contain"
                   />
                 </div>
                 <div className="flex flex-col justify-center">
-                  <span className="text-xl font-black tracking-tight text-white font-heading leading-tight flex items-center gap-1.5">
-                    <span>Brasil</span>
-                    <span className="text-[#00C4EE]">Piscinas</span>
+                  <span className="text-xl font-black italic tracking-tight text-white font-heading leading-tight flex items-center gap-1.5">
+                    <span>MODELO</span>
+                    <span className="text-[#00B4F5]">PISCINAS</span>
                   </span>
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    Construção &amp; Reforma
+                    Do Tratamento ao Aquecimento
                   </span>
                 </div>
               </div>
               <p className="text-slate-400 text-xs leading-relaxed">
-                Referência em construção e reforma de piscinas em concreto armado, vinil, spas de hidromassagem, borda infinita e equipamentos em Belo Horizonte e região metropolitana.
+                Referência em produtos para piscinas, cloro Clorofort, filtros, bombas, crepinas Sibrape e aquecimento solar em Belo Horizonte e Região Metropolitana.
               </p>
               <div className="flex items-center gap-3 pt-1">
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="p-2 rounded-lg bg-[#001F4D] hover:bg-[#00C4EE] hover:text-[#001433] text-slate-300 transition-colors"
+                  aria-label="Instagram da Modelo Piscinas"
+                  className="p-2 rounded-lg bg-[#0D163B] hover:bg-[#00B4F5] hover:text-[#070D24] text-slate-300 transition-colors"
                 >
                   <InstagramIcon size={16} />
                 </a>
@@ -1665,76 +1742,76 @@ export default function HomePage() {
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="p-2 rounded-lg bg-[#001F4D] hover:bg-emerald-600 hover:text-white text-slate-300 transition-colors"
+                  aria-label="WhatsApp da Modelo Piscinas"
+                  className="p-2 rounded-lg bg-[#0D163B] hover:bg-emerald-600 hover:text-white text-slate-300 transition-colors"
                 >
                   <WhatsAppIcon size={16} />
                 </a>
                 <a
-                  href={LINKTREE_URL}
+                  href={GOOGLE_SEARCH_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Linktree"
-                  className="p-2 rounded-lg bg-[#001F4D] hover:bg-[#00C4EE] hover:text-[#001433] text-slate-300 transition-colors font-bold text-[11px]"
+                  aria-label="Google Maps"
+                  className="p-2 rounded-lg bg-[#0D163B] hover:bg-[#F59E0B] hover:text-black text-slate-300 transition-colors font-bold text-[11px]"
                 >
-                  Linktree
+                  4,9★ Google
                 </a>
               </div>
             </div>
 
-            {/* Coluna 2: Serviços Principais */}
+            {/* Coluna 2: Serviços & Produtos Principais */}
             <div className="space-y-3">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Nossos Serviços
+                Linhas de Produtos
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Piscinas de Concreto Armado
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Cloro Clorofort &amp; Químicos
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Piscinas com Borda Infinita
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Filtros de Areia &amp; Motobombas
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Piscinas de Vinil &amp; Troca de Bolsão
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Peças &amp; Crepinas Sibrape
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Spas &amp; Banheiras de Hidromassagem
-                  </a>
-                </li>
-                <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
+                  <a href="#produtos" className="hover:text-white transition-colors">
                     Aquecimento Solar &amp; Bombas de Calor
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Reformas Completas &amp; Manutenção
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Iluminação LED Subaquática &amp; Cascatas
+                  </a>
+                </li>
+                <li>
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Manutenção &amp; Tratamento de Choque
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Coluna 3: Links Institucionais & Regiões */}
+            {/* Coluna 3: Regiões Atendidas */}
             <div className="space-y-3">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Cidades Atendidas
+                Regiões Atendidas
               </h3>
               <p className="text-slate-400 text-xs leading-relaxed">
                 {CITIES_SERVED}.
               </p>
               <div className="pt-2">
-                <span className="text-[11px] font-bold text-[#00C4EE] block mb-1">
-                  Certificação &amp; Qualidade:
+                <span className="text-[11px] font-bold text-[#00B4F5] block mb-1">
+                  Atendimento na Loja Física:
                 </span>
                 <p className="text-slate-400 text-xs">
-                  Empresa associada à ANAPP (Associação Nacional dos Fabricantes e Construtores de Piscinas).
+                  Estacionamento fácil e consultores prontos para ajudar com a medição e os produtos ideais.
                 </p>
               </div>
             </div>
@@ -1742,13 +1819,13 @@ export default function HomePage() {
             {/* Coluna 4: Contato & Sede */}
             <div className="space-y-3">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Sede Pampulha
+                Sede Boa Vista
               </h3>
               <p className="text-slate-400 text-xs leading-relaxed">
                 {ADDRESS_DISPLAY}
               </p>
               <p className="text-slate-300 font-semibold text-xs pt-1">
-                Telefone: {LANDLINE_DISPLAY}
+                Telefone Loja: {LANDLINE_DISPLAY}
               </p>
               <p className="text-slate-300 font-semibold text-xs">
                 WhatsApp: {PHONE_DISPLAY}
@@ -1759,7 +1836,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="pt-10 mt-10 border-t border-[#002766] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500">
+          <div className="pt-10 mt-10 border-t border-[#121F54] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500">
             <p>
               &copy; {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.
             </p>
@@ -1770,19 +1847,19 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* 14. BOTÃO FLUTUANTE DO WHATSAPP COM EFEITO PULSE */}
+      {/* 15. BOTÃO FLUTUANTE DO WHATSAPP COM EFEITO PULSE */}
       <div className="fixed bottom-6 right-6 z-50">
         <a
-          href={getWhatsAppUrl("Olá! Gostaria de tirar dúvidas e pedir um orçamento com a Brasil Piscinas.")}
+          href={getWhatsAppUrl("Olá! Gostaria de falar com a equipe da Modelo Piscinas.")}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Falar no WhatsApp com a Brasil Piscinas"
+          aria-label="Falar no WhatsApp com a Modelo Piscinas"
           className="group relative flex items-center gap-3 bg-[#16A34A] hover:bg-[#15803D] text-white p-3.5 sm:px-4 sm:py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
         >
           <div className="absolute -inset-1 rounded-full bg-emerald-500/40 animate-ping pointer-events-none" />
           <WhatsAppIcon size={24} className="relative z-10" />
           <span className="hidden sm:inline-block font-bold text-xs tracking-wide relative z-10 pr-1">
-            Orçamento WhatsApp
+            WhatsApp Modelo Piscinas
           </span>
         </a>
       </div>

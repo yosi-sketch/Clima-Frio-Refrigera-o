@@ -12,11 +12,13 @@ interface GlowingButtonProps {
   variant?:
     | "primary"
     | "cyan"
+    | "royal"
     | "aqua"
     | "dark"
     | "outline"
     | "outlineNavy"
     | "outlineCyan"
+    | "outlineRoyal"
     | "light"
     | "white"
     | "whatsapp";
@@ -37,32 +39,36 @@ export default function GlowingButton({
     lg: "px-6 py-3.5 text-[15px] font-bold tracking-wide",
   }[size];
 
-  // Brasil Piscinas Palette: Deep Oceanic Navy (#002C6C / #001F4D), Vibrant Pool Cyan (#00C4EE), WhatsApp (#16A34A)
+  // Modelo Piscinas Palette: Deep Oceanic Navy (#121F54 / #0D163B), Vibrant Pool Cyan (#00B4F5), Royal Indigo (#2524A8), WhatsApp (#16A34A)
   const variantClasses = {
     cyan:
-      "bg-[#00C4EE] hover:bg-[#00AEE0] text-[#001433] font-bold shadow-sm hover:shadow-lg hover:shadow-cyan-400/25 transition-all border border-[#00C4EE] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#00B4F5] hover:bg-[#009BD4] text-[#070D24] font-bold shadow-sm hover:shadow-lg hover:shadow-cyan-400/30 transition-all border border-[#00B4F5] hover:-translate-y-0.5 active:translate-y-0",
     aqua:
-      "bg-[#00C4EE] hover:bg-[#00AEE0] text-[#001433] font-bold shadow-sm hover:shadow-lg hover:shadow-cyan-400/25 transition-all border border-[#00C4EE] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#00B4F5] hover:bg-[#009BD4] text-[#070D24] font-bold shadow-sm hover:shadow-lg hover:shadow-cyan-400/30 transition-all border border-[#00B4F5] hover:-translate-y-0.5 active:translate-y-0",
+    royal:
+      "bg-[#2524A8] hover:bg-[#1E1C8F] text-white font-bold shadow-sm hover:shadow-lg hover:shadow-indigo-600/30 transition-all border border-[#2524A8] hover:-translate-y-0.5 active:translate-y-0",
     primary:
-      "bg-[#002C6C] hover:bg-[#001F4D] text-white font-bold shadow-sm hover:shadow-lg hover:shadow-blue-900/25 transition-all border border-[#002C6C] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#121F54] hover:bg-[#0D163B] text-white font-bold shadow-sm hover:shadow-lg hover:shadow-blue-950/30 transition-all border border-[#121F54] hover:-translate-y-0.5 active:translate-y-0",
     dark:
-      "bg-[#001F4D] hover:bg-[#002C6C] text-white font-bold shadow-sm hover:shadow-lg transition-all border border-[#154D9E] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#0D163B] hover:bg-[#121F54] text-white font-bold shadow-sm hover:shadow-lg transition-all border border-[#1E3485] hover:-translate-y-0.5 active:translate-y-0",
     whatsapp:
       "bg-[#16A34A] hover:bg-[#15803D] text-white font-bold shadow-sm hover:shadow-md hover:shadow-green-600/25 transition-all border border-[#16A34A] hover:-translate-y-0.5 active:translate-y-0",
     outline:
-      "border border-slate-300 bg-white text-slate-800 hover:text-[#002C6C] hover:border-[#002C6C] hover:bg-[#F0FDFE] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+      "border border-slate-300 bg-white text-slate-800 hover:text-[#121F54] hover:border-[#121F54] hover:bg-[#F0F9FF] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
     outlineNavy:
-      "border border-[#002C6C] bg-transparent text-[#002C6C] hover:bg-[#002C6C] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+      "border border-[#121F54] bg-transparent text-[#121F54] hover:bg-[#121F54] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0",
     outlineCyan:
-      "border border-[#00C4EE] bg-transparent text-[#002C6C] hover:bg-[#00C4EE] hover:text-[#001433] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+      "border border-[#00B4F5] bg-transparent text-[#121F54] hover:bg-[#00B4F5] hover:text-[#070D24] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+    outlineRoyal:
+      "border border-[#2524A8] bg-transparent text-[#2524A8] hover:bg-[#2524A8] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0",
     light:
-      "border border-[#BAF1FB] bg-[#F0FDFE] text-[#002C6C] hover:bg-[#E0F7FA] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+      "border border-[#BAE6FD] bg-[#F0F9FF] text-[#121F54] hover:bg-[#E0F2FE] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
     white:
-      "border border-slate-200 bg-white text-[#002C6C] hover:bg-slate-50 shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+      "border border-slate-200 bg-white text-[#121F54] hover:bg-slate-50 shadow-xs hover:-translate-y-0.5 active:translate-y-0",
   }[variant];
 
   const classes =
-    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00C4EE] select-none text-center cursor-pointer whitespace-nowrap " +
+    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4F5] select-none text-center cursor-pointer whitespace-nowrap " +
     sizeClasses +
     " " +
     variantClasses +
