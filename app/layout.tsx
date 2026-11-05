@@ -17,63 +17,65 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#070D24",
+  themeColor: "#07172C",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://modelopiscinas.com.br"),
+  metadataBase: new URL("https://quatroestacoespiscinas.com.br"),
   title:
-    "Modelo Piscinas — Produtos, Equipamentos & Aquecimento em Belo Horizonte | 4,9★",
+    "Quatro Estações Piscinas | Aguazul Sete Lagoas — Piscinas, Saunas & Aquecimento Solar (4,9★)",
   description:
-    "Sua piscina em boas mãos: do tratamento ao aquecimento. Loja completa de cloro Clorofort, filtros, motobombas, crepinas Sibrape, aquecimento solar e assistência técnica na Região Leste de BH. Av. Itaituba, 173 - Boa Vista. WhatsApp: (31) 98396-1882.",
+    "Valorizamos áreas de lazer e realizamos sonhos! Revenda oficial Aguazul Piscinas de fibra, saunas a vapor/secas, aquecimento solar e para banho, lagos ornamentais e manutenção técnica em Sete Lagoas - MG. Av. Marechal Castelo Branco, 2111. WhatsApp: (31) 3773-6264.",
   keywords: [
-    "Modelo Piscinas",
-    "Modelo Piscinas BH",
-    "Loja de piscinas Belo Horizonte",
-    "Produtos para piscina Boa Vista BH",
-    "Cloro Clorofort BH",
-    "Crepina Sibrape BH",
-    "Filtros e bombas de piscina BH",
-    "Aquecimento solar piscina BH",
-    "Limpeza e manutenção de piscina BH",
-    "Loja de piscinas Região Leste BH",
-    "Equipamentos de piscina Belo Horizonte",
-    "Peças para filtro de piscina BH",
+    "Quatro Estações Piscinas",
+    "Aguazul Sete Lagoas",
+    "Piscinas em Sete Lagoas",
+    "Loja de piscinas Sete Lagoas",
+    "Piscina de fibra Sete Lagoas",
+    "Aquecimento solar piscina Sete Lagoas",
+    "Aquecimento para banho Sete Lagoas",
+    "Saunas em Sete Lagoas",
+    "Lagos ornamentais Sete Lagoas",
+    "Manutenção de piscinas Sete Lagoas",
+    "Bombas e filtros de piscina Sete Lagoas",
+    "Piscina de fibra Aguazul",
+    "Piscina Leblon Sete Lagoas",
+    "Quatro Estações Piscinas Saunas Aquecimento Solar",
   ],
-  authors: [{ name: "Modelo Piscinas — Belo Horizonte - MG" }],
-  creator: "Modelo Piscinas",
-  publisher: "Modelo Piscinas",
+  authors: [{ name: "Quatro Estações Piscinas | Aguazul Sete Lagoas" }],
+  creator: "Quatro Estações Piscinas",
+  publisher: "Quatro Estações Piscinas",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=modelo1", sizes: "any" },
-      { url: "/icon-32x32.png?v=modelo1", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=modelo1", type: "image/png", sizes: "16x16" },
-      { url: "/icon-48x48.png?v=modelo1", type: "image/png", sizes: "48x48" },
-      { url: "/icon-192x192.png?v=modelo1", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=modelo1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=aguazul1", sizes: "any" },
+      { url: "/icon-32x32.png?v=aguazul1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=aguazul1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-48x48.png?v=aguazul1", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192x192.png?v=aguazul1", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png?v=aguazul1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=modelo1",
-    apple: [{ url: "/apple-icon.png?v=modelo1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=aguazul1",
+    apple: [{ url: "/apple-icon.png?v=aguazul1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://modelopiscinas.com.br",
+    url: "https://quatroestacoespiscinas.com.br",
     title:
-      "Modelo Piscinas — Do Tratamento ao Aquecimento em Belo Horizonte",
+      "Quatro Estações Piscinas | Aguazul Sete Lagoas — Piscinas, Saunas & Aquecimento Solar",
     description:
-      "Loja completa de produtos químicos, cloro Clorofort, bombas, filtros, crepinas Sibrape e aquecimento solar com nota 4,9★ no Google. Av. Itaituba, 173 - Boa Vista.",
-    siteName: "Modelo Piscinas",
+      "Piscinas de fibra de alta qualidade, saunas, aquecimento solar, lagos ornamentais e pós-venda premiado com nota 4,9★ no Google. Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG.",
+    siteName: "Quatro Estações Piscinas | Aguazul Sete Lagoas",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Modelo Piscinas — Belo Horizonte - MG",
+        alt: "Quatro Estações Piscinas | Aguazul Sete Lagoas",
       },
     ],
   },
@@ -86,42 +88,42 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Store",
-    name: "Modelo Piscinas",
-    alternateName: "Modelo Piscinas BH • Do Tratamento ao Aquecimento",
+    "@type": "HomeGoodsStore",
+    name: "Quatro Estações Piscinas",
+    alternateName: "Aguazul Sete Lagoas • Quatro Estações Piscinas, Saunas & Aquecimento Solar",
     description:
-      "Loja de produtos para piscinas, cloro Clorofort, motobombas, filtros, crepinas Sibrape, aquecimento solar, peças de reposição e assistência técnica em Belo Horizonte - MG.",
-    telephone: "+5531983961882",
-    url: "https://modelopiscinas.com.br",
-    image: "https://modelopiscinas.com.br/logo.png",
+      "Revenda exclusiva de Piscinas de Fibra Aguazul, aquecimento solar para piscinas e banho, saunas, lagos ornamentais, bombas, filtros, produtos químicos e assistência técnica em Sete Lagoas e região.",
+    telephone: "+553137736264",
+    url: "https://quatroestacoespiscinas.com.br",
+    image: "https://quatroestacoespiscinas.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Itaituba, 173",
-      addressLocality: "Boa Vista, Belo Horizonte",
+      streetAddress: "Av. Marechal Castelo Branco, 2111 (esq. com Rua Melo Figueiredo)",
+      addressLocality: "Santo Antonio, Sete Lagoas",
       addressRegion: "MG",
-      postalCode: "31060-427",
+      postalCode: "35701-240",
       addressCountry: "BR",
     },
     priceRange: "$$",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "23",
+      reviewCount: "67",
     },
     areaServed: [
-      "Belo Horizonte",
-      "Boa Vista",
-      "Santa Inês",
-      "Sagrada Família",
-      "Horto",
-      "Nova Floresta",
-      "Floresta",
-      "Pampulha",
-      "Nova Lima",
-      "Sabará",
-      "Contagem",
-      "Betim",
-      "Grande BH",
+      "Sete Lagoas",
+      "Prudente de Morais",
+      "Inhaúma",
+      "Matozinhos",
+      "Capim Branco",
+      "Pedro Leopoldo",
+      "Funilândia",
+      "Baldim",
+      "Paraopeba",
+      "Cordisburgo",
+      "Caetanópolis",
+      "Santana de Pirapama",
+      "Jequitibá",
       "Minas Gerais",
     ],
     openingHoursSpecification: [
@@ -153,11 +155,11 @@ export default function RootLayout({
       className={`${headingFont.variable} ${bodyFont.variable}`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico?v=modelo-tab3" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=modelo-tab3" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=modelo-tab3" />
-        <link rel="shortcut icon" href="/favicon.ico?v=modelo-tab3" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=modelo-tab3" />
+        <link rel="icon" href="/favicon.ico?v=aguazul-tab" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=aguazul-tab" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=aguazul-tab" />
+        <link rel="shortcut icon" href="/favicon.ico?v=aguazul-tab" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=aguazul-tab" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -165,7 +167,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#F8FAFC] text-[#070F26] font-sans antialiased selection:bg-[#00B4F5] selection:text-[#070D24]"
+        className="min-h-screen bg-[#F8FAFC] text-[#07172C] font-sans antialiased selection:bg-[#0A6DB0] selection:text-white"
       >
         {children}
       </body>

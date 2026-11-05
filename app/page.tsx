@@ -22,7 +22,6 @@ import {
   Wrench,
   Bath,
   Sun,
-  Camera,
   Navigation,
   Check,
   ExternalLink,
@@ -31,48 +30,55 @@ import {
   ShieldCheck,
   Zap,
   Tag,
+  Fish,
+  HeartHandshake,
+  ThumbsUp,
   Store,
   type LucideIcon,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Informações Oficiais — Modelo Piscinas (Belo Horizonte - MG)
-const COMPANY_NAME = "Modelo Piscinas";
+// Informações Oficiais — Quatro Estações Piscinas | Aguazul Sete Lagoas
+const COMPANY_NAME = "Quatro Estações Piscinas";
 const COMPANY_FULL_NAME =
-  "Modelo Piscinas BH • Produtos, Equipamentos & Aquecimento";
+  "Quatro Estações Piscinas | Revendedora Oficial Aguazul Sete Lagoas";
+const COMPANY_TAGLINE =
+  "Piscinas, Saunas, Aquecimento Solar & Lagos Ornamentais";
 const BRAND_SUBTITLE =
-  "Sua piscina em boas mãos: do tratamento ao aquecimento. A loja mais recomendada da Região Leste e de Belo Horizonte. Cloro Clorofort a pronta entrega, crepinas Sibrape, filtros, bombas, aquecedores e manutenção especializada com nota 4,9★ no Google.";
+  "Valorizamos áreas de lazer e realizamos sonhos tornando cada vez mais aconchegante o seu lar! Do projeto e escavação à instalação completa, aquecimento e manutenção técnica. Atendimento próximo e consultivo com Leonardo, Daniela e equipe, com nota 4,9★ e mais de 67 avaliações reais no Google.";
 
-const WHATSAPP_NUMBER = "5531983961882";
-const PHONE_DISPLAY = "(31) 98396-1882";
-const LANDLINE_DISPLAY = "(31) 3786-4004";
-const EMAIL_CONTACT = "contato@modelopiscinas.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/modelopiscinas/";
-const INSTAGRAM_HANDLE = "@modelopiscinas";
+const WHATSAPP_NUMBER = "553137736264";
+const PHONE_DISPLAY = "(31) 3773-6264";
+const EMAIL_CONTACT = "contato@quatroestacoespiscinas.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/quatroestacoespiscinas/";
+const INSTAGRAM_HANDLE = "@quatroestacoespiscinas";
+const WHATSAPP_DIRECT_LINK = "https://wa.me/message/2CWT44DM5H5FJ1";
 
 const ADDRESS_DISPLAY =
-  "Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG, 31060-427";
+  "Av. Marechal Castelo Branco, 2111 (esq. com Rua Melo Figueiredo) - Santo Antonio, Sete Lagoas - MG, 35701-240";
+const SHORT_ADDRESS = "Av. Marechal Castelo Branco, 2111 - Sete Lagoas - MG";
 const CITIES_SERVED =
-  "Belo Horizonte (Região Leste, Boa Vista, Santa Inês, Sagrada Família, Horto, Nova Floresta, Floresta, Pampulha, Centro-Sul), Sabará, Santa Luzia, Contagem, Betim e toda Grande BH";
+  "Sete Lagoas, Prudente de Morais, Inhaúma, Matozinhos, Capim Branco, Pedro Leopoldo, Funilândia, Baldim, Paraopeba, Cordisburgo, Caetanópolis e região";
 
-const GOOGLE_REVIEW_COUNT = "23";
+const GOOGLE_REVIEW_COUNT = "67";
 const GOOGLE_RATING = "4.9";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Modelo+Piscinas+Boa+Vista+Belo+Horizonte+MG";
+  "https://www.google.com/search?q=Quatro+Esta%C3%A7%C3%B5es+Piscinas+Sete+Lagoas+MG";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+Itaituba%2C+173+-+Boa+Vista%2C+Belo+Horizonte+-+MG%2C+31060-427";
+  "https://www.google.com/maps/search/?api=1&query=Av.+Marechal+Castelo+Branco%2C+2111+-+Santo+Antonio%2C+Sete+Lagoas+-+MG%2C+35701-240";
 const WAZE_MAPS_URL =
-  "https://waze.com/ul?q=Av+Itaituba+173+Boa+Vista+Belo+Horizonte+MG";
+  "https://waze.com/ul?q=Av+Marechal+Castelo+Branco+2111+Sete+Lagoas+MG";
 
-// Assets Oficiais da Modelo Piscinas
-const LOGO_SRC = "/logo-trimmed.png";
+// Assets Oficiais
+const LOGO_SRC = "/logo.jpg";
+const LOGO_TRIMMED = "/logo-trimmed.png";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá! Gostaria de falar com a Modelo Piscinas sobre produtos, peças ou assistência técnica para a minha piscina.";
+    "Olá! Gostaria de falar com a Quatro Estações Piscinas sobre piscinas de fibra Aguazul, saunas ou aquecimento.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -99,28 +105,7 @@ function WhatsAppIcon({
   );
 }
 
-function InstagramIcon({
-  size = 18,
-  className = "",
-}: {
-  size?: number;
-  className?: string;
-}) {
-  return (
-    <svg
-      aria-hidden="true"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-    >
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069ZM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0ZM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z" />
-    </svg>
-  );
-}
-
-// Interface dos Serviços e Linhas de Produtos da Modelo Piscinas
+// 8 Pilares de Serviços e Linhas de Soluções
 interface ServiceItem {
   id: string;
   title: string;
@@ -136,280 +121,333 @@ interface ServiceItem {
 
 const SERVICES: ServiceItem[] = [
   {
-    id: "produtos-quimicos-clorofort",
-    title: "Produtos Químicos & Cloro Clorofort",
+    id: "piscinas-fibra-aguazul",
+    title: "Piscinas de Fibra Aguazul (Linha Completa)",
     shortDesc:
-      "Linha completa de tratamento químico com Cloro Clorofort sempre disponível, algicidas, clarificantes, elevadores/redutores de pH e kits de teste com orientação técnica especializada.",
-    badge: "Cloro Clorofort em Estoque",
-    icon: Droplets,
-    image: "/tratamento-agua.jpg",
+      "Revenda exclusiva Aguazul em Sete Lagoas. Modelos compactos aos amplos (como a clássica linha Leblon de 5m até modelos de 10m+), acabamento impecável em gel coat, prainha infantil e hidromassagem.",
+    badge: "Revenda Oficial Aguazul",
+    icon: Waves,
+    image: "/piscina-fibra.jpg",
     fullDesc:
-      "Na Modelo Piscinas você sempre encontra cloro de alta pureza e ação prolongada. Como destacam nossos clientes no Google, 'sempre tem cloro da Clorofort disponível'. Trabalhamos com produtos certificados para manter a sua piscina limpa, cristalina e protegida de bactérias, algas e turbidez, com consultoria personalizada para a dosagem exata do seu volume de água.",
+      "As piscinas de fibra de vidro Aguazul são consagradas pelo acabamento de altíssima durabilidade, toque suave e visual espetacular. Com instalação ágil, estruturação reforçada e curvas ergonômicas, valorizam imediatamente a sua residência ou chácara. Conte com a consultoria do Leonardo e da Daniela para encontrar o tamanho, profundidade e modelo ideais para o seu espaço.",
     benefits: [
-      "Cloro Clorofort granulado e em pastilhas sempre à pronta entrega",
-      "Clarificantes de ação rápida e algicidas de choque e manutenção",
-      "Kits de medição de pH, alcalinidade e cloro livre para controle perfeito",
-      "Consultoria técnica gratuita na loja para recuperar água verde ou turva",
+      "Fibra de vidro de alta resistência estrutural com garantia de fábrica",
+      "Modelos modernos com prainha infantil, banco de descanso e escada ergonômica",
+      "Instalação profissional e rápida sem dor de cabeça de obras demoradas",
+      "Modelos consagrados como Leblon, Ipanema, Copacabana e linhas especiais",
     ],
-    ctaText: "Consultar Produtos Químicos no WhatsApp",
+    ctaText: "Ver Catálogo de Piscinas Aguazul",
     whatsappMessage:
-      "Olá! Gostaria de consultar os preços e disponibilidade de cloro Clorofort e produtos químicos na Modelo Piscinas.",
+      "Olá! Gostaria de conhecer os modelos e tamanhos das Piscinas de Fibra Aguazul disponíveis na Quatro Estações.",
   },
   {
-    id: "pecas-sibrape-reposicao",
-    title: "Peças de Reposição & Linha Sibrape Rara",
+    id: "aquecimento-solar-piscina-banho",
+    title: "Aquecimento Solar & Bombas de Calor",
     shortDesc:
-      "O endereço em BH para encontrar crepinas de filtro Sibrape, uniões, tampas de acrílico, borrachas de vedação e conexões específicas que você não acha em lugar nenhum.",
-    badge: "Especialista em Peças Raras",
-    icon: Wrench,
-    image: "/filtro-bomba.jpg",
+      "Aproveite a sua piscina nos 365 dias do ano! Sistemas com placas solares de polipropileno de alta absorção, bombas de calor inverter silenciosas e aquecimento solar para banho residencial.",
+    badge: "Piscina Quente o Ano Todo",
+    icon: Flame,
+    image: "/aquecimento-solar.jpg",
     fullDesc:
-      "Quantas vezes você procurou uma peça específica de filtro ou bomba e não encontrou em loja nenhuma de Belo Horizonte? Na Modelo Piscinas, clientes como Romero Fernandes comemoram: 'Achei crepina do filtro Sibrape que não achava em lugar nenhum!'. Temos um estoque abrangente de peças originais, crepinas, manômetros, cestos de pré-filtro e uniões para resolver o seu problema no mesmo dia.",
+      "Não deixe sua piscina parada nos meses amenos! A Quatro Estações Piscinas é referência técnica absoluta em aquecimento solar e trocadores de calor em Sete Lagoas. Como destacou Silmara Duque no Google: 'Desde a visita técnica do Leo, conversas e instalação, fui muito bem atendida sanando dúvidas e cumprindo o combinado'. Dimensionamos a potência exata para sua piscina e também para os chuveiros e banho da sua casa.",
     benefits: [
-      "Crepinas originais Sibrape e multimarcas para todos os modelos de filtro",
-      "Manômetros de pressão em inox e válvulas multivias completas",
-      "Tampas transparentes de pré-filtro, anéis O-ring e juntas de vedação",
-      "Atendimento técnico que ajuda a identificar o modelo exato da sua peça",
+      "Coletores solares de polipropileno de altíssima eficiência térmica",
+      "Bombas de calor inverter elétricas para dias nublados e noites frias",
+      "Sistemas de aquecimento solar para banho residencial (chuveiros e torneiras)",
+      "Controladores eletrônicos digitais com automação e capas térmicas sob medida",
     ],
-    ctaText: "Verificar Disponibilidade de Peça",
+    ctaText: "Dimensionar Aquecedor com Especialista",
     whatsappMessage:
-      "Olá! Estou procurando uma peça de reposição / crepina Sibrape e gostaria de checar se vocês têm na Modelo Piscinas.",
+      "Olá! Gostaria de dimensionar um sistema de aquecimento solar ou trocador de calor para minha piscina com a Quatro Estações.",
+  },
+  {
+    id: "saunas-vapor-secas",
+    title: "Saunas a Vapor & Secas",
+    shortDesc:
+      "Transforme sua casa em um refúgio de bem-estar: geradores de vapor compactos em inox, saunas secas sob medida, portas panorâmicas e termostatos digitais.",
+    badge: "Saúde & Relaxamento",
+    icon: Bath,
+    image: "/sauna-spa.jpg",
+    fullDesc:
+      "Tenha todos os benefícios da sauna para a circulação, alívio do estresse e relaxamento muscular no conforto da sua área de lazer. Fornecemos geradores de vapor a gás e elétricos de alta durabilidade, revestimentos térmicos, iluminação própria para ambientes úmidos e acessórios como termômetros, essências e grades de proteção.",
+    benefits: [
+      "Geradores de vapor com acendimento automático e proteção térmica",
+      "Saunas secas e a vapor com acabamento impecável e portas herméticas",
+      "Quadros de comando digital externos com controle preciso de temperatura",
+      "Orientação técnica para montagem da tubulação e isolamento térmico",
+    ],
+    ctaText: "Consultar Projetos de Sauna",
+    whatsappMessage:
+      "Olá! Gostaria de informações e valores sobre geradores e equipamentos para sauna na Quatro Estações Piscinas.",
+  },
+  {
+    id: "lagos-ornamentais-paisagismo",
+    title: "Lagos Ornamentais & Filtragem Biológica",
+    shortDesc:
+      "Especialistas em projetos e recuperação de lagos ornamentais para carpas e peixes, com filtragem biológica, ozônio/UV e água 100% cristalina e equilibrada.",
+    badge: "Solução Técnica Especializada",
+    icon: Fish,
+    image: "/lago-ornamental.jpg",
+    fullDesc:
+      "Lagos ornamentais exigem profundo conhecimento biológico e hidráulico. Conforme relatou a cliente Ana Paula Carvalho: 'É um profissional que realmente entende do assunto... resolveu o problema do lago ornamental que outros não conseguiram. Hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes!'. Criamos ou revitalizamos seu lago com bombas submersas de baixo consumo, filtros biológicos e sistemas UV.",
+    benefits: [
+      "Eliminação definitiva de água verde e proliferação de algas",
+      "Filtros biológicos de alta densidade e esterilizadores ultravioleta/ozônio",
+      "Balanço perfeito de oxigenação e parâmetros para carpas e peixes",
+      "Paisagismo integrado com cascatas de pedra e iluminação aquática",
+    ],
+    ctaText: "Falar sobre Lago Ornamental",
+    whatsappMessage:
+      "Olá! Gostaria de atendimento técnico para projeto ou recuperação da água de lago ornamental com o Leonardo.",
   },
   {
     id: "filtros-bombas-equipamentos",
-    title: "Filtros & Motobombas de Alta Eficiência",
+    title: "Filtros, Bombas & Casa de Máquinas",
     shortDesc:
-      "Motobombas silenciosas autoescorvantes e filtros de areia de alta retenção para piscinas residenciais, sítios e condomínios com o melhor preço da região.",
-    badge: "Equipamentos com Garantia",
-    icon: Waves,
-    image: "/piscina-obra-6.jpg",
+      "Conjuntos motobomba e filtros de areia de alta vazão, quadros de comando elétrico com timer e compromisso total no pós-venda com troca expressa na garantia.",
+    badge: "Garantia & Pós-Venda Premiado",
+    icon: Wrench,
+    image: "/filtro-bomba.jpg",
     fullDesc:
-      "O coração da sua piscina precisa de equipamentos confiáveis e duráveis. A Modelo Piscinas trabalha com as marcas líderes do mercado nacional em motobombas e tanques de filtro rotomoldados e soprados. Nossos consultores calculam a vazão exata necessária para a litragem da sua piscina, evitando desperdício de energia e garantindo uma recirculação perfeita.",
+      "O coração da sua piscina é a casa de máquinas. Trabalhamos exclusivamente com bombas silenciosas e econômicas e tanques de filtro rotomoldados de alta resistência. Nosso pós-venda é lendário em Sete Lagoas — como elogiou Carlos Henrique no Google: 'Tive um pequeno problema na minha bomba, nem sequer quiseram verificar, já me deram uma nova na caixa, recomendo sempre!'.",
     benefits: [
-      "Filtros de areia de alto rendimento que reduzem o uso de químicos",
-      "Motobombas autoescorvantes com pré-filtro transparente e motor silencioso",
-      "Areia especial tratada e lavada para recarga periódica de filtros",
-      "Preços justos e condições facilitadas com pronta entrega em BH",
+      "Motobombas autoescorvantes de alta eficiência com pré-filtro transparente",
+      "Tanques de filtro com areia especial de quartzo para retenção micrométrica",
+      "Instalação hidráulica organizada com registros de fácil acesso e identificação",
+      "Substituição ágil de equipamentos e suporte técnico imediato",
     ],
-    ctaText: "Pedir Cotação de Filtro ou Bomba",
+    ctaText: "Ver Bombas e Filtros",
     whatsappMessage:
-      "Olá! Gostaria de um orçamento para filtro, bomba ou troca de areia com a Modelo Piscinas.",
-  },
-  {
-    id: "aquecimento-solar-bombas-calor",
-    title: "Aquecimento Solar & Bombas de Calor",
-    shortDesc:
-      "Piscina aquecida os 365 dias do ano. Sistemas econômicos com placas solares de polipropileno de alta absorção e trocadores de calor inverter silenciosos.",
-    badge: "Piscina Quente o Ano Todo",
-    icon: Flame,
-    image: "/aquecedores.jpg",
-    fullDesc:
-      "Aproveite ao máximo a sua área de lazer em qualquer estação! A Modelo Piscinas oferece sistemas completos de aquecimento solar e bombas de calor modernas. Dimensionamos a quantidade ideal de placas solares ou a potência do trocador de calor de acordo com a área do espelho d'água, exposição solar e temperatura desejada, acompanhados de capa térmica e controladores digitais automáticos.",
-    benefits: [
-      "Coletores solares de alta absorção resistentes ao sol e ao cloro",
-      "Bombas de calor tipo trocador de calor elétrico com economia de energia",
-      "Capas térmicas sob medida para reter o calor durante a noite",
-      "Controladores eletrônicos digitais com acionamento programado da bomba",
-    ],
-    ctaText: "Dimensionar Aquecedor para Minha Piscina",
-    whatsappMessage:
-      "Olá! Tenho interesse em aquecimento solar ou bomba de calor para minha piscina com a Modelo Piscinas.",
-  },
-  {
-    id: "limpeza-manutencao-assistencia",
-    title: "Limpeza, Manutenção & Assistência Técnica",
-    shortDesc:
-      "Serviços pontuais e profissionais de tratamento de choque, conserto de vazamentos, troca de areia, revisão de casa de máquinas e manutenção preventiva.",
-    badge: "Serviço Entregue no Prazo",
-    icon: ShieldCheck,
-    image: "/sobre-lazer-pool.jpg",
-    fullDesc:
-      "Sua piscina está verde, turva ou com perda de nível de água? A Modelo Piscinas possui equipe experiente e dedicada para prestar assistência técnica de qualidade. Como avaliou Wilson Hermogenes no Google: 'PERFEITO, FUI BEM ATENDIDO, ENTREGOU O SERVIÇO NA DATA'. Cuidamos da sua piscina com pontualidade, honestidade e excelência técnica comprovada.",
-    benefits: [
-      "Recuperação rápida de água verde com produtos de choque profissionais",
-      "Troca periódica de areia de filtro com desinfecção interna do tanque",
-      "Diagnóstico e reparo de vazamentos hidráulicos em casas de máquinas",
-      "Equipe confiável, pontual e respeitosa com a sua residência ou clube",
-    ],
-    ctaText: "Agendar Manutenção ou Assistência",
-    whatsappMessage:
-      "Olá! Preciso de assistência técnica / manutenção ou recuperação de água para a minha piscina com a Modelo Piscinas.",
+      "Olá! Preciso de orçamento de bomba, filtro ou reforma de casa de máquinas com a Quatro Estações Piscinas.",
   },
   {
     id: "iluminacao-led-cascatas",
     title: "Iluminação em LED & Cascatas em Inox",
     shortDesc:
-      "Transforme sua piscina à noite: refletores subaquáticos em LED SMD/RGB em 12V com controle remoto e lindas cascatas em aço inox escovado 304 e 316.",
-    badge: "Visual & Sofisticação",
+      "Crie cenários cinematográficos à noite: refletores subaquáticos em LED SMD/RGB em 12V com controle remoto e elegantes cascatas em aço inoxidável escovado.",
+    badge: "Visual & Efeitos Noturnos",
     icon: Sun,
-    image: "/cascata-real.jpg",
+    image: "/cascata-led.jpg",
     fullDesc:
-      "Dê vida nova à sua piscina e desfrute de banhos noturnos espetaculares. Instalamos e fornecemos refletores em LED subaquáticos em 12V seguros, de baixíssimo consumo, com troca de cores RGB via controle remoto ou comando manual. Complementamos o cenário com cascatas em inox de embutir ou de piso, garantindo oxigenação constante da água e um som relaxante.",
+      "A iluminação transforma completamente a experiência noturna do seu quintal. Instalamos refletores LED subaquáticos em 12V com proteção total contra choques, troca de cores e modos dinâmicos por controle remoto. Complementamos com cascatas de inox (de piso, embutir ou parede) que mantêm a oxigenação contínua da água com o som relaxante de queda d'água.",
     benefits: [
-      "Refletores LED de alta potência com segurança total em 12V",
-      "Cascatas duráveis em aço inox resistentes aos raios UV e intempéries",
-      "Central de comando com controle remoto wireless para múltiplos efeitos",
-      "Peças de reposição e nichos compatíveis com instalações antigas",
+      "Refletores LED de altíssimo brilho com segurança total em 12V",
+      "Controle remoto touch screen para controle de cores, brilho e ritmos",
+      "Cascatas duráveis em aço inox 304 e 316 resistentes ao sol e ao cloro",
+      "Instalação com caixas de passagem e comandos elétricos protegidos",
     ],
-    ctaText: "Ver Cascatas e Refletores LED",
+    ctaText: "Conhecer Cascatas e Refletores",
     whatsappMessage:
-      "Olá! Gostaria de conhecer os modelos de cascatas e refletores LED disponíveis na Modelo Piscinas.",
+      "Olá! Gostaria de conhecer os modelos de cascatas em inox e refletores LED para piscina na Quatro Estações.",
   },
   {
-    id: "spas-banheiras-hidro",
-    title: "Spas, Banheiras & Acessórios de Relaxamento",
+    id: "spas-banheiras-hidromassagem",
+    title: "Spas de Hidromassagem & Banheiras",
     shortDesc:
-      "Produtos químicos suaves especiais para spas, aquecedores compactos, jatos de hidromassagem direcionais e saunas para seu bem-estar completo.",
+      "Spas ergonômicos com jatos de hidroterapia direcionais, aquecedor elétrico integrado, cromoterapia e produtos químicos suaves especiais.",
     badge: "Hidroterapia & Conforto",
-    icon: Bath,
-    image: "/spa-relax.jpg",
+    icon: Sparkles,
+    image: "/sauna-spa.jpg",
     fullDesc:
-      "Seja um spa de hidromassagem acoplado à sua piscina ou uma banheira independente, a Modelo Piscinas tem a linha completa de químicos específicos que não formam espuma indesejada nem agridem a pele. Também fornecemos motobombas de hidromassagem, jatos de ar e água e geradores de vapor para saunas.",
+      "Para quem busca alívio muscular e momentos relaxantes a dois ou com a família, nossos spas e banheiras contam com assentos anatômicos, bicos de massagem pulsante, filtragem própria e aquecimento rápido. Também orientamos sobre os produtos químicos específicos que não espumam e preservam os motores e jatos.",
     benefits: [
-      "Produtos formulados especialmente para altas temperaturas de spas",
-      "Bicos direcionais reguláveis para massagem terapêutica profunda",
-      "Bombas compactas de hidromassagem de alta vazão e baixo ruído",
-      "Consultoria completa para manutenção da pureza da água aquecida",
+      "Jatos direcionais reguláveis de alta pressão para massagem corporal",
+      "Aquecimento incorporado com acionamento digital rápido",
+      "Iluminação com cromoterapia em LED para alívio do estresse",
+      "Químicos adequados para spas que mantêm a água cristalina sem espuma",
     ],
-    ctaText: "Consultar Produtos para Spas",
+    ctaText: "Consultar Spas de Hidromassagem",
     whatsappMessage:
-      "Olá! Gostaria de informações sobre produtos e equipamentos para spas e banheiras com a Modelo Piscinas.",
+      "Olá! Gostaria de consultar modelos de spas de hidromassagem e banheiras na Quatro Estações Piscinas.",
   },
   {
-    id: "acessorios-aspiracao-limpeza",
-    title: "Acessórios de Aspiração & Limpeza Prática",
+    id: "produtos-quimicos-manutencao",
+    title: "Produtos de Tratamento & Acessórios",
     shortDesc:
-      "Mangueiras flutuantes, cabos telescópicos, peneiras, escovas curvas, aspiradores com cerdas e robôs automáticos para facilitar o seu dia a dia.",
-    badge: "Linha Completa de Acessórios",
-    icon: PackageCheck,
-    image: "/loja-showroom-pool.jpg",
+      "Linha completa de químicos para deixar sua piscina cristalina: cloro, clarificantes, algicidas, elevadores/redutores de pH, aspiradores, cabos e mangueiras.",
+    badge: "Água Pura & Cristalina",
+    icon: Droplets,
+    image: "/tratamento-agua.jpg",
     fullDesc:
-      "Limpar a sua piscina não precisa ser uma tarefa pesada. Na Modelo Piscinas, temos tudo que você precisa para uma aspiração eficiente: aspiradores com esferas para piscina de alvenaria e vinil, escovas de cerdas macias e de aço, mangueiras corrugadas resistentes e adaptadores universais. A loja mais completa da Região Leste de Belo Horizonte!",
+      "Cuidar da água é simples quando você tem a orientação correta. Na Quatro Estações Piscinas, além de encontrar os melhores produtos de manutenção, você recebe instruções precisas de dosagem para manter a água saudável e transparente, evitando olhos vermelhos e manchas na fibra. Temos tudo a pronta entrega em nossa loja na Av. Marechal Castelo Branco, 2111.",
     benefits: [
-      "Aspiradores com pesos balanceados que não riscam nem danificam o fundo",
-      "Mangueiras flutuantes de alta durabilidade com ponteiras giratórias",
-      "Peneiras cata-folha com tela de nylon reforçada e armação anatômica",
-      "Preços justos e atendimento cordial para tirar qualquer dúvida",
+      "Cloro granulado estabilizado e pastilhas de dissolução lenta",
+      "Clarificantes, decantadores, algicida choque e manutenção",
+      "Acessórios completos: mangueiras flutuantes, ponteiras, escovas e peneiras",
+      "Orientação técnica gratuita sobre equilíbrio de pH e alcalinidade",
     ],
-    ctaText: "Falar sobre Acessórios de Piscina",
+    ctaText: "Pedir Produtos de Piscina",
     whatsappMessage:
-      "Olá! Gostaria de consultar os acessórios de limpeza (aspirador, mangueira, peneira) na Modelo Piscinas.",
+      "Olá! Gostaria de comprar produtos de limpeza e químicos para minha piscina na Quatro Estações Piscinas.",
   },
 ];
 
-// 13 Depoimentos Reais do Google Maps da Modelo Piscinas (4,9 Estrelas · 23 Avaliações)
-const REVIEWS = [
+// 16 Depoimentos Reais e Autênticos do Google Maps (4,9★ · 67 Avaliações)
+interface CustomerReview {
+  name: string;
+  tag: string;
+  rating: number;
+  highlight: string;
+  comment: string;
+  ownerReply?: string;
+}
+
+const REVIEWS: CustomerReview[] = [
   {
-    name: "Mery Inez",
+    name: "Ana Paula Carvalho",
+    tag: "4 avaliações · 13 fotos · Cliente Verificada",
+    rating: 5,
+    highlight: "Resolveu o Lago Ornamental e Aqueceu a Piscina",
+    comment:
+      "Gostaria de agradecer pelo excelente serviço prestado! É um profissional que realmente entende do assunto, sabe identificar as necessidades e oferecer a solução certa. No meu caso, resolveu o problema do lago ornamental, que outros não conseguiram. Fiquei muito satisfeita com o atendimento, a competência e a qualidade do trabalho. Recomendo de olhos fechados para quem busca um profissional sério e que realmente resolve. Hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes!",
+    ownerReply:
+      "Obrigado Ana Paula pela oportunidade e confiança. Fico feliz por ter acertado seu lago ornamental e aquecido sua piscina ao mesmo tempo.",
+  },
+  {
+    name: "Carlos Henrique",
+    tag: "Cliente Verificado · 2 fotos",
+    rating: 5,
+    highlight: "Troca Imediata de Bomba na Caixa sem Burocracia",
+    comment:
+      "Ótimo atendimento, profissionais de alta qualidade, foram bem responsáveis em questão do tempo combinado, tive um pequeno problema na minha bomba nem se quer quiseram verificar ela já me deu uma nova na caixa, recomendo sempre!",
+    ownerReply: "Carlos, agradecemos a preferência!",
+  },
+  {
+    name: "Rafael Santos",
+    tag: "Cliente Verificado",
+    rating: 5,
+    highlight: "Equipe Especializada da Venda até o Pós-Venda",
+    comment:
+      "A Quatro Estações me surpreendeu, desde o atendimento inicial, até o final da obra. Com equipe especializada de vendas até a instalação do produto! Um pós venda de atendimento rápido, onde precisei de uma orientação e verificação e fui rapidamente atendido pelo responsável técnico.",
+    ownerReply: "Rafael, agradecemos a preferência!",
+  },
+  {
+    name: "Silmara Duque",
+    tag: "4 avaliações · Cliente Verificada",
+    rating: 5,
+    highlight: "Visita Técnica do Leo e Cuidado com a Estrutura",
+    comment:
+      "Passando para deixar registrado o profissionalismo da instalação e venda do aquecimento da minha piscina. Desde a visita técnica do Leo, conversas e instalação do pessoal, fui muito bem atendida, sanando as minhas dúvidas, tendo cuidado com minha estrutura e cumprindo o combinado. Super indico a empresa.",
+    ownerReply:
+      "Agradecemos a avaliação e nos colocamos à disposição sempre! Obrigada pela preferência!",
+  },
+  {
+    name: "Januzia Alacoque",
+    tag: "3 avaliações · Cliente Verificada",
+    rating: 5,
+    highlight: "Quase 3 Anos de Sonho Realizado com Dani e Leo",
+    comment:
+      "Comprei minha piscina com a Dani e com o Leonardo, era meu sonho, além de ter ficado linda, eles foram muito técnicos e nos dão auxílio até hoje, já fazem quase 3 anos e tudo certo, nunca tive problemas.",
+    ownerReply: "Agradecemos a preferência! Sempre às ordens quando precisar!!",
+  },
+  {
+    name: "Danilo Antonio Braga",
+    tag: "Cliente Verificado · 3 fotos",
+    rating: 5,
+    highlight: "Melhor Natal da Família com a Piscina Nova",
+    comment:
+      "Tô muito satisfeito só tenho a agradecer a seriedade e o compromisso que vocês tiveram comigo, uma equipe responsável que me proporcionou o melhor Natal que já tive, obrigado a todos da equipe aprovo e recomendo que Deus abençoe cada um de vocês!",
+    ownerReply: "Agradecemos a preferência!",
+  },
+  {
+    name: "Hudson Evaristo",
+    tag: "5 avaliações · Cliente Verificado",
+    rating: 5,
+    highlight: "Rapidez, Agilidade e Aquecimento para Banho",
+    comment:
+      "Ótimo atendimento, rapidez, agilidade. Instalação sem problemas e equipamento de excelente qualidade. Recomendo Quatro Estações Piscinas.",
+    ownerReply:
+      "Obrigado pela oportunidade Hudson. Aproveite seu novo equipamento de aquecimento para banho!",
+  },
+  {
+    name: "Lisley Figueiredo",
+    tag: "Local Guide · 12 avaliações",
+    rating: 5,
+    highlight: "Atendimento Especial Antes e Depois da Aquisição",
+    comment:
+      "Profissionais maravilhosos, atendimento especial antes e depois da aquisição. Recomendo demais!",
+    ownerReply: "Agradecemos a preferência, sempre à disposição!",
+  },
+  {
+    name: "Telles Fantini",
+    tag: "Local Guide · 3 avaliações",
+    rating: 5,
+    highlight: "Técnico Muito Bom, Atencioso e Pontual",
+    comment:
+      "Ótimo lugar, excelente atendimento. Muito profissional. Técnico de instalação muito bom, atencioso, pontual.",
+    ownerReply: "Obrigada pela preferência! Sempre às ordens.",
+  },
+  {
+    name: "Edelcio Rabetti",
+    tag: "3 avaliações · Cliente Verificado",
+    rating: 5,
+    highlight: "Piscina Leblon de 5 Metros com Acabamento Nota 10",
+    comment:
+      "Dentre todas as lojas que eu fui esta foi a que melhor me atendeu. Pessoal muito atencioso, tirou várias vezes as minhas dúvidas. O material da piscina Leblon de 5 metros é de boa qualidade acabamento muito bom.",
+    ownerReply: "Sempre às ordens Sr. Edelcio!",
+  },
+  {
+    name: "Tatiane Pereira",
+    tag: "3 avaliações · Cliente Verificada",
+    rating: 5,
+    highlight: "Daniela Muito Paciente e Suporte Completo",
+    comment:
+      "Fui muito bem atendida pela Daniela e pelo Leonardo. Daniela muito paciente, tirou todas as dúvidas e deu todo o suporte. Fiquei satisfeita com a aquisição e com o atendimento.",
+    ownerReply: "Gratos pela preferência e sempre à disposição!",
+  },
+  {
+    name: "Warly Fraguas",
+    tag: "6 avaliações · Cliente Verificado",
+    rating: 5,
+    highlight: "Aquecimento Solar e Piscina Maravilhosa",
+    comment:
+      "Conheci a empresa comprando produtos de piscina... depois coloquei aquecimento... melhor custo e benefício... e estou aproveitando bastante... Empresa que confiei e não me arrependo... A piscina está MARAVILHOSA!!!!!!",
+    ownerReply: "Agradecemos a preferência, sempre à disposição.",
+  },
+  {
+    name: "Thais Fonseca",
     tag: "2 avaliações · Cliente Verificada",
     rating: 5,
-    highlight: "Equipe de Confiança & Profissionalismo",
+    highlight: "Assistência e Presteza Únicas",
     comment:
-      "Atendimento de qualidade, equipe de confiança e sempre disposta a ajudar. A loja está de parabéns pelo profissionalismo!",
+      "Tudo perfeito!!! Um atendimento excelente, que vai além da venda dos produtos, com uma assistência, presteza e atenção únicas! Recomendo e agradeço por toda assistência.",
+    ownerReply: "Nós é que agradecemos, estamos à disposição sempre!",
   },
   {
-    name: "Karine Ferreira",
-    tag: "8 avaliações · Cliente Verificada",
+    name: "Vanessa Silva",
+    tag: "6 avaliações · Cliente Verificada",
     rating: 5,
-    highlight: "Melhor Preço da Região",
+    highlight: "Hiper Feliz com a Piscina e Aquecedor Solar",
     comment:
-      "Melhor atendimento! Produtos com o melhor preço da região.",
+      "Satisfação, produtos de qualidade, estou hiper feliz com a aquisição da piscina e aquecedor solar. Vocês são um espetáculo!!!",
+    ownerReply: "Obrigado, sempre à disposição!",
   },
   {
-    name: "Romero Fernandes",
-    tag: "1 avaliação · Cliente Verificado",
+    name: "Helio Junio Campolina Ramos",
+    tag: "Cliente Verificado",
     rating: 5,
-    highlight: "Crepina do Filtro Sibrape Encontrada",
+    highlight: "Leo e Daniela São Especiais e Honestos",
     comment:
-      "Melhor atendimento, tem de tudo e um preço justo. Achei crepina do filtro sibrape não achava em lugar nenhum!",
+      "Ótimo atendimento e honestidade. Leo e Daniela são especiais. Super recomendo a todos!",
   },
   {
-    name: "Mateus Henrique",
-    tag: "Local Guide · 211 avaliações · 18 fotos",
+    name: "Wagner Arlan Almeida",
+    tag: "4 avaliações · 1 foto",
     rating: 5,
-    highlight: "Loja Completa & Cloro Clorofort",
+    highlight: "Comprometimento e Melhor Loja da Cidade",
     comment:
-      "Loja bem completa, sempre tem cloro da clorofort disponível. Atendimento nota 10",
-  },
-  {
-    name: "Beatriz Souza",
-    tag: "9 avaliações · Cliente Verificada",
-    rating: 5,
-    highlight: "Melhor Lugar da Região Leste",
-    comment:
-      "Na região leste o melhor lugar de se encontrar produtos. Fácil acesso, excelente prévias e aqui se encontra todos os produtos necessários. Excelente atendimento.",
-  },
-  {
-    name: "Erika Souza",
-    tag: "Local Guide · 5 avaliações · 35 fotos",
-    rating: 5,
-    highlight: "Empresa Séria & Serviço de Qualidade",
-    comment:
-      "Excelente atendimento, empresa seria, melhores preços do mercado, e além de tudo um serviço bem executado feito com muita qualidade PARABÉNS...",
-  },
-  {
-    name: "Wilson Hermogenes",
-    tag: "2 avaliações · Cliente Verificado",
-    rating: 5,
-    highlight: "Serviço Entregue Rigorosamente na Data",
-    comment:
-      "PERFEITO, FUI BEM ATENDIDO, ENTREGOU O SERVIÇO NA DATA. RECOMENDEI A EMPRESA PARA MEUS AMIGOS ELES ADORÃO.",
-  },
-  {
-    name: "Leonardo Rafael",
-    tag: "Local Guide · 16 avaliações · 2 fotos",
-    rating: 5,
-    highlight: "Atendimento Excelente & Bons Produtos",
-    comment:
-      "Atendimento excelente! Bons produtos",
-  },
-  {
-    name: "Alisson Costa",
-    tag: "1 avaliação · Cliente Verificado",
-    rating: 5,
-    highlight: "Ótimo Preço & Serviço de Qualidade",
-    comment:
-      "Excelente Atendimento ótimo Preço Serviço de qualidade..",
-  },
-  {
-    name: "Gustavo Araujo",
-    tag: "1 avaliação · Cliente Verificado",
-    rating: 5,
-    highlight: "Total Satisfação dos Clientes",
-    comment:
-      "RECOMENDO, serviço prestado com total satisfação de seus clientes...",
-  },
-  {
-    name: "Vera Lucia",
-    tag: "2 avaliações · Cliente Verificada",
-    rating: 5,
-    highlight: "Loja Linda & Atendimento Toppp",
-    comment:
-      "Loja linda. Atendimento toppp",
-  },
-  {
-    name: "Cláudia Daniella Alves",
-    tag: "Local Guide · 77 avaliações · 29 fotos",
-    rating: 5,
-    highlight: "Perto de Casa com Preço Justo",
-    comment:
-      "Perto de casa, excelente atendimento e o preço justo.",
-  },
-  {
-    name: "Eliezer Ribeiro",
-    tag: "4 avaliações · Cliente Verificado",
-    rating: 5,
-    highlight: "Melhor Preço e Serviço da Região, Nota 10",
-    comment:
-      "Melhor preço e serviço da região, Nota 10",
+      "Empresa com um grande comprometimento com os clientes. Aqui eu indico a todas as pessoas. Pra mim é a melhor loja da cidade.",
+    ownerReply:
+      "Agradecemos a preferência e as indicações! Sempre à disposição.",
   },
 ];
 
 type GalleryCategory =
   | "todas"
-  | "produtos"
-  | "filtros"
+  | "piscinas"
   | "aquecimento"
+  | "saunas"
+  | "lagos"
   | "iluminacao";
 
 interface GalleryProject {
@@ -422,94 +460,94 @@ interface GalleryProject {
 
 const GALLERY_PROJECTS: GalleryProject[] = [
   {
-    src: "/tratamento-agua.jpg",
-    title: "Linha Completa de Químicos e Cloro Clorofort",
-    category: "produtos",
-    tag: "Tratamento de Água",
-    desc: "Produtos de alto rendimento para deixar sua piscina cristalina e segura para o banho.",
+    src: "/hero-pool.jpg",
+    title: "Área de Lazer Completa com Piscina de Fibra Aguazul",
+    category: "piscinas",
+    tag: "Piscina com Prainha",
+    desc: "Projeto residencial com deck amplo, prainha infantil, hidromassagem e paisagismo impecável em Sete Lagoas.",
+  },
+  {
+    src: "/piscina-fibra.jpg",
+    title: "Piscina de Fibra Instalada com Banco Hidro",
+    category: "piscinas",
+    tag: "Fibra de Alta Resistência",
+    desc: "Acabamento de alto brilho, curvas suaves e escada integrada para total conforto da família.",
+  },
+  {
+    src: "/aquecimento-solar.jpg",
+    title: "Aquecimento Solar com Coletores de Alta Eficiência",
+    category: "aquecimento",
+    tag: "Piscina Aquecida",
+    desc: "Placas solares de polipropileno no telhado garantindo água morna e relaxante nos 365 dias do ano.",
+  },
+  {
+    src: "/sauna-spa.jpg",
+    title: "Sauna a Vapor e Spa de Hidromassagem Aquecido",
+    category: "saunas",
+    tag: "Bem-Estar & Saúde",
+    desc: "Ambiente privativo para relaxamento completo com gerador de vapor silencioso e spa terapêutico.",
+  },
+  {
+    src: "/lago-ornamental.jpg",
+    title: "Lago Ornamental com Água Cristalina e Carpas",
+    category: "lagos",
+    tag: "Balanço Biológico",
+    desc: "Case de sucesso em Sete Lagoas: filtragem biológica e ozônio que mantém a água 100% transparente e saudável para os peixes.",
+  },
+  {
+    src: "/cascata-led.jpg",
+    title: "Cascata em Inox com Iluminação Subaquática LED 12V",
+    category: "iluminacao",
+    tag: "Cenário Noturno",
+    desc: "Efeito relaxante do som de água corrente com refletores RGB controlados por controle remoto sem fio.",
   },
   {
     src: "/filtro-bomba.jpg",
-    title: "Casa de Máquinas Montada com Filtro e Motobomba",
-    category: "filtros",
-    tag: "Filtros & Bombas Silenciosas",
-    desc: "Dimensionamento e reposição com registros organizados, fácil manuseio e alta durabilidade.",
+    title: "Casa de Máquinas Montada com Bomba e Filtro",
+    category: "piscinas",
+    tag: "Equipamentos de Ponta",
+    desc: "Tubulação setorizada com registros de alta qualidade, motobomba silenciosa e troca expressa na garantia.",
   },
   {
-    src: "/aquecedores.jpg",
-    title: "Sistema de Aquecimento Solar de Alta Absorção",
-    category: "aquecimento",
-    tag: "Aquecimento Solar",
-    desc: "Placas solares projetadas para aquecer sua piscina de maneira ecológica com excelente rendimento térmico.",
-  },
-  {
-    src: "/cascata-real.jpg",
-    title: "Cascata em Aço Inox Escovado com Queda Suave",
-    category: "iluminacao",
-    tag: "Cascatas em Inox",
-    desc: "Elegância e som terapêutico de água caindo, produzida com inox resistente ao sol e ao cloro.",
-  },
-  {
-    src: "/iluminacao-real.jpg",
-    title: "Refletores LED Subaquáticos RGB Noturnos",
-    category: "iluminacao",
-    tag: "Iluminação em LED 12V",
-    desc: "Efeitos cênicos coloridos com controle remoto sem fio e total segurança elétrica.",
-  },
-  {
-    src: "/spa-relax.jpg",
-    title: "Spa de Hidromassagem Aquecido e Relaxante",
-    category: "aquecimento",
-    tag: "Spas & Hidroterapia",
-    desc: "Jatos direcionais terapêuticos e químicos próprios que preservam o equipamento.",
-  },
-  {
-    src: "/piscina-obra-1.jpg",
-    title: "Piscina Cristalina com Manutenção Periódica",
-    category: "produtos",
-    tag: "Água Impecável",
-    desc: "Equilíbrio químico perfeito de cloro, pH e alcalinidade orientado pelos técnicos da loja.",
-  },
-  {
-    src: "/loja-showroom-pool.jpg",
-    title: "Loja Ampla com Pronta Entrega na Região Leste",
-    category: "produtos",
-    tag: "Sede Av. Itaituba, 173",
-    desc: "Estrutura completa com estacionamento fácil e consultores prontos para tirar suas dúvidas.",
+    src: "/loja-showroom-real.jpg",
+    title: "Showroom Quatro Estações Piscinas na Av. Marechal Castelo Branco, 2111",
+    category: "todas",
+    tag: "Showroom Real em Sete Lagoas",
+    desc: "Pátio com modelos de piscinas de fibra Aguazul em exposição, aquecedor solar e loja completa para sua área de lazer.",
   },
 ];
 
-// Perguntas Frequentes Reais sobre a Modelo Piscinas
+// Perguntas Frequentes
 const FAQS = [
   {
-    question: "Onde fica a Modelo Piscinas e qual o horário de funcionamento?",
+    question: "Onde fica a Quatro Estações Piscinas e qual o horário de funcionamento?",
     answer:
-      "A nossa loja está situada na Av. Itaituba, 173 - Bairro Boa Vista, Belo Horizonte - MG (CEP 31060-427), na Região Leste da capital. Nosso horário de funcionamento é de segunda a sexta-feira, das 08:00 às 18:00, e aos sábados, das 08:00 às 12:00. Temos fácil acesso e facilidade para estacionar e retirar seus produtos.",
+      "Nossa loja e sede oficial está situada na Av. Marechal Castelo Branco, 2111 (esquina com a Rua Melo Figueiredo) - Bairro Santo Antonio, Sete Lagoas - MG (CEP 35701-240). Nosso horário de funcionamento é de segunda a sexta-feira, das 08:00 às 18:00, e aos sábados, das 08:00 às 12:00. Temos amplo espaço e facilidade de estacionamento.",
   },
   {
-    question: "Vocês realmente têm crepinas e peças para filtro Sibrape?",
+    question: "Quais são os modelos e tamanhos das Piscinas de Fibra Aguazul?",
     answer:
-      "Sim! Essa é uma das peças mais difíceis de encontrar em BH e um dos pontos mais elogiados pelos nossos clientes. Mantemos em estoque crepinas originais Sibrape para diversos modelos de filtro, manômetros, tampas de pré-filtro, borrachas de vedação, rotores e uniões.",
+      "A Quatro Estações Piscinas é a revendedora oficial e autorizada da Aguazul Piscinas em Sete Lagoas. Contamos com a linha completa de piscinas de fibra: desde modelos compactos para pequenos quintais até piscinas amplas para sítios e chácaras (como a consagrada linha Leblon de 5 metros até piscinas de 10 metros ou mais), equipadas com prainha para crianças, bancos de hidromassagem e acabamento nobre em gel coat.",
   },
   {
-    question: "Vocês têm cloro da marca Clorofort a pronta entrega?",
+    question: "Vocês trabalham com aquecimento solar para piscinas e também para banho?",
     answer:
-      "Com certeza! Como destacam vários clientes no Google, 'sempre tem cloro da Clorofort disponível'. Trabalhamos com estoques sempre abastecidos para que você nunca fique sem cloro para sua piscina, além de clarificantes, algicidas, barrilha e sulfato.",
+      "Sim! Oferecemos soluções completas de aquecimento térmico: placas coletoras solares de polipropileno de alta absorção, bombas de calor trocadores inverter para piscinas, e também sistemas de aquecimento solar para banho residencial (chuveiros e pias). Como elogiou o cliente Hudson Evaristo no Google, instalamos com rapidez, agilidade e máxima qualidade.",
   },
   {
-    question: "A Modelo Piscinas realiza serviços de manutenção e troca de areia?",
+    question: "Como funciona o atendimento técnico para lagos ornamentais?",
     answer:
-      "Sim! Além da venda de produtos e peças na loja física, realizamos serviços técnicos especializados como recuperação de água verde, troca de areia do filtro, conserto de vazamentos hidráulicos em casas de máquinas e revisões gerais, sempre com pontualidade comprovada e serviço entregue na data.",
+      "Somos especialistas reconhecidos em lagos ornamentais com carpas e peixes. Se o seu lago está com água verde, turva ou com problemas biológicos, fazemos o diagnóstico correto e a instalação de filtros biológicos, ozônio e esterilizadores UV. A cliente Ana Paula Carvalho registrou no Google: 'resolveu o problema do lago ornamental que outros não conseguiram, hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes!'.",
   },
   {
-    question: "Vocês trabalham com aquecimento solar e bombas de calor?",
+    question: "Como funciona a garantia e assistência técnica de bombas e filtros?",
     answer:
-      "Sim! Dimensionamos o sistema ideal para o tamanho da sua piscina, fornecendo coletores solares de alta absorção térmica, bombas de calor (trocadores de calor com tecnologia inverter), capas térmicas sob medida e termostatos digitais para sua piscina ficar aquecida os 365 dias do ano.",
+      "Temos um compromisso inegociável com a tranquilidade do cliente. Nosso pós-venda é comprovado: como relatou Carlos Henrique, quando a bomba teve problema, fizemos a substituição imediata por uma nova na caixa. Trabalhamos com bombas e filtros das melhores marcas e oferecemos suporte contínuo antes, durante e após a instalação.",
   },
   {
-    question: "Como posso pedir um orçamento ou tirar dúvidas pelo WhatsApp?",
+    question: "Como agendar uma visita técnica ou solicitar um orçamento?",
     answer:
-      "É muito simples! Basta clicar nos botões de WhatsApp espalhados por esta página ou chamar no número (31) 98396-1882. Nossa equipe está sempre disposta a ajudar, responder perguntas técnicas, enviar fotos de peças e montar orçamentos sem compromisso.",
+      "É muito rápido! Basta clicar em qualquer botão de WhatsApp nesta página ou entrar em contato pelo número (31) 3773-6264. O Leonardo ou a Daniela irão tirar todas as suas dúvidas com paciência, enviar o catálogo de modelos e agendar uma visita técnica sem compromisso.",
   },
 ];
 
@@ -527,8 +565,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
-      {/* 1. TOP BAR INSTITUCIONAL — BOA VISTA, BELO HORIZONTE */}
-      <div className="bg-[#070D24] text-white text-[12px] py-2 px-4 border-b border-[#121F54]">
+      {/* 1. TOP BAR INSTITUCIONAL — SETE LAGOAS, MINAS GERAIS */}
+      <div className="bg-[#07172C] text-white text-[12px] py-2 px-4 border-b border-[#0F3260]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           {/* Lado Esquerdo: Endereço & Horários */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-5 text-slate-300">
@@ -536,427 +574,408 @@ export default function HomePage() {
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-[#00B4F5] transition-colors whitespace-nowrap"
+              className="flex items-center gap-1.5 hover:text-[#38BDF8] transition-colors whitespace-nowrap"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#00B4F5] shrink-0" />
-              <span>Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG</span>
+              <MapPin className="w-3.5 h-3.5 text-[#0A6DB0] shrink-0" />
+              <span>Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG</span>
             </a>
             <div className="hidden sm:flex items-center gap-1.5 text-slate-400 whitespace-nowrap">
-              <Clock className="w-3.5 h-3.5 text-[#00B4F5] shrink-0" />
+              <Clock className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
               <span>Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
             </div>
           </div>
 
-          {/* Lado Direito: Avaliação Google, Telefone Fixo & WhatsApp */}
+          {/* Lado Direito: Avaliação Google, Telefone & WhatsApp */}
           <div className="flex items-center gap-3 sm:gap-4 text-slate-300">
             <a
               href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#0D163B] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#1E3485] hover:border-[#00B4F5] transition-colors text-[11px] whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 bg-[#0B2344] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#1E4E8C] hover:border-[#38BDF8] transition-colors text-[11px] whitespace-nowrap"
             >
-              <div className="flex text-[#F59E0B]">
+              <div className="flex text-[#F7D511]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
               </div>
-              <span className="font-bold text-[#F59E0B]">{GOOGLE_RATING}★</span>
-              <span className="text-slate-400 hidden xl:inline">({GOOGLE_REVIEW_COUNT} avaliações)</span>
+              <span className="font-bold text-[#F7D511]">{GOOGLE_RATING}★</span>
+              <span className="text-slate-300 hidden xl:inline">({GOOGLE_REVIEW_COUNT} avaliações reais)</span>
             </a>
 
             <a
-              href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
+              href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
               className="hidden lg:flex items-center gap-1 hover:text-white transition-colors whitespace-nowrap"
             >
-              <Phone className="w-3 h-3 text-[#00B4F5]" />
-              <span>{LANDLINE_DISPLAY}</span>
+              <Phone className="w-3 h-3 text-[#38BDF8]" />
+              <span>{PHONE_DISPLAY}</span>
             </a>
 
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#00D0FF] font-semibold hover:underline whitespace-nowrap"
+              className="flex items-center gap-1.5 text-[#38BDF8] font-semibold hover:underline whitespace-nowrap"
             >
-              <WhatsAppIcon size={14} />
-              <span>{PHONE_DISPLAY}</span>
+              <WhatsAppIcon size={14} className="text-[#22C55E]" />
+              <span>WhatsApp Oficial</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* 2. NAVBAR PRINCIPAL */}
-      <header className="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-20 gap-4">
-            {/* Logo Oficial Modelo Piscinas — limpo, sem texto duplicado */}
-            <a href="#" className="flex items-center shrink-0 group py-1" aria-label="Modelo Piscinas - Início">
-              <div className="relative h-12 sm:h-14 w-24 sm:w-28 transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src={LOGO_SRC}
-                  alt="Modelo Piscinas Logo"
-                  fill
-                  priority
-                  sizes="(max-width: 640px) 96px, 112px"
-                  className="object-contain object-left"
-                />
-              </div>
-            </a>
-
-            {/* Desktop Navigation Links — com whitespace-nowrap para nunca quebrar palavras */}
-            <nav className="hidden lg:flex items-center gap-2 xl:gap-4 text-[13px] xl:text-[14px] font-semibold text-slate-700">
-              <a
-                href="#produtos"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
-              >
-                Produtos &amp; Serviços
-              </a>
-              <a
-                href="#diferenciais"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
-              >
-                Diferenciais
-              </a>
-              <a
-                href="#sobre"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
-              >
-                Sobre Nós
-              </a>
-              <a
-                href="#galeria"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
-              >
-                Galeria
-              </a>
-              <a
-                href="#depoimentos"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors flex items-center gap-1.5"
-              >
-                <span>Avaliações</span>
-                <span className="bg-[#FEF3C7] text-[#D97706] text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-[#FDE68A]">
-                  4,9★
+      {/* 2. HEADER / NAVBAR PRINCIPAL */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3 lg:gap-6">
+          {/* Logo Oficial & Assinatura da Marca */}
+          <a href="#" className="flex items-center gap-3 shrink-0 group">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src={LOGO_SRC}
+                alt="Logo Aguazul Sete Lagoas - Quatro Estações Piscinas"
+                fill
+                sizes="56px"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-2">
+                <span className="text-[17px] sm:text-[19px] lg:text-[20px] font-black tracking-tight text-[#07172C] leading-none font-heading whitespace-nowrap group-hover:text-[#0A6DB0] transition-colors">
+                  QUATRO ESTAÇÕES
                 </span>
-              </a>
-              <a
-                href="#faq"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
-              >
-                Dúvidas
-              </a>
-              <a
-                href="#localizacao"
-                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
-              >
-                Como Chegar
-              </a>
-            </nav>
-
-            {/* Action Buttons */}
-            <div className="hidden sm:flex items-center gap-2.5 shrink-0">
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram da Modelo Piscinas"
-                className="p-2.5 rounded-lg border border-slate-200 text-slate-600 hover:text-[#00B4F5] hover:border-[#00B4F5] transition-colors"
-              >
-                <InstagramIcon size={18} />
-              </a>
-
-              <GlowingButton
-                href={getWhatsAppUrl(
-                  "Olá! Encontrei o site da Modelo Piscinas e gostaria de atendimento sobre produtos e equipamentos."
-                )}
-                target="_blank"
-                variant="whatsapp"
-                size="sm"
-                className="shadow-sm"
-              >
-                <WhatsAppIcon size={16} />
-                <span className="whitespace-nowrap font-bold">Pedir no WhatsApp</span>
-              </GlowingButton>
+                <span className="hidden sm:inline-block text-[10px] font-extrabold uppercase tracking-wider text-[#EE8220] bg-[#FFF7ED] px-2 py-0.5 rounded-full border border-[#FDBA74]/40 whitespace-nowrap">
+                  Sete Lagoas
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold text-[#0A6DB0] tracking-wider uppercase mt-1 whitespace-nowrap">
+                Piscinas &bull; Saunas &bull; Aquecimento
+              </span>
             </div>
+          </a>
 
-            {/* Mobile Menu Trigger */}
-            <div className="flex lg:hidden items-center gap-2">
-              <GlowingButton
-                href={getWhatsAppUrl()}
-                target="_blank"
-                variant="whatsapp"
-                size="sm"
-                className="text-xs px-3 py-1.5"
-              >
-                <WhatsAppIcon size={14} />
-                <span className="whitespace-nowrap">WhatsApp</span>
-              </GlowingButton>
+          {/* Menu Desktop — 1 Linha Perfeita sem Quebras */}
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-[13px] xl:text-[14px] font-semibold text-slate-700">
+            <a
+              href="#piscinas"
+              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+            >
+              Piscinas
+            </a>
+            <a
+              href="#aquecimento"
+              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+            >
+              Aquecimento
+            </a>
+            <a
+              href="#servicos"
+              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+            >
+              Saunas &amp; Lagos
+            </a>
+            <a
+              href="#sobre"
+              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+            >
+              Sobre Nós
+            </a>
+            <a
+              href="#depoimentos"
+              className="inline-flex items-center gap-1 hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1"
+            >
+              <span>Avaliações</span>
+              <span className="text-[11px] font-extrabold text-[#D97706] bg-[#FEF9C3] px-1.5 py-0.2 rounded-full border border-[#FDE047]/60">
+                ★ 4,9
+              </span>
+            </a>
+            <a
+              href="#contato"
+              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+            >
+              Loja Física
+            </a>
+          </nav>
 
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-slate-700 hover:text-[#00B4F5] hover:bg-slate-100 focus:outline-none transition-colors"
-                aria-label="Alternar menu"
-              >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
+          {/* CTA Header WhatsApp */}
+          <div className="hidden sm:flex items-center shrink-0">
+            <a
+              href={getWhatsAppUrl("Olá! Gostaria de falar com o atendimento da Quatro Estações Piscinas.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#16A34A] hover:bg-[#15803D] text-white text-[13px] font-bold px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all whitespace-nowrap shrink-0 hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <WhatsAppIcon size={16} />
+              <span>Chamar no WhatsApp</span>
+            </a>
           </div>
+
+          {/* Botão Mobile Hamburger */}
+          <button
+            type="button"
+            className="lg:hidden p-2 text-slate-700 hover:text-[#0A6DB0] focus:outline-none"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Abrir menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Menu Mobile Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3"
+              className="lg:hidden border-t border-slate-200 bg-white px-4 py-6 space-y-4 shadow-xl"
             >
-              <div className="flex flex-col space-y-2 text-sm font-semibold text-slate-700">
+              <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
+                <div className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden border border-slate-200 bg-white p-0.5">
+                  <Image
+                    src={LOGO_SRC}
+                    alt="Logo Aguazul Sete Lagoas"
+                    fill
+                    sizes="48px"
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-black text-[#07172C]">QUATRO ESTAÇÕES</div>
+                  <div className="text-[11px] font-bold text-[#0A6DB0]">Aguazul Sete Lagoas</div>
+                </div>
+              </div>
+              <nav className="flex flex-col space-y-3 font-semibold text-slate-800 text-[15px]">
                 <a
-                  href="#produtos"
+                  href="#piscinas"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50"
+                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
                 >
-                  Produtos &amp; Serviços
+                  Piscinas de Fibra Aguazul
                 </a>
                 <a
-                  href="#diferenciais"
+                  href="#aquecimento"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50"
+                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
                 >
-                  Diferenciais Modelo Piscinas
+                  Aquecimento Solar para Piscina &amp; Banho
+                </a>
+                <a
+                  href="#servicos"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
+                >
+                  Saunas, Lagos &amp; Equipamentos
                 </a>
                 <a
                   href="#sobre"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50"
+                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
                 >
-                  Sobre a Loja
-                </a>
-                <a
-                  href="#galeria"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50"
-                >
-                  Galeria de Fotos
+                  Sobre Nós (Leo &amp; Dani)
                 </a>
                 <a
                   href="#depoimentos"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50 flex items-center justify-between"
+                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
                 >
-                  <span>Avaliações no Google</span>
-                  <span className="bg-[#FEF3C7] text-[#D97706] text-xs px-2 py-0.5 rounded-full font-bold">
-                    4,9★ (23)
-                  </span>
+                  Depoimentos Reais (4,9★ Google)
                 </a>
                 <a
-                  href="#faq"
+                  href="#contato"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50"
+                  className="hover:text-[#0A6DB0] py-1"
                 >
-                  Perguntas Frequentes
+                  Localização da Loja Física
                 </a>
-                <a
-                  href="#localizacao"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-2 px-3 rounded hover:bg-slate-50"
-                >
-                  Endereço &amp; Rotas (Av. Itaituba, 173)
-                </a>
-              </div>
+              </nav>
 
-              <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+              <div className="pt-2 flex flex-col gap-2">
                 <GlowingButton
                   href={getWhatsAppUrl()}
                   target="_blank"
                   variant="whatsapp"
                   size="md"
-                  className="w-full"
+                  className="w-full justify-center"
                 >
                   <WhatsAppIcon size={18} />
-                  <span>Chamar no WhatsApp ({PHONE_DISPLAY})</span>
+                  <span>Falar no WhatsApp: (31) 3773-6264</span>
                 </GlowingButton>
-                <a
-                  href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
-                  className="text-center py-2 text-xs font-bold text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-50"
-                >
-                  Ligar para a Loja: {LANDLINE_DISPLAY}
-                </a>
+                <div className="text-center text-xs text-slate-500 pt-1">
+                  Av. Marechal Castelo Branco, 2111 - Sete Lagoas
+                </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </header>
 
-      {/* 3. HERO SECTION — ALTA CONVERSÃO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#070D24] via-[#0D163B] to-[#121F54] text-white pt-12 pb-20 lg:pt-20 lg:pb-28">
-        {/* Elementos Gráficos de Fundo */}
-        <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#00B4F5_1px,transparent_1px)] [background-size:24px_24px]" />
-        <div className="absolute top-1/4 -right-40 w-96 h-96 bg-[#00B4F5]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#2524A8]/25 rounded-full blur-3xl pointer-events-none" />
+      {/* 3. HERO SECTION DE ALTA CONVERSÃO */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#07172C] via-[#0B2344] to-[#07172C] text-white pt-10 pb-20 sm:pt-16 sm:pb-28">
+        {/* Elementos Gráficos de Fundo Luminoso / Ondas & Sol */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0A6DB0]/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#EE8220]/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-[#F7D511]/10 rounded-full blur-[90px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Coluna Texto / Copywriting */}
+            {/* Lado Esquerdo: Textos & CTAs (7 colunas) */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              {/* Badge de Credibilidade */}
-              <div className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-3.5 py-1.5 rounded-full bg-[#00B4F5]/15 text-[#BAE6FD] text-xs font-bold border border-[#00B4F5]/30">
-                <Sparkles className="w-4 h-4 text-[#00B4F5]" />
-                <span>Loja de Piscinas em Belo Horizonte · Região Leste</span>
-                <span className="hidden sm:inline text-slate-400">•</span>
-                <span className="inline-flex items-center text-[#F59E0B]">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span className="ml-1 font-bold">4,9★ no Google</span>
-                </span>
+              {/* Badge de Destaque / Google Rating com Logo Oficial */}
+              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-1.5 pr-4 rounded-full shadow-lg">
+                <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shrink-0 border border-white/30 shadow-xs flex items-center justify-center">
+                  <Image
+                    src={LOGO_SRC}
+                    alt="Logo Aguazul Sete Lagoas"
+                    fill
+                    sizes="40px"
+                    className="object-contain p-0.5"
+                    priority
+                  />
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm">
+                  <span className="font-extrabold text-[#F7D511] flex items-center gap-1">
+                    ★ 4,9 no Google
+                  </span>
+                  <span className="text-white/40">&bull;</span>
+                  <span className="text-white font-bold">Revendedora Oficial Aguazul Sete Lagoas</span>
+                </div>
               </div>
 
-              {/* H1 Principal */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black italic tracking-tight font-heading leading-[1.12]">
-                Sua Piscina em Boas Mãos:{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] via-[#00B4F5] to-[#70E5FF]">
-                  Do Tratamento ao Aquecimento
-                </span>
+              {/* Headline Principal H1 */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] font-heading">
+                A sua área de lazer dos sonhos com{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#00A3E0] to-[#F7D511]">
+                  Piscinas Aguazul, Saunas &amp; Aquecimento
+                </span>{" "}
+                o ano inteiro.
               </h1>
 
               {/* Subtítulo / Proposta de Valor */}
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                A loja e assistência técnica mais completa da Região Leste e de BH. Cloro Clorofort sempre disponível, filtros, bombas, aquecedores, manutenção especializada e as peças Sibrape que você não acha em lugar nenhum.
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                Valorizamos áreas de lazer e realizamos sonhos tornando cada vez mais aconchegante o seu lar! Do projeto e escavação à instalação completa, aquecimento solar e assistência pós-venda premiada com Leonardo e Daniela.
               </p>
 
-              {/* Badges de Diferenciais Rápidos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2 max-w-xl mx-auto lg:mx-0 text-left">
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
-                  <span>Cloro Clorofort em estoque</span>
+              {/* Pills de Diferenciais */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 pb-2 max-w-lg mx-auto lg:mx-0 text-left">
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#38BDF8] shrink-0" />
+                  <span className="text-xs text-slate-200 font-medium">Piscinas de Fibra 1ª Linha</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
-                  <span>Crepina Sibrape original</span>
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#EE8220] shrink-0" />
+                  <span className="text-xs text-slate-200 font-medium">Aquecimento para Piscina &amp; Banho</span>
                 </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
-                  <span>Aquecimento solar &amp; bomba</span>
-                </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
-                  <span>Melhor preço da região</span>
-                </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
-                  <span>Serviço entregue na data</span>
-                </div>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0D163B]/70 border border-[#1E3485] text-xs text-slate-200">
-                  <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0" />
-                  <span>Atendimento nota 10</span>
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-2.5 col-span-2 sm:col-span-1">
+                  <CheckCircle2 className="w-4 h-4 text-[#F7D511] shrink-0" />
+                  <span className="text-xs text-slate-200 font-medium">Suporte Técnico Nota 10</span>
                 </div>
               </div>
 
-              {/* Botões de Conversão */}
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              {/* Botões de Ação Hero */}
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
                 <GlowingButton
-                  href={getWhatsAppUrl(
-                    "Olá! Gostaria de consultar preços de produtos e equipamentos na Modelo Piscinas."
-                  )}
+                  href={getWhatsAppUrl("Olá Leonardo e Daniela! Gostaria de solicitar um orçamento para a minha piscina/área de lazer.")}
                   target="_blank"
                   variant="whatsapp"
                   size="lg"
-                  className="w-full sm:w-auto text-base"
+                  className="w-full sm:w-auto text-base shadow-lg shadow-green-600/30 font-bold"
                 >
                   <WhatsAppIcon size={20} />
-                  <span>Falar no WhatsApp ({PHONE_DISPLAY})</span>
+                  <span>Solicitar Orçamento sem Compromisso</span>
                 </GlowingButton>
 
                 <GlowingButton
-                  href="#produtos"
-                  variant="outlineCyan"
+                  href="#piscinas"
+                  variant="sunset"
                   size="lg"
-                  className="w-full sm:w-auto text-white border-[#00B4F5]/60 hover:bg-[#00B4F5]/10"
+                  className="w-full sm:w-auto text-base"
                 >
-                  <span>Ver Linha de Produtos</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
+                  <span>Conhecer Modelos de Piscinas</span>
+                  <ArrowRight className="w-4 h-4" />
                 </GlowingButton>
               </div>
 
-              {/* Prova Social Rápida no Hero */}
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs text-slate-300">
-                <div className="flex items-center gap-2">
-                  <div className="flex text-[#F59E0B]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-                  <span className="font-bold text-white">4,9 de 5</span>
-                  <span className="text-slate-400">no Google Maps</span>
+              {/* Resumo de Prova Social Google */}
+              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-300">
+                <div className="flex -space-x-2">
+                  <div className="w-7 h-7 rounded-full bg-[#0A6DB0] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">AP</div>
+                  <div className="w-7 h-7 rounded-full bg-[#EE8220] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">CH</div>
+                  <div className="w-7 h-7 rounded-full bg-[#16A34A] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">RS</div>
+                  <div className="w-7 h-7 rounded-full bg-[#4C3C78] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">SD</div>
                 </div>
-                <span className="hidden sm:inline text-slate-500">•</span>
-                <span className="text-slate-300">Av. Itaituba, 173 - Boa Vista</span>
-                <span className="hidden sm:inline text-slate-500">•</span>
-                <span className="text-emerald-400 font-semibold flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  Atendimento Aberto
+                <span>
+                  <strong className="text-white">Mais de 67 famílias atendidas</strong> e satisfeitas em Sete Lagoas e região
                 </span>
               </div>
             </div>
 
-            {/* Coluna Visual do Hero */}
+            {/* Lado Direito: Card Visual com Foto Hero e Emblema (5 colunas) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Glow de Fundo */}
-                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#00B4F5] via-[#2524A8] to-[#00D0FF] opacity-35 blur-xl animate-subtle-pulse" />
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#1E4E8C] shadow-2xl bg-[#0B2344]">
+                {/* Imagem do Hero */}
+                <div className="relative h-80 sm:h-96 w-full">
+                  <Image
+                    src="/hero-pool.jpg"
+                    alt="Piscina de Fibra Aguazul com Prainha e Deck em Sete Lagoas"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07172C] via-transparent to-transparent opacity-80" />
 
-                {/* Card com Foto Real da Piscina e Equipamentos */}
-                <div className="relative rounded-2xl overflow-hidden bg-[#0D163B] border border-[#1E3485] shadow-2xl">
-                  <div className="relative h-80 sm:h-96 w-full">
-                    <Image
-                      src="/hero-pool.jpg"
-                      alt="Piscina cristalina com equipamentos e tratamento Modelo Piscinas"
-                      fill
-                      priority
-                      sizes="(max-width: 768px) 100vw, 500px"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#070D24] via-transparent to-black/20" />
-
-                    {/* Badge Superior: Selo Oficial */}
-                    <div className="absolute top-4 left-4 bg-[#070D24]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#00B4F5]/40 text-xs text-white font-bold flex items-center gap-1.5 shadow-lg">
-                      <Store className="w-3.5 h-3.5 text-[#00B4F5]" />
-                      <span>Loja Física &amp; Assistência Técnica</span>
+                  {/* Badge Flutuante no Topo com o Logo Oficial */}
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-2.5 text-xs font-bold text-[#07172C] shadow-xl">
+                    <div className="relative w-8 h-8 shrink-0 rounded-lg overflow-hidden bg-white border border-slate-100 p-0.5">
+                      <Image
+                        src={LOGO_SRC}
+                        alt="Emblema Aguazul"
+                        fill
+                        sizes="32px"
+                        className="object-contain"
+                      />
                     </div>
-
-                    {/* Card Flutuante 1: Avaliação Google */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-[#070D24]/95 backdrop-blur-md p-4 rounded-xl border border-[#1E3485] shadow-xl">
-                      <div className="flex items-center justify-between gap-3 mb-2">
-                        <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-full bg-[#00B4F5]/20 flex items-center justify-center text-[#00B4F5] font-black text-xs">
-                            M
-                          </div>
-                          <div>
-                            <p className="text-xs font-bold text-white leading-tight">
-                              Modelo Piscinas BH
-                            </p>
-                            <p className="text-[10px] text-slate-400">
-                              Av. Itaituba, 173 - Boa Vista
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-1 bg-[#0D163B] px-2 py-1 rounded text-xs font-bold text-[#F59E0B] border border-[#1E3485]">
-                          <Star className="w-3 h-3 fill-current" />
-                          <span>4,9★</span>
-                        </div>
-                      </div>
-                      <p className="text-[11px] text-slate-200 italic line-clamp-2">
-                        &ldquo;Achei crepina do filtro Sibrape que não achava em lugar nenhum! Loja bem completa, sempre tem cloro Clorofort e atendimento nota 10.&rdquo;
-                      </p>
+                    <div>
+                      <div className="text-[9px] font-bold text-[#0A6DB0] uppercase tracking-wider leading-tight">Revenda Oficial</div>
+                      <div className="text-[12px] font-extrabold text-[#07172C] leading-tight">Aguazul Sete Lagoas</div>
                     </div>
                   </div>
-                </div>
 
-                {/* Floating Badge Extra */}
-                <div className="absolute -bottom-5 -right-3 hidden sm:flex items-center gap-2 bg-[#16A34A] text-white px-3.5 py-2 rounded-xl shadow-xl font-bold text-xs border border-emerald-400/40">
-                  <WhatsAppIcon size={16} />
-                  <span>Pronta Entrega em BH</span>
+                  {/* Selo no Rodapé da Imagem */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-[#07172C]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center justify-between">
+                    <div>
+                      <div className="text-[11px] font-bold text-[#38BDF8] uppercase tracking-wider">
+                        Atendimento com os Proprietários
+                      </div>
+                      <div className="text-sm font-extrabold text-white">
+                        Leonardo &amp; Daniela
+                      </div>
+                    </div>
+                    <a
+                      href={getWhatsAppUrl("Olá Leo e Dani! Vi o site e gostaria de tirar uma dúvida.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+                    >
+                      <WhatsAppIcon size={13} />
+                      <span>Falar Agora</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card Flutuante de Avaliação em Destaque */}
+              <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-white text-[#07172C] p-3.5 rounded-xl shadow-xl border border-slate-200 hidden sm:flex items-center gap-3 max-w-xs">
+                <div className="p-2.5 rounded-lg bg-[#FEF9C3] text-[#D97706] shrink-0">
+                  <Star className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <div className="text-xs font-extrabold text-[#07172C]">
+                    4,9 Estrelas no Google
+                  </div>
+                  <div className="text-[11px] text-slate-600 line-clamp-1">
+                    &ldquo;Equipe responsável, atendimento nota 10!&rdquo;
+                  </div>
                 </div>
               </div>
             </div>
@@ -964,169 +983,205 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. BARRA DE NÚMEROS E AUTORIDADE */}
-      <section className="bg-white border-y border-slate-200 py-8">
+      {/* 4. BARRA DE NÚMEROS & DIFERENCIAIS */}
+      <section className="bg-white border-y border-slate-200 py-8 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-[#121F54] font-heading flex items-center justify-center gap-1">
-                <span>{GOOGLE_RATING}</span>
-                <Star className="w-6 h-6 text-[#F59E0B] fill-current inline-block" />
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#0A6DB0] font-heading">
+                4,9★
               </div>
-              <p className="text-xs sm:text-sm font-bold text-slate-800">
-                Avaliação no Google
-              </p>
-              <p className="text-[11px] text-slate-500">
-                23 reviews públicas reais
-              </p>
+              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
+                Google Avaliações
+              </div>
+              <div className="text-[11px] text-slate-500">
+                67 avaliações públicas reais
+              </div>
             </div>
 
-            <div className="space-y-1 border-l border-slate-200">
-              <div className="text-3xl sm:text-4xl font-black text-[#00B4F5] font-heading">
+            <div className="space-y-1">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#EE8220] font-heading">
+                4 Estações
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
+                Lazer o Ano Inteiro
+              </div>
+              <div className="text-[11px] text-slate-500">
+                Aquecimento solar e bombas de calor
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#0A6DB0] font-heading">
                 100%
               </div>
-              <p className="text-xs sm:text-sm font-bold text-slate-800">
-                Produtos Originais
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Clorofort, Sibrape e líderes
-              </p>
+              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
+                Pós-Venda &amp; Suporte
+              </div>
+              <div className="text-[11px] text-slate-500">
+                Auxílio permanente até anos após a obra
+              </div>
             </div>
 
-            <div className="space-y-1 border-l border-slate-200">
-              <div className="text-3xl sm:text-4xl font-black text-[#2524A8] font-heading">
-                +10 Anos
+            <div className="space-y-1">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#16A34A] font-heading">
+                Aguazul
               </div>
-              <p className="text-xs sm:text-sm font-bold text-slate-800">
-                Tradição &amp; Confiança
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Sede própria no Boa Vista
-              </p>
-            </div>
-
-            <div className="space-y-1 border-l border-slate-200">
-              <div className="text-3xl sm:text-4xl font-black text-[#16A34A] font-heading">
-                Pontual
+              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
+                Revenda Autorizada
               </div>
-              <p className="text-xs sm:text-sm font-bold text-slate-800">
-                Entrega &amp; Manutenção
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Serviço entregue na data
-              </p>
+              <div className="text-[11px] text-slate-500">
+                Piscinas de fibra com garantia de fábrica
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. SEÇÃO DESTAQUE ESPECIAL: OS DIFERENCIAIS DA MODELO PISCINAS */}
-      <section id="diferenciais" className="py-16 sm:py-24 bg-white border-b border-slate-200">
+      {/* 5. SEÇÃO DE PISCINAS DE FIBRA AGUAZUL EM DESTAQUE */}
+      <section id="piscinas" className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow-royal">Por Que Escolher a Modelo Piscinas</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-              O Diferencial Que os Clientes Comprovam no Google
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+            <span className="eyebrow-blue">Revenda Autorizada Aguazul Sete Lagoas</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+              Piscinas de Fibra com Durabilidade e Beleza Incomparáveis
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Mais do que vender produtos, nós resolvemos o problema da sua água e dos seus equipamentos com transparência, estoque garantido e o melhor preço de Belo Horizonte.
+              Realize o sonho da piscina própria com a marca sinônimo de segurança estrutural em todo o Brasil. Modelos com prainha, escada e hidromassagem que transformam o seu quintal.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1: Peças Sibrape */}
-            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#00B4F5]">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-[#F0F9FF] border border-[#BAE6FD] flex items-center justify-center text-[#00B4F5]">
-                  <Wrench className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-[#070D24] font-heading">
-                  Peças Sibrape &amp; Reposição Difícil
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Romero Fernandes avaliou: <em className="text-slate-800 font-medium">&ldquo;Achei crepina do filtro sibrape não achava em lugar nenhum!&rdquo;</em> Nós mantemos estoque de peças e conexões raras.
-                </p>
+          {/* Card de Destaque da Marca com o Logo Oficial */}
+          <div className="flex flex-col md:flex-row items-center gap-6 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm mb-12 max-w-5xl mx-auto">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 bg-white p-2 rounded-2xl shadow-md border border-slate-100 flex items-center justify-center">
+              <Image
+                src={LOGO_SRC}
+                alt="Logo Aguazul Sete Lagoas"
+                fill
+                sizes="150px"
+                className="object-contain"
+              />
+            </div>
+            <div className="space-y-2 text-center md:text-left flex-1">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F8FF] text-[#0A6DB0] text-xs font-extrabold uppercase tracking-wider">
+                Concessionária Exclusiva em Sete Lagoas
               </div>
-              <div className="pt-2">
-                <span className="text-[11px] font-bold text-[#00B4F5] uppercase tracking-wider block">
-                  Estoque Especializado
-                </span>
+              <h3 className="text-xl sm:text-2xl font-black text-[#07172C] font-heading">
+                Quatro Estações Piscinas &bull; Aguazul Sete Lagoas
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                A Aguazul é referência nacional em piscinas de fibra de vidro de alta tecnologia. Cada piscina conta com acabamento reforçado com gel coat naval, proteção contra osmose, garantia estrutural e os formatos mais modernos com prainha, escada e hidromassagem.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Foto Grande da Piscina de Fibra com Detalhes */}
+            <div className="lg:col-span-7">
+              <div className="relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+                <Image
+                  src="/piscina-fibra.jpg"
+                  alt="Instalação de Piscina de Fibra Aguazul em Sete Lagoas"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 700px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                  <span className="bg-[#EE8220] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Destaque da Linha Aguazul
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading">
+                    Modelos Clássicos &amp; Modernos (Linha Leblon e Muito Mais)
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-200">
+                    Acabamento com gel coat de alta densidade, resistente aos raios UV e de toque acetinado.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Card 2: Cloro Clorofort */}
-            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#2524A8]">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-[#2524A8]">
-                  <Droplets className="w-6 h-6" />
+            {/* Vantagens das Piscinas Aguazul */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+                  <div className="p-2 rounded-lg bg-[#F0F8FF] text-[#0A6DB0] shrink-0 mt-0.5">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#07172C] text-sm sm:text-base">
+                      Garantia de Fábrica &amp; Estrutura Reforçada
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Construção em fibra de vidro multicamadas com reforços nas bordas e cantos para evitar trincas e deformações.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-[#070D24] font-heading">
-                  Cloro Clorofort Sempre em Estoque
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Mateus Henrique (Local Guide) destacou: <em className="text-slate-800 font-medium">&ldquo;Loja bem completa, sempre tem cloro da clorofort disponível. Atendimento nota 10.&rdquo;</em>
-                </p>
-              </div>
-              <div className="pt-2">
-                <span className="text-[11px] font-bold text-[#2524A8] uppercase tracking-wider block">
-                  Pronta Entrega Garantida
-                </span>
-              </div>
-            </div>
 
-            {/* Card 3: Preço Justo e Atendimento */}
-            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#121F54]">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#121F54]">
-                  <Tag className="w-6 h-6" />
+                <div className="flex items-start gap-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+                  <div className="p-2 rounded-lg bg-[#FFF7ED] text-[#EE8220] shrink-0 mt-0.5">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#07172C] text-sm sm:text-base">
+                      Prainha Integrada para Crianças e Banhos de Sol
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Área rasa com degraus suaves ideal para instalar espreguiçadeiras molhadas, descansar e garantir diversão segura para os pequenos.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-[#070D24] font-heading">
-                  Melhor Preço da Região Leste
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Karine e Eliezer atestam: <em className="text-slate-800 font-medium">&ldquo;Melhor atendimento! Produtos com o melhor preço da região, Nota 10.&rdquo;</em> Você compra qualidade pelo valor mais justo.
-                </p>
-              </div>
-              <div className="pt-2">
-                <span className="text-[11px] font-bold text-[#121F54] uppercase tracking-wider block">
-                  Economia Real Comprovada
-                </span>
-              </div>
-            </div>
 
-            {/* Card 4: Pontualidade Rigorosa */}
-            <div className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 border-t-4 border-t-[#16A34A]">
-              <div className="space-y-3">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#16A34A]">
-                  <Clock className="w-6 h-6" />
+                <div className="flex items-start gap-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+                  <div className="p-2 rounded-lg bg-[#FEF9C3] text-[#D97706] shrink-0 mt-0.5">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#07172C] text-sm sm:text-base">
+                      Instalação Rápida e com Pouca Sujeira
+                    </h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                      Diferente da alvenaria que leva meses, a piscina de fibra é instalada com precisão em poucos dias, pronta para ser aproveitada.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-[#070D24] font-heading">
-                  Serviço Entregue Rigorosamente na Data
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Wilson Hermogenes comentou: <em className="text-slate-800 font-medium">&ldquo;PERFEITO, FUI BEM ATENDIDO, ENTREGOU O SERVIÇO NA DATA. RECOMENDEI PARA MEUS AMIGOS.&rdquo;</em>
-                </p>
               </div>
-              <div className="pt-2">
-                <span className="text-[11px] font-bold text-[#16A34A] uppercase tracking-wider block">
-                  Compromisso &amp; Respeito
-                </span>
+
+              <div className="p-4 rounded-xl bg-[#07172C] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <div className="text-xs text-[#38BDF8] font-bold uppercase">
+                    Quer ver os tamanhos disponíveis?
+                  </div>
+                  <div className="text-sm font-bold">
+                    Peça o catálogo digital completo
+                  </div>
+                </div>
+                <GlowingButton
+                  href={getWhatsAppUrl("Olá! Gostaria de receber o catálogo completo com medidas e fotos das Piscinas de Fibra Aguazul.")}
+                  target="_blank"
+                  variant="blue"
+                  size="sm"
+                >
+                  <WhatsAppIcon size={14} />
+                  <span>Pedir Catálogo no WhatsApp</span>
+                </GlowingButton>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. PRODUTOS & SERVIÇOS PRINCIPAIS */}
-      <section id="produtos" className="py-16 sm:py-24 bg-[#F8FAFC]">
+      {/* 6. PRODUTOS & SERVIÇOS PRINCIPAIS (GRID COM MODAL INTERATIVO) */}
+      <section id="servicos" className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow-cyan">Nossas Linhas &amp; Soluções</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-              Produtos &amp; Serviços Especializados para Sua Piscina
+            <span className="eyebrow-blue">Soluções Completas para Área de Lazer</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+              Tudo o que Você Precisa em um Único Lugar
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Do tratamento da água com cloro de alta performance aos filtros, motobombas, peças raras, aquecimento e manutenção preventiva. Clique em qualquer card para ver todos os detalhes.
+              Da piscina ao aquecimento, saunas, lagos ornamentais, produtos químicos e assistência técnica. Clique em qualquer card para ver todos os detalhes e diferenciais.
             </p>
           </div>
 
@@ -1150,7 +1205,7 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                    <div className="absolute top-3 left-3 bg-[#070D24]/85 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#BAE6FD] border border-[#00B4F5]/30">
+                    <div className="absolute top-3 left-3 bg-[#07172C]/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#BAE6FD] border border-[#0A6DB0]/40">
                       {service.badge}
                     </div>
                   </div>
@@ -1159,10 +1214,10 @@ export default function HomePage() {
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <div className="p-1.5 rounded-lg bg-[#F0F9FF] text-[#00B4F5]">
+                        <div className="p-1.5 rounded-lg bg-[#F0F8FF] text-[#0A6DB0]">
                           <IconComponent className="w-4 h-4" />
                         </div>
-                        <h3 className="font-bold text-[16px] text-[#070D24] group-hover:text-[#00B4F5] transition-colors line-clamp-1">
+                        <h3 className="font-bold text-[16px] text-[#07172C] group-hover:text-[#0A6DB0] transition-colors line-clamp-1 font-heading">
                           {service.title}
                         </h3>
                       </div>
@@ -1171,7 +1226,7 @@ export default function HomePage() {
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#00B4F5] group-hover:translate-x-1 transition-transform">
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0A6DB0] group-hover:translate-x-1 transition-transform">
                       <span>Ver detalhes e itens</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>
@@ -1183,84 +1238,89 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. MODAL DETALHADO DO SERVIÇO / PRODUTO */}
+      {/* MODAL DETALHADO DO SERVIÇO SELECIONADO */}
       <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
               className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200"
             >
-              {/* Header do Modal com Imagem */}
-              <div className="relative h-56 w-full">
+              {/* Header com Imagem */}
+              <div className="relative h-56 w-full bg-[#07172C]">
                 <Image
                   src={selectedService.image}
                   alt={selectedService.title}
                   fill
-                  className="object-cover"
+                  sizes="650px"
+                  className="object-cover opacity-85"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070D24] via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
                 <button
                   type="button"
                   onClick={() => setSelectedService(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
-                  aria-label="Fechar"
+                  className="absolute top-4 right-4 bg-black/60 hover:bg-black text-white p-2 rounded-full transition-colors z-10"
+                  aria-label="Fechar modal"
                 >
                   <X className="w-5 h-5" />
                 </button>
-                <div className="absolute bottom-4 left-6 right-6">
-                  <span className="inline-block px-2.5 py-1 rounded bg-[#00B4F5] text-[#070D24] text-[11px] font-black uppercase tracking-wider mb-1">
+
+                <div className="absolute bottom-4 left-5 right-5 text-white">
+                  <span className="bg-[#EE8220] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                     {selectedService.badge}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
+                  <h3 className="text-xl sm:text-2xl font-black font-heading mt-1">
                     {selectedService.title}
                   </h3>
                 </div>
               </div>
 
               {/* Corpo do Modal */}
-              <div className="p-6 space-y-5">
-                <p className="text-slate-700 text-sm leading-relaxed">
-                  {selectedService.fullDesc}
-                </p>
-
-                <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-[#070D24] uppercase tracking-wider">
-                    Principais Vantagens &amp; Itens Disponíveis:
+              <div className="p-6 space-y-6">
+                <div>
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                    Sobre Esta Solução
                   </h4>
-                  <ul className="space-y-2">
-                    {selectedService.benefits.map((benefit, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2.5 text-xs text-slate-700"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-[#00B4F5] shrink-0 mt-0.5" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-sm text-slate-700 leading-relaxed">
+                    {selectedService.fullDesc}
+                  </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center gap-3">
+                <div>
+                  <h4 className="text-xs font-bold text-[#0A6DB0] uppercase tracking-wider mb-3">
+                    Principais Benefícios &amp; Diferenciais
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {selectedService.benefits.map((benefit, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 bg-[#F0F8FF] p-3 rounded-lg border border-[#BAE6FD]/40 text-xs text-slate-800"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-[#0A6DB0] shrink-0 mt-0.5" />
+                        <span>{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Footer do Modal com CTA WhatsApp */}
+                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="text-xs text-slate-500 text-center sm:text-left">
+                    Atendimento técnico com Leo e Dani em Sete Lagoas
+                  </div>
                   <GlowingButton
                     href={getWhatsAppUrl(selectedService.whatsappMessage)}
                     target="_blank"
                     variant="whatsapp"
                     size="md"
-                    className="w-full sm:flex-1"
+                    className="w-full sm:w-auto"
                   >
-                    <WhatsAppIcon size={18} />
+                    <WhatsAppIcon size={16} />
                     <span>{selectedService.ctaText}</span>
                   </GlowingButton>
-                  <button
-                    type="button"
-                    onClick={() => setSelectedService(null)}
-                    className="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:bg-slate-100 text-sm"
-                  >
-                    Fechar
-                  </button>
                 </div>
               </div>
             </motion.div>
@@ -1268,95 +1328,196 @@ export default function HomePage() {
         )}
       </AnimatePresence>
 
-      {/* 8. SOBRE A MODELO PISCINAS — HISTÓRIA E COMPROMISSO */}
+      {/* 7. SEÇÃO DE AQUECIMENTO SOLAR PARA PISCINA & BANHO */}
+      <section id="aquecimento" className="py-16 sm:py-24 bg-[#07172C] text-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#EE8220]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-10 w-96 h-96 bg-[#0A6DB0]/20 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Texto Aquecimento */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="eyebrow-orange">Água Quente nos 365 Dias do Ano</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight">
+                Piscina Quente no Inverno e Verão: Aquecimento Solar &amp; Bombas de Calor
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Você investe na área de lazer e só usa a piscina 3 meses por ano? Com o sistema de aquecimento correto dimensionado pelo Leonardo, sua piscina fica sempre em temperatura agradável com baixíssimo consumo de energia.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-xl">
+                  <Flame className="w-5 h-5 text-[#EE8220] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-sm text-white">
+                      Coletores Solares de Polipropileno
+                    </h4>
+                    <p className="text-xs text-slate-300 mt-0.5">
+                      Absorvem a radiação solar mesmo em dias frescos, com vazão otimizada e resistência aos químicos da piscina.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-xl">
+                  <Zap className="w-5 h-5 text-[#F7D511] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-sm text-white">
+                      Aquecimento Solar para Banho Residencial
+                    </h4>
+                    <p className="text-xs text-slate-300 mt-0.5">
+                      Também instalamos sistemas para chuveiros e torneiras com alta economia na conta de energia da sua família.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-xl">
+                  <ShieldCheck className="w-5 h-5 text-[#38BDF8] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold text-sm text-white">
+                      Capas Térmicas &amp; Controladores Digitais
+                    </h4>
+                    <p className="text-xs text-slate-300 mt-0.5">
+                      Retêm o calor durante a noite e acionam a bomba de recirculação automaticamente apenas quando há ganho térmico.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <GlowingButton
+                  href={getWhatsAppUrl("Olá Leonardo! Gostaria de fazer uma visita técnica para dimensionar o aquecedor da minha piscina.")}
+                  target="_blank"
+                  variant="sunset"
+                  size="md"
+                >
+                  <WhatsAppIcon size={16} />
+                  <span>Solicitar Visita Técnica para Aquecimento</span>
+                </GlowingButton>
+              </div>
+            </div>
+
+            {/* Imagem Aquecimento com Depoimento da Silmara Duque */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border-2 border-[#1E4E8C] shadow-2xl">
+                <Image
+                  src="/aquecimento-solar.jpg"
+                  alt="Sistema de Aquecimento Solar de Piscina Instalado pela Quatro Estações"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07172C] via-transparent to-transparent opacity-75" />
+              </div>
+
+              {/* Depoimento em Destaque */}
+              <div className="bg-[#0B2344] p-5 rounded-xl border border-[#1E4E8C] space-y-2">
+                <div className="flex items-center gap-1 text-[#F7D511]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                  <span className="text-xs font-bold text-slate-300 ml-2">Silmara Duque &bull; Avaliação no Google</span>
+                </div>
+                <p className="text-xs text-slate-200 italic leading-relaxed">
+                  &ldquo;Passando para deixar registrado o profissionalismo da instalação e venda do aquecimento da minha piscina. Desde a visita técnica do Leo, conversas e instalação do pessoal, fui muito bem atendida, sanando as minhas dúvidas, tendo cuidado com minha estrutura e cumprindo o combinado. Super indico a empresa.&rdquo;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. SOBRE A EMPRESA & EQUIPE (LEONARDO & DANIELA) */}
       <section id="sobre" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Imagem Institucional */}
+            {/* Foto e Card de Confiança */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 aspect-[4/3]">
+              <div className="relative h-80 sm:h-[460px] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                 <Image
                   src="/sobre-lazer-pool.jpg"
-                  alt="Área de lazer tratada pela Modelo Piscinas em Belo Horizonte"
+                  alt="Área de Lazer e Família - Quatro Estações Piscinas"
                   fill
-                  sizes="(max-width: 768px) 100vw, 500px"
+                  sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070D24]/80 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white p-3 rounded-xl bg-[#070D24]/90 backdrop-blur-md border border-[#1E3485]">
-                  <p className="text-xs font-bold flex items-center gap-1.5 text-[#00B4F5]">
-                    <MapPin className="w-3.5 h-3.5 text-[#00B4F5]" />
-                    <span>Av. Itaituba, 173 - Boa Vista, Belo Horizonte</span>
-                  </p>
-                  <p className="text-[11px] text-slate-300 mt-0.5">
-                    Fácil estacionamento e atendimento técnico de confiança na Região Leste.
-                  </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#07172C]/80 via-transparent to-transparent" />
+
+                <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                  <div className="text-xs font-bold text-[#38BDF8] uppercase tracking-wider">
+                    Compromisso &amp; Família
+                  </div>
+                  <h3 className="text-xl font-bold font-heading">
+                    &ldquo;Realizamos sonhos tornando cada vez mais aconchegante o seu lar.&rdquo;
+                  </h3>
+                </div>
+              </div>
+
+              {/* Selo Flutuante */}
+              <div className="absolute -top-4 -right-4 bg-[#0A6DB0] text-white p-4 rounded-xl shadow-xl border border-white/20 hidden sm:block text-center">
+                <div className="text-2xl font-black font-heading">4,9★</div>
+                <div className="text-[10px] font-bold uppercase tracking-wider">
+                  67 Avaliações
                 </div>
               </div>
             </div>
 
-            {/* Texto Institucional */}
+            {/* Texto Sobre Nós */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-2">
-                <span className="eyebrow">Sobre a Modelo Piscinas</span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-                  Tradição, Atendimento Humano e Qualidade Técnica em Belo Horizonte
-                </h2>
-              </div>
+              <span className="eyebrow-blue">Quem Somos &bull; Quatro Estações Piscinas</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+                Mais que Vender Piscinas: Acompanhamos Você Antes, Durante e Depois da Obra
+              </h2>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Localizada estrategicamente na Av. Itaituba, 173, no bairro Boa Vista, a <strong>Modelo Piscinas</strong> consolidou-se como a principal referência para donos de piscinas, síndicos, clubes e profissionais de manutenção em Belo Horizonte.
+                Sob a liderança dedicada do <strong>Leonardo (Leo)</strong> e da <strong>Daniela (Dani)</strong>, a Quatro Estações Piscinas construiu uma reputação de seriedade e carinho em Sete Lagoas e em todos os municípios vizinhos.
               </p>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Nossa missão é simples e direta: <strong>manter a sua piscina sempre limpa, aquecida e pronta para o lazer</strong>, sem dores de cabeça e sem gastos desnecessários. Combinamos um catálogo completo com marcas renomadas como <em>Clorofort, Sibrape, Sodramar e Jacuzzi</em> com um atendimento técnico de verdade, que orienta você sobre a quantidade exata de cada produto químico e a peça correta para a sua bomba ou filtro.
+                Enquanto muitas lojas no mercado simplesmente entregam a piscina e esquecem o cliente, nosso modelo é fundamentado na responsabilidade técnica: visitamos o seu local, auxiliamos no projeto hidráulico, orientamos a escavação, instalamos o sistema de aquecimento e prestamos assistência contínua por anos.
               </p>
 
-              {/* 3 Pilares da Empresa */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-1.5 text-[#00B4F5] font-bold text-sm">
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span>Confiança Total</span>
+              {/* Destaque Januzia Alacoque */}
+              <div className="p-4 rounded-xl bg-[#F0F8FF] border border-[#BAE6FD] text-slate-800 text-xs sm:text-sm space-y-2">
+                <div className="flex items-center gap-2 font-bold text-[#0A6DB0]">
+                  <ThumbsUp className="w-4 h-4" />
+                  <span>Depoimento Real de Januzia Alacoque:</span>
+                </div>
+                <p className="italic">
+                  &ldquo;Comprei minha piscina com a Dani e com o Leonardo, era meu sonho, além de ter ficado linda, eles foram muito técnicos e nos dão auxílio até hoje, já fazem quase 3 anos e tudo certo, nunca tive problemas.&rdquo;
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#0A6DB0]/10 flex items-center justify-center text-[#0A6DB0] shrink-0 font-bold">
+                    <Check className="w-5 h-5" />
                   </div>
-                  <p className="text-xs text-slate-600">
-                    Equipe honesta e disposta a orientar você a gastar apenas o necessário.
-                  </p>
+                  <div>
+                    <h4 className="text-sm font-bold text-[#07172C]">Atendimento Paciente</h4>
+                    <p className="text-xs text-slate-500">Tiramos todas as dúvidas antes da compra</p>
+                  </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-1.5 text-[#2524A8] font-bold text-sm">
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span>Estoque Raro</span>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#EE8220]/10 flex items-center justify-center text-[#EE8220] shrink-0 font-bold">
+                    <Check className="w-5 h-5" />
                   </div>
-                  <p className="text-xs text-slate-600">
-                    Crepinas Sibrape, conexões específicas e peças que você não acha em BH.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-1.5 text-[#16A34A] font-bold text-sm">
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span>Pontualidade</span>
+                  <div>
+                    <h4 className="text-sm font-bold text-[#07172C]">Pós-Venda que Resolve</h4>
+                    <p className="text-xs text-slate-500">Substituição rápida e suporte permanente</p>
                   </div>
-                  <p className="text-xs text-slate-600">
-                    Serviços e revisões entregues rigorosamente no dia e na hora combinados.
-                  </p>
                 </div>
               </div>
 
-              {/* Botão de Contato */}
               <div className="pt-2">
                 <GlowingButton
-                  href={getWhatsAppUrl(
-                    "Olá! Gostaria de conversar com a equipe da Modelo Piscinas."
-                  )}
+                  href={getWhatsAppUrl("Olá Dani e Leo! Gostaria de conversar sobre um projeto para o meu espaço de lazer.")}
                   target="_blank"
-                  variant="primary"
+                  variant="blue"
                   size="md"
                 >
-                  <WhatsAppIcon size={18} />
-                  <span>Falar com Nossos Especialistas</span>
+                  <WhatsAppIcon size={16} />
+                  <span>Falar Diretamente com Leo &amp; Dani</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1364,41 +1525,138 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. GALERIA DE PROJETOS E PRODUTOS */}
-      <section id="galeria" className="py-16 sm:py-24 bg-[#F8FAFC]">
+      {/* 9. DEPOIMENTOS REAIS DO GOOGLE MAPS (4,9★ · 67 AVALIAÇÕES) */}
+      <section id="depoimentos" className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-            <span className="eyebrow-cyan">Galeria Visual</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-              Piscinas Impecáveis, Equipamentos &amp; Estrutura
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+            <span className="eyebrow-gold">Prova Social &bull; Google Avaliações</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+              O Que Nossos Clientes Dizem Sobre Nosso Trabalho
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Confira a qualidade visual da água, sistemas de aquecimento, iluminação e equipamentos fornecidos e mantidos pela Modelo Piscinas.
+              Comprovado no Google com nota 4,9★ e mais de 67 avaliações públicas espontâneas de quem confiou sua área de lazer à Quatro Estações Piscinas.
             </p>
 
-            {/* Abas de Filtro da Galeria */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-              {[
-                { key: "todas", label: "Todas as Fotos" },
-                { key: "produtos", label: "Químicos & Água" },
-                { key: "filtros", label: "Filtros & Bombas" },
-                { key: "aquecimento", label: "Aquecimento Solar" },
-                { key: "iluminacao", label: "Iluminação & Cascatas" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  type="button"
-                  onClick={() => setActiveGalleryTab(tab.key as GalleryCategory)}
-                  className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
-                    activeGalleryTab === tab.key
-                      ? "bg-[#121F54] text-white shadow-sm"
-                      : "bg-white text-slate-700 border border-slate-200 hover:border-[#00B4F5]"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+            {/* Google Badge Institucional */}
+            <div className="pt-2">
+              <a
+                href={GOOGLE_SEARCH_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-xs hover:border-[#0A6DB0] transition-colors text-xs font-bold text-slate-800"
+              >
+                <span className="flex text-[#F59E0B]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                  ))}
+                </span>
+                <span>Nota 4,9 no Google Maps (67 avaliações)</span>
+                <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+              </a>
             </div>
+          </div>
+
+          {/* Grid de Depoimentos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {REVIEWS.map((review, idx) => (
+              <div
+                key={idx}
+                className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
+              >
+                <div className="space-y-3">
+                  {/* Estrelas & Destaque */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex text-[#F59E0B]">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[11px] font-bold text-[#0A6DB0] bg-[#F0F8FF] px-2 py-0.5 rounded">
+                      Google Review
+                    </span>
+                  </div>
+
+                  <h3 className="text-sm font-extrabold text-[#07172C] font-heading">
+                    {review.highlight}
+                  </h3>
+
+                  <p className="text-xs text-slate-600 leading-relaxed italic">
+                    &ldquo;{review.comment}&rdquo;
+                  </p>
+
+                  {review.ownerReply && (
+                    <div className="p-3 bg-slate-50 border-l-2 border-[#0A6DB0] rounded-r-lg text-[11px] text-slate-500">
+                      <strong className="text-[#07172C] block not-italic">
+                        Resposta do proprietário:
+                      </strong>
+                      <span className="italic">{review.ownerReply}</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-xs text-[#07172C]">{review.name}</h4>
+                    <span className="text-[10px] text-slate-400 block">{review.tag}</span>
+                  </div>
+                  <div className="w-7 h-7 rounded-full bg-[#0A6DB0]/10 text-[#0A6DB0] flex items-center justify-center font-bold text-[11px]">
+                    {review.name.charAt(0)}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center pt-10">
+            <a
+              href={GOOGLE_SEARCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#0A6DB0] hover:underline"
+            >
+              <span>Ver todas as 67 avaliações diretamente no Google Maps</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. GALERIA DE PROJETOS E FOTOS REAIS COM FILTRO */}
+      <section className="py-16 sm:py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+            <span className="eyebrow-blue">Galeria de Instalações &amp; Ambientes</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+              Projetos Realizados em Sete Lagoas e Região
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Veja fotos de piscinas de fibra, sistemas de aquecimento solar, saunas, lagos ornamentais e iluminação entregues com o padrão de qualidade Quatro Estações.
+            </p>
+          </div>
+
+          {/* Abas de Filtro da Galeria */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {[
+              { id: "todas", label: "Todos os Projetos" },
+              { id: "piscinas", label: "Piscinas de Fibra" },
+              { id: "aquecimento", label: "Aquecimento Solar" },
+              { id: "saunas", label: "Saunas & Spas" },
+              { id: "lagos", label: "Lagos Ornamentais" },
+              { id: "iluminacao", label: "Iluminação & Cascatas" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveGalleryTab(tab.id as GalleryCategory)}
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  activeGalleryTab === tab.id
+                    ? "bg-[#0A6DB0] text-white shadow-sm"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
           {/* Grid de Fotos */}
@@ -1406,9 +1664,9 @@ export default function HomePage() {
             {filteredGallery.map((proj, idx) => (
               <div
                 key={idx}
-                className="card-modelo rounded-2xl overflow-hidden group flex flex-col"
+                className="group relative rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xs flex flex-col"
               >
-                <div className="relative h-60 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-60 w-full overflow-hidden">
                   <Image
                     src={proj.src}
                     alt={proj.title}
@@ -1416,14 +1674,16 @@ export default function HomePage() {
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 bg-[#070D24]/85 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-bold text-[#BAE6FD] border border-[#00B4F5]/30">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80" />
+
+                  <div className="absolute top-3 left-3 bg-[#07172C]/85 backdrop-blur-xs px-2.5 py-1 rounded text-[10px] font-bold text-white border border-white/20">
                     {proj.tag}
                   </div>
+
                   <div className="absolute bottom-3 left-3 right-3 text-white">
-                    <h4 className="font-bold text-sm leading-tight">
+                    <h3 className="font-bold text-sm font-heading leading-tight line-clamp-1">
                       {proj.title}
-                    </h4>
+                    </h3>
                     <p className="text-[11px] text-slate-200 mt-1 line-clamp-2">
                       {proj.desc}
                     </p>
@@ -1435,122 +1695,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. DEPOIMENTOS REAIS DO GOOGLE MAPS — 4,9 ESTRELAS */}
-      <section id="depoimentos" className="py-16 sm:py-24 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow-gold">Prova Social &amp; Avaliações Reais</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-              O Que Dizem Quem Compra na Modelo Piscinas
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Nossa melhor propaganda é a satisfação real dos nossos clientes no Google Maps. São 23 avaliações públicas com média de <strong>4,9 estrelas</strong>.
-            </p>
-
-            <div className="pt-2 inline-flex items-center gap-2 bg-[#FEF3C7] border border-[#FDE68A] px-4 py-2 rounded-full text-xs font-bold text-[#D97706]">
-              <div className="flex text-[#F59E0B]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-              </div>
-              <span>4,9 de 5 Estrelas no Google</span>
-              <span className="text-slate-400">•</span>
-              <a
-                href={GOOGLE_SEARCH_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-black flex items-center gap-1"
-              >
-                <span>Ver no Google</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-
-          {/* Grid de Depoimentos */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {REVIEWS.map((rev, index) => (
-              <div
-                key={index}
-                className="card-modelo p-6 rounded-2xl flex flex-col justify-between space-y-4 hover:border-[#00B4F5] transition-all"
-              >
-                <div className="space-y-3">
-                  {/* Estrelas e Tag de Destaque */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex text-[#F59E0B]">
-                      {[...Array(rev.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-[10px] font-bold text-[#00B4F5] bg-[#F0F9FF] px-2 py-0.5 rounded border border-[#BAE6FD]">
-                      {rev.highlight}
-                    </span>
-                  </div>
-
-                  {/* Depoimento Real */}
-                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed italic">
-                    &ldquo;{rev.comment}&rdquo;
-                  </p>
-                </div>
-
-                {/* Autor do Depoimento */}
-                <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#121F54] text-white flex items-center justify-center font-bold text-xs shrink-0">
-                    {rev.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-[#070D24]">{rev.name}</p>
-                    <p className="text-[10px] text-slate-500">{rev.tag}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Link para Avaliar no Google */}
-          <div className="text-center pt-10">
-            <a
-              href={GOOGLE_SEARCH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold text-[#121F54] hover:text-[#00B4F5] transition-colors"
-            >
-              <span>Ver todas as 23 avaliações e comentários no Google</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* 11. PERGUNTAS FREQUENTES (FAQ) */}
-      <section id="faq" className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-slate-200">
+      <section className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 mb-12">
-            <span className="eyebrow-cyan">Tire Suas Dúvidas</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-              Perguntas Frequentes sobre a Modelo Piscinas
+            <span className="eyebrow-blue">Tire Suas Dúvidas</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+              Perguntas Frequentes
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Reunimos as respostas para as principais dúvidas de quem visita nossa loja ou solicita produtos e serviços em Belo Horizonte.
+              Tudo o que você precisa saber sobre prazos de instalação, modelos Aguazul, garantia e funcionamento dos sistemas de aquecimento.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {FAQS.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
                 <div
                   key={index}
-                  className="card-modelo rounded-xl overflow-hidden border border-slate-200 transition-colors"
+                  className="card-modelo rounded-xl overflow-hidden border border-slate-200 bg-white"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[#070D24] hover:text-[#00B4F5] transition-colors"
+                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-[#07172C] text-sm sm:text-base focus:outline-none cursor-pointer"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#00B4F5] shrink-0 transition-transform duration-300 ${
+                      className={`w-5 h-5 text-[#0A6DB0] shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -1559,12 +1732,14 @@ export default function HomePage() {
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        {faq.answer}
+                        <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                          {faq.answer}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -1575,72 +1750,89 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. LOCALIZAÇÃO, SEDE & COMO CHEGAR */}
-      <section id="localizacao" className="py-16 sm:py-24 bg-white border-t border-slate-200">
+      {/* 12. LOCALIZAÇÃO & VISITA À LOJA FÍSICA (SETE LAGOAS - MG) */}
+      <section id="contato" className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Informações de Contato & Endereço */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="space-y-2">
-                <span className="eyebrow">Onde Estamos</span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#070D24] font-heading tracking-tight">
-                  Venha Nos Conhecer no Bairro Boa Vista
-                </h2>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  Localização estratégica na Região Leste de Belo Horizonte, de fácil acesso para bairros vizinhos e toda a capital.
-                </p>
-              </div>
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+            <span className="eyebrow-blue">Visite Nossa Sede Própria</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+              Loja Física &amp; Showroom em Sete Lagoas
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Venha ver pessoalmente os modelos de piscinas de fibra Aguazul em exposição, os sistemas de aquecimento solar e tirar todas as suas dúvidas com o Leonardo e a Daniela.
+            </p>
+          </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
-                  <MapPin className="w-5 h-5 text-[#00B4F5] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-xs text-[#070D24]">Endereço da Loja</p>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      {ADDRESS_DISPLAY}
-                    </p>
-                    <p className="text-[11px] text-slate-500 mt-0.5">
-                      (Bairro Boa Vista · Belo Horizonte - MG)
-                    </p>
-                  </div>
+          {/* Cards Visuais Lado a Lado: Foto Real da Loja + Mapa Interativo */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-10">
+            {/* Card 1: Foto Real do Showroom */}
+            <div className="space-y-4">
+              <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-100 group">
+                <Image
+                  src="/loja-showroom-real.jpg"
+                  alt="Fachada e Pátio do Showroom Quatro Estações Piscinas em Sete Lagoas"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+
+                <div className="absolute top-4 left-4 bg-[#07172C]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#38BDF8]/40 flex items-center gap-2 text-xs font-bold text-white shadow-md">
+                  <Store className="w-3.5 h-3.5 text-[#38BDF8]" />
+                  <span>Foto Real da Loja &amp; Showroom</span>
                 </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
-                  <Clock className="w-5 h-5 text-[#00B4F5] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-xs text-[#070D24]">Horário de Atendimento</p>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      Segunda a Sexta: <strong>08:00 às 18:00</strong>
-                    </p>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      Sábado: <strong>08:00 às 12:00</strong>
-                    </p>
+                <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
+                  <div className="text-xs font-bold text-[#F7D511] uppercase tracking-wider">
+                    Pátio de Piscinas &bull; Av. Marechal Castelo Branco, 2111
                   </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-slate-200">
-                  <Phone className="w-5 h-5 text-[#00B4F5] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-xs text-[#070D24]">Telefones de Contato</p>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      Telefone da Loja: <strong>{LANDLINE_DISPLAY}</strong>
-                    </p>
-                    <p className="text-xs text-slate-600 mt-0.5">
-                      WhatsApp Comercial: <strong>{PHONE_DISPLAY}</strong>
-                    </p>
-                  </div>
+                  <h3 className="text-base sm:text-lg font-bold font-heading">
+                    4 Estações Piscina &amp; Conforto &bull; Aguazul
+                  </h3>
+                  <p className="text-xs text-slate-200">
+                    Piscinas de fibra em exposição vertical, aquecedores solares para banho e piscina e showroom completo.
+                  </p>
                 </div>
               </div>
 
-              {/* Botões de Rotas */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              {/* Destaques do Showroom */}
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="p-3 bg-[#F0F8FF] rounded-xl border border-[#BAE6FD]/40">
+                  <div className="text-xs font-bold text-[#0A6DB0]">Pátio com Piscinas</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Modelos expostos</div>
+                </div>
+                <div className="p-3 bg-[#FFF7ED] rounded-xl border border-[#FDBA74]/40">
+                  <div className="text-xs font-bold text-[#EE8220]">Aquecedor Solar</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Sistemas funcionais</div>
+                </div>
+                <div className="p-3 bg-[#FEF9C3] rounded-xl border border-[#FDE047]/50">
+                  <div className="text-xs font-bold text-[#D97706]">Fácil Acesso</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Estacionamento fácil</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Mapa Embed Interativo + Rotas */}
+            <div className="space-y-4">
+              <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
+                <iframe
+                  title="Localização Quatro Estações Piscinas Sete Lagoas"
+                  src="https://maps.google.com/maps?q=Av.+Marechal+Castelo+Branco,+2111+-+Santo+Antonio,+Sete+Lagoas+-+MG,+35701-240&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Botões de Ação para Navegação */}
+              <div className="flex flex-wrap items-center gap-3">
                 <a
                   href={GOOGLE_MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-lg bg-[#121F54] hover:bg-[#0D163B] text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm"
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0A6DB0] hover:bg-[#085990] text-white text-xs font-bold px-4 py-3 rounded-xl transition-colors shadow-xs"
                 >
-                  <Navigation className="w-4 h-4 text-[#00B4F5]" />
+                  <Navigation className="w-4 h-4" />
                   <span>Traçar Rota no Google Maps</span>
                 </a>
 
@@ -1648,227 +1840,269 @@ export default function HomePage() {
                   href={WAZE_MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-lg border border-slate-300 hover:border-[#00B4F5] text-slate-800 font-bold text-xs flex items-center justify-center gap-2 transition-colors hover:bg-slate-50"
+                  className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-5 py-3 rounded-xl transition-colors"
                 >
-                  <ExternalLink className="w-4 h-4 text-[#00B4F5]" />
+                  <ExternalLink className="w-4 h-4 text-slate-500" />
                   <span>Abrir no Waze</span>
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* Mapa Interativo / Embed do Google Maps */}
-            <div className="lg:col-span-7">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl h-96 relative bg-slate-100">
-                <iframe
-                  title="Localização Modelo Piscinas no Google Maps"
-                  src="https://maps.google.com/maps?q=Av.+Itaituba,+173+-+Boa+Vista,+Belo+Horizonte+-+MG,+31060-427&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full"
-                />
+          {/* Dados Cadastrais & Horários em Linha */}
+          <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div className="flex items-start gap-3.5">
+              <div className="p-2.5 rounded-lg bg-[#F0F8FF] text-[#0A6DB0] shrink-0 mt-0.5">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-[#07172C]">Endereço Completo:</h4>
+                <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                  {ADDRESS_DISPLAY}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3.5">
+              <div className="p-2.5 rounded-lg bg-[#FFF7ED] text-[#EE8220] shrink-0 mt-0.5">
+                <Clock className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-[#07172C]">Horário de Funcionamento:</h4>
+                <p className="text-xs text-slate-600 mt-0.5">
+                  Segunda a Sexta: 08:00 às 18:00<br />
+                  Sábado: 08:00 às 12:00
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3.5">
+              <div className="p-2.5 rounded-lg bg-[#F0FDF4] text-[#16A34A] shrink-0 mt-0.5">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-sm text-[#07172C]">Contato Direto:</h4>
+                <p className="text-xs text-slate-600 mt-0.5 font-bold">
+                  {PHONE_DISPLAY}
+                </p>
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#16A34A] font-bold hover:underline inline-block mt-0.5"
+                >
+                  Chamar no WhatsApp agora &rarr;
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 13. CTA FINAL DE ALTA CONVERSÃO */}
-      <section className="py-16 bg-gradient-to-r from-[#070D24] via-[#0D163B] to-[#121F54] text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00B4F5]/20 text-[#BAE6FD] text-xs font-bold">
-            <Sparkles className="w-4 h-4 text-[#00B4F5]" />
-            <span>Sua Piscina Sempre Pronta para o Lazer</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-heading italic">
-            Pronto para Deixar Sua Piscina em Boas Mãos?
+      {/* 13. BANNER CTA FINAL DE ALTA CONVERSÃO */}
+      <section className="bg-gradient-to-r from-[#07172C] via-[#0B2344] to-[#0A6DB0] text-white py-16 sm:py-20 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
+          <span className="bg-[#F7D511] text-[#07172C] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+            Atendimento Personalizado
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading tracking-tight">
+            Pronto para Transformar Seu Quintal na Área de Lazer Perfeita?
           </h2>
-
           <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Converse diretamente com a equipe da Modelo Piscinas. Garantimos atendimento atencioso, estoque completo de produtos e peças Sibrape, e os melhores preços de Belo Horizonte.
+            Converse agora com o Leonardo e a Daniela pelo WhatsApp. Peça um orçamento sem compromisso, tire dúvidas técnicas e conheça as melhores condições de Sete Lagoas.
           </p>
 
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <GlowingButton
-              href={getWhatsAppUrl(
-                "Olá! Quero solicitar produtos ou tirar dúvidas com a Modelo Piscinas."
-              )}
+              href={getWhatsAppUrl("Olá Leonardo e Daniela! Gostaria de um orçamento para a minha piscina/área de lazer.")}
               target="_blank"
               variant="whatsapp"
               size="lg"
+              className="w-full sm:w-auto text-base shadow-xl shadow-green-600/30 font-bold"
             >
               <WhatsAppIcon size={20} />
-              <span>Falar no WhatsApp Agora</span>
+              <span>Chamar no WhatsApp: (31) 3773-6264</span>
             </GlowingButton>
 
             <a
-              href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
-              className="px-6 py-3.5 rounded-lg border border-[#00B4F5]/40 text-white font-bold hover:bg-[#00B4F5]/10 transition-colors flex items-center gap-2 text-[15px]"
+              href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-white/30 text-white font-bold hover:bg-white/10 transition-colors text-sm w-full sm:w-auto"
             >
-              <Phone className="w-4 h-4 text-[#00B4F5]" />
-              <span>Ligar: {LANDLINE_DISPLAY}</span>
+              <Phone className="w-4 h-4 text-[#38BDF8]" />
+              <span>Ligar: {PHONE_DISPLAY}</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* 14. FOOTER COMPLETO */}
-      <footer className="bg-[#070D24] text-slate-400 text-xs border-t border-[#121F54] py-14">
+      {/* 14. FOOTER INSTITUCIONAL COMPLETO */}
+      <footer className="bg-[#07172C] text-white border-t border-[#0F3260] pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {/* Coluna 1: Logo & Resumo */}
-            <div className="space-y-4">
-              <a href="#" className="inline-block group" aria-label="Modelo Piscinas">
-                <div className="relative h-14 sm:h-16 w-28 sm:w-32 transition-transform duration-300 group-hover:scale-105">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+            {/* Coluna 1: Identidade, Logo & Slogan (4 colunas) */}
+            <div className="lg:col-span-4 space-y-4">
+              <div className="flex items-center gap-3.5">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-white p-1.5 rounded-2xl shadow-xl shrink-0 flex items-center justify-center border border-white/20">
                   <Image
                     src={LOGO_SRC}
-                    alt="Modelo Piscinas Logo"
+                    alt="Logo Aguazul Sete Lagoas - Quatro Estações Piscinas"
                     fill
-                    sizes="140px"
-                    className="object-contain object-left"
+                    sizes="80px"
+                    className="object-contain"
                   />
                 </div>
-              </a>
-              <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-                Referência em produtos para piscinas, cloro Clorofort, filtros, bombas, crepinas Sibrape e aquecimento solar em Belo Horizonte e Região Metropolitana.
+                <div>
+                  <div className="text-lg font-black font-heading text-white">
+                    QUATRO ESTAÇÕES
+                  </div>
+                  <div className="text-xs font-bold text-[#38BDF8]">
+                    Piscinas &bull; Aguazul Sete Lagoas
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">
+                    Revendedora Oficial Aguazul
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Valorizamos áreas de lazer e realizamos sonhos tornando cada vez mais aconchegante o seu lar! Revenda exclusiva Aguazul em Sete Lagoas com piscinas de fibra, aquecimento solar, saunas e lagos ornamentais.
               </p>
-              <div className="flex items-center gap-3 pt-1">
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram da Modelo Piscinas"
-                  className="p-2 rounded-lg bg-[#0D163B] hover:bg-[#00B4F5] hover:text-[#070D24] text-slate-300 transition-colors"
-                >
-                  <InstagramIcon size={16} />
-                </a>
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp da Modelo Piscinas"
-                  className="p-2 rounded-lg bg-[#0D163B] hover:bg-emerald-600 hover:text-white text-slate-300 transition-colors"
-                >
-                  <WhatsAppIcon size={16} />
-                </a>
-                <a
-                  href={GOOGLE_SEARCH_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Google Maps"
-                  className="p-2 rounded-lg bg-[#0D163B] hover:bg-[#F59E0B] hover:text-black text-slate-300 transition-colors font-bold text-[11px]"
-                >
-                  4,9★ Google
-                </a>
+
+              <div className="flex items-center gap-2 text-xs text-[#F7D511] font-bold">
+                <Star className="w-4 h-4 fill-current" />
+                <span>4,9 Estrelas &bull; 67 Avaliações no Google Maps</span>
               </div>
             </div>
 
-            {/* Coluna 2: Serviços & Produtos Principais */}
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Linhas de Produtos
-              </h3>
-              <ul className="space-y-2">
+            {/* Coluna 2: Soluções & Produtos (3 colunas) */}
+            <div className="lg:col-span-3 space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#38BDF8]">
+                Nossas Soluções
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-300">
                 <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Cloro Clorofort &amp; Químicos
+                  <a href="#piscinas" className="hover:text-white transition-colors">
+                    Piscinas de Fibra Aguazul (Linha Leblon)
                   </a>
                 </li>
                 <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Filtros de Areia &amp; Motobombas
+                  <a href="#aquecimento" className="hover:text-white transition-colors">
+                    Aquecimento Solar para Piscinas
                   </a>
                 </li>
                 <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Peças &amp; Crepinas Sibrape
+                  <a href="#aquecimento" className="hover:text-white transition-colors">
+                    Aquecimento Solar para Banho
                   </a>
                 </li>
                 <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Aquecimento Solar &amp; Bombas de Calor
+                  <a href="#servicos" className="hover:text-white transition-colors">
+                    Saunas a Vapor &amp; Secas
                   </a>
                 </li>
                 <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Iluminação LED Subaquática &amp; Cascatas
+                  <a href="#servicos" className="hover:text-white transition-colors">
+                    Lagos Ornamentais &amp; Filtragem Biológica
                   </a>
                 </li>
                 <li>
-                  <a href="#produtos" className="hover:text-white transition-colors">
-                    Manutenção &amp; Tratamento de Choque
+                  <a href="#servicos" className="hover:text-white transition-colors">
+                    Filtros, Bombas &amp; Assistência Técnica
+                  </a>
+                </li>
+                <li>
+                  <a href="#servicos" className="hover:text-white transition-colors">
+                    Iluminação LED 12V &amp; Cascatas em Inox
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Coluna 3: Regiões Atendidas */}
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Regiões Atendidas
-              </h3>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                {CITIES_SERVED}.
-              </p>
-              <div className="pt-2">
-                <span className="text-[11px] font-bold text-[#00B4F5] block mb-1">
-                  Atendimento na Loja Física:
-                </span>
-                <p className="text-slate-400 text-xs">
-                  Estacionamento fácil e consultores prontos para ajudar com a medição e os produtos ideais.
-                </p>
-              </div>
+            {/* Coluna 3: Regiões Atendidas (2 colunas) */}
+            <div className="lg:col-span-2 space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#38BDF8]">
+                Cidades Atendidas
+              </h4>
+              <ul className="space-y-1.5 text-xs text-slate-300">
+                <li>Sete Lagoas - MG</li>
+                <li>Prudente de Morais</li>
+                <li>Inhaúma</li>
+                <li>Matozinhos</li>
+                <li>Capim Branco</li>
+                <li>Pedro Leopoldo</li>
+                <li>Paraopeba</li>
+                <li>Funilândia e Baldim</li>
+              </ul>
             </div>
 
-            {/* Coluna 4: Contato & Sede */}
-            <div className="space-y-3">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Sede Boa Vista
-              </h3>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                {ADDRESS_DISPLAY}
-              </p>
-              <p className="text-slate-300 font-semibold text-xs pt-1">
-                Telefone Loja: {LANDLINE_DISPLAY}
-              </p>
-              <p className="text-slate-300 font-semibold text-xs">
-                WhatsApp: {PHONE_DISPLAY}
-              </p>
-              <p className="text-slate-400 text-xs">
-                E-mail: {EMAIL_CONTACT}
-              </p>
+            {/* Coluna 4: Contatos Oficiais (3 colunas) */}
+            <div className="lg:col-span-3 space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#38BDF8]">
+                Canais de Atendimento
+              </h4>
+              <div className="space-y-2.5 text-xs text-slate-300">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#38BDF8] shrink-0" />
+                  <span className="font-bold">{PHONE_DISPLAY}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <WhatsAppIcon size={14} className="text-[#22C55E] shrink-0" />
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline text-[#38BDF8] font-bold"
+                  >
+                    (31) 3773-6264 (WhatsApp)
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#EE8220] shrink-0" />
+                  <span className="text-[11px] leading-tight">
+                    Av. Marechal Castelo Branco, 2111 (esq. Melo Figueiredo) - Sete Lagoas
+                  </span>
+                </div>
+                <div className="pt-2">
+                  <a
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
+                  >
+                    <span className="p-1.5 rounded-lg bg-white/10 text-white">IG</span>
+                    <span>{INSTAGRAM_HANDLE}</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="pt-10 mt-10 border-t border-[#121F54] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500">
-            <p>
-              &copy; {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.
-            </p>
-            <p className="text-[11px]">
-              {COMPANY_FULL_NAME} · Belo Horizonte - MG
-            </p>
+          {/* Copyright & Créditos */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div>
+              &copy; {new Date().getFullYear()} Quatro Estações Piscinas &bull; Revendedora Oficial Aguazul Sete Lagoas. Todos os direitos reservados.
+            </div>
+            <div className="text-[11px] text-slate-500">
+              Esquina com Rua Melo Figueiredo, Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG
+            </div>
           </div>
         </div>
       </footer>
 
-      {/* 15. BOTÃO FLUTUANTE DO WHATSAPP COM EFEITO PULSE */}
-      <div className="fixed bottom-6 right-6 z-50">
+      {/* 15. BOTÃO FLUTUANTE DO WHATSAPP COM BADGE PULSANTE */}
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
         <a
-          href={getWhatsAppUrl("Olá! Gostaria de falar com a equipe da Modelo Piscinas.")}
+          href={getWhatsAppUrl("Olá Leonardo e Daniela! Gostaria de um orçamento para a minha piscina ou área de lazer.")}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Falar no WhatsApp com a Modelo Piscinas"
-          className="group relative flex items-center gap-3 bg-[#16A34A] hover:bg-[#15803D] text-white p-3.5 sm:px-4 sm:py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
+          className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 animate-subtle-pulse"
+          aria-label="Falar no WhatsApp com Quatro Estações Piscinas"
         >
-          <div className="absolute -inset-1 rounded-full bg-emerald-500/40 animate-ping pointer-events-none" />
-          <WhatsAppIcon size={24} className="relative z-10" />
-          <span className="hidden sm:inline-block font-bold text-xs tracking-wide relative z-10 pr-1">
-            WhatsApp Modelo Piscinas
+          <span className="absolute -top-1 -right-1 flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white" />
           </span>
+          <WhatsAppIcon size={28} />
         </a>
       </div>
     </div>

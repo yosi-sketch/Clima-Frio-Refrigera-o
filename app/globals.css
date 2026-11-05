@@ -3,43 +3,63 @@
 :root {
   color-scheme: light;
   
-  /* MODELO PISCINAS — Paleta Primária Extraída do Logotipo Oficial */
-  /* Azul Ciano / Aqua Radiante (Tipografia "MODELO PISCINAS", Gota D'água & Asa Esquerda do Emblema) */
-  --brand-cyan-primary: #00B4F5;
-  --brand-cyan-vibrant: #00D0FF;
-  --brand-cyan-hover: #009BD4;
-  --brand-cyan-light: #70E5FF;
-  --brand-cyan-surface: #F0F9FF;
+  /* QUATRO ESTAÇÕES PISCINAS | AGUAZUL SETE LAGOAS — Paleta Oficial Extraída do Logotipo */
+  
+  /* Azul Oceano / Aguazul Primário (Tipografia AGUAZUL, Ondas e SETE LAGOAS) */
+  --brand-blue-primary: #0A6DB0;
+  --brand-blue-vibrant: #0088CC;
+  --brand-blue-light: #38BDF8;
+  --brand-blue-surface: #F0F8FF;
+  --brand-blue-border: #BAE6FD;
+  
+  /* Azul Marinho Profundo Institucional (Topbars, Rodapés, Badges de Contraste e Tipografia Escura) */
+  --brand-navy-darkest: #07172C;
+  --brand-navy-deep: #0B2344;
+  --brand-navy-primary: #0F3260;
+  --brand-navy-card: #133D75;
+  --brand-navy-border: #1E4E8C;
+  
+  /* Gradiente Emblemático do Logotipo (Sol & Quatro Estações) */
+  /* Amarelo Solar Radiante (Topo do Sol & Avaliações Google 4,9★) */
+  --brand-yellow-sun: #F7D511;
+  --brand-yellow-gold: #F59E0B;
+  --brand-yellow-surface: #FEF9C3;
+  --brand-yellow-border: #FDE047;
+  
+  /* Laranja Pôr do Sol (Segunda faixa do sol / Calor & Energia) */
+  --brand-orange-sunset: #EE8220;
+  --brand-orange-hover: #D96E14;
+  --brand-orange-surface: #FFF7ED;
+  --brand-orange-border: #FDBA74;
+  
+  /* Vermelho Coral (Faixa central do emblema) */
+  --brand-red-coral: #DF2727;
+  
+  /* Violeta / Índigo Crepúsculo (Faixa inferior do emblema) */
+  --brand-violet-deep: #4C3C78;
+  --brand-violet-surface: #F5F3FF;
+  
+  /* Aliases para compatibilidade */
+  --brand-cyan-primary: #0A6DB0;
+  --brand-cyan-vibrant: #0088CC;
+  --brand-cyan-hover: #07598F;
+  --brand-cyan-light: #38BDF8;
+  --brand-cyan-surface: #F0F8FF;
   --brand-cyan-border: #BAE6FD;
   
-  /* Azul Noite Profundo / Marinho (Base Estrutural, Contornos 3D e Sombras do Logotipo) */
-  --brand-navy-darkest: #070D24;
-  --brand-navy-deep: #0D163B;
-  --brand-navy-primary: #121F54;
-  --brand-navy-card: #152460;
-  --brand-navy-border: #1E3485;
-  
-  /* Azul Royal / Índigo Elétrico (Asa Direita do Emblema 'M' do Logotipo) */
-  --brand-royal-primary: #2524A8;
-  --brand-royal-light: #3837D1;
-  --brand-royal-hover: #1E1C8F;
-  
-  /* Acentos de Apoio, Confiança e Avaliação Google 4,9★ */
   --brand-gold-primary: #F59E0B;
   --brand-gold-hover: #D97706;
-  --brand-gold-surface: #FEF3C7;
-  --brand-gold-border: #FDE68A;
-
-  /* Aliases para compatibilidade */
-  --brand-orange-primary: #F59E0B;
-  --brand-orange-hover: #D97706;
-  --brand-orange-surface: #FEF3C7;
-  --brand-orange-border: #FDE68A;
-  --brand-amber-gold: #F59E0B;
+  --brand-gold-surface: #FEF9C3;
+  --brand-gold-border: #FDE047;
+  
+  --brand-orange-primary: #EE8220;
+  --brand-orange-hover: #D96E14;
+  --brand-orange-surface: #FFF7ED;
+  --brand-orange-border: #FDBA74;
   
   /* Neutros e Superfícies */
-  --brand-slate-dark: #070F26;
-  --brand-slate-muted: #5B6B84;
+  --brand-slate-dark: #07172C;
+  --brand-slate-muted: #52677B;
   --brand-canvas-white: #FFFFFF;
   --brand-canvas-light: #F8FAFC;
   --brand-canvas-alt: #F1F5F9;
@@ -54,24 +74,26 @@
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-cyan-primary: #00B4F5;
-  --color-brand-cyan-vibrant: #00D0FF;
-  --color-brand-cyan-hover: #009BD4;
-  --color-brand-cyan-surface: #F0F9FF;
-  --color-brand-cyan-border: #BAE6FD;
+  --color-brand-blue-primary: #0A6DB0;
+  --color-brand-blue-vibrant: #0088CC;
+  --color-brand-blue-light: #38BDF8;
+  --color-brand-blue-surface: #F0F8FF;
+  --color-brand-blue-border: #BAE6FD;
   
-  --color-brand-navy-darkest: #070D24;
-  --color-brand-navy-deep: #0D163B;
-  --color-brand-navy-primary: #121F54;
-  --color-brand-navy-card: #152460;
-  --color-brand-navy-border: #1E3485;
+  --color-brand-navy-darkest: #07172C;
+  --color-brand-navy-deep: #0B2344;
+  --color-brand-navy-primary: #0F3260;
+  --color-brand-navy-card: #133D75;
+  --color-brand-navy-border: #1E4E8C;
   
-  --color-brand-royal-primary: #2524A8;
-  --color-brand-royal-light: #3837D1;
+  --color-brand-yellow-sun: #F7D511;
+  --color-brand-orange-sunset: #EE8220;
+  --color-brand-red-coral: #DF2727;
+  --color-brand-violet-deep: #4C3C78;
   
   --color-brand-gold-primary: #F59E0B;
   --color-brand-gold-hover: #D97706;
-  --color-brand-gold-surface: #FEF3C7;
+  --color-brand-gold-surface: #FEF9C3;
   
   --color-brand-canvas-light: #F8FAFC;
   --color-brand-canvas-surface: #FFFFFF;
@@ -84,15 +106,15 @@ html {
 
 body {
   background: #F8FAFC;
-  color: #070F26;
+  color: #07172C;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #00B4F5;
-  color: #070D24;
+  background: #0A6DB0;
+  color: #FFFFFF;
 }
 
 .font-heading {
@@ -108,10 +130,11 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #121F54;
+  color: #0A6DB0;
 }
 
-.eyebrow-cyan {
+.eyebrow-cyan,
+.eyebrow-blue {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
@@ -120,23 +143,22 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #00B4F5;
+  color: #0A6DB0;
 }
 
-.eyebrow-royal {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #2524A8;
-}
-
-.eyebrow-gold,
 .eyebrow-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #EE8220;
+}
+
+.eyebrow-gold {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
@@ -148,35 +170,27 @@ body {
   color: #D97706;
 }
 
-.eyebrow::before {
+.eyebrow::before,
+.eyebrow-cyan::before,
+.eyebrow-blue::before {
   width: 1.5rem;
   height: 2.5px;
   flex: none;
-  background: #00B4F5;
+  background: #0A6DB0;
   content: "";
   border-radius: 999px;
 }
 
-.eyebrow-cyan::before {
-  width: 1.5rem;
-  height: 2.5px;
-  flex: none;
-  background: #00B4F5;
-  content: "";
-  border-radius: 999px;
-}
-
-.eyebrow-royal::before {
-  width: 1.5rem;
-  height: 2.5px;
-  flex: none;
-  background: #2524A8;
-  content: "";
-  border-radius: 999px;
-}
-
-.eyebrow-gold::before,
 .eyebrow-orange::before {
+  width: 1.5rem;
+  height: 2.5px;
+  flex: none;
+  background: #EE8220;
+  content: "";
+  border-radius: 999px;
+}
+
+.eyebrow-gold::before {
   width: 1.5rem;
   height: 2.5px;
   flex: none;
@@ -189,29 +203,37 @@ body {
 .card-modelo {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px 0 rgba(7, 13, 36, 0.05), 0 1px 2px -1px rgba(7, 13, 36, 0.05);
+  box-shadow: 0 1px 3px 0 rgba(7, 23, 44, 0.05), 0 1px 2px -1px rgba(7, 23, 44, 0.05);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-modelo:hover {
   border-color: #BAE6FD;
-  box-shadow: 0 14px 30px -5px rgba(0, 180, 245, 0.2), 0 8px 12px -6px rgba(18, 31, 84, 0.08);
+  box-shadow: 0 14px 30px -5px rgba(10, 109, 176, 0.2), 0 8px 12px -6px rgba(11, 35, 68, 0.08);
   transform: translateY(-2px);
 }
 
 .card-modelo-dark {
-  background: #0D163B;
-  border: 1px solid #1E3485;
-  box-shadow: 0 4px 20px -2px rgba(7, 13, 36, 0.5);
+  background: #0B2344;
+  border: 1px solid #1E4E8C;
+  box-shadow: 0 4px 20px -2px rgba(7, 23, 44, 0.5);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-modelo-dark:hover {
-  border-color: #00B4F5;
-  box-shadow: 0 12px 30px -5px rgba(0, 180, 245, 0.28);
+  border-color: #38BDF8;
+  box-shadow: 0 12px 30px -5px rgba(0, 136, 204, 0.35);
   transform: translateY(-2px);
 }
 
+/* Water Ripple Gradient Effect */
+.bg-aguazul-radial {
+  background: radial-gradient(circle at 50% 0%, rgba(10, 109, 176, 0.25), transparent 70%);
+}
+
+.bg-sunset-glow {
+  background: radial-gradient(circle at 100% 0%, rgba(238, 130, 32, 0.15), transparent 60%);
+}
 
 /* Subtle glowing pulse animation */
 @keyframes subtlePulse {
@@ -227,6 +249,23 @@ body {
 
 .animate-subtle-pulse {
   animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Wave motion animation */
+@keyframes waveMotion {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-wave {
+  animation: waveMotion 10s ease-in-out infinite;
 }
 
 /* Scrollbar polish */
@@ -245,5 +284,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #121F54;
+  background: #0A6DB0;
 }

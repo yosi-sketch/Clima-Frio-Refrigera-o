@@ -1,7 +1,7 @@
-# Modelo Piscinas — Belo Horizonte - MG
-## Produtos para Piscinas · Cloro Clorofort · Peças Sibrape · Filtros & Bombas · Aquecimento Solar · 4,9★ no Google (23 Avaliações)
+# Quatro Estações Piscinas | Aguazul Sete Lagoas — MG
+## Revendedora Oficial Aguazul Piscinas · Saunas · Aquecimento Solar · 4,9★ no Google (67 Avaliações)
 
-Landing page moderna, ultra-rápida e de alta conversão para a **Modelo Piscinas**, loja de referência e assistência técnica em Belo Horizonte na Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG, CEP 31060-427.
+Landing page moderna, ultra-rápida e de alta conversão para a **Quatro Estações Piscinas**, concessionária autorizada Aguazul e centro de referência em áreas de lazer em Sete Lagoas - MG (Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG, CEP 35701-240).
 
 ### Tecnologias
 - Next.js 16 (App Router)
@@ -12,8 +12,8 @@ Landing page moderna, ultra-rápida e de alta conversão para a **Modelo Piscina
 - Sharp (Geração de favicons, icons e OG Image)
 
 ### Contatos Oficiais
-- **WhatsApp:** (31) 98396-1882
-- **Telefone Fixo / Loja:** (31) 3786-4004
-- **Endereço:** Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG, CEP 31060-427
-- **Instagram:** [@modelopiscinas](https://www.instagram.com/modelopiscinas/)
-- **Website:** [www.modelopiscinas.com.br](https://www.modelopiscinas.com.br)
+- **WhatsApp / Telefone:** (31) 3773-6264
+- **Link Direto WhatsApp:** [wa.me/message/2CWT44DM5H5FJ1](https://wa.me/message/2CWT44DM5H5FJ1)
+- **Endereço:** Esquina com Rua Melo Figueiredo, Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG, CEP 35701-240
+- **Instagram:** [@quatroestacoespiscinas](https://www.instagram.com/quatroestacoespiscinas/)
+- **Liderança & Especialistas:** Leonardo (Leo) & Daniela (Dani)
