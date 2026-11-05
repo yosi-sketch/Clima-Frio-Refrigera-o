@@ -65,7 +65,7 @@ const WAZE_MAPS_URL =
   "https://waze.com/ul?q=Av+Itaituba+173+Boa+Vista+Belo+Horizonte+MG";
 
 // Assets Oficiais da Modelo Piscinas
-const LOGO_SRC = "/logo.png";
+const LOGO_SRC = "/logo-trimmed.png";
 
 function getWhatsAppUrl(
   message?: string,
@@ -528,27 +528,32 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
       {/* 1. TOP BAR INSTITUCIONAL — BOA VISTA, BELO HORIZONTE */}
-      <div className="bg-[#070D24] text-white text-xs py-2 px-4 border-b border-[#121F54]">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+      <div className="bg-[#070D24] text-white text-[12px] py-2 px-4 border-b border-[#121F54]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+          {/* Lado Esquerdo: Endereço & Horários */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-5 text-slate-300">
             <a
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-slate-300 hover:text-[#00B4F5] transition-colors"
+              className="flex items-center gap-1.5 hover:text-[#00B4F5] transition-colors whitespace-nowrap"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#00B4F5]" />
+              <MapPin className="w-3.5 h-3.5 text-[#00B4F5] shrink-0" />
               <span>Av. Itaituba, 173 - Boa Vista, Belo Horizonte - MG</span>
             </a>
-            <div className="hidden md:flex items-center gap-1.5 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-[#00B4F5]" />
+            <div className="hidden sm:flex items-center gap-1.5 text-slate-400 whitespace-nowrap">
+              <Clock className="w-3.5 h-3.5 text-[#00B4F5] shrink-0" />
               <span>Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
             </div>
+          </div>
+
+          {/* Lado Direito: Avaliação Google, Telefone Fixo & WhatsApp */}
+          <div className="flex items-center gap-3 sm:gap-4 text-slate-300">
             <a
               href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#0D163B] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#1E3485] hover:border-[#00B4F5] transition-colors"
+              className="inline-flex items-center gap-1.5 bg-[#0D163B] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#1E3485] hover:border-[#00B4F5] transition-colors text-[11px] whitespace-nowrap"
             >
               <div className="flex text-[#F59E0B]">
                 {[...Array(5)].map((_, i) => (
@@ -556,88 +561,99 @@ export default function HomePage() {
                 ))}
               </div>
               <span className="font-bold text-[#F59E0B]">{GOOGLE_RATING}★</span>
-              <span className="text-slate-400">({GOOGLE_REVIEW_COUNT} avaliações Google)</span>
+              <span className="text-slate-400 hidden xl:inline">({GOOGLE_REVIEW_COUNT} avaliações)</span>
             </a>
-          </div>
 
-          <div className="flex items-center gap-4 text-slate-300">
             <a
               href={`tel:${LANDLINE_DISPLAY.replace(/\D/g, "")}`}
-              className="hidden lg:flex items-center gap-1 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1 hover:text-white transition-colors whitespace-nowrap"
             >
               <Phone className="w-3 h-3 text-[#00B4F5]" />
               <span>{LANDLINE_DISPLAY}</span>
             </a>
+
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#00D0FF] font-semibold hover:underline"
+              className="flex items-center gap-1.5 text-[#00D0FF] font-semibold hover:underline whitespace-nowrap"
             >
               <WhatsAppIcon size={14} />
-              <span>WhatsApp: {PHONE_DISPLAY}</span>
+              <span>{PHONE_DISPLAY}</span>
             </a>
           </div>
         </div>
       </div>
 
       {/* 2. NAVBAR PRINCIPAL */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo Oficial Modelo Piscinas */}
-            <a href="#" className="flex items-center gap-3 group">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <div className="flex items-center justify-between h-20 gap-4">
+            {/* Logo Oficial Modelo Piscinas — limpo, sem texto duplicado */}
+            <a href="#" className="flex items-center shrink-0 group py-1" aria-label="Modelo Piscinas - Início">
+              <div className="relative h-12 sm:h-14 w-24 sm:w-28 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src={LOGO_SRC}
-                  alt="Modelo Piscinas Logo Oficial"
+                  alt="Modelo Piscinas Logo"
                   fill
                   priority
-                  sizes="64px"
-                  className="object-contain"
+                  sizes="(max-width: 640px) 96px, 112px"
+                  className="object-contain object-left"
                 />
-              </div>
-              <div className="flex flex-col justify-center">
-                <span className="text-xl sm:text-2xl font-black italic tracking-tight text-[#070D24] font-heading leading-tight flex items-center gap-1.5">
-                  <span className="text-[#070D24]">MODELO</span>
-                  <span className="text-[#00B4F5]">PISCINAS</span>
-                </span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                  Do Tratamento ao Aquecimento • BH
-                </span>
               </div>
             </a>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-7 text-[14px] font-semibold text-slate-700">
-              <a href="#produtos" className="hover:text-[#00B4F5] transition-colors">
+            {/* Desktop Navigation Links — com whitespace-nowrap para nunca quebrar palavras */}
+            <nav className="hidden lg:flex items-center gap-2 xl:gap-4 text-[13px] xl:text-[14px] font-semibold text-slate-700">
+              <a
+                href="#produtos"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
+              >
                 Produtos &amp; Serviços
               </a>
-              <a href="#diferenciais" className="hover:text-[#00B4F5] transition-colors">
+              <a
+                href="#diferenciais"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
+              >
                 Diferenciais
               </a>
-              <a href="#sobre" className="hover:text-[#00B4F5] transition-colors">
-                A Loja
+              <a
+                href="#sobre"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
+              >
+                Sobre Nós
               </a>
-              <a href="#galeria" className="hover:text-[#00B4F5] transition-colors">
+              <a
+                href="#galeria"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
+              >
                 Galeria
               </a>
-              <a href="#depoimentos" className="hover:text-[#00B4F5] transition-colors flex items-center gap-1">
+              <a
+                href="#depoimentos"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors flex items-center gap-1.5"
+              >
                 <span>Avaliações</span>
-                <span className="bg-[#FEF3C7] text-[#D97706] text-[11px] px-1.5 py-0.2 rounded-full font-bold">
+                <span className="bg-[#FEF3C7] text-[#D97706] text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-[#FDE68A]">
                   4,9★
                 </span>
               </a>
-              <a href="#faq" className="hover:text-[#00B4F5] transition-colors">
+              <a
+                href="#faq"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
+              >
                 Dúvidas
               </a>
-              <a href="#localizacao" className="hover:text-[#00B4F5] transition-colors">
+              <a
+                href="#localizacao"
+                className="whitespace-nowrap px-2 py-1 rounded-md hover:text-[#00B4F5] hover:bg-slate-50 transition-colors"
+              >
                 Como Chegar
               </a>
             </nav>
 
             {/* Action Buttons */}
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-2.5 shrink-0">
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
@@ -655,9 +671,10 @@ export default function HomePage() {
                 target="_blank"
                 variant="whatsapp"
                 size="sm"
+                className="shadow-sm"
               >
                 <WhatsAppIcon size={16} />
-                <span>Pedir no WhatsApp</span>
+                <span className="whitespace-nowrap font-bold">Pedir no WhatsApp</span>
               </GlowingButton>
             </div>
 
@@ -671,13 +688,13 @@ export default function HomePage() {
                 className="text-xs px-3 py-1.5"
               >
                 <WhatsAppIcon size={14} />
-                <span>WhatsApp</span>
+                <span className="whitespace-nowrap">WhatsApp</span>
               </GlowingButton>
 
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-[#00B4F5] focus:outline-none"
+                className="p-2 rounded-lg text-slate-700 hover:text-[#00B4F5] hover:bg-slate-100 focus:outline-none transition-colors"
                 aria-label="Alternar menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -1705,27 +1722,18 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Coluna 1: Logo & Resumo */}
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0">
+              <a href="#" className="inline-block group" aria-label="Modelo Piscinas">
+                <div className="relative h-14 sm:h-16 w-28 sm:w-32 transition-transform duration-300 group-hover:scale-105">
                   <Image
                     src={LOGO_SRC}
                     alt="Modelo Piscinas Logo"
                     fill
-                    sizes="64px"
-                    className="object-contain"
+                    sizes="140px"
+                    className="object-contain object-left"
                   />
                 </div>
-                <div className="flex flex-col justify-center">
-                  <span className="text-xl font-black italic tracking-tight text-white font-heading leading-tight flex items-center gap-1.5">
-                    <span>MODELO</span>
-                    <span className="text-[#00B4F5]">PISCINAS</span>
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    Do Tratamento ao Aquecimento
-                  </span>
-                </div>
-              </div>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              </a>
+              <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
                 Referência em produtos para piscinas, cloro Clorofort, filtros, bombas, crepinas Sibrape e aquecimento solar em Belo Horizonte e Região Metropolitana.
               </p>
               <div className="flex items-center gap-3 pt-1">

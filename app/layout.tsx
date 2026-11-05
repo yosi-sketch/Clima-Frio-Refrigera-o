@@ -153,6 +153,11 @@ export default function RootLayout({
       className={`${headingFont.variable} ${bodyFont.variable}`}
     >
       <head>
+        <link rel="icon" href="/favicon.ico?v=modelo-tab3" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=modelo-tab3" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=modelo-tab3" />
+        <link rel="shortcut icon" href="/favicon.ico?v=modelo-tab3" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=modelo-tab3" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
