@@ -3,97 +3,78 @@
 :root {
   color-scheme: light;
   
-  /* QUATRO ESTAÇÕES PISCINAS | AGUAZUL SETE LAGOAS — Paleta Oficial Extraída do Logotipo */
+  /* PISCINAS NA HORA BH — Paleta Oficial Extraída do Logotipo */
   
-  /* Azul Oceano / Aguazul Primário (Tipografia AGUAZUL, Ondas e SETE LAGOAS) */
-  --brand-blue-primary: #0A6DB0;
-  --brand-blue-vibrant: #0088CC;
-  --brand-blue-light: #38BDF8;
-  --brand-blue-surface: #F0F8FF;
-  --brand-blue-border: #BAE6FD;
+  /* Azul Royal / Piscina Primário (Forma da casa e base do logo) */
+  --brand-blue-primary: #044296;
+  --brand-blue-vibrant: #0253BE;
+  --brand-blue-deep: #02245B;
+  --brand-blue-darkest: #031838;
+  --brand-blue-surface: #EBF3FC;
+  --brand-blue-border: #B9D7F9;
   
-  /* Azul Marinho Profundo Institucional (Topbars, Rodapés, Badges de Contraste e Tipografia Escura) */
-  --brand-navy-darkest: #07172C;
-  --brand-navy-deep: #0B2344;
-  --brand-navy-primary: #0F3260;
-  --brand-navy-card: #133D75;
-  --brand-navy-border: #1E4E8C;
+  /* Ciano / Água & Splash (Losango direito e splash no texto) */
+  --brand-cyan-splash: #04ACD3;
+  --brand-cyan-vibrant: #00BBE4;
+  --brand-cyan-light: #38BDF8;
+  --brand-cyan-surface: #E6F8FC;
+  --brand-cyan-border: #BAEFF8;
   
-  /* Gradiente Emblemático do Logotipo (Sol & Quatro Estações) */
-  /* Amarelo Solar Radiante (Topo do Sol & Avaliações Google 4,9★) */
-  --brand-yellow-sun: #F7D511;
+  /* Laranja Solar / Ação & Energia (Losango esquerdo e letra P) */
+  --brand-orange-action: #F97804;
+  --brand-orange-hover: #DF6800;
+  --brand-orange-surface: #FFF5EB;
+  --brand-orange-border: #FED7AA;
+  
+  /* Amarelo Solar / Verão & Alegria (Losango inferior e letra H) */
+  --brand-yellow-sun: #FCD504;
   --brand-yellow-gold: #F59E0B;
-  --brand-yellow-surface: #FEF9C3;
+  --brand-yellow-surface: #FEFCE8;
   --brand-yellow-border: #FDE047;
   
-  /* Laranja Pôr do Sol (Segunda faixa do sol / Calor & Energia) */
-  --brand-orange-sunset: #EE8220;
-  --brand-orange-hover: #D96E14;
-  --brand-orange-surface: #FFF7ED;
-  --brand-orange-border: #FDBA74;
-  
-  /* Vermelho Coral (Faixa central do emblema) */
-  --brand-red-coral: #DF2727;
-  
-  /* Violeta / Índigo Crepúsculo (Faixa inferior do emblema) */
-  --brand-violet-deep: #4C3C78;
-  --brand-violet-surface: #F5F3FF;
-  
-  /* Aliases para compatibilidade */
-  --brand-cyan-primary: #0A6DB0;
-  --brand-cyan-vibrant: #0088CC;
-  --brand-cyan-hover: #07598F;
-  --brand-cyan-light: #38BDF8;
-  --brand-cyan-surface: #F0F8FF;
-  --brand-cyan-border: #BAE6FD;
-  
-  --brand-gold-primary: #F59E0B;
-  --brand-gold-hover: #D97706;
-  --brand-gold-surface: #FEF9C3;
-  --brand-gold-border: #FDE047;
-  
-  --brand-orange-primary: #EE8220;
-  --brand-orange-hover: #D96E14;
-  --brand-orange-surface: #FFF7ED;
-  --brand-orange-border: #FDBA74;
-  
-  /* Neutros e Superfícies */
-  --brand-slate-dark: #07172C;
-  --brand-slate-muted: #52677B;
-  --brand-canvas-white: #FFFFFF;
-  --brand-canvas-light: #F8FAFC;
-  --brand-canvas-alt: #F1F5F9;
-  --brand-canvas-border: #E2E8F0;
+  /* Verde Limão / Frescor & Natureza (Losango superior e letra H) */
+  --brand-green-lime: #83C809;
+  --brand-green-hover: #72B006;
+  --brand-green-surface: #F4FBE8;
+  --brand-green-border: #D9F99D;
   
   /* WhatsApp Oficial */
   --brand-whatsapp: #16A34A;
   --brand-whatsapp-hover: #15803D;
+  
+  /* Neutros e Superfícies */
+  --brand-slate-dark: #031838;
+  --brand-slate-muted: #475569;
+  --brand-canvas-white: #FFFFFF;
+  --brand-canvas-light: #F8FAFC;
+  --brand-canvas-alt: #F1F5F9;
+  --brand-canvas-border: #E2E8F0;
 }
 
 @theme inline {
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-blue-primary: #0A6DB0;
-  --color-brand-blue-vibrant: #0088CC;
-  --color-brand-blue-light: #38BDF8;
-  --color-brand-blue-surface: #F0F8FF;
-  --color-brand-blue-border: #BAE6FD;
+  --color-brand-blue-primary: #044296;
+  --color-brand-blue-deep: #02245B;
+  --color-brand-blue-darkest: #031838;
+  --color-brand-blue-surface: #EBF3FC;
+  --color-brand-blue-border: #B9D7F9;
   
-  --color-brand-navy-darkest: #07172C;
-  --color-brand-navy-deep: #0B2344;
-  --color-brand-navy-primary: #0F3260;
-  --color-brand-navy-card: #133D75;
-  --color-brand-navy-border: #1E4E8C;
+  --color-brand-cyan-splash: #04ACD3;
+  --color-brand-cyan-vibrant: #00BBE4;
+  --color-brand-cyan-surface: #E6F8FC;
   
-  --color-brand-yellow-sun: #F7D511;
-  --color-brand-orange-sunset: #EE8220;
-  --color-brand-red-coral: #DF2727;
-  --color-brand-violet-deep: #4C3C78;
+  --color-brand-orange-action: #F97804;
+  --color-brand-orange-hover: #DF6800;
+  --color-brand-orange-surface: #FFF5EB;
   
-  --color-brand-gold-primary: #F59E0B;
-  --color-brand-gold-hover: #D97706;
-  --color-brand-gold-surface: #FEF9C3;
+  --color-brand-yellow-sun: #FCD504;
+  --color-brand-yellow-gold: #F59E0B;
+  --color-brand-yellow-surface: #FEFCE8;
+  
+  --color-brand-green-lime: #83C809;
+  --color-brand-green-surface: #F4FBE8;
   
   --color-brand-canvas-light: #F8FAFC;
   --color-brand-canvas-surface: #FFFFFF;
@@ -106,14 +87,14 @@ html {
 
 body {
   background: #F8FAFC;
-  color: #07172C;
+  color: #031838;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #0A6DB0;
+  background: #044296;
   color: #FFFFFF;
 }
 
@@ -130,7 +111,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #0A6DB0;
+  color: #044296;
 }
 
 .eyebrow-cyan,
@@ -143,7 +124,7 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #0A6DB0;
+  color: #044296;
 }
 
 .eyebrow-orange {
@@ -155,7 +136,19 @@ body {
   line-height: 1.4;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #EE8220;
+  color: #F97804;
+}
+
+.eyebrow-green {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #83C809;
 }
 
 .eyebrow-gold {
@@ -176,7 +169,7 @@ body {
   width: 1.5rem;
   height: 2.5px;
   flex: none;
-  background: #0A6DB0;
+  background: #044296;
   content: "";
   border-radius: 999px;
 }
@@ -185,7 +178,16 @@ body {
   width: 1.5rem;
   height: 2.5px;
   flex: none;
-  background: #EE8220;
+  background: #F97804;
+  content: "";
+  border-radius: 999px;
+}
+
+.eyebrow-green::before {
+  width: 1.5rem;
+  height: 2.5px;
+  flex: none;
+  background: #83C809;
   content: "";
   border-radius: 999px;
 }
@@ -194,7 +196,7 @@ body {
   width: 1.5rem;
   height: 2.5px;
   flex: none;
-  background: #F59E0B;
+  background: #FCD504;
   content: "";
   border-radius: 999px;
 }
@@ -203,36 +205,36 @@ body {
 .card-modelo {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px 0 rgba(7, 23, 44, 0.05), 0 1px 2px -1px rgba(7, 23, 44, 0.05);
+  box-shadow: 0 1px 3px 0 rgba(3, 24, 56, 0.05), 0 1px 2px -1px rgba(3, 24, 56, 0.05);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-modelo:hover {
-  border-color: #BAE6FD;
-  box-shadow: 0 14px 30px -5px rgba(10, 109, 176, 0.2), 0 8px 12px -6px rgba(11, 35, 68, 0.08);
+  border-color: #B9D7F9;
+  box-shadow: 0 14px 30px -5px rgba(4, 66, 150, 0.18), 0 8px 12px -6px rgba(2, 36, 91, 0.08);
   transform: translateY(-2px);
 }
 
 .card-modelo-dark {
-  background: #0B2344;
-  border: 1px solid #1E4E8C;
-  box-shadow: 0 4px 20px -2px rgba(7, 23, 44, 0.5);
+  background: #02245B;
+  border: 1px solid #044296;
+  box-shadow: 0 4px 20px -2px rgba(3, 24, 56, 0.5);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-modelo-dark:hover {
-  border-color: #38BDF8;
-  box-shadow: 0 12px 30px -5px rgba(0, 136, 204, 0.35);
+  border-color: #04ACD3;
+  box-shadow: 0 12px 30px -5px rgba(4, 172, 211, 0.35);
   transform: translateY(-2px);
 }
 
 /* Water Ripple Gradient Effect */
-.bg-aguazul-radial {
-  background: radial-gradient(circle at 50% 0%, rgba(10, 109, 176, 0.25), transparent 70%);
+.bg-pool-radial {
+  background: radial-gradient(circle at 50% 0%, rgba(4, 66, 150, 0.25), transparent 70%);
 }
 
-.bg-sunset-glow {
-  background: radial-gradient(circle at 100% 0%, rgba(238, 130, 32, 0.15), transparent 60%);
+.bg-splash-glow {
+  background: radial-gradient(circle at 100% 0%, rgba(4, 172, 211, 0.2), transparent 60%);
 }
 
 /* Subtle glowing pulse animation */
@@ -284,5 +286,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0A6DB0;
+  background: #044296;
 }

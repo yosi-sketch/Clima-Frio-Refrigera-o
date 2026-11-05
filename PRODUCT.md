@@ -1,59 +1,53 @@
-# QUATRO ESTAÇÕES PISCINAS — PISCINAS, SAUNAS & AQUECIMENTO SOLAR
-## Revendedora Oficial Aguazul Piscinas · Sete Lagoas - MG · Google Avaliações 4,9★ (67 Avaliações Reais)
+# PISCINAS NA HORA BH — ESPECIALISTAS EM DIVERSÃO!
+## Loja de Artigos para Esportes ao Ar Livre & Piscinas · Belo Horizonte - MG · Google Avaliações 5,0★
 
 ---
 
 ### Visão Geral do Projeto
-Landing page de altíssima conversão, autoridade institucional e sofisticação visual desenvolvida em Next.js 16 (App Router) e Tailwind CSS v4 para a **Quatro Estações Piscinas** (Quatro Estações. Piscinas, Saunas Aquecimento Solar / Aguazul Sete Lagoas), loja física e showroom de referência técnica em Sete Lagoas - MG (Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG, CEP 35701-240).
+Landing page de altíssima conversão, autoridade institucional e identidade visual moderna desenvolvida em Next.js 16 (App Router) e Tailwind CSS v4 para a **Piscinas Na Hora BH**, loja física e comércio de pronta entrega situado em Belo Horizonte - MG (**Portão preto de Garagem - R. Bangu, 90 - Caiçaras, Belo Horizonte - MG, CEP 30750-410**).
 
-- **Identidade Visual & Cores (Extraída Diretamente do Logotipo Oficial Aguazul Sete Lagoas):**
-  - **Paleta Primária (Azul Oceano / Aguazul — Tipografia "AGUAZUL", Ondas e "SETE LAGOAS"):**
-    - `Aguazul Ocean Blue` (`#0A6DB0` / `#0088CC`): Identidade principal, botões, destaques e cabeçalhos.
-    - `Aguazul Sky Light` (`#38BDF8` / `#00A3E0`): Iluminação cênica, gradientes e badges.
-    - `Soft Water Surface` (`#F0F8FF`): Superfícies arejadas, cards de serviço e respiros.
-    - `Water Border` (`#BAE6FD`): Bordas delicadas com tom aquático.
-  - **Paleta do Sol & 4 Estações (Emblema Circular Superior):**
-    - `Solar Radiant Yellow` (`#F7D511` / `#FFC72C`): Topo do sol, estrelas Google 4,9★ e energia solar.
-    - `Sunset Orange` (`#EE8220` / `#D96E14`): Segunda faixa solar, aquecimento e CTAs quentes.
-    - `Coral Red` (`#DF2727`): Faixa central do emblema solar.
-    - `Twilight Violet` (`#4C3C78`): Faixa inferior do emblema, sofisticação e noites de piscina.
-  - **Paleta de Contraste & Estrutura (Azul Marinho Noturno Profundo):**
-    - `Navy Darkest` (`#07172C`): Topbar, rodapé e hero de altíssimo contraste institucional.
-    - `Navy Deep` (`#0B2344`): Superfície para modais, cartões escuros e navbars sólidas.
-    - `Navy Border & Accent` (`#1E4E8C`): Bordas sutis de requinte.
-  - **Acentos e Destaques:**
-    - `Google Star Amber` (`#F59E0B` / `#F7D511`): 4,9 estrelas com 67 avaliações reais.
+- **Identidade Visual & Cores (Extraída Diretamente do Logotipo Oficial Piscinas Na Hora BH):**
+  - **Paleta Primária (Azul Royal & Ciano / Água & Splash):**
+    - `Royal Blue Primário` (`#044296` / `#0253BE`): Cor base do contorno em casa/piscina, botões institucionais e títulos.
+    - `Deep Navy Noturno` (`#02245B` / `#031838`): Topbar, rodapé e hero de alto contraste.
+    - `Aqua Splash Ciano` (`#04ACD3` / `#00BBE4`): Losango direito, respingo d'água no texto e badges.
+    - `Soft Water Surface` (`#EBF3FC`): Superfícies arejadas e cards de serviço.
+    - `Water Border` (`#B9D7F9`): Bordas delicadas com tom aquático.
+  - **Paleta de Calor, Energia & Sol:**
+    - `Action Sunset Orange` (`#F97804` / `#DF6800`): Losango esquerdo, letra 'P', botões de ação e CTAs quentes.
+    - `Solar Radiant Yellow` (`#FCD504` / `#F59E0B`): Losango inferior, letra 'H' e estrelas 5,0★ do Google.
+    - `Fresh Lime Green` (`#83C809` / `#72B006`): Losango superior, letra 'H' inferior e frescor ao ar livre.
     - `WhatsApp Oficial` (`#16A34A` / `#22C55E` / `#15803D`): Ação rápida com mensagem contextualizada.
 
 - **Tipografia Coesa & Harmoniosa:**
-  - **Títulos e Headings:** Montserrat (forte, geométrica, curvilínea e moderna, dialogando com o dinamismo do logotipo Aguazul).
+  - **Títulos e Headings:** Montserrat (forte, geométrica, curvilínea e moderna, dialogando com o dinamismo do logotipo e da tipografia PBHH).
   - **Corpo de Texto:** Plus Jakarta Sans (clareza visual máxima, legibilidade ergonômica em smartphones e monitores).
 
 - **Informações Oficiais de Contato:**
-  - **Razão Social / Nome Comercial:** Quatro Estações Piscinas (Aguazul Sete Lagoas)
-  - **Assinatura Institucional:** Quatro Estações Piscinas — Revenda Oficial Aguazul • Piscinas, Saunas & Aquecimento Solar
-  - **Slogan Oficial:** "Valorizamos áreas de lazer, realizamos sonhos tornando cada vez mais aconchegante o seu lar!"
-  - **Liderança & Especialistas:** Leonardo (Leo) e Daniela (Dani)
-  - **Telefone / WhatsApp:** (31) 3773-6264 (`553137736264` / direct link `https://wa.me/message/2CWT44DM5H5FJ1`)
-  - **E-mail Oficial:** contato@quatroestacoespiscinas.com.br
-  - **Endereço Físico:** Esquina com Rua Melo Figueiredo, Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG, 35701-240
-  - **Instagram Oficial:** [@quatroestacoespiscinas](https://www.instagram.com/quatroestacoespiscinas/)
-  - **Google Avaliações:** 4,9 estrelas com 67 avaliações públicas reais
+  - **Razão Social / Nome Comercial:** Piscinas Na Hora BH
+  - **Assinatura Institucional:** Piscinas Na Hora BH — Artigos para Esportes ao Ar Livre & Piscinas
+  - **Slogan Oficial:** "Somos #Especialistas em #diversão! 🤩 #piscinas #inflaveis #lazer #casa #jardim #camping #pesca #brinquedos #alegria garantida para toda #familia."
+  - **Telefone / WhatsApp:** (31) 92000-6722 (`5531920006722`)
+  - **Endereço Físico:** Portão preto de Garagem - R. Bangu, 90 - Caiçaras, Belo Horizonte - MG, 30750-410
+  - **Horário de Funcionamento:** Aberto · Fecha às 18:00 (Segunda a Sábado)
+  - **Instagram Oficial:** [@piscinas_na_hora](https://www.instagram.com/piscinas_na_hora/)
+  - **Loja Oficial Shopee:** [shopee.com.br/piscinasnahorabh](http://shopee.com.br/piscinasnahorabh)
+  - **Google Avaliações:** 5,0 estrelas (100% de avaliações positivas públicas reais)
 
-- **Diferenciais Evidenciados pelos Clientes nas Avaliações:**
-  - **Resolução de Lagos Ornamentais:** Ana Paula Carvalho ("resolveu o problema do lago ornamental que outros não conseguiram, hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes! E aqueceu a piscina ao mesmo tempo").
-  - **Troca Imediata na Garantia:** Carlos Henrique ("tive um pequeno problema na bomba, nem quiseram verificar, já deram uma nova na caixa, recomendo sempre!").
-  - **Acompanhamento Pós-Venda de Longo Prazo:** Januzia Alacoque ("comprei com a Dani e com o Leonardo, era meu sonho, são muito técnicos e nos dão auxílio até hoje, quase 3 anos depois").
-  - **Instalação e Cuidado com a Estrutura:** Silmara Duque ("visita técnica do Leo, conversas e instalação, cuidando da estrutura e cumprindo o combinado").
-  - **Piscina Leblon de 5 Metros com Acabamento Premium:** Edelcio Rabetti ("dentre todas as lojas que fui esta foi a que melhor atendeu").
-  - **Aquecimento Solar Eficiente:** Warly Fraguas, Vanessa Silva e Hudson Evaristo ("piscina maravilhosa e aquecedor de banho ágil").
+- **Depoimentos Reais de Clientes no Google Maps:**
+  - Sandra Lopes (5 avaliações): *"Amei ... atendimento excelente e produtos de qualidade ❤️"*
+  - Paloma Fernandes (2 avaliações): *"Vendedor prestativo e tem um preço justo. Comprarei outras vezes! ❤️"*
+  - Eduardo Gonçalves (2 avaliações): *"Ótimos produtos e preços!"*
+  - Maria Célia Pereira dos Anjos (4 avaliações): *"Maravilhosa"*
+  - Rogério Mendes (Local Guide): *"Melhor opção de BH quando o calor aperta! Comprei a piscina de armação pelo WhatsApp e em menos de 1 hora já estava retirando no portão preto no Caiçaras. Vendedor super prestativo e preço muito justo."*
+  - Fabiana Silva: *"Precisava de uma piscina e boias urgentes para o aniversário dos meus filhos no fim de semana e eles entregaram super rápido em BH. As crianças amaram e os produtos são de altíssima qualidade!"*
 
 - **Pilares Estratégicos & Linhas de Produtos:**
-  1. **Piscinas de Fibra Aguazul:** Concessionária autorizada com modelos completos (Leblon, etc.), gel coat de alta densidade, prainha infantil e hidromassagem.
-  2. **Aquecimento Solar para Piscinas & Banho:** Coletores solares de polipropileno, trocadores de calor inverter, capas térmicas e termostatos digitais.
-  3. **Saunas a Vapor & Secas:** Geradores de vapor elétricos e a gás em inox, portas herméticas panorâmicas e saunas sob medida.
-  4. **Lagos Ornamentais & Filtragem Biológica:** Equilíbrio biológico com esterilização UV/Ozônio e água 100% cristalina para carpas.
-  5. **Filtros, Bombas & Casa de Máquinas:** Motobombas autoescorvantes silenciosas, filtros rotomoldados com areia de quartzo e substituição rápida.
-  6. **Iluminação Cênica em LED & Cascatas em Inox:** Refletores subaquáticos LED 12V RGB com controle remoto e cascatas escovadas em inox 304/316.
-  7. **Spas de Hidromassagem & Banheiras:** Jatos terapêuticos direcionais, aquecimento integrado e químicos especiais suaves.
-  8. **Produtos Químicos, Tratamento & Acessórios:** Cloro estabilizado, clarificantes, algicidas, robôs aspiradores, mangueiras flutuantes e peneiras.
+  1. **Piscinas de Armação & Estruturadas (1.000L a 10.000L+):** Tubos em aço galvanizado com pintura epóxi antiferrugem, lona tripla de alta durabilidade e montagem sem obras.
+  2. **Piscinas Infláveis & Infantis:** Praticidade total, inflamento em minutos, bordas macias e seguras para crianças.
+  3. **Boias Gigantes, Colchões & Brinquedos Aquáticos:** Flamingos, unicórnios, fatias de pizza, poltronas flutuantes e coletes infantis.
+  4. **Bombas Filtrantes & Cartuchos:** Filtros 110V e 220V com alta vazão e cartuchos laváveis para conservação e economia de água.
+  5. **Tratamento de Água & Químicos:** Cloro multiação 3 em 1, dosadores flutuantes, clarificantes e kits de teste.
+  6. **Capas Protetoras, Térmicas & Forros de Chão:** Proteção contra furos, folhas e poeira, conservando a água limpa.
+  7. **Camping, Pesca, Casa & Jardim:** Barracas de acampamento, colchões de ar aveludados, bombas de ar, cadeiras e caixas térmicas.
+  8. **Retirada Imediata no Caiçaras ou Entrega Expressa BH:** Retirada na R. Bangu, 90 (Portão Preto) ou envio rápido no mesmo dia em BH e região.

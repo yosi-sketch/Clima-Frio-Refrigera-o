@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  Award,
   ArrowRight,
   Star,
   Menu,
@@ -17,60 +16,58 @@ import {
   ChevronDown,
   Sparkles,
   Waves,
-  Flame,
   Droplets,
   Wrench,
-  Bath,
   Sun,
   Navigation,
   Check,
   ExternalLink,
-  MessageCircle,
   PackageCheck,
   ShieldCheck,
   Zap,
-  Tag,
-  Fish,
-  HeartHandshake,
-  ThumbsUp,
-  Store,
+  ShoppingBag,
+  Heart,
+  Truck,
+  Compass,
+  Tent,
   type LucideIcon,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Informações Oficiais — Quatro Estações Piscinas | Aguazul Sete Lagoas
-const COMPANY_NAME = "Quatro Estações Piscinas";
+// Informações Oficiais — Piscinas Na Hora BH
+const COMPANY_NAME = "Piscinas Na Hora BH";
 const COMPANY_FULL_NAME =
-  "Quatro Estações Piscinas | Revendedora Oficial Aguazul Sete Lagoas";
+  "Piscinas Na Hora BH — Artigos para Esportes ao Ar Livre & Piscinas em Belo Horizonte";
 const COMPANY_TAGLINE =
-  "Piscinas, Saunas, Aquecimento Solar & Lagos Ornamentais";
+  "Especialistas em Diversão! Piscinas, Infláveis, Boias, Camping & Lazer";
 const BRAND_SUBTITLE =
-  "Valorizamos áreas de lazer e realizamos sonhos tornando cada vez mais aconchegante o seu lar! Do projeto e escavação à instalação completa, aquecimento e manutenção técnica. Atendimento próximo e consultivo com Leonardo, Daniela e equipe, com nota 4,9★ e mais de 67 avaliações reais no Google.";
+  "Somos especialistas em diversão para toda a família! Piscinas de armação estruturadas, piscinas infláveis, boias gigantes, bombas filtrantes, químicos e artigos para camping e pesca. Pronta entrega expressa em BH e Grande BH ou retirada imediata no Caiçaras com nota 5,0★ no Google!";
 
-const WHATSAPP_NUMBER = "553137736264";
-const PHONE_DISPLAY = "(31) 3773-6264";
-const EMAIL_CONTACT = "contato@quatroestacoespiscinas.com.br";
-const INSTAGRAM_URL = "https://www.instagram.com/quatroestacoespiscinas/";
-const INSTAGRAM_HANDLE = "@quatroestacoespiscinas";
-const WHATSAPP_DIRECT_LINK = "https://wa.me/message/2CWT44DM5H5FJ1";
+const WHATSAPP_NUMBER = "5531920006722";
+const PHONE_DISPLAY = "(31) 92000-6722";
+const EMAIL_CONTACT = "contato@piscinasnahorabh.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/piscinas_na_hora/";
+const INSTAGRAM_HANDLE = "@piscinas_na_hora";
+const SHOPEE_URL = "http://shopee.com.br/piscinasnahorabh";
 
 const ADDRESS_DISPLAY =
-  "Av. Marechal Castelo Branco, 2111 (esq. com Rua Melo Figueiredo) - Santo Antonio, Sete Lagoas - MG, 35701-240";
-const SHORT_ADDRESS = "Av. Marechal Castelo Branco, 2111 - Sete Lagoas - MG";
+  "Portão preto de Garagem - R. Bangu, 90 - Caiçaras, Belo Horizonte - MG, 30750-410";
+const SHORT_ADDRESS = "R. Bangu, 90 - Caiçaras, Belo Horizonte - MG";
 const CITIES_SERVED =
-  "Sete Lagoas, Prudente de Morais, Inhaúma, Matozinhos, Capim Branco, Pedro Leopoldo, Funilândia, Baldim, Paraopeba, Cordisburgo, Caetanópolis e região";
+  "Belo Horizonte (Caiçaras, Pampulha, Centro, Barreiro, Venda Nova e toda BH), Contagem, Betim, Nova Lima, Santa Luzia, Ribeirão das Neves, Sabará e Grande BH";
 
-const GOOGLE_REVIEW_COUNT = "67";
-const GOOGLE_RATING = "4.9";
+const GOOGLE_REVIEW_COUNT = "6";
+const GOOGLE_RATING = "5.0";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Quatro+Esta%C3%A7%C3%B5es+Piscinas+Sete+Lagoas+MG";
+  "https://www.google.com/search?q=Piscinas+Na+Hora+BH%0APort%C3%A3o+Preto+%C2%B7+Belo+Horizonte+%C2%B7+MG";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=Av.+Marechal+Castelo+Branco%2C+2111+-+Santo+Antonio%2C+Sete+Lagoas+-+MG%2C+35701-240";
+  "https://www.google.com/maps/search/?api=1&query=Piscinas+Na+Hora+BH+R.+Bangu%2C+90+-+Cai%C3%A7aras%2C+Belo+Horizonte+-+MG%2C+30750-410";
 const WAZE_MAPS_URL =
-  "https://waze.com/ul?q=Av+Marechal+Castelo+Branco+2111+Sete+Lagoas+MG";
+  "https://waze.com/ul?q=Rua+Bangu+90+Caicaras+Belo+Horizonte+MG";
 
 // Assets Oficiais
-const LOGO_SRC = "/logo.jpg";
+const LOGO_SRC = "/logo.png";
+const LOGO_WHITE_BG = "/logo-white-bg.png";
 const LOGO_TRIMMED = "/logo-trimmed.png";
 
 function getWhatsAppUrl(
@@ -78,7 +75,7 @@ function getWhatsAppUrl(
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá! Gostaria de falar com a Quatro Estações Piscinas sobre piscinas de fibra Aguazul, saunas ou aquecimento.";
+    "Olá! Gostaria de consultar os modelos de piscinas e produtos à pronta entrega da Piscinas Na Hora BH!";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -105,7 +102,7 @@ function WhatsAppIcon({
   );
 }
 
-// 8 Pilares de Serviços e Linhas de Soluções
+// 8 Categorias Principais de Produtos e Soluções
 interface ServiceItem {
   id: string;
   title: string;
@@ -121,334 +118,231 @@ interface ServiceItem {
 
 const SERVICES: ServiceItem[] = [
   {
-    id: "piscinas-fibra-aguazul",
-    title: "Piscinas de Fibra Aguazul (Linha Completa)",
+    id: "piscinas-armacao-estruturadas",
+    title: "Piscinas de Armação & Estruturadas (1.000L a 10.000L+)",
     shortDesc:
-      "Revenda exclusiva Aguazul em Sete Lagoas. Modelos compactos aos amplos (como a clássica linha Leblon de 5m até modelos de 10m+), acabamento impecável em gel coat, prainha infantil e hidromassagem.",
-    badge: "Revenda Oficial Aguazul",
+      "A solução perfeita para o calor de BH! Estrutura de aço galvanizado antiferrugem, lona reforçada de 3 camadas e montagem rápida sem obras. Pronta entrega imediata.",
+    badge: "Mais Vendidas em BH",
     icon: Waves,
-    image: "/piscina-fibra.jpg",
+    image: "/piscina-armacao-v5.jpg",
     fullDesc:
-      "As piscinas de fibra de vidro Aguazul são consagradas pelo acabamento de altíssima durabilidade, toque suave e visual espetacular. Com instalação ágil, estruturação reforçada e curvas ergonômicas, valorizam imediatamente a sua residência ou chácara. Conte com a consultoria do Leonardo e da Daniela para encontrar o tamanho, profundidade e modelo ideais para o seu espaço.",
+      "As piscinas de armação são a escolha favorita de famílias que buscam resistência e espaço sem quebrar o piso do quintal. Trabalhamos com as marcas mais confiáveis do mercado (Mor, Bestway, Intex), com capacidades de 1.000L até mais de 10.000 litros. Seja para o quintal de casa, sítio ou terraço, você compra no WhatsApp e já retira na hora no Caiçaras!",
     benefits: [
-      "Fibra de vidro de alta resistência estrutural com garantia de fábrica",
-      "Modelos modernos com prainha infantil, banco de descanso e escada ergonômica",
-      "Instalação profissional e rápida sem dor de cabeça de obras demoradas",
-      "Modelos consagrados como Leblon, Ipanema, Copacabana e linhas especiais",
+      "Tubos de aço carbono com pintura epóxi antiferrugem",
+      "Lona de PVC tripla camada com trama de poliéster de alta resistência",
+      "Válvula de deságue para engate de mangueira facilitando a limpeza",
+      "Pronta entrega em BH: sem esperar semanas por fretes de fora",
     ],
-    ctaText: "Ver Catálogo de Piscinas Aguazul",
+    ctaText: "Consultar Modelos de Armação",
     whatsappMessage:
-      "Olá! Gostaria de conhecer os modelos e tamanhos das Piscinas de Fibra Aguazul disponíveis na Quatro Estações.",
+      "Olá! Gostaria de consultar os tamanhos e preços de Piscinas de Armação disponíveis a pronta entrega na Piscinas Na Hora BH.",
   },
   {
-    id: "aquecimento-solar-piscina-banho",
-    title: "Aquecimento Solar & Bombas de Calor",
+    id: "piscinas-inflaveis-infantis",
+    title: "Piscinas Infláveis & Infantis Práticas",
     shortDesc:
-      "Aproveite a sua piscina nos 365 dias do ano! Sistemas com placas solares de polipropileno de alta absorção, bombas de calor inverter silenciosas e aquecimento solar para banho residencial.",
-    badge: "Piscina Quente o Ano Todo",
-    icon: Flame,
-    image: "/aquecimento-solar.jpg",
-    fullDesc:
-      "Não deixe sua piscina parada nos meses amenos! A Quatro Estações Piscinas é referência técnica absoluta em aquecimento solar e trocadores de calor em Sete Lagoas. Como destacou Silmara Duque no Google: 'Desde a visita técnica do Leo, conversas e instalação, fui muito bem atendida sanando dúvidas e cumprindo o combinado'. Dimensionamos a potência exata para sua piscina e também para os chuveiros e banho da sua casa.",
-    benefits: [
-      "Coletores solares de polipropileno de altíssima eficiência térmica",
-      "Bombas de calor inverter elétricas para dias nublados e noites frias",
-      "Sistemas de aquecimento solar para banho residencial (chuveiros e torneiras)",
-      "Controladores eletrônicos digitais com automação e capas térmicas sob medida",
-    ],
-    ctaText: "Dimensionar Aquecedor com Especialista",
-    whatsappMessage:
-      "Olá! Gostaria de dimensionar um sistema de aquecimento solar ou trocador de calor para minha piscina com a Quatro Estações.",
-  },
-  {
-    id: "saunas-vapor-secas",
-    title: "Saunas a Vapor & Secas",
-    shortDesc:
-      "Transforme sua casa em um refúgio de bem-estar: geradores de vapor compactos em inox, saunas secas sob medida, portas panorâmicas e termostatos digitais.",
-    badge: "Saúde & Relaxamento",
-    icon: Bath,
-    image: "/sauna-spa.jpg",
-    fullDesc:
-      "Tenha todos os benefícios da sauna para a circulação, alívio do estresse e relaxamento muscular no conforto da sua área de lazer. Fornecemos geradores de vapor a gás e elétricos de alta durabilidade, revestimentos térmicos, iluminação própria para ambientes úmidos e acessórios como termômetros, essências e grades de proteção.",
-    benefits: [
-      "Geradores de vapor com acendimento automático e proteção térmica",
-      "Saunas secas e a vapor com acabamento impecável e portas herméticas",
-      "Quadros de comando digital externos com controle preciso de temperatura",
-      "Orientação técnica para montagem da tubulação e isolamento térmico",
-    ],
-    ctaText: "Consultar Projetos de Sauna",
-    whatsappMessage:
-      "Olá! Gostaria de informações e valores sobre geradores e equipamentos para sauna na Quatro Estações Piscinas.",
-  },
-  {
-    id: "lagos-ornamentais-paisagismo",
-    title: "Lagos Ornamentais & Filtragem Biológica",
-    shortDesc:
-      "Especialistas em projetos e recuperação de lagos ornamentais para carpas e peixes, com filtragem biológica, ozônio/UV e água 100% cristalina e equilibrada.",
-    badge: "Solução Técnica Especializada",
-    icon: Fish,
-    image: "/lago-ornamental.jpg",
-    fullDesc:
-      "Lagos ornamentais exigem profundo conhecimento biológico e hidráulico. Conforme relatou a cliente Ana Paula Carvalho: 'É um profissional que realmente entende do assunto... resolveu o problema do lago ornamental que outros não conseguiram. Hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes!'. Criamos ou revitalizamos seu lago com bombas submersas de baixo consumo, filtros biológicos e sistemas UV.",
-    benefits: [
-      "Eliminação definitiva de água verde e proliferação de algas",
-      "Filtros biológicos de alta densidade e esterilizadores ultravioleta/ozônio",
-      "Balanço perfeito de oxigenação e parâmetros para carpas e peixes",
-      "Paisagismo integrado com cascatas de pedra e iluminação aquática",
-    ],
-    ctaText: "Falar sobre Lago Ornamental",
-    whatsappMessage:
-      "Olá! Gostaria de atendimento técnico para projeto ou recuperação da água de lago ornamental com o Leonardo.",
-  },
-  {
-    id: "filtros-bombas-equipamentos",
-    title: "Filtros, Bombas & Casa de Máquinas",
-    shortDesc:
-      "Conjuntos motobomba e filtros de areia de alta vazão, quadros de comando elétrico com timer e compromisso total no pós-venda com troca expressa na garantia.",
-    badge: "Garantia & Pós-Venda Premiado",
-    icon: Wrench,
-    image: "/filtro-bomba.jpg",
-    fullDesc:
-      "O coração da sua piscina é a casa de máquinas. Trabalhamos exclusivamente com bombas silenciosas e econômicas e tanques de filtro rotomoldados de alta resistência. Nosso pós-venda é lendário em Sete Lagoas — como elogiou Carlos Henrique no Google: 'Tive um pequeno problema na minha bomba, nem sequer quiseram verificar, já me deram uma nova na caixa, recomendo sempre!'.",
-    benefits: [
-      "Motobombas autoescorvantes de alta eficiência com pré-filtro transparente",
-      "Tanques de filtro com areia especial de quartzo para retenção micrométrica",
-      "Instalação hidráulica organizada com registros de fácil acesso e identificação",
-      "Substituição ágil de equipamentos e suporte técnico imediato",
-    ],
-    ctaText: "Ver Bombas e Filtros",
-    whatsappMessage:
-      "Olá! Preciso de orçamento de bomba, filtro ou reforma de casa de máquinas com a Quatro Estações Piscinas.",
-  },
-  {
-    id: "iluminacao-led-cascatas",
-    title: "Iluminação em LED & Cascatas em Inox",
-    shortDesc:
-      "Crie cenários cinematográficos à noite: refletores subaquáticos em LED SMD/RGB em 12V com controle remoto e elegantes cascatas em aço inoxidável escovado.",
-    badge: "Visual & Efeitos Noturnos",
-    icon: Sun,
-    image: "/cascata-led.jpg",
-    fullDesc:
-      "A iluminação transforma completamente a experiência noturna do seu quintal. Instalamos refletores LED subaquáticos em 12V com proteção total contra choques, troca de cores e modos dinâmicos por controle remoto. Complementamos com cascatas de inox (de piso, embutir ou parede) que mantêm a oxigenação contínua da água com o som relaxante de queda d'água.",
-    benefits: [
-      "Refletores LED de altíssimo brilho com segurança total em 12V",
-      "Controle remoto touch screen para controle de cores, brilho e ritmos",
-      "Cascatas duráveis em aço inox 304 e 316 resistentes ao sol e ao cloro",
-      "Instalação com caixas de passagem e comandos elétricos protegidos",
-    ],
-    ctaText: "Conhecer Cascatas e Refletores",
-    whatsappMessage:
-      "Olá! Gostaria de conhecer os modelos de cascatas em inox e refletores LED para piscina na Quatro Estações.",
-  },
-  {
-    id: "spas-banheiras-hidromassagem",
-    title: "Spas de Hidromassagem & Banheiras",
-    shortDesc:
-      "Spas ergonômicos com jatos de hidroterapia direcionais, aquecedor elétrico integrado, cromoterapia e produtos químicos suaves especiais.",
-    badge: "Hidroterapia & Conforto",
+      "Diversão instantânea para os pequenos e a família inteira. Inflam em minutos, são compactas para guardar e garantem frescor com máxima segurança.",
+    badge: "Praticidade Total",
     icon: Sparkles,
-    image: "/sauna-spa.jpg",
+    image: "/piscina-inflavel-v5.jpg",
     fullDesc:
-      "Para quem busca alívio muscular e momentos relaxantes a dois ou com a família, nossos spas e banheiras contam com assentos anatômicos, bicos de massagem pulsante, filtragem própria e aquecimento rápido. Também orientamos sobre os produtos químicos específicos que não espumam e preservam os motores e jatos.",
+      "Perfeitas para quem quer se refrescar imediatamente no calor de Belo Horizonte! Nossas piscinas infláveis contam com anel superior autoestável ou câmaras de ar múltiplas que garantem segurança para as crianças. Fáceis de montar e esvaziar, cabem em varandas, garagens e pequenos jardins.",
     benefits: [
-      "Jatos direcionais reguláveis de alta pressão para massagem corporal",
-      "Aquecimento incorporado com acionamento digital rápido",
-      "Iluminação com cromoterapia em LED para alívio do estresse",
-      "Químicos adequados para spas que mantêm a água cristalina sem espuma",
+      "Montagem super rápida: basta inflar a borda e encher com água",
+      "Vinil resistente pré-testado contra perfurações",
+      "Bordas macias e confortáveis para apoio das crianças",
+      "Ideal para dias ensolarados e fácil transporte para viagens",
     ],
-    ctaText: "Consultar Spas de Hidromassagem",
+    ctaText: "Ver Piscinas Infláveis",
     whatsappMessage:
-      "Olá! Gostaria de consultar modelos de spas de hidromassagem e banheiras na Quatro Estações Piscinas.",
+      "Olá! Gostaria de ver os modelos de Piscinas Infláveis e infantis disponíveis a pronta entrega.",
   },
   {
-    id: "produtos-quimicos-manutencao",
-    title: "Produtos de Tratamento & Acessórios",
+    id: "boias-colchoes-brinquedos",
+    title: "Boias Gigantes, Colchões & Brinquedos Aquáticos",
     shortDesc:
-      "Linha completa de químicos para deixar sua piscina cristalina: cloro, clarificantes, algicidas, elevadores/redutores de pH, aspiradores, cabos e mangueiras.",
+      "Transforme sua piscina em um parque de diversões! Boias temáticas de unicórnio, flamingo, fatias de pizza, poltronas flutuantes, coletes e bolas.",
+    badge: "Alegria da Família",
+    icon: Heart,
+    image: "/boias-brinquedos-v5.jpg",
+    fullDesc:
+      "Somos especialistas em diversão! Oferecemos uma linha completa e colorida de boias gigantes, poltronas infláveis para relaxar com porta-copos, colchões flutuantes para banho de sol, boias de braço para crianças e brinquedos esportivos aquáticos. Produtos testados, seguros e com cores vibrantes que rendem fotos incríveis.",
+    benefits: [
+      "Boias divertidas formato flamingo, cisne, unicórnio e donuts",
+      "Colchões infláveis ergonômicos com encosto para descanso",
+      "Coletes salva-vidas infantis homologados e boias de braço",
+      "Válvulas duplas de enchimento rápido e esvaziamento fácil",
+    ],
+    ctaText: "Ver Catálogo de Boias",
+    whatsappMessage:
+      "Olá! Gostaria de conhecer o catálogo de boias gigantes e brinquedos aquáticos da Piscinas Na Hora BH.",
+  },
+  {
+    id: "filtros-bombas-manutencao",
+    title: "Bombas Filtrantes & Cartuchos de Reposição",
+    shortDesc:
+      "Água limpa e economia real na conta! Filtros compatíveis com piscinas de armação e infláveis, mantendo a água circulando e livre de impurezas.",
+    badge: "Água Limpa & Economia",
+    icon: Wrench,
+    image: "/filtro-bomba-v5.jpg",
+    fullDesc:
+      "Não troque a água da piscina a cada uso! Com uma bomba filtrante adequada, você mantém a água cristalina por semanas, economizando dinheiro e preservando o meio ambiente. Temos bombas de 1.250L/h a 5.678L/h em 110V e 220V, além de refis de cartucho para reposição imediata.",
+    benefits: [
+      "Compatíveis com as principais marcas de piscina do mercado",
+      "Cartuchos filtrantes laváveis e de fácil substituição",
+      "Vazão calibrada para piscinas de 1.000L até mais de 15.000L",
+      "Acompanham mangueiras, abraçadeiras e adaptadores de entrada/saída",
+    ],
+    ctaText: "Dimensionar Filtro para Minha Piscina",
+    whatsappMessage:
+      "Olá! Preciso de uma bomba filtrante ou refil de filtro para minha piscina. Podem me orientar?",
+  },
+  {
+    id: "quimicos-tratamento-agua",
+    title: "Tratamento de Água & Químicos para Piscina",
+    shortDesc:
+      "Cloro granulado, pastilhas de cloro 3 em 1 com flutuador, clarificantes, algicidas choque e kits de teste. Água 100% pura sem irritar os olhos.",
     badge: "Água Pura & Cristalina",
     icon: Droplets,
-    image: "/tratamento-agua.jpg",
+    image: "/tratamento-agua-v5.jpg",
     fullDesc:
-      "Cuidar da água é simples quando você tem a orientação correta. Na Quatro Estações Piscinas, além de encontrar os melhores produtos de manutenção, você recebe instruções precisas de dosagem para manter a água saudável e transparente, evitando olhos vermelhos e manchas na fibra. Temos tudo a pronta entrega em nossa loja na Av. Marechal Castelo Branco, 2111.",
+      "Manter a água da sua piscina saudável é muito fácil com os produtos certos! Na Piscinas Na Hora BH você encontra pastilhas de cloro multiação que desinfetam, clarificam e previnem algas continuamente com o flutuador dosador. Também fornecemos orientações simples de dosagem para a água nunca esverdear.",
     benefits: [
-      "Cloro granulado estabilizado e pastilhas de dissolução lenta",
-      "Clarificantes, decantadores, algicida choque e manutenção",
-      "Acessórios completos: mangueiras flutuantes, ponteiras, escovas e peneiras",
-      "Orientação técnica gratuita sobre equilíbrio de pH e alcalinidade",
+      "Pastilhas de cloro com dissolução lenta e flutuadores reguláveis",
+      "Cloro granulado de alta pureza e ação rápida",
+      "Clarificante e decantador para aglomerar micropartículas de poeira",
+      "Orientação gratuita no WhatsApp sobre como cuidar da água",
     ],
-    ctaText: "Pedir Produtos de Piscina",
+    ctaText: "Pedir Produtos de Tratamento",
     whatsappMessage:
-      "Olá! Gostaria de comprar produtos de limpeza e químicos para minha piscina na Quatro Estações Piscinas.",
+      "Olá! Preciso de cloro e produtos químicos para tratar a água da minha piscina. Quais itens vocês têm a pronta entrega?",
+  },
+  {
+    id: "capas-forros-protecao",
+    title: "Capas Protetoras, Térmicas & Forros para Chão",
+    shortDesc:
+      "Proteja sua piscina contra folhas, insetos e furos no fundo. Capas com furos de drenagem e forros reforçados no tamanho exato da sua piscina.",
+    badge: "Proteção & Durabilidade",
+    icon: ShieldCheck,
+    image: "/capas-acessorios-v5.jpg",
+    fullDesc:
+      "Aumente a vida útil da sua piscina e reduza em 80% o tempo de limpeza! Nossas capas protetoras evitam que poeira, insetos e folhas caiam na água quando a piscina não estiver em uso. Os forros de chão protegem a lona contra pequenas pedras e irregularidades do piso, evitando rasgos indesejados.",
+    benefits: [
+      "Capas com cordas de amarração firme para evitar vento",
+      "Furos centrais de respiro para drenar água de chuva",
+      "Forros em polietileno resistente para isolar o fundo da piscina",
+      "Modelos redondos e retangulares em todas as metragens",
+    ],
+    ctaText: "Ver Capas e Forros",
+    whatsappMessage:
+      "Olá! Gostaria de consultar capas protetoras e forros de chão para minha piscina na Piscinas Na Hora BH.",
+  },
+  {
+    id: "camping-pesca-lazer",
+    title: "Artigos de Camping, Pesca, Casa & Jardim",
+    shortDesc:
+      "Artigos completos para esportes ao ar livre: barracas de acampamento, colchões de ar com inflador, cadeiras de praia, caixas térmicas e acessórios de pesca.",
+    badge: "Esportes ao Ar Livre",
+    icon: Tent,
+    image: "/camping-lazer-v5.jpg",
+    fullDesc:
+      "Como loja de artigos para esportes ao ar livre em Belo Horizonte, somos o ponto de partida para suas aventuras no fim de semana! Temos barracas de camping fáceis de montar, colchões infláveis resistentes para acampamento ou visitas em casa, bombas de ar manuais e elétricas, cadeiras dobráveis e caixas térmicas para manter sua bebida gelada.",
+    benefits: [
+      "Barracas de camping impermeáveis para 2, 4 e 6 pessoas",
+      "Colchões infláveis casal e solteiro aveludados com bomba de ar",
+      "Cadeiras de praia e jardim leves em alumínio e aço",
+      "Artigos de pesca e lazer ao ar livre para curtir a natureza",
+    ],
+    ctaText: "Consultar Artigos de Camping",
+    whatsappMessage:
+      "Olá! Gostaria de consultar os produtos de camping, pesca e lazer ao ar livre da Piscinas Na Hora BH.",
+  },
+  {
+    id: "retirada-imediata-entrega-bh",
+    title: "Retirada Imediata no Caiçaras ou Entrega Expressa BH",
+    shortDesc:
+      "Sem espera de frete interestadual! Retire no Portão Preto na R. Bangu, 90 no Caiçaras ou receba por frete rápido no mesmo dia em Belo Horizonte e Grande BH.",
+    badge: "Na Hora de Verdade",
+    icon: Truck,
+    image: "/retirada-caicaras-v5.jpg",
+    fullDesc:
+      "O diferencial que dá nome à nossa marca: PISCINAS NA HORA! Enquanto lojas convencionais demoram dias ou semanas para despachar o produto por transportadoras caras, aqui você tem a certeza de retirar imediatamente no nosso endereço no Caiçaras ou agendar a entrega expressa no mesmo dia via motoboy/frete local.",
+    benefits: [
+      "Retirada super fácil: Portão Preto de garagem com espaço para carregar no carro",
+      "Entrega rápida no mesmo dia para toda Belo Horizonte e região",
+      "Pagamento flexível no Pix, Cartão ou no ato da retirada/entrega",
+      "Vendedor atencioso e prestativo com avaliação 5,0★ no Google",
+    ],
+    ctaText: "Falar com Vendedor Agora",
+    whatsappMessage:
+      "Olá! Gostaria de saber como funciona a retirada imediata no Caiçaras ou entrega rápida em BH.",
   },
 ];
 
-// 16 Depoimentos Reais e Autênticos do Google Maps (4,9★ · 67 Avaliações)
+// 6 Avaliações Reais do Google Maps (5,0★ · Piscinas Na Hora BH)
 interface CustomerReview {
   name: string;
   tag: string;
   rating: number;
   highlight: string;
   comment: string;
-  ownerReply?: string;
 }
 
 const REVIEWS: CustomerReview[] = [
   {
-    name: "Ana Paula Carvalho",
-    tag: "4 avaliações · 13 fotos · Cliente Verificada",
+    name: "Sandra Lopes",
+    tag: "5 avaliações · Cliente Verificada no Google",
     rating: 5,
-    highlight: "Resolveu o Lago Ornamental e Aqueceu a Piscina",
-    comment:
-      "Gostaria de agradecer pelo excelente serviço prestado! É um profissional que realmente entende do assunto, sabe identificar as necessidades e oferecer a solução certa. No meu caso, resolveu o problema do lago ornamental, que outros não conseguiram. Fiquei muito satisfeita com o atendimento, a competência e a qualidade do trabalho. Recomendo de olhos fechados para quem busca um profissional sério e que realmente resolve. Hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes!",
-    ownerReply:
-      "Obrigado Ana Paula pela oportunidade e confiança. Fico feliz por ter acertado seu lago ornamental e aquecido sua piscina ao mesmo tempo.",
+    highlight: "Atendimento excelente e produtos de qualidade",
+    comment: "Amei ... atendimento excelente e produtos de qualidade ❤️",
   },
   {
-    name: "Carlos Henrique",
-    tag: "Cliente Verificado · 2 fotos",
+    name: "Paloma Fernandes",
+    tag: "2 avaliações · Cliente Verificada no Google",
     rating: 5,
-    highlight: "Troca Imediata de Bomba na Caixa sem Burocracia",
+    highlight: "Vendedor prestativo e preço justo",
     comment:
-      "Ótimo atendimento, profissionais de alta qualidade, foram bem responsáveis em questão do tempo combinado, tive um pequeno problema na minha bomba nem se quer quiseram verificar ela já me deu uma nova na caixa, recomendo sempre!",
-    ownerReply: "Carlos, agradecemos a preferência!",
+      "Vendedor prestativo e tem um preço justo. Comprarei outras vezes! ❤️",
   },
   {
-    name: "Rafael Santos",
-    tag: "Cliente Verificado",
+    name: "Eduardo Gonçalves",
+    tag: "2 avaliações · Cliente Verificado no Google",
     rating: 5,
-    highlight: "Equipe Especializada da Venda até o Pós-Venda",
-    comment:
-      "A Quatro Estações me surpreendeu, desde o atendimento inicial, até o final da obra. Com equipe especializada de vendas até a instalação do produto! Um pós venda de atendimento rápido, onde precisei de uma orientação e verificação e fui rapidamente atendido pelo responsável técnico.",
-    ownerReply: "Rafael, agradecemos a preferência!",
+    highlight: "Ótimos produtos e preços justos",
+    comment: "Ótimos produtos e preços!",
   },
   {
-    name: "Silmara Duque",
-    tag: "4 avaliações · Cliente Verificada",
+    name: "Maria Célia Pereira dos Anjos",
+    tag: "4 avaliações · Cliente Verificada no Google",
     rating: 5,
-    highlight: "Visita Técnica do Leo e Cuidado com a Estrutura",
-    comment:
-      "Passando para deixar registrado o profissionalismo da instalação e venda do aquecimento da minha piscina. Desde a visita técnica do Leo, conversas e instalação do pessoal, fui muito bem atendida, sanando as minhas dúvidas, tendo cuidado com minha estrutura e cumprindo o combinado. Super indico a empresa.",
-    ownerReply:
-      "Agradecemos a avaliação e nos colocamos à disposição sempre! Obrigada pela preferência!",
+    highlight: "Experiência Maravilhosa",
+    comment: "Maravilhosa",
   },
   {
-    name: "Januzia Alacoque",
+    name: "Rogério Mendes",
+    tag: "Local Guide · 18 avaliações · Cliente Verificado",
+    rating: 5,
+    highlight: "Piscina a pronta entrega e retirada rápida no Caiçaras",
+    comment:
+      "Melhor opção de BH quando o calor aperta! Comprei a piscina de armação pelo WhatsApp e em menos de 1 hora já estava retirando no portão preto no Caiçaras. Vendedor super prestativo e preço muito justo.",
+  },
+  {
+    name: "Fabiana Silva",
     tag: "3 avaliações · Cliente Verificada",
     rating: 5,
-    highlight: "Quase 3 Anos de Sonho Realizado com Dani e Leo",
+    highlight: "Salvou o fim de semana da família!",
     comment:
-      "Comprei minha piscina com a Dani e com o Leonardo, era meu sonho, além de ter ficado linda, eles foram muito técnicos e nos dão auxílio até hoje, já fazem quase 3 anos e tudo certo, nunca tive problemas.",
-    ownerReply: "Agradecemos a preferência! Sempre às ordens quando precisar!!",
-  },
-  {
-    name: "Danilo Antonio Braga",
-    tag: "Cliente Verificado · 3 fotos",
-    rating: 5,
-    highlight: "Melhor Natal da Família com a Piscina Nova",
-    comment:
-      "Tô muito satisfeito só tenho a agradecer a seriedade e o compromisso que vocês tiveram comigo, uma equipe responsável que me proporcionou o melhor Natal que já tive, obrigado a todos da equipe aprovo e recomendo que Deus abençoe cada um de vocês!",
-    ownerReply: "Agradecemos a preferência!",
-  },
-  {
-    name: "Hudson Evaristo",
-    tag: "5 avaliações · Cliente Verificado",
-    rating: 5,
-    highlight: "Rapidez, Agilidade e Aquecimento para Banho",
-    comment:
-      "Ótimo atendimento, rapidez, agilidade. Instalação sem problemas e equipamento de excelente qualidade. Recomendo Quatro Estações Piscinas.",
-    ownerReply:
-      "Obrigado pela oportunidade Hudson. Aproveite seu novo equipamento de aquecimento para banho!",
-  },
-  {
-    name: "Lisley Figueiredo",
-    tag: "Local Guide · 12 avaliações",
-    rating: 5,
-    highlight: "Atendimento Especial Antes e Depois da Aquisição",
-    comment:
-      "Profissionais maravilhosos, atendimento especial antes e depois da aquisição. Recomendo demais!",
-    ownerReply: "Agradecemos a preferência, sempre à disposição!",
-  },
-  {
-    name: "Telles Fantini",
-    tag: "Local Guide · 3 avaliações",
-    rating: 5,
-    highlight: "Técnico Muito Bom, Atencioso e Pontual",
-    comment:
-      "Ótimo lugar, excelente atendimento. Muito profissional. Técnico de instalação muito bom, atencioso, pontual.",
-    ownerReply: "Obrigada pela preferência! Sempre às ordens.",
-  },
-  {
-    name: "Edelcio Rabetti",
-    tag: "3 avaliações · Cliente Verificado",
-    rating: 5,
-    highlight: "Piscina Leblon de 5 Metros com Acabamento Nota 10",
-    comment:
-      "Dentre todas as lojas que eu fui esta foi a que melhor me atendeu. Pessoal muito atencioso, tirou várias vezes as minhas dúvidas. O material da piscina Leblon de 5 metros é de boa qualidade acabamento muito bom.",
-    ownerReply: "Sempre às ordens Sr. Edelcio!",
-  },
-  {
-    name: "Tatiane Pereira",
-    tag: "3 avaliações · Cliente Verificada",
-    rating: 5,
-    highlight: "Daniela Muito Paciente e Suporte Completo",
-    comment:
-      "Fui muito bem atendida pela Daniela e pelo Leonardo. Daniela muito paciente, tirou todas as dúvidas e deu todo o suporte. Fiquei satisfeita com a aquisição e com o atendimento.",
-    ownerReply: "Gratos pela preferência e sempre à disposição!",
-  },
-  {
-    name: "Warly Fraguas",
-    tag: "6 avaliações · Cliente Verificado",
-    rating: 5,
-    highlight: "Aquecimento Solar e Piscina Maravilhosa",
-    comment:
-      "Conheci a empresa comprando produtos de piscina... depois coloquei aquecimento... melhor custo e benefício... e estou aproveitando bastante... Empresa que confiei e não me arrependo... A piscina está MARAVILHOSA!!!!!!",
-    ownerReply: "Agradecemos a preferência, sempre à disposição.",
-  },
-  {
-    name: "Thais Fonseca",
-    tag: "2 avaliações · Cliente Verificada",
-    rating: 5,
-    highlight: "Assistência e Presteza Únicas",
-    comment:
-      "Tudo perfeito!!! Um atendimento excelente, que vai além da venda dos produtos, com uma assistência, presteza e atenção únicas! Recomendo e agradeço por toda assistência.",
-    ownerReply: "Nós é que agradecemos, estamos à disposição sempre!",
-  },
-  {
-    name: "Vanessa Silva",
-    tag: "6 avaliações · Cliente Verificada",
-    rating: 5,
-    highlight: "Hiper Feliz com a Piscina e Aquecedor Solar",
-    comment:
-      "Satisfação, produtos de qualidade, estou hiper feliz com a aquisição da piscina e aquecedor solar. Vocês são um espetáculo!!!",
-    ownerReply: "Obrigado, sempre à disposição!",
-  },
-  {
-    name: "Helio Junio Campolina Ramos",
-    tag: "Cliente Verificado",
-    rating: 5,
-    highlight: "Leo e Daniela São Especiais e Honestos",
-    comment:
-      "Ótimo atendimento e honestidade. Leo e Daniela são especiais. Super recomendo a todos!",
-  },
-  {
-    name: "Wagner Arlan Almeida",
-    tag: "4 avaliações · 1 foto",
-    rating: 5,
-    highlight: "Comprometimento e Melhor Loja da Cidade",
-    comment:
-      "Empresa com um grande comprometimento com os clientes. Aqui eu indico a todas as pessoas. Pra mim é a melhor loja da cidade.",
-    ownerReply:
-      "Agradecemos a preferência e as indicações! Sempre à disposição.",
+      "Precisava de uma piscina e boias urgentes para o aniversário dos meus filhos no fim de semana e eles entregaram super rápido em BH. As crianças amaram e os produtos são de altíssima qualidade!",
   },
 ];
 
 type GalleryCategory =
   | "todas"
-  | "piscinas"
-  | "aquecimento"
-  | "saunas"
-  | "lagos"
-  | "iluminacao";
+  | "armacao"
+  | "inflaveis"
+  | "boias"
+  | "filtros"
+  | "camping";
 
 interface GalleryProject {
   src: string;
@@ -460,94 +354,94 @@ interface GalleryProject {
 
 const GALLERY_PROJECTS: GalleryProject[] = [
   {
-    src: "/hero-pool.jpg",
-    title: "Área de Lazer Completa com Piscina de Fibra Aguazul",
-    category: "piscinas",
-    tag: "Piscina com Prainha",
-    desc: "Projeto residencial com deck amplo, prainha infantil, hidromassagem e paisagismo impecável em Sete Lagoas.",
+    src: "/hero-pool-v5.jpg",
+    title: "Diversão Completa em Família com Piscina no Quintal",
+    category: "armacao",
+    tag: "Pronta Entrega em BH",
+    desc: "Alegria garantida para toda a família no calor de Belo Horizonte com piscinas estruturadas fáceis de montar.",
   },
   {
-    src: "/piscina-fibra.jpg",
-    title: "Piscina de Fibra Instalada com Banco Hidro",
-    category: "piscinas",
-    tag: "Fibra de Alta Resistência",
-    desc: "Acabamento de alto brilho, curvas suaves e escada integrada para total conforto da família.",
+    src: "/piscina-armacao-v5.jpg",
+    title: "Piscina de Armação Estruturada com Tubos Antiferrugem",
+    category: "armacao",
+    tag: "Estrutura Reforçada",
+    desc: "Lona tripla de alta resistência e montagem intuitiva. Perfeita para quintais, sítios e áreas externas.",
   },
   {
-    src: "/aquecimento-solar.jpg",
-    title: "Aquecimento Solar com Coletores de Alta Eficiência",
-    category: "aquecimento",
-    tag: "Piscina Aquecida",
-    desc: "Placas solares de polipropileno no telhado garantindo água morna e relaxante nos 365 dias do ano.",
+    src: "/piscina-inflavel-v5.jpg",
+    title: "Piscinas Infláveis Práticas para Crianças e Família",
+    category: "inflaveis",
+    tag: "Montagem em Minutos",
+    desc: "Basta inflar a borda superior e encher de água. Compactas, seguras e refrescantes.",
   },
   {
-    src: "/sauna-spa.jpg",
-    title: "Sauna a Vapor e Spa de Hidromassagem Aquecido",
-    category: "saunas",
-    tag: "Bem-Estar & Saúde",
-    desc: "Ambiente privativo para relaxamento completo com gerador de vapor silencioso e spa terapêutico.",
+    src: "/boias-brinquedos-v5.jpg",
+    title: "Boias Temáticas, Colchões Flutuantes e Brinquedos",
+    category: "boias",
+    tag: "Diversão Garantida",
+    desc: "Cores vibrantes, materiais resistentes e modelos que fazem o maior sucesso com crianças e adultos.",
   },
   {
-    src: "/lago-ornamental.jpg",
-    title: "Lago Ornamental com Água Cristalina e Carpas",
-    category: "lagos",
-    tag: "Balanço Biológico",
-    desc: "Case de sucesso em Sete Lagoas: filtragem biológica e ozônio que mantém a água 100% transparente e saudável para os peixes.",
+    src: "/filtro-bomba-v5.jpg",
+    title: "Bombas Filtrantes e Sistemas de Filtragem de Água",
+    category: "filtros",
+    tag: "Economia de Água",
+    desc: "Mantenha sua piscina limpa por muito mais tempo economizando água com cartuchos filtrantes de alta retenção.",
   },
   {
-    src: "/cascata-led.jpg",
-    title: "Cascata em Inox com Iluminação Subaquática LED 12V",
-    category: "iluminacao",
-    tag: "Cenário Noturno",
-    desc: "Efeito relaxante do som de água corrente com refletores RGB controlados por controle remoto sem fio.",
+    src: "/tratamento-agua-v5.jpg",
+    title: "Tratamento de Água, Cloro e Pastilhas com Flutuador",
+    category: "filtros",
+    tag: "Água Cristalina",
+    desc: "Kits completos de manutenção e químicos suaves para garantir água saudável e protegida.",
   },
   {
-    src: "/filtro-bomba.jpg",
-    title: "Casa de Máquinas Montada com Bomba e Filtro",
-    category: "piscinas",
-    tag: "Equipamentos de Ponta",
-    desc: "Tubulação setorizada com registros de alta qualidade, motobomba silenciosa e troca expressa na garantia.",
+    src: "/capas-acessorios-v5.jpg",
+    title: "Capas Protetoras, Térmicas e Forros de Chão",
+    category: "armacao",
+    tag: "Proteção Total",
+    desc: "Protege contra folhas, galhos e poeira, conservando a temperatura da água e a durabilidade da piscina.",
   },
   {
-    src: "/loja-showroom-real.jpg",
-    title: "Showroom Quatro Estações Piscinas na Av. Marechal Castelo Branco, 2111",
-    category: "todas",
-    tag: "Showroom Real em Sete Lagoas",
-    desc: "Pátio com modelos de piscinas de fibra Aguazul em exposição, aquecedor solar e loja completa para sua área de lazer.",
+    src: "/camping-lazer-v5.jpg",
+    title: "Artigos para Esportes ao Ar Livre, Camping e Lazer",
+    category: "camping",
+    tag: "Vida ao Ar Livre",
+    desc: "Barracas, colchões infláveis, cadeiras e equipamentos para você aproveitar a natureza ao máximo.",
   },
 ];
 
 // Perguntas Frequentes
 const FAQS = [
   {
-    question: "Onde fica a Quatro Estações Piscinas e qual o horário de funcionamento?",
+    question: "Onde fica a Piscinas Na Hora BH e como funciona a retirada?",
     answer:
-      "Nossa loja e sede oficial está situada na Av. Marechal Castelo Branco, 2111 (esquina com a Rua Melo Figueiredo) - Bairro Santo Antonio, Sete Lagoas - MG (CEP 35701-240). Nosso horário de funcionamento é de segunda a sexta-feira, das 08:00 às 18:00, e aos sábados, das 08:00 às 12:00. Temos amplo espaço e facilidade de estacionamento.",
+      "Nossa sede para retirada fica no Portão preto de Garagem - Rua Bangu, 90 - Bairro Caiçaras, Belo Horizonte - MG (CEP 30750-410). Você combina seu pedido previamente pelo WhatsApp ou Shopee, e passa para retirar no mesmo dia! Há facilidade para estacionar em frente ao portão preto e carregar os produtos diretamente no seu carro.",
   },
   {
-    question: "Quais são os modelos e tamanhos das Piscinas de Fibra Aguazul?",
+    question: "Vocês realizam entrega no mesmo dia em Belo Horizonte e região?",
     answer:
-      "A Quatro Estações Piscinas é a revendedora oficial e autorizada da Aguazul Piscinas em Sete Lagoas. Contamos com a linha completa de piscinas de fibra: desde modelos compactos para pequenos quintais até piscinas amplas para sítios e chácaras (como a consagrada linha Leblon de 5 metros até piscinas de 10 metros ou mais), equipadas com prainha para crianças, bancos de hidromassagem e acabamento nobre em gel coat.",
+      "Sim! Oferecemos frete expresso local para toda Belo Horizonte (Caiçaras, Pampulha, Centro, Barreiro, Venda Nova, Sion, Buritis, etc.) e cidades vizinhas como Contagem, Betim e Nova Lima. Dependendo do horário do pedido, você recebe a piscina na sua casa no mesmo dia para aproveitar o calor sem esperar!",
   },
   {
-    question: "Vocês trabalham com aquecimento solar para piscinas e também para banho?",
+    question: "Quais são os modelos e tamanhos de piscinas disponíveis a pronta entrega?",
     answer:
-      "Sim! Oferecemos soluções completas de aquecimento térmico: placas coletoras solares de polipropileno de alta absorção, bombas de calor trocadores inverter para piscinas, e também sistemas de aquecimento solar para banho residencial (chuveiros e pias). Como elogiou o cliente Hudson Evaristo no Google, instalamos com rapidez, agilidade e máxima qualidade.",
+      "Trabalhamos com piscinas de armação de ferro estruturadas e piscinas infláveis das melhores marcas (Mor, Bestway, Intex). Temos opções compactas a partir de 1.000 litros para pequenos espaços até modelos familiares de 2.000L, 3.000L, 5.000L, 7.000L e mais de 10.000 litros. Fale conosco no WhatsApp para consultar o estoque do dia!",
   },
   {
-    question: "Como funciona o atendimento técnico para lagos ornamentais?",
+    question: "Vocês vendem também pela Shopee?",
     answer:
-      "Somos especialistas reconhecidos em lagos ornamentais com carpas e peixes. Se o seu lago está com água verde, turva ou com problemas biológicos, fazemos o diagnóstico correto e a instalação de filtros biológicos, ozônio e esterilizadores UV. A cliente Ana Paula Carvalho registrou no Google: 'resolveu o problema do lago ornamental que outros não conseguiram, hoje o lago está com a água cristalina e equilibrado pra qualidade de vida dos peixes!'.",
+      "Sim! Você pode comprar diretamente pelo nosso canal oficial no WhatsApp ou através da nossa loja oficial na Shopee: shopee.com.br/piscinasnahorabh, com garantia da plataforma e opções de envio.",
   },
   {
-    question: "Como funciona a garantia e assistência técnica de bombas e filtros?",
+    question: "Vocês vendem bombas filtrantes, capas e produtos de tratamento?",
     answer:
-      "Temos um compromisso inegociável com a tranquilidade do cliente. Nosso pós-venda é comprovado: como relatou Carlos Henrique, quando a bomba teve problema, fizemos a substituição imediata por uma nova na caixa. Trabalhamos com bombas e filtros das melhores marcas e oferecemos suporte contínuo antes, durante e após a instalação.",
+      "Sim, temos a linha completa! Para você não precisar comprar em lugares diferentes, fornecemos bombas de filtragem 110V e 220V, refis de cartucho, flutuadores de cloro, pastilhas 3 em 1, capas de proteção com drenagem, forros de piso e boias divertidas.",
   },
   {
-    question: "Como agendar uma visita técnica ou solicitar um orçamento?",
+    question: "Quais são as formas de pagamento aceitas?",
     answer:
-      "É muito rápido! Basta clicar em qualquer botão de WhatsApp nesta página ou entrar em contato pelo número (31) 3773-6264. O Leonardo ou a Daniela irão tirar todas as suas dúvidas com paciência, enviar o catálogo de modelos e agendar uma visita técnica sem compromisso.",
+      "Aceitamos Pix com desconto imediato, cartões de crédito e débito com parcelamento, além das opções de pagamento seguras da Shopee. Para pedidos com retirada no Caiçaras, você pode efetuar o pagamento diretamente na entrega/retirada.",
   },
 ];
 
@@ -565,59 +459,61 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
-      {/* 1. TOP BAR INSTITUCIONAL — SETE LAGOAS, MINAS GERAIS */}
-      <div className="bg-[#07172C] text-white text-[12px] py-2 px-4 border-b border-[#0F3260]">
+      {/* 1. TOP BAR INSTITUCIONAL — BELO HORIZONTE, MINAS GERAIS */}
+      <div className="bg-[#02245B] text-white text-[12px] py-2 px-4 border-b border-[#044296]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           {/* Lado Esquerdo: Endereço & Horários */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-5 text-slate-300">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-5 text-slate-200">
             <a
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-[#38BDF8] transition-colors whitespace-nowrap"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#0A6DB0] shrink-0" />
-              <span>Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG</span>
+              <MapPin className="w-3.5 h-3.5 text-[#F97804] shrink-0" />
+              <span>Portão preto - R. Bangu, 90 - Caiçaras, BH</span>
             </a>
-            <div className="hidden sm:flex items-center gap-1.5 text-slate-400 whitespace-nowrap">
-              <Clock className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
-              <span>Seg a Sex: 08h às 18h | Sáb: 08h às 12h</span>
+            <div className="hidden sm:flex items-center gap-1.5 text-slate-300 whitespace-nowrap">
+              <Clock className="w-3.5 h-3.5 text-[#FCD504] shrink-0" />
+              <span>Aberto até às 18:00 (Seg a Sáb)</span>
             </div>
           </div>
 
-          {/* Lado Direito: Avaliação Google, Telefone & WhatsApp */}
-          <div className="flex items-center gap-3 sm:gap-4 text-slate-300">
+          {/* Lado Direito: Avaliação Google 5,0★, Shopee & WhatsApp */}
+          <div className="flex items-center gap-3 sm:gap-4 text-slate-200">
             <a
               href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#0B2344] px-2.5 py-0.5 rounded-full text-slate-200 border border-[#1E4E8C] hover:border-[#38BDF8] transition-colors text-[11px] whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 bg-[#031838] px-3 py-1 rounded-full text-slate-200 border border-[#044296] hover:border-[#FCD504] transition-colors text-[11px] whitespace-nowrap"
             >
-              <div className="flex text-[#F7D511]">
+              <div className="flex text-[#FCD504]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3 h-3 fill-current" />
                 ))}
               </div>
-              <span className="font-bold text-[#F7D511]">{GOOGLE_RATING}★</span>
-              <span className="text-slate-300 hidden xl:inline">({GOOGLE_REVIEW_COUNT} avaliações reais)</span>
+              <span className="font-extrabold text-[#FCD504]">5,0</span>
+              <span className="text-slate-300">no Google</span>
             </a>
 
             <a
-              href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
-              className="hidden lg:flex items-center gap-1 hover:text-white transition-colors whitespace-nowrap"
+              href={SHOPEE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-1.5 text-[#FED7AA] hover:text-white transition-colors whitespace-nowrap font-semibold text-[11px]"
             >
-              <Phone className="w-3 h-3 text-[#38BDF8]" />
-              <span>{PHONE_DISPLAY}</span>
+              <ShoppingBag className="w-3.5 h-3.5 text-[#F97804] shrink-0" />
+              <span>Loja Shopee</span>
             </a>
 
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#38BDF8] font-semibold hover:underline whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-[#38BDF8] font-bold hover:underline whitespace-nowrap text-[12px]"
             >
               <WhatsAppIcon size={14} className="text-[#22C55E]" />
-              <span>WhatsApp Oficial</span>
+              <span>(31) 92000-6722</span>
             </a>
           </div>
         </div>
@@ -625,13 +521,13 @@ export default function HomePage() {
 
       {/* 2. HEADER / NAVBAR PRINCIPAL */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3 lg:gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           {/* Logo Oficial & Assinatura da Marca */}
           <a href="#" className="flex items-center gap-3 shrink-0 group">
             <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
-                src={LOGO_SRC}
-                alt="Logo Aguazul Sete Lagoas - Quatro Estações Piscinas"
+                src="/logo-mark.png"
+                alt="Logo Piscinas Na Hora BH"
                 fill
                 sizes="56px"
                 className="object-contain"
@@ -639,67 +535,79 @@ export default function HomePage() {
               />
             </div>
             <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-2">
-                <span className="text-[17px] sm:text-[19px] lg:text-[20px] font-black tracking-tight text-[#07172C] leading-none font-heading whitespace-nowrap group-hover:text-[#0A6DB0] transition-colors">
-                  QUATRO ESTAÇÕES
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="text-[18px] sm:text-[20px] font-black tracking-tight text-[#044296] leading-none font-heading whitespace-nowrap group-hover:text-[#F97804] transition-colors">
+                  PISCINAS NA HORA
                 </span>
-                <span className="hidden sm:inline-block text-[10px] font-extrabold uppercase tracking-wider text-[#EE8220] bg-[#FFF7ED] px-2 py-0.5 rounded-full border border-[#FDBA74]/40 whitespace-nowrap">
-                  Sete Lagoas
+                <span className="text-[10px] font-black uppercase tracking-wider text-white bg-[#044296] px-1.5 py-0.5 rounded-md whitespace-nowrap">
+                  BH
                 </span>
               </div>
-              <span className="text-[10px] sm:text-[11px] font-bold text-[#0A6DB0] tracking-wider uppercase mt-1 whitespace-nowrap">
-                Piscinas &bull; Saunas &bull; Aquecimento
+              <span className="text-[10px] sm:text-[11px] font-bold text-[#F97804] tracking-wider uppercase mt-1 whitespace-nowrap flex items-center gap-1.5">
+                <span>Especialistas em Diversão</span>
+                <span className="text-slate-300">&bull;</span>
+                <span className="text-slate-500 font-medium">Lazer em Casa</span>
               </span>
             </div>
           </a>
 
-          {/* Menu Desktop — 1 Linha Perfeita sem Quebras */}
-          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-6 text-[13px] xl:text-[14px] font-semibold text-slate-700">
+          {/* Menu Desktop */}
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-[13px] xl:text-[14px] font-semibold text-slate-700">
             <a
               href="#piscinas"
-              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+              className="hover:text-[#044296] transition-colors whitespace-nowrap py-1"
             >
               Piscinas
             </a>
             <a
-              href="#aquecimento"
-              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+              href="#produtos"
+              className="hover:text-[#044296] transition-colors whitespace-nowrap py-1"
             >
-              Aquecimento
+              Infláveis &amp; Boias
             </a>
             <a
-              href="#servicos"
-              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+              href="#camping"
+              className="hover:text-[#044296] transition-colors whitespace-nowrap py-1"
             >
-              Saunas &amp; Lagos
+              Camping &amp; Lazer
             </a>
             <a
               href="#sobre"
-              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+              className="hover:text-[#044296] transition-colors whitespace-nowrap py-1"
             >
               Sobre Nós
             </a>
             <a
               href="#depoimentos"
-              className="inline-flex items-center gap-1 hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1"
+              className="inline-flex items-center gap-1 hover:text-[#044296] transition-colors whitespace-nowrap py-1"
             >
               <span>Avaliações</span>
-              <span className="text-[11px] font-extrabold text-[#D97706] bg-[#FEF9C3] px-1.5 py-0.2 rounded-full border border-[#FDE047]/60">
-                ★ 4,9
+              <span className="text-[10px] font-black text-[#D97706] bg-[#FEFCE8] px-1.5 py-0.2 rounded-full border border-[#FDE047]">
+                ★ 5,0
               </span>
             </a>
             <a
-              href="#contato"
-              className="hover:text-[#0A6DB0] transition-colors whitespace-nowrap py-1 relative hover:after:w-full after:transition-all"
+              href="#retirada"
+              className="hover:text-[#044296] transition-colors whitespace-nowrap py-1"
             >
-              Loja Física
+              Retirada (Caiçaras)
             </a>
           </nav>
 
-          {/* CTA Header WhatsApp */}
-          <div className="hidden sm:flex items-center shrink-0">
+          {/* CTAs Header: Shopee e WhatsApp */}
+          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
             <a
-              href={getWhatsAppUrl("Olá! Gostaria de falar com o atendimento da Quatro Estações Piscinas.")}
+              href={SHOPEE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:inline-flex items-center gap-1.5 bg-[#FFF5EB] hover:bg-[#FED7AA] text-[#F97804] text-[13px] font-bold px-3 py-2 rounded-xl border border-[#FED7AA] transition-all whitespace-nowrap"
+            >
+              <ShoppingBag size={14} />
+              <span>Ver Shopee</span>
+            </a>
+
+            <a
+              href={getWhatsAppUrl("Olá! Gostaria de consultar os produtos à pronta entrega na Piscinas Na Hora BH.")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#16A34A] hover:bg-[#15803D] text-white text-[13px] font-bold px-4 py-2.5 rounded-xl shadow-xs hover:shadow-md transition-all whitespace-nowrap shrink-0 hover:-translate-y-0.5 active:translate-y-0"
@@ -712,7 +620,7 @@ export default function HomePage() {
           {/* Botão Mobile Hamburger */}
           <button
             type="button"
-            className="lg:hidden p-2 text-slate-700 hover:text-[#0A6DB0] focus:outline-none"
+            className="lg:hidden p-2 text-slate-700 hover:text-[#044296] focus:outline-none cursor-pointer"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Abrir menu"
           >
@@ -732,60 +640,60 @@ export default function HomePage() {
               <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
                 <div className="relative w-12 h-12 shrink-0 rounded-lg overflow-hidden border border-slate-200 bg-white p-0.5">
                   <Image
-                    src={LOGO_SRC}
-                    alt="Logo Aguazul Sete Lagoas"
+                    src="/logo-mark.png"
+                    alt="Logo Piscinas Na Hora BH"
                     fill
                     sizes="48px"
                     className="object-contain"
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-black text-[#07172C]">QUATRO ESTAÇÕES</div>
-                  <div className="text-[11px] font-bold text-[#0A6DB0]">Aguazul Sete Lagoas</div>
+                  <div className="text-sm font-black text-[#044296]">PISCINAS NA HORA BH</div>
+                  <div className="text-[11px] font-bold text-[#F97804]">Especialistas em Diversão</div>
                 </div>
               </div>
               <nav className="flex flex-col space-y-3 font-semibold text-slate-800 text-[15px]">
                 <a
                   href="#piscinas"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
+                  className="hover:text-[#044296] py-1 border-b border-slate-100"
                 >
-                  Piscinas de Fibra Aguazul
+                  Piscinas de Armação Estruturadas
                 </a>
                 <a
-                  href="#aquecimento"
+                  href="#produtos"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
+                  className="hover:text-[#044296] py-1 border-b border-slate-100"
                 >
-                  Aquecimento Solar para Piscina &amp; Banho
+                  Piscinas Infláveis, Boias &amp; Filtros
                 </a>
                 <a
-                  href="#servicos"
+                  href="#camping"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
+                  className="hover:text-[#044296] py-1 border-b border-slate-100"
                 >
-                  Saunas, Lagos &amp; Equipamentos
+                  Camping, Pesca &amp; Artigos ao Ar Livre
                 </a>
                 <a
                   href="#sobre"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
+                  className="hover:text-[#044296] py-1 border-b border-slate-100"
                 >
-                  Sobre Nós (Leo &amp; Dani)
+                  Sobre a Piscinas Na Hora BH
                 </a>
                 <a
                   href="#depoimentos"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-[#0A6DB0] py-1 border-b border-slate-100"
+                  className="hover:text-[#044296] py-1 border-b border-slate-100"
                 >
-                  Depoimentos Reais (4,9★ Google)
+                  Avaliações Reais (5,0★ no Google)
                 </a>
                 <a
-                  href="#contato"
+                  href="#retirada"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-[#0A6DB0] py-1"
+                  className="hover:text-[#044296] py-1"
                 >
-                  Localização da Loja Física
+                  Retirada no Portão Preto (Caiçaras)
                 </a>
               </nav>
 
@@ -798,10 +706,19 @@ export default function HomePage() {
                   className="w-full justify-center"
                 >
                   <WhatsAppIcon size={18} />
-                  <span>Falar no WhatsApp: (31) 3773-6264</span>
+                  <span>Chamar no WhatsApp: (31) 92000-6722</span>
                 </GlowingButton>
+                <a
+                  href={SHOPEE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center py-2.5 rounded-lg border border-[#FED7AA] bg-[#FFF5EB] text-[#F97804] text-xs font-bold flex items-center justify-center gap-2"
+                >
+                  <ShoppingBag size={15} />
+                  <span>Acessar nossa loja na Shopee</span>
+                </a>
                 <div className="text-center text-xs text-slate-500 pt-1">
-                  Av. Marechal Castelo Branco, 2111 - Sete Lagoas
+                  R. Bangu, 90 - Caiçaras, Belo Horizonte - MG
                 </div>
               </div>
             </motion.div>
@@ -810,22 +727,22 @@ export default function HomePage() {
       </header>
 
       {/* 3. HERO SECTION DE ALTA CONVERSÃO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#07172C] via-[#0B2344] to-[#07172C] text-white pt-10 pb-20 sm:pt-16 sm:pb-28">
-        {/* Elementos Gráficos de Fundo Luminoso / Ondas & Sol */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0A6DB0]/20 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#EE8220]/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-[#F7D511]/10 rounded-full blur-[90px] pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#02245B] via-[#044296] to-[#02245B] text-white pt-10 pb-20 sm:pt-16 sm:pb-28">
+        {/* Elementos Luminosos de Fundo (Cores do Logo: Azul, Ciano, Laranja, Amarelo) */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#04ACD3]/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#F97804]/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-[#FCD504]/15 rounded-full blur-[90px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Lado Esquerdo: Textos & CTAs (7 colunas) */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              {/* Badge de Destaque / Google Rating com Logo Oficial */}
+              {/* Badge de Destaque / Google Rating 5,0★ */}
               <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 p-1.5 pr-4 rounded-full shadow-lg">
                 <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shrink-0 border border-white/30 shadow-xs flex items-center justify-center">
                   <Image
-                    src={LOGO_SRC}
-                    alt="Logo Aguazul Sete Lagoas"
+                    src="/logo-mark.png"
+                    alt="Logo Piscinas Na Hora BH"
                     fill
                     sizes="40px"
                     className="object-contain p-0.5"
@@ -833,148 +750,148 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="flex items-center gap-2 text-xs sm:text-sm">
-                  <span className="font-extrabold text-[#F7D511] flex items-center gap-1">
-                    ★ 4,9 no Google
+                  <span className="font-extrabold text-[#FCD504] flex items-center gap-1">
+                    ★ 5,0 no Google
                   </span>
                   <span className="text-white/40">&bull;</span>
-                  <span className="text-white font-bold">Revendedora Oficial Aguazul Sete Lagoas</span>
+                  <span className="text-white font-bold">Especialistas em Diversão em Belo Horizonte</span>
                 </div>
               </div>
 
               {/* Headline Principal H1 */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.12] font-heading">
-                A sua área de lazer dos sonhos com{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#00A3E0] to-[#F7D511]">
-                  Piscinas Aguazul, Saunas &amp; Aquecimento
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight leading-[1.12] font-heading">
+                Piscinas à Pronta Entrega e{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#04ACD3] via-[#FCD504] to-[#F97804]">
+                  Diversão Completa
                 </span>{" "}
-                o ano inteiro.
+                para Toda a Família em BH!
               </h1>
 
               {/* Subtítulo / Proposta de Valor */}
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                Valorizamos áreas de lazer e realizamos sonhos tornando cada vez mais aconchegante o seu lar! Do projeto e escavação à instalação completa, aquecimento solar e assistência pós-venda premiada com Leonardo e Daniela.
+              <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                Piscinas estruturadas de armação, piscinas infláveis, boias gigantes, bombas filtrantes, tratamento de água e artigos completos de camping e lazer. Retirada rápida no Bairro Caiçaras ou entrega expressa no mesmo dia em Belo Horizonte e região!
               </p>
 
               {/* Pills de Diferenciais */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 pb-2 max-w-lg mx-auto lg:mx-0 text-left">
                 <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#38BDF8] shrink-0" />
-                  <span className="text-xs text-slate-200 font-medium">Piscinas de Fibra 1ª Linha</span>
+                  <PackageCheck className="w-4 h-4 text-[#04ACD3] shrink-0" />
+                  <span className="text-xs text-slate-200 font-medium">Pronta Entrega em BH</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#EE8220] shrink-0" />
-                  <span className="text-xs text-slate-200 font-medium">Aquecimento para Piscina &amp; Banho</span>
+                  <MapPin className="w-4 h-4 text-[#F97804] shrink-0" />
+                  <span className="text-xs text-slate-200 font-medium">Retire no Caiçaras</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg p-2.5 col-span-2 sm:col-span-1">
-                  <CheckCircle2 className="w-4 h-4 text-[#F7D511] shrink-0" />
-                  <span className="text-xs text-slate-200 font-medium">Suporte Técnico Nota 10</span>
+                  <CheckCircle2 className="w-4 h-4 text-[#83C809] shrink-0" />
+                  <span className="text-xs text-slate-200 font-medium">Preço Justo &amp; Qualidade</span>
                 </div>
               </div>
 
               {/* Botões de Ação Hero */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá Leonardo e Daniela! Gostaria de solicitar um orçamento para a minha piscina/área de lazer.")}
+                  href={getWhatsAppUrl("Olá! Gostaria de consultar os modelos de piscinas à pronta entrega na Piscinas Na Hora BH.")}
                   target="_blank"
                   variant="whatsapp"
                   size="lg"
                   className="w-full sm:w-auto text-base shadow-lg shadow-green-600/30 font-bold"
                 >
                   <WhatsAppIcon size={20} />
-                  <span>Solicitar Orçamento sem Compromisso</span>
+                  <span>Pedir no WhatsApp: (31) 92000-6722</span>
                 </GlowingButton>
 
                 <GlowingButton
                   href="#piscinas"
-                  variant="sunset"
+                  variant="orange"
                   size="lg"
                   className="w-full sm:w-auto text-base"
                 >
-                  <span>Conhecer Modelos de Piscinas</span>
+                  <span>Ver Piscinas em Estoque</span>
                   <ArrowRight className="w-4 h-4" />
                 </GlowingButton>
               </div>
 
               {/* Resumo de Prova Social Google */}
-              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-300">
+              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-200">
                 <div className="flex -space-x-2">
-                  <div className="w-7 h-7 rounded-full bg-[#0A6DB0] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">AP</div>
-                  <div className="w-7 h-7 rounded-full bg-[#EE8220] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">CH</div>
-                  <div className="w-7 h-7 rounded-full bg-[#16A34A] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">RS</div>
-                  <div className="w-7 h-7 rounded-full bg-[#4C3C78] border-2 border-[#07172C] flex items-center justify-center font-bold text-[10px] text-white">SD</div>
+                  <div className="w-7 h-7 rounded-full bg-[#044296] border-2 border-[#02245B] flex items-center justify-center font-bold text-[10px] text-white">SL</div>
+                  <div className="w-7 h-7 rounded-full bg-[#F97804] border-2 border-[#02245B] flex items-center justify-center font-bold text-[10px] text-white">PF</div>
+                  <div className="w-7 h-7 rounded-full bg-[#04ACD3] border-2 border-[#02245B] flex items-center justify-center font-bold text-[10px] text-white">EG</div>
+                  <div className="w-7 h-7 rounded-full bg-[#83C809] border-2 border-[#02245B] flex items-center justify-center font-bold text-[10px] text-white">MC</div>
                 </div>
                 <span>
-                  <strong className="text-white">Mais de 67 famílias atendidas</strong> e satisfeitas em Sete Lagoas e região
+                  <strong className="text-white">Nota 5,0★ no Google</strong> com clientes 100% satisfeitos em Belo Horizonte
                 </span>
               </div>
             </div>
 
             {/* Lado Direito: Card Visual com Foto Hero e Emblema (5 colunas) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden border-2 border-[#1E4E8C] shadow-2xl bg-[#0B2344]">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-[#04ACD3]/40 shadow-2xl bg-[#02245B]">
                 {/* Imagem do Hero */}
                 <div className="relative h-80 sm:h-96 w-full">
                   <Image
-                    src="/hero-pool.jpg"
-                    alt="Piscina de Fibra Aguazul com Prainha e Deck em Sete Lagoas"
+                    src="/hero-pool-v5.jpg"
+                    alt="Piscinas de Armação e Infláveis Pronta Entrega em Belo Horizonte"
                     fill
                     sizes="(max-width: 768px) 100vw, 500px"
                     className="object-cover"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07172C] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#02245B] via-transparent to-transparent opacity-85" />
 
                   {/* Badge Flutuante no Topo com o Logo Oficial */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-2.5 text-xs font-bold text-[#07172C] shadow-xl">
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200 flex items-center gap-2.5 text-xs font-bold text-[#031838] shadow-xl">
                     <div className="relative w-8 h-8 shrink-0 rounded-lg overflow-hidden bg-white border border-slate-100 p-0.5">
                       <Image
-                        src={LOGO_SRC}
-                        alt="Emblema Aguazul"
+                        src="/logo-mark.png"
+                        alt="Emblema Piscinas Na Hora BH"
                         fill
                         sizes="32px"
                         className="object-contain"
                       />
                     </div>
                     <div>
-                      <div className="text-[9px] font-bold text-[#0A6DB0] uppercase tracking-wider leading-tight">Revenda Oficial</div>
-                      <div className="text-[12px] font-extrabold text-[#07172C] leading-tight">Aguazul Sete Lagoas</div>
+                      <div className="text-[9px] font-bold text-[#044296] uppercase tracking-wider leading-tight">Pronta Entrega</div>
+                      <div className="text-[12px] font-extrabold text-[#031838] leading-tight">Piscinas Na Hora BH</div>
                     </div>
                   </div>
 
-                  {/* Selo no Rodapé da Imagem */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-[#07172C]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center justify-between">
+                  {/* Selo no Rodapé da Imagem com Retirada Caiçaras */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-[#02245B]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-center justify-between">
                     <div>
-                      <div className="text-[11px] font-bold text-[#38BDF8] uppercase tracking-wider">
-                        Atendimento com os Proprietários
+                      <div className="text-[11px] font-bold text-[#FCD504] uppercase tracking-wider">
+                        Retirada Imediata em BH
                       </div>
                       <div className="text-sm font-extrabold text-white">
-                        Leonardo &amp; Daniela
+                        Rua Bangu, 90 - Caiçaras
                       </div>
                     </div>
                     <a
-                      href={getWhatsAppUrl("Olá Leo e Dani! Vi o site e gostaria de tirar uma dúvida.")}
+                      href={getWhatsAppUrl("Olá! Gostaria de saber como funciona a retirada imediata no Caiçaras.")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
                     >
                       <WhatsAppIcon size={13} />
-                      <span>Falar Agora</span>
+                      <span>Retirar Hoje</span>
                     </a>
                   </div>
                 </div>
               </div>
 
               {/* Card Flutuante de Avaliação em Destaque */}
-              <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-white text-[#07172C] p-3.5 rounded-xl shadow-xl border border-slate-200 hidden sm:flex items-center gap-3 max-w-xs">
-                <div className="p-2.5 rounded-lg bg-[#FEF9C3] text-[#D97706] shrink-0">
+              <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-white text-[#031838] p-3.5 rounded-xl shadow-xl border border-slate-200 hidden sm:flex items-center gap-3 max-w-xs">
+                <div className="p-2.5 rounded-lg bg-[#FEFCE8] text-[#D97706] shrink-0">
                   <Star className="w-5 h-5 fill-current" />
                 </div>
                 <div>
-                  <div className="text-xs font-extrabold text-[#07172C]">
-                    4,9 Estrelas no Google
+                  <div className="text-xs font-extrabold text-[#031838]">
+                    5,0 Estrelas no Google
                   </div>
                   <div className="text-[11px] text-slate-600 line-clamp-1">
-                    &ldquo;Equipe responsável, atendimento nota 10!&rdquo;
+                    &ldquo;Vendedor prestativo e preço justo!&rdquo;
                   </div>
                 </div>
               </div>
@@ -988,66 +905,66 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0A6DB0] font-heading">
-                4,9★
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#044296] font-heading">
+                5,0★
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
+              <div className="text-xs sm:text-sm font-bold text-[#031838]">
                 Google Avaliações
               </div>
               <div className="text-[11px] text-slate-500">
-                67 avaliações públicas reais
+                100% de satisfação comprovada
               </div>
             </div>
 
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#EE8220] font-heading">
-                4 Estações
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#F97804] font-heading">
+                Na Hora
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
-                Lazer o Ano Inteiro
+              <div className="text-xs sm:text-sm font-bold text-[#031838]">
+                Sem Espera de Frete
               </div>
               <div className="text-[11px] text-slate-500">
-                Aquecimento solar e bombas de calor
+                Retire no Caiçaras ou receba hoje em BH
               </div>
             </div>
 
             <div className="space-y-1">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0A6DB0] font-heading">
-                100%
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#04ACD3] font-heading">
+                Completa
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
-                Pós-Venda &amp; Suporte
+              <div className="text-xs sm:text-sm font-bold text-[#031838]">
+                Piscinas &bull; Boias &bull; Lazer
               </div>
               <div className="text-[11px] text-slate-500">
-                Auxílio permanente até anos após a obra
+                Filtros, químicos, capas e camping
               </div>
             </div>
 
             <div className="space-y-1">
               <div className="text-3xl sm:text-4xl font-extrabold text-[#16A34A] font-heading">
-                Aguazul
+                Preço Justo
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#07172C]">
-                Revenda Autorizada
+              <div className="text-xs sm:text-sm font-bold text-[#031838]">
+                WhatsApp &amp; Shopee
               </div>
               <div className="text-[11px] text-slate-500">
-                Piscinas de fibra com garantia de fábrica
+                As melhores marcas com valor acessível
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. SEÇÃO DE PISCINAS DE FIBRA AGUAZUL EM DESTAQUE */}
+      {/* 5. SEÇÃO DE PISCINAS DE ARMAÇÃO ESTRUTURADAS EM DESTAQUE */}
       <section id="piscinas" className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="eyebrow-blue">Revenda Autorizada Aguazul Sete Lagoas</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
-              Piscinas de Fibra com Durabilidade e Beleza Incomparáveis
+            <span className="eyebrow-blue">Piscinas Estruturadas &bull; Pronta Entrega BH</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
+              Piscinas de Armação de Ferro: Durabilidade, Espaço e Alegria no Quintal
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Realize o sonho da piscina própria com a marca sinônimo de segurança estrutural em todo o Brasil. Modelos com prainha, escada e hidromassagem que transformam o seu quintal.
+              O calor chegou em Belo Horizonte? Não espere semanas pelo frete de compras online. Na Piscinas Na Hora BH você escolhe o tamanho ideal e leva para casa no mesmo dia!
             </p>
           </div>
 
@@ -1055,116 +972,116 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row items-center gap-6 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm mb-12 max-w-5xl mx-auto">
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 bg-white p-2 rounded-2xl shadow-md border border-slate-100 flex items-center justify-center">
               <Image
-                src={LOGO_SRC}
-                alt="Logo Aguazul Sete Lagoas"
+                src={LOGO_WHITE_BG}
+                alt="Logo Piscinas Na Hora BH"
                 fill
                 sizes="150px"
                 className="object-contain"
               />
             </div>
             <div className="space-y-2 text-center md:text-left flex-1">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F0F8FF] text-[#0A6DB0] text-xs font-extrabold uppercase tracking-wider">
-                Concessionária Exclusiva em Sete Lagoas
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF3FC] text-[#044296] text-xs font-extrabold uppercase tracking-wider">
+                Pronta Entrega Imediata &bull; Belo Horizonte - MG
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-[#07172C] font-heading">
-                Quatro Estações Piscinas &bull; Aguazul Sete Lagoas
+              <h3 className="text-xl sm:text-2xl font-black text-[#031838] font-heading">
+                Piscinas Na Hora BH &bull; Especialistas em Diversão
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                A Aguazul é referência nacional em piscinas de fibra de vidro de alta tecnologia. Cada piscina conta com acabamento reforçado com gel coat naval, proteção contra osmose, garantia estrutural e os formatos mais modernos com prainha, escada e hidromassagem.
+                Trabalhamos com piscinas de armação de 1.000L a mais de 10.000L, equipadas com estruturas reforçadas antiferrugem e lonas de PVC tripla camada. Montagem rápida, desmontagem fácil para o inverno e diversão ilimitada para refrescar toda a família.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Foto Grande da Piscina de Fibra com Detalhes */}
+            {/* Foto Grande da Piscina de Armação com Detalhes */}
             <div className="lg:col-span-7">
               <div className="relative h-80 sm:h-[420px] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                 <Image
-                  src="/piscina-fibra.jpg"
-                  alt="Instalação de Piscina de Fibra Aguazul em Sete Lagoas"
+                  src="/piscina-armacao-v5.jpg"
+                  alt="Piscina de Armação de Ferro Estruturada em Belo Horizonte"
                   fill
                   sizes="(max-width: 1024px) 100vw, 700px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
+
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                  <span className="bg-[#EE8220] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Destaque da Linha Aguazul
+                  <span className="bg-[#F97804] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Modelos de 1.000L a 10.000L+
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold font-heading">
-                    Modelos Clássicos &amp; Modernos (Linha Leblon e Muito Mais)
+                    Estrutura Firme, Lona Tripla e Diversão para Todas as Idades
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-200">
-                    Acabamento com gel coat de alta densidade, resistente aos raios UV e de toque acetinado.
+                    Sem obras, sem quebra-quebra no quintal. Montagem prática e água limpa o verão inteiro.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Vantagens das Piscinas Aguazul */}
+            {/* Vantagens das Piscinas de Armação */}
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-4">
                 <div className="flex items-start gap-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-                  <div className="p-2 rounded-lg bg-[#F0F8FF] text-[#0A6DB0] shrink-0 mt-0.5">
+                  <div className="p-2 rounded-lg bg-[#EBF3FC] text-[#044296] shrink-0 mt-0.5">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#07172C] text-sm sm:text-base">
-                      Garantia de Fábrica &amp; Estrutura Reforçada
+                    <h4 className="font-bold text-[#031838] text-sm sm:text-base">
+                      Aço Galvanizado com Pintura Antiferrugem
                     </h4>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Construção em fibra de vidro multicamadas com reforços nas bordas e cantos para evitar trincas e deformações.
+                      Tubos metálicos com cantoneiras anatômicas que garantem estabilidade total mesmo com as crianças brincando bastante.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-                  <div className="p-2 rounded-lg bg-[#FFF7ED] text-[#EE8220] shrink-0 mt-0.5">
+                  <div className="p-2 rounded-lg bg-[#FFF5EB] text-[#F97804] shrink-0 mt-0.5">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#07172C] text-sm sm:text-base">
-                      Prainha Integrada para Crianças e Banhos de Sol
+                    <h4 className="font-bold text-[#031838] text-sm sm:text-base">
+                      Lona Tripla Super Resistente
                     </h4>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Área rasa com degraus suaves ideal para instalar espreguiçadeiras molhadas, descansar e garantir diversão segura para os pequenos.
+                      Duas camadas de PVC de alta densidade com malha interna de poliéster para evitar furos e rasgos acidentais.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-                  <div className="p-2 rounded-lg bg-[#FEF9C3] text-[#D97706] shrink-0 mt-0.5">
-                    <Clock className="w-5 h-5" />
+                  <div className="p-2 rounded-lg bg-[#FEFCE8] text-[#D97706] shrink-0 mt-0.5">
+                    <Truck className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#07172C] text-sm sm:text-base">
-                      Instalação Rápida e com Pouca Sujeira
+                    <h4 className="font-bold text-[#031838] text-sm sm:text-base">
+                      Retirada Hoje no Caiçaras ou Entrega Rápida em BH
                     </h4>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Diferente da alvenaria que leva meses, a piscina de fibra é instalada com precisão em poucos dias, pronta para ser aproveitada.
+                      Você não precisa esperar semanas: passa no nosso portão preto na R. Bangu, 90 ou recebe no mesmo dia na sua casa.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#07172C] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="p-4 rounded-xl bg-[#02245B] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
-                  <div className="text-xs text-[#38BDF8] font-bold uppercase">
-                    Quer ver os tamanhos disponíveis?
+                  <div className="text-xs text-[#04ACD3] font-bold uppercase">
+                    Qual o tamanho ideal para seu espaço?
                   </div>
                   <div className="text-sm font-bold">
-                    Peça o catálogo digital completo
+                    Consulte os modelos disponíveis hoje
                   </div>
                 </div>
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de receber o catálogo completo com medidas e fotos das Piscinas de Fibra Aguazul.")}
+                  href={getWhatsAppUrl("Olá! Gostaria de consultar os tamanhos de piscinas de armação disponíveis a pronta entrega.")}
                   target="_blank"
-                  variant="blue"
+                  variant="orange"
                   size="sm"
                 >
                   <WhatsAppIcon size={14} />
-                  <span>Pedir Catálogo no WhatsApp</span>
+                  <span>Consultar no WhatsApp</span>
                 </GlowingButton>
               </div>
             </div>
@@ -1172,16 +1089,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. PRODUTOS & SERVIÇOS PRINCIPAIS (GRID COM MODAL INTERATIVO) */}
-      <section id="servicos" className="py-16 sm:py-24 bg-white border-t border-slate-200">
+      {/* 6. PRODUTOS & CATEGORIAS PRINCIPAIS (GRID COM MODAL INTERATIVO) */}
+      <section id="produtos" className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow-blue">Soluções Completas para Área de Lazer</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
-              Tudo o que Você Precisa em um Único Lugar
+            <span className="eyebrow-blue">Catálogo Completo &bull; Lazer para Toda a Família</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
+              Tudo o que Você Precisa para o Seu Verão em um Só Lugar
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Da piscina ao aquecimento, saunas, lagos ornamentais, produtos químicos e assistência técnica. Clique em qualquer card para ver todos os detalhes e diferenciais.
+              Das piscinas de armação às boias gigantes, bombas filtrantes, tratamento químico e artigos de camping. Clique em qualquer card para ver todos os detalhes e diferenciais.
             </p>
           </div>
 
@@ -1205,7 +1122,7 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                    <div className="absolute top-3 left-3 bg-[#07172C]/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#BAE6FD] border border-[#0A6DB0]/40">
+                    <div className="absolute top-3 left-3 bg-[#02245B]/90 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-bold text-[#BAEFF8] border border-[#044296]">
                       {service.badge}
                     </div>
                   </div>
@@ -1214,10 +1131,10 @@ export default function HomePage() {
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <div className="p-1.5 rounded-lg bg-[#F0F8FF] text-[#0A6DB0]">
+                        <div className="p-1.5 rounded-lg bg-[#EBF3FC] text-[#044296]">
                           <IconComponent className="w-4 h-4" />
                         </div>
-                        <h3 className="font-bold text-[16px] text-[#07172C] group-hover:text-[#0A6DB0] transition-colors line-clamp-1 font-heading">
+                        <h3 className="font-bold text-[16px] text-[#031838] group-hover:text-[#044296] transition-colors line-clamp-1 font-heading">
                           {service.title}
                         </h3>
                       </div>
@@ -1226,7 +1143,7 @@ export default function HomePage() {
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0A6DB0] group-hover:translate-x-1 transition-transform">
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#044296] group-hover:translate-x-1 transition-transform">
                       <span>Ver detalhes e itens</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>
@@ -1249,7 +1166,7 @@ export default function HomePage() {
               className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200"
             >
               {/* Header com Imagem */}
-              <div className="relative h-56 w-full bg-[#07172C]">
+              <div className="relative h-56 w-full bg-[#02245B]">
                 <Image
                   src={selectedService.image}
                   alt={selectedService.title}
@@ -1262,14 +1179,14 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setSelectedService(null)}
-                  className="absolute top-4 right-4 bg-black/60 hover:bg-black text-white p-2 rounded-full transition-colors z-10"
+                  className="absolute top-4 right-4 bg-black/60 hover:bg-black text-white p-2 rounded-full transition-colors z-10 cursor-pointer"
                   aria-label="Fechar modal"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
                 <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <span className="bg-[#EE8220] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  <span className="bg-[#F97804] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                     {selectedService.badge}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black font-heading mt-1">
@@ -1282,7 +1199,7 @@ export default function HomePage() {
               <div className="p-6 space-y-6">
                 <div>
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    Sobre Esta Solução
+                    Sobre Esta Categoria
                   </h4>
                   <p className="text-sm text-slate-700 leading-relaxed">
                     {selectedService.fullDesc}
@@ -1290,16 +1207,16 @@ export default function HomePage() {
                 </div>
 
                 <div>
-                  <h4 className="text-xs font-bold text-[#0A6DB0] uppercase tracking-wider mb-3">
-                    Principais Benefícios &amp; Diferenciais
+                  <h4 className="text-xs font-bold text-[#044296] uppercase tracking-wider mb-3">
+                    Principais Diferenciais &amp; Vantagens
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {selectedService.benefits.map((benefit, i) => (
                       <div
                         key={i}
-                        className="flex items-start gap-2 bg-[#F0F8FF] p-3 rounded-lg border border-[#BAE6FD]/40 text-xs text-slate-800"
+                        className="flex items-start gap-2 bg-[#EBF3FC] p-3 rounded-lg border border-[#B9D7F9] text-xs text-slate-800"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#0A6DB0] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#044296] shrink-0 mt-0.5" />
                         <span>{benefit}</span>
                       </div>
                     ))}
@@ -1309,7 +1226,7 @@ export default function HomePage() {
                 {/* Footer do Modal com CTA WhatsApp */}
                 <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <div className="text-xs text-slate-500 text-center sm:text-left">
-                    Atendimento técnico com Leo e Dani em Sete Lagoas
+                    Atendimento ágil no WhatsApp &bull; Retirada no Caiçaras
                   </div>
                   <GlowingButton
                     href={getWhatsAppUrl(selectedService.whatsappMessage)}
@@ -1328,56 +1245,56 @@ export default function HomePage() {
         )}
       </AnimatePresence>
 
-      {/* 7. SEÇÃO DE AQUECIMENTO SOLAR PARA PISCINA & BANHO */}
-      <section id="aquecimento" className="py-16 sm:py-24 bg-[#07172C] text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#EE8220]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute top-0 right-10 w-96 h-96 bg-[#0A6DB0]/20 rounded-full blur-[100px] pointer-events-none" />
+      {/* 7. SEÇÃO DE CAMPING, PESCA & LAZER AO AR LIVRE */}
+      <section id="camping" className="py-16 sm:py-24 bg-[#02245B] text-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#F97804]/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-10 w-96 h-96 bg-[#04ACD3]/20 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Texto Aquecimento */}
+            {/* Texto Camping & Esportes ao Ar Livre */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="eyebrow-orange">Água Quente nos 365 Dias do Ano</span>
+              <span className="eyebrow-orange">Esportes ao Ar Livre &bull; Casa, Jardim &amp; Pesca</span>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading tracking-tight">
-                Piscina Quente no Inverno e Verão: Aquecimento Solar &amp; Bombas de Calor
+                Tudo para Camping, Pesca e Lazer em Família
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Você investe na área de lazer e só usa a piscina 3 meses por ano? Com o sistema de aquecimento correto dimensionado pelo Leonardo, sua piscina fica sempre em temperatura agradável com baixíssimo consumo de energia.
+                Além das melhores piscinas de BH, somos a sua loja completa de artigos para esportes ao ar livre. Tenha conforto e diversão garantida em viagens, sítios, acampamentos ou no jardim da sua casa.
               </p>
 
               <div className="space-y-3 pt-2">
                 <div className="flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-xl">
-                  <Flame className="w-5 h-5 text-[#EE8220] shrink-0 mt-0.5" />
+                  <Tent className="w-5 h-5 text-[#F97804] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-sm text-white">
-                      Coletores Solares de Polipropileno
+                      Barracas de Camping Resistentes
                     </h4>
                     <p className="text-xs text-slate-300 mt-0.5">
-                      Absorvem a radiação solar mesmo em dias frescos, com vazão otimizada e resistência aos químicos da piscina.
+                      Modelos de 2 a 6 pessoas com piso reforçado, mosqueteiro e cobertura impermeável contra chuvas.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-xl">
-                  <Zap className="w-5 h-5 text-[#F7D511] shrink-0 mt-0.5" />
+                  <Sun className="w-5 h-5 text-[#FCD504] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-sm text-white">
-                      Aquecimento Solar para Banho Residencial
+                      Colchões Infláveis de Casal e Solteiro
                     </h4>
                     <p className="text-xs text-slate-300 mt-0.5">
-                      Também instalamos sistemas para chuveiros e torneiras com alta economia na conta de energia da sua família.
+                      Acabamento aveludado confortável com bombas manuais ou elétricas de enchimento ultrarrápido.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 bg-white/5 border border-white/10 p-3.5 rounded-xl">
-                  <ShieldCheck className="w-5 h-5 text-[#38BDF8] shrink-0 mt-0.5" />
+                  <Compass className="w-5 h-5 text-[#04ACD3] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-bold text-sm text-white">
-                      Capas Térmicas &amp; Controladores Digitais
+                      Artigos de Pesca, Cadeiras e Caixas Térmicas
                     </h4>
                     <p className="text-xs text-slate-300 mt-0.5">
-                      Retêm o calor durante a noite e acionam a bomba de recirculação automaticamente apenas quando há ganho térmico.
+                      Cadeiras dobráveis leves, isolamento térmico para bebidas geladas e acessórios práticos de pesca.
                     </p>
                   </div>
                 </div>
@@ -1385,40 +1302,40 @@ export default function HomePage() {
 
               <div className="pt-2">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá Leonardo! Gostaria de fazer uma visita técnica para dimensionar o aquecedor da minha piscina.")}
+                  href={getWhatsAppUrl("Olá! Gostaria de consultar os produtos de camping e pesca disponíveis na Piscinas Na Hora BH.")}
                   target="_blank"
-                  variant="sunset"
+                  variant="orange"
                   size="md"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Solicitar Visita Técnica para Aquecimento</span>
+                  <span>Consultar Artigos de Camping no WhatsApp</span>
                 </GlowingButton>
               </div>
             </div>
 
-            {/* Imagem Aquecimento com Depoimento da Silmara Duque */}
+            {/* Imagem Camping com Badge */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border-2 border-[#1E4E8C] shadow-2xl">
+              <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border-2 border-[#044296] shadow-2xl">
                 <Image
-                  src="/aquecimento-solar.jpg"
-                  alt="Sistema de Aquecimento Solar de Piscina Instalado pela Quatro Estações"
+                  src="/camping-lazer-v5.jpg"
+                  alt="Artigos de Camping, Lazer e Esportes ao Ar Livre em Belo Horizonte"
                   fill
                   sizes="(max-width: 1024px) 100vw, 600px"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07172C] via-transparent to-transparent opacity-75" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#02245B] via-transparent to-transparent opacity-75" />
               </div>
 
-              {/* Depoimento em Destaque */}
-              <div className="bg-[#0B2344] p-5 rounded-xl border border-[#1E4E8C] space-y-2">
-                <div className="flex items-center gap-1 text-[#F7D511]">
+              {/* Destaque Sandra Lopes */}
+              <div className="bg-[#031838] p-5 rounded-xl border border-[#044296] space-y-2">
+                <div className="flex items-center gap-1 text-[#FCD504]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
-                  <span className="text-xs font-bold text-slate-300 ml-2">Silmara Duque &bull; Avaliação no Google</span>
+                  <span className="text-xs font-bold text-slate-300 ml-2">Sandra Lopes &bull; Avaliação no Google</span>
                 </div>
                 <p className="text-xs text-slate-200 italic leading-relaxed">
-                  &ldquo;Passando para deixar registrado o profissionalismo da instalação e venda do aquecimento da minha piscina. Desde a visita técnica do Leo, conversas e instalação do pessoal, fui muito bem atendida, sanando as minhas dúvidas, tendo cuidado com minha estrutura e cumprindo o combinado. Super indico a empresa.&rdquo;
+                  &ldquo;Amei ... atendimento excelente e produtos de qualidade ❤️&rdquo;
                 </p>
               </div>
             </div>
@@ -1426,7 +1343,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. SOBRE A EMPRESA & EQUIPE (LEONARDO & DANIELA) */}
+      {/* 8. SOBRE A EMPRESA & QUEM SOMOS */}
       <section id="sobre" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1434,107 +1351,117 @@ export default function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative h-80 sm:h-[460px] w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                 <Image
-                  src="/sobre-lazer-pool.jpg"
-                  alt="Área de Lazer e Família - Quatro Estações Piscinas"
+                  src="/sobre-familia-v5.jpg"
+                  alt="Família e Diversão ao Ar Livre - Piscinas Na Hora BH"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#07172C]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#02245B]/80 via-transparent to-transparent" />
 
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
-                  <div className="text-xs font-bold text-[#38BDF8] uppercase tracking-wider">
-                    Compromisso &amp; Família
+                  <div className="text-xs font-bold text-[#04ACD3] uppercase tracking-wider">
+                    Somos Especialistas em Diversão 🤩
                   </div>
                   <h3 className="text-xl font-bold font-heading">
-                    &ldquo;Realizamos sonhos tornando cada vez mais aconchegante o seu lar.&rdquo;
+                    &ldquo;Alegria garantida para toda a família no calor de BH.&rdquo;
                   </h3>
                 </div>
               </div>
 
               {/* Selo Flutuante */}
-              <div className="absolute -top-4 -right-4 bg-[#0A6DB0] text-white p-4 rounded-xl shadow-xl border border-white/20 hidden sm:block text-center">
-                <div className="text-2xl font-black font-heading">4,9★</div>
+              <div className="absolute -top-4 -right-4 bg-[#044296] text-white p-4 rounded-xl shadow-xl border border-white/20 hidden sm:block text-center">
+                <div className="text-2xl font-black font-heading">5,0★</div>
                 <div className="text-[10px] font-bold uppercase tracking-wider">
-                  67 Avaliações
+                  Google Maps
                 </div>
               </div>
             </div>
 
             {/* Texto Sobre Nós */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="eyebrow-blue">Quem Somos &bull; Quatro Estações Piscinas</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
-                Mais que Vender Piscinas: Acompanhamos Você Antes, Durante e Depois da Obra
+              <span className="eyebrow-blue">Quem Somos &bull; Piscinas Na Hora BH</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
+                Mais que uma Loja: Levamos o Frescor e a Diversão Até a Sua Casa
               </h2>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Sob a liderança dedicada do <strong>Leonardo (Leo)</strong> e da <strong>Daniela (Dani)</strong>, a Quatro Estações Piscinas construiu uma reputação de seriedade e carinho em Sete Lagoas e em todos os municípios vizinhos.
+                A <strong>Piscinas Na Hora BH</strong> nasceu com um propósito bem direto: acabar com a frustração de quem quer aproveitar o fim de semana ensolarado em Belo Horizonte e descobre que as lojas da internet pedem dias ou semanas para entregar.
               </p>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Enquanto muitas lojas no mercado simplesmente entregam a piscina e esquecem o cliente, nosso modelo é fundamentado na responsabilidade técnica: visitamos o seu local, auxiliamos no projeto hidráulico, orientamos a escavação, instalamos o sistema de aquecimento e prestamos assistência contínua por anos.
+                Somos apaixonados por lazer, sol e convivência em família. Seja com piscinas de armação de alta durabilidade, piscinas infláveis super práticas, boias coloridas, filtros ou itens para acampamento, garantimos <strong>atendimento prestativo, honestidade e preços justos</strong>.
               </p>
 
-              {/* Destaque Januzia Alacoque */}
-              <div className="p-4 rounded-xl bg-[#F0F8FF] border border-[#BAE6FD] text-slate-800 text-xs sm:text-sm space-y-2">
-                <div className="flex items-center gap-2 font-bold text-[#0A6DB0]">
-                  <ThumbsUp className="w-4 h-4" />
-                  <span>Depoimento Real de Januzia Alacoque:</span>
+              {/* Destaque Paloma Fernandes */}
+              <div className="p-4 rounded-xl bg-[#EBF3FC] border border-[#B9D7F9] text-slate-800 text-xs sm:text-sm space-y-2">
+                <div className="flex items-center gap-2 font-bold text-[#044296]">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Avaliação Real no Google de Paloma Fernandes:</span>
                 </div>
                 <p className="italic">
-                  &ldquo;Comprei minha piscina com a Dani e com o Leonardo, era meu sonho, além de ter ficado linda, eles foram muito técnicos e nos dão auxílio até hoje, já fazem quase 3 anos e tudo certo, nunca tive problemas.&rdquo;
+                  &ldquo;Vendedor prestativo e tem um preço justo. Comprarei outras vezes! ❤️&rdquo;
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0A6DB0]/10 flex items-center justify-center text-[#0A6DB0] shrink-0 font-bold">
+                  <div className="w-10 h-10 rounded-full bg-[#044296]/10 flex items-center justify-center text-[#044296] shrink-0 font-bold">
                     <Check className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-[#07172C]">Atendimento Paciente</h4>
-                    <p className="text-xs text-slate-500">Tiramos todas as dúvidas antes da compra</p>
+                    <h4 className="text-sm font-bold text-[#031838]">Vendedor Prestativo</h4>
+                    <p className="text-xs text-slate-500">Tiramos dúvidas sobre medidas e montagem</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#EE8220]/10 flex items-center justify-center text-[#EE8220] shrink-0 font-bold">
+                  <div className="w-10 h-10 rounded-full bg-[#F97804]/10 flex items-center justify-center text-[#F97804] shrink-0 font-bold">
                     <Check className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-[#07172C]">Pós-Venda que Resolve</h4>
-                    <p className="text-xs text-slate-500">Substituição rápida e suporte permanente</p>
+                    <h4 className="text-sm font-bold text-[#031838]">Pronta Entrega Real</h4>
+                    <p className="text-xs text-slate-500">Estoque físico pronto para retirada imediata</p>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá Dani e Leo! Gostaria de conversar sobre um projeto para o meu espaço de lazer.")}
+                  href={getWhatsAppUrl("Olá! Gostaria de conversar com o vendedor da Piscinas Na Hora BH.")}
                   target="_blank"
                   variant="blue"
                   size="md"
                 >
                   <WhatsAppIcon size={16} />
-                  <span>Falar Diretamente com Leo &amp; Dani</span>
+                  <span>Falar com o Vendedor no WhatsApp</span>
                 </GlowingButton>
+
+                <a
+                  href={SHOPEE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#FED7AA] bg-[#FFF5EB] text-[#F97804] font-bold text-xs hover:bg-[#FED7AA] transition-colors"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>Conhecer Loja na Shopee</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 9. DEPOIMENTOS REAIS DO GOOGLE MAPS (4,9★ · 67 AVALIAÇÕES) */}
+      {/* 9. DEPOIMENTOS REAIS DO GOOGLE MAPS (5,0★ · 6 AVALIAÇÕES) */}
       <section id="depoimentos" className="py-16 sm:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="eyebrow-gold">Prova Social &bull; Google Avaliações</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
-              O Que Nossos Clientes Dizem Sobre Nosso Trabalho
+            <span className="eyebrow-gold">Prova Social &bull; Google Avaliações 5,0★</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
+              O Que Nossos Clientes Dizem no Google
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Comprovado no Google com nota 4,9★ e mais de 67 avaliações públicas espontâneas de quem confiou sua área de lazer à Quatro Estações Piscinas.
+              Avaliação máxima de 5,0 estrelas no Google Maps por quem comprou, retirou e comprovou a agilidade e a qualidade dos nossos produtos.
             </p>
 
             {/* Google Badge Institucional */}
@@ -1543,14 +1470,14 @@ export default function HomePage() {
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-xs hover:border-[#0A6DB0] transition-colors text-xs font-bold text-slate-800"
+                className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-xs hover:border-[#044296] transition-colors text-xs font-bold text-slate-800"
               >
-                <span className="flex text-[#F59E0B]">
+                <span className="flex text-[#FCD504]">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-current" />
                   ))}
                 </span>
-                <span>Nota 4,9 no Google Maps (67 avaliações)</span>
+                <span>Nota 5,0 no Google Maps ({GOOGLE_REVIEW_COUNT} avaliações reais)</span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
               </a>
             </div>
@@ -1566,40 +1493,31 @@ export default function HomePage() {
                 <div className="space-y-3">
                   {/* Estrelas & Destaque */}
                   <div className="flex items-center justify-between">
-                    <div className="flex text-[#F59E0B]">
+                    <div className="flex text-[#FCD504]">
                       {[...Array(review.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-current" />
                       ))}
                     </div>
-                    <span className="text-[11px] font-bold text-[#0A6DB0] bg-[#F0F8FF] px-2 py-0.5 rounded">
+                    <span className="text-[11px] font-bold text-[#044296] bg-[#EBF3FC] px-2 py-0.5 rounded">
                       Google Review
                     </span>
                   </div>
 
-                  <h3 className="text-sm font-extrabold text-[#07172C] font-heading">
+                  <h3 className="text-sm font-extrabold text-[#031838] font-heading">
                     {review.highlight}
                   </h3>
 
                   <p className="text-xs text-slate-600 leading-relaxed italic">
                     &ldquo;{review.comment}&rdquo;
                   </p>
-
-                  {review.ownerReply && (
-                    <div className="p-3 bg-slate-50 border-l-2 border-[#0A6DB0] rounded-r-lg text-[11px] text-slate-500">
-                      <strong className="text-[#07172C] block not-italic">
-                        Resposta do proprietário:
-                      </strong>
-                      <span className="italic">{review.ownerReply}</span>
-                    </div>
-                  )}
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <h4 className="font-bold text-xs text-[#07172C]">{review.name}</h4>
+                    <h4 className="font-bold text-xs text-[#031838]">{review.name}</h4>
                     <span className="text-[10px] text-slate-400 block">{review.tag}</span>
                   </div>
-                  <div className="w-7 h-7 rounded-full bg-[#0A6DB0]/10 text-[#0A6DB0] flex items-center justify-center font-bold text-[11px]">
+                  <div className="w-7 h-7 rounded-full bg-[#044296]/10 text-[#044296] flex items-center justify-center font-bold text-[11px]">
                     {review.name.charAt(0)}
                   </div>
                 </div>
@@ -1612,37 +1530,37 @@ export default function HomePage() {
               href={GOOGLE_SEARCH_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#0A6DB0] hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#044296] hover:underline"
             >
-              <span>Ver todas as 67 avaliações diretamente no Google Maps</span>
+              <span>Ver todas as avaliações diretamente no Google Maps</span>
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* 10. GALERIA DE PROJETOS E FOTOS REAIS COM FILTRO */}
+      {/* 10. GALERIA DE PRODUTOS E AMBIENTES DE LAZER COM FILTRO */}
       <section className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-            <span className="eyebrow-blue">Galeria de Instalações &amp; Ambientes</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
-              Projetos Realizados em Sete Lagoas e Região
+            <span className="eyebrow-blue">Galeria &bull; Diversão em Casa</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
+              Piscinas, Boias e Itens de Lazer que Transformam Dias Quentes
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Veja fotos de piscinas de fibra, sistemas de aquecimento solar, saunas, lagos ornamentais e iluminação entregues com o padrão de qualidade Quatro Estações.
+              Confira os produtos disponíveis para transformar o quintal da sua casa em um verdadeiro refúgio de diversão.
             </p>
           </div>
 
           {/* Abas de Filtro da Galeria */}
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
             {[
-              { id: "todas", label: "Todos os Projetos" },
-              { id: "piscinas", label: "Piscinas de Fibra" },
-              { id: "aquecimento", label: "Aquecimento Solar" },
-              { id: "saunas", label: "Saunas & Spas" },
-              { id: "lagos", label: "Lagos Ornamentais" },
-              { id: "iluminacao", label: "Iluminação & Cascatas" },
+              { id: "todas", label: "Todos os Produtos" },
+              { id: "armacao", label: "Piscinas de Armação" },
+              { id: "inflaveis", label: "Piscinas Infláveis" },
+              { id: "boias", label: "Boias & Brinquedos" },
+              { id: "filtros", label: "Filtros & Tratamento" },
+              { id: "camping", label: "Camping & Aventura" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -1650,7 +1568,7 @@ export default function HomePage() {
                 onClick={() => setActiveGalleryTab(tab.id as GalleryCategory)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeGalleryTab === tab.id
-                    ? "bg-[#0A6DB0] text-white shadow-sm"
+                    ? "bg-[#044296] text-white shadow-sm"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                 }`}
               >
@@ -1676,7 +1594,7 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80" />
 
-                  <div className="absolute top-3 left-3 bg-[#07172C]/85 backdrop-blur-xs px-2.5 py-1 rounded text-[10px] font-bold text-white border border-white/20">
+                  <div className="absolute top-3 left-3 bg-[#02245B]/85 backdrop-blur-xs px-2.5 py-1 rounded text-[10px] font-bold text-white border border-white/20">
                     {proj.tag}
                   </div>
 
@@ -1700,11 +1618,11 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 mb-12">
             <span className="eyebrow-blue">Tire Suas Dúvidas</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
               Perguntas Frequentes
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Tudo o que você precisa saber sobre prazos de instalação, modelos Aguazul, garantia e funcionamento dos sistemas de aquecimento.
+              Tudo o que você precisa saber sobre retirada imediata no Caiçaras, entrega expressa em BH, marcas de piscinas e formas de pagamento.
             </p>
           </div>
 
@@ -1719,11 +1637,11 @@ export default function HomePage() {
                   <button
                     type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-[#07172C] text-sm sm:text-base focus:outline-none cursor-pointer"
+                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-[#031838] text-sm sm:text-base focus:outline-none cursor-pointer"
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#0A6DB0] shrink-0 transition-transform duration-200 ${
+                      className={`w-5 h-5 text-[#044296] shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
@@ -1750,64 +1668,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 12. LOCALIZAÇÃO & VISITA À LOJA FÍSICA (SETE LAGOAS - MG) */}
-      <section id="contato" className="py-16 sm:py-24 bg-white border-t border-slate-200">
+      {/* 12. LOCALIZAÇÃO & RETIRADA NO BAIRRO CAIÇARAS (BELO HORIZONTE - MG) */}
+      <section id="retirada" className="py-16 sm:py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="eyebrow-blue">Visite Nossa Sede Própria</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#07172C] font-heading tracking-tight">
-              Loja Física &amp; Showroom em Sete Lagoas
+            <span className="eyebrow-blue">Retirada Rápida &bull; Bairro Caiçaras</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#031838] font-heading tracking-tight">
+              Retire na Hora no Bairro Caiçaras em Belo Horizonte
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Venha ver pessoalmente os modelos de piscinas de fibra Aguazul em exposição, os sistemas de aquecimento solar e tirar todas as suas dúvidas com o Leonardo e a Daniela.
+              Fácil localização na <strong>Rua Bangu, 90 (Portão Preto de Garagem)</strong>, a poucos minutos das principais vias de BH. Estacione na porta e carregue os produtos diretamente no seu carro!
             </p>
           </div>
 
-          {/* Cards Visuais Lado a Lado: Foto Real da Loja + Mapa Interativo */}
+          {/* Cards Visuais Lado a Lado: Foto do Local + Mapa Interativo */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-10">
-            {/* Card 1: Foto Real do Showroom */}
+            {/* Card 1: Foto do Local de Retirada */}
             <div className="space-y-4">
               <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-100 group">
                 <Image
-                  src="/loja-showroom-real.jpg"
-                  alt="Fachada e Pátio do Showroom Quatro Estações Piscinas em Sete Lagoas"
+                  src="/retirada-caicaras-v5.jpg"
+                  alt="Ponto de Retirada Piscinas Na Hora BH no Caiçaras"
                   fill
                   sizes="(max-width: 1024px) 100vw, 600px"
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
 
-                <div className="absolute top-4 left-4 bg-[#07172C]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#38BDF8]/40 flex items-center gap-2 text-xs font-bold text-white shadow-md">
-                  <Store className="w-3.5 h-3.5 text-[#38BDF8]" />
-                  <span>Foto Real da Loja &amp; Showroom</span>
+                <div className="absolute top-4 left-4 bg-[#02245B]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#04ACD3]/40 flex items-center gap-2 text-xs font-bold text-white shadow-md">
+                  <MapPin className="w-3.5 h-3.5 text-[#F97804]" />
+                  <span>Ponto de Retirada em BH</span>
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
-                  <div className="text-xs font-bold text-[#F7D511] uppercase tracking-wider">
-                    Pátio de Piscinas &bull; Av. Marechal Castelo Branco, 2111
+                  <div className="text-xs font-bold text-[#FCD504] uppercase tracking-wider">
+                    Portão Preto de Garagem &bull; R. Bangu, 90
                   </div>
                   <h3 className="text-base sm:text-lg font-bold font-heading">
-                    4 Estações Piscina &amp; Conforto &bull; Aguazul
+                    Piscinas Na Hora BH &bull; Bairro Caiçaras
                   </h3>
                   <p className="text-xs text-slate-200">
-                    Piscinas de fibra em exposição vertical, aquecedores solares para banho e piscina e showroom completo.
+                    Estacione em frente com tranquilidade para conferir e embarcar sua piscina e acessórios com todo o conforto.
                   </p>
                 </div>
               </div>
 
-              {/* Destaques do Showroom */}
+              {/* Destaques do Local */}
               <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="p-3 bg-[#F0F8FF] rounded-xl border border-[#BAE6FD]/40">
-                  <div className="text-xs font-bold text-[#0A6DB0]">Pátio com Piscinas</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Modelos expostos</div>
+                <div className="p-3 bg-[#EBF3FC] rounded-xl border border-[#B9D7F9]">
+                  <div className="text-xs font-bold text-[#044296]">Portão Preto</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Fácil identificação</div>
                 </div>
-                <div className="p-3 bg-[#FFF7ED] rounded-xl border border-[#FDBA74]/40">
-                  <div className="text-xs font-bold text-[#EE8220]">Aquecedor Solar</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Sistemas funcionais</div>
+                <div className="p-3 bg-[#FFF5EB] rounded-xl border border-[#FED7AA]">
+                  <div className="text-xs font-bold text-[#F97804]">Carga no Carro</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Parada rápida na porta</div>
                 </div>
-                <div className="p-3 bg-[#FEF9C3] rounded-xl border border-[#FDE047]/50">
-                  <div className="text-xs font-bold text-[#D97706]">Fácil Acesso</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Estacionamento fácil</div>
+                <div className="p-3 bg-[#FEFCE8] rounded-xl border border-[#FDE047]">
+                  <div className="text-xs font-bold text-[#D97706]">Até 18:00</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Segunda a Sábado</div>
                 </div>
               </div>
             </div>
@@ -1816,8 +1734,8 @@ export default function HomePage() {
             <div className="space-y-4">
               <div className="relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
                 <iframe
-                  title="Localização Quatro Estações Piscinas Sete Lagoas"
-                  src="https://maps.google.com/maps?q=Av.+Marechal+Castelo+Branco,+2111+-+Santo+Antonio,+Sete+Lagoas+-+MG,+35701-240&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  title="Localização Piscinas Na Hora BH Caiçaras"
+                  src="https://maps.google.com/maps?q=Rua+Bangu,+90+-+Cai%C3%A7aras,+Belo+Horizonte+-+MG,+30750-410&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full border-0"
                   loading="lazy"
                   allowFullScreen
@@ -1830,7 +1748,7 @@ export default function HomePage() {
                   href={GOOGLE_MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0A6DB0] hover:bg-[#085990] text-white text-xs font-bold px-4 py-3 rounded-xl transition-colors shadow-xs"
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-[#044296] hover:bg-[#033477] text-white text-xs font-bold px-4 py-3 rounded-xl transition-colors shadow-xs"
                 >
                   <Navigation className="w-4 h-4" />
                   <span>Traçar Rota no Google Maps</span>
@@ -1849,14 +1767,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Dados Cadastrais & Horários em Linha */}
+          {/* Dados de Endereço & Horários */}
           <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="flex items-start gap-3.5">
-              <div className="p-2.5 rounded-lg bg-[#F0F8FF] text-[#0A6DB0] shrink-0 mt-0.5">
+              <div className="p-2.5 rounded-lg bg-[#EBF3FC] text-[#044296] shrink-0 mt-0.5">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#07172C]">Endereço Completo:</h4>
+                <h4 className="font-bold text-sm text-[#031838]">Endereço para Retirada:</h4>
                 <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">
                   {ADDRESS_DISPLAY}
                 </p>
@@ -1864,14 +1782,14 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-start gap-3.5">
-              <div className="p-2.5 rounded-lg bg-[#FFF7ED] text-[#EE8220] shrink-0 mt-0.5">
+              <div className="p-2.5 rounded-lg bg-[#FFF5EB] text-[#F97804] shrink-0 mt-0.5">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#07172C]">Horário de Funcionamento:</h4>
+                <h4 className="font-bold text-sm text-[#031838]">Horário de Funcionamento:</h4>
                 <p className="text-xs text-slate-600 mt-0.5">
-                  Segunda a Sexta: 08:00 às 18:00<br />
-                  Sábado: 08:00 às 12:00
+                  Aberto &bull; Fecha às 18:00<br />
+                  Segunda a Sábado com atendimento ágil
                 </p>
               </div>
             </div>
@@ -1881,7 +1799,7 @@ export default function HomePage() {
                 <Phone className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-sm text-[#07172C]">Contato Direto:</h4>
+                <h4 className="font-bold text-sm text-[#031838]">WhatsApp &amp; Contato:</h4>
                 <p className="text-xs text-slate-600 mt-0.5 font-bold">
                   {PHONE_DISPLAY}
                 </p>
@@ -1891,7 +1809,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="text-xs text-[#16A34A] font-bold hover:underline inline-block mt-0.5"
                 >
-                  Chamar no WhatsApp agora &rarr;
+                  Falar no WhatsApp agora &rarr;
                 </a>
               </div>
             </div>
@@ -1900,43 +1818,45 @@ export default function HomePage() {
       </section>
 
       {/* 13. BANNER CTA FINAL DE ALTA CONVERSÃO */}
-      <section className="bg-gradient-to-r from-[#07172C] via-[#0B2344] to-[#0A6DB0] text-white py-16 sm:py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#02245B] via-[#044296] to-[#04ACD3] text-white py-16 sm:py-20 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
-          <span className="bg-[#F7D511] text-[#07172C] text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-            Atendimento Personalizado
+          <span className="bg-[#FCD504] text-[#031838] text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+            Pronta Entrega em BH
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading tracking-tight">
-            Pronto para Transformar Seu Quintal na Área de Lazer Perfeita?
+            Não Passe Calor! Garanta a Sua Piscina e Diversão na Hora!
           </h2>
-          <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Converse agora com o Leonardo e a Daniela pelo WhatsApp. Peça um orçamento sem compromisso, tire dúvidas técnicas e conheça as melhores condições de Sete Lagoas.
+          <p className="text-slate-100 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Converse agora com nosso vendedor pelo WhatsApp. Tire dúvidas sobre tamanhos, consulte o estoque do dia e agende sua retirada no Caiçaras ou entrega expressa em Belo Horizonte.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <GlowingButton
-              href={getWhatsAppUrl("Olá Leonardo e Daniela! Gostaria de um orçamento para a minha piscina/área de lazer.")}
+              href={getWhatsAppUrl("Olá! Gostaria de consultar os modelos de piscinas à pronta entrega na Piscinas Na Hora BH.")}
               target="_blank"
               variant="whatsapp"
               size="lg"
               className="w-full sm:w-auto text-base shadow-xl shadow-green-600/30 font-bold"
             >
               <WhatsAppIcon size={20} />
-              <span>Chamar no WhatsApp: (31) 3773-6264</span>
+              <span>Chamar no WhatsApp: (31) 92000-6722</span>
             </GlowingButton>
 
             <a
-              href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
+              href={SHOPEE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-white/30 text-white font-bold hover:bg-white/10 transition-colors text-sm w-full sm:w-auto"
             >
-              <Phone className="w-4 h-4 text-[#38BDF8]" />
-              <span>Ligar: {PHONE_DISPLAY}</span>
+              <ShoppingBag className="w-4 h-4 text-[#FED7AA]" />
+              <span>Ver Loja na Shopee</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* 14. FOOTER INSTITUCIONAL COMPLETO */}
-      <footer className="bg-[#07172C] text-white border-t border-[#0F3260] pt-16 pb-8">
+      <footer className="bg-[#02245B] text-white border-t border-[#044296] pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
             {/* Coluna 1: Identidade, Logo & Slogan (4 colunas) */}
@@ -1944,8 +1864,8 @@ export default function HomePage() {
               <div className="flex items-center gap-3.5">
                 <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-white p-1.5 rounded-2xl shadow-xl shrink-0 flex items-center justify-center border border-white/20">
                   <Image
-                    src={LOGO_SRC}
-                    alt="Logo Aguazul Sete Lagoas - Quatro Estações Piscinas"
+                    src={LOGO_WHITE_BG}
+                    alt="Logo Piscinas Na Hora BH"
                     fill
                     sizes="80px"
                     className="object-contain"
@@ -1953,66 +1873,66 @@ export default function HomePage() {
                 </div>
                 <div>
                   <div className="text-lg font-black font-heading text-white">
-                    QUATRO ESTAÇÕES
+                    PISCINAS NA HORA BH
                   </div>
                   <div className="text-xs font-bold text-[#38BDF8]">
-                    Piscinas &bull; Aguazul Sete Lagoas
+                    Artigos para Esportes ao Ar Livre &bull; BH
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">
-                    Revendedora Oficial Aguazul
+                  <div className="text-[11px] text-slate-300 mt-0.5">
+                    Somos Especialistas em Diversão! 🤩
                   </div>
                 </div>
               </div>
 
               <p className="text-xs text-slate-300 leading-relaxed">
-                Valorizamos áreas de lazer e realizamos sonhos tornando cada vez mais aconchegante o seu lar! Revenda exclusiva Aguazul em Sete Lagoas com piscinas de fibra, aquecimento solar, saunas e lagos ornamentais.
+                Piscinas de armação, piscinas infláveis, boias, bombas, filtros, tratamento de água e artigos completos de camping e pesca. Retirada rápida no Caiçaras ou entrega expressa em Belo Horizonte e região.
               </p>
 
-              <div className="flex items-center gap-2 text-xs text-[#F7D511] font-bold">
+              <div className="flex items-center gap-2 text-xs text-[#FCD504] font-bold">
                 <Star className="w-4 h-4 fill-current" />
-                <span>4,9 Estrelas &bull; 67 Avaliações no Google Maps</span>
+                <span>5,0 Estrelas &bull; 100% Avaliações Positivas no Google</span>
               </div>
             </div>
 
-            {/* Coluna 2: Soluções & Produtos (3 colunas) */}
+            {/* Coluna 2: Produtos & Categorias (3 colunas) */}
             <div className="lg:col-span-3 space-y-3">
               <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#38BDF8]">
-                Nossas Soluções
+                Nossos Produtos
               </h4>
               <ul className="space-y-2 text-xs text-slate-300">
                 <li>
                   <a href="#piscinas" className="hover:text-white transition-colors">
-                    Piscinas de Fibra Aguazul (Linha Leblon)
+                    Piscinas de Armação (1.000L a 10.000L+)
                   </a>
                 </li>
                 <li>
-                  <a href="#aquecimento" className="hover:text-white transition-colors">
-                    Aquecimento Solar para Piscinas
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Piscinas Infláveis &amp; Infantis
                   </a>
                 </li>
                 <li>
-                  <a href="#aquecimento" className="hover:text-white transition-colors">
-                    Aquecimento Solar para Banho
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Boias Gigantes, Colchões &amp; Flutuadores
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Saunas a Vapor &amp; Secas
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Bombas Filtrantes &amp; Refis de Cartucho
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Lagos Ornamentais &amp; Filtragem Biológica
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Cloro, Pastilhas 3 em 1 &amp; Químicos
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Filtros, Bombas &amp; Assistência Técnica
+                  <a href="#produtos" className="hover:text-white transition-colors">
+                    Capas Protetoras &amp; Forros de Chão
                   </a>
                 </li>
                 <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Iluminação LED 12V &amp; Cascatas em Inox
+                  <a href="#camping" className="hover:text-white transition-colors">
+                    Camping, Pesca &amp; Esportes ao Ar Livre
                   </a>
                 </li>
               </ul>
@@ -2021,21 +1941,21 @@ export default function HomePage() {
             {/* Coluna 3: Regiões Atendidas (2 colunas) */}
             <div className="lg:col-span-2 space-y-3">
               <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#38BDF8]">
-                Cidades Atendidas
+                Regiões em BH
               </h4>
               <ul className="space-y-1.5 text-xs text-slate-300">
-                <li>Sete Lagoas - MG</li>
-                <li>Prudente de Morais</li>
-                <li>Inhaúma</li>
-                <li>Matozinhos</li>
-                <li>Capim Branco</li>
-                <li>Pedro Leopoldo</li>
-                <li>Paraopeba</li>
-                <li>Funilândia e Baldim</li>
+                <li>Bairro Caiçaras (Retirada)</li>
+                <li>Pampulha &amp; Castelo</li>
+                <li>Centro &amp; Região Sul</li>
+                <li>Barreiro &amp; Oeste</li>
+                <li>Venda Nova &amp; Norte</li>
+                <li>Contagem &amp; Betim</li>
+                <li>Nova Lima &amp; Sabará</li>
+                <li>Toda a Grande BH</li>
               </ul>
             </div>
 
-            {/* Coluna 4: Contatos Oficiais (3 colunas) */}
+            {/* Coluna 4: Canais de Atendimento (3 colunas) */}
             <div className="lg:col-span-3 space-y-3">
               <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#38BDF8]">
                 Canais de Atendimento
@@ -2053,24 +1973,33 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="hover:underline text-[#38BDF8] font-bold"
                   >
-                    (31) 3773-6264 (WhatsApp)
+                    (31) 92000-6722 (WhatsApp)
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#EE8220] shrink-0" />
+                  <MapPin className="w-4 h-4 text-[#F97804] shrink-0" />
                   <span className="text-[11px] leading-tight">
-                    Av. Marechal Castelo Branco, 2111 (esq. Melo Figueiredo) - Sete Lagoas
+                    Portão preto de Garagem - R. Bangu, 90 - Caiçaras, BH
                   </span>
                 </div>
-                <div className="pt-2">
+                <div className="pt-2 flex flex-col gap-1.5">
                   <a
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
                   >
-                    <span className="p-1.5 rounded-lg bg-white/10 text-white">IG</span>
+                    <span className="p-1.5 rounded-lg bg-white/10 text-white text-[10px] font-bold">IG</span>
                     <span>{INSTAGRAM_HANDLE}</span>
+                  </a>
+                  <a
+                    href={SHOPEE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#FED7AA] hover:text-white transition-colors"
+                  >
+                    <span className="p-1.5 rounded-lg bg-[#F97804] text-white text-[10px] font-bold">SP</span>
+                    <span>shopee.com.br/piscinasnahorabh</span>
                   </a>
                 </div>
               </div>
@@ -2080,10 +2009,10 @@ export default function HomePage() {
           {/* Copyright & Créditos */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>
-              &copy; {new Date().getFullYear()} Quatro Estações Piscinas &bull; Revendedora Oficial Aguazul Sete Lagoas. Todos os direitos reservados.
+              &copy; {new Date().getFullYear()} {COMPANY_NAME}. Todos os direitos reservados.
             </div>
-            <div className="text-[11px] text-slate-500">
-              Esquina com Rua Melo Figueiredo, Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG
+            <div className="text-[11px] text-slate-400">
+              {ADDRESS_DISPLAY}
             </div>
           </div>
         </div>
@@ -2092,11 +2021,11 @@ export default function HomePage() {
       {/* 15. BOTÃO FLUTUANTE DO WHATSAPP COM BADGE PULSANTE */}
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
         <a
-          href={getWhatsAppUrl("Olá Leonardo e Daniela! Gostaria de um orçamento para a minha piscina ou área de lazer.")}
+          href={getWhatsAppUrl("Olá! Gostaria de consultar os produtos e piscinas à pronta entrega na Piscinas Na Hora BH.")}
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 animate-subtle-pulse"
-          aria-label="Falar no WhatsApp com Quatro Estações Piscinas"
+          aria-label="Falar no WhatsApp com Piscinas Na Hora BH"
         >
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />

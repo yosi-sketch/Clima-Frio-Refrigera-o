@@ -1,7 +1,7 @@
-# Quatro Estações Piscinas | Aguazul Sete Lagoas — MG
-## Revendedora Oficial Aguazul Piscinas · Saunas · Aquecimento Solar · 4,9★ no Google (67 Avaliações)
+# Piscinas Na Hora BH — Belo Horizonte - MG
+## Especialistas em Diversão! Piscinas de Armação, Infláveis & Lazer · 5,0★ no Google (6 Avaliações)
 
-Landing page moderna, ultra-rápida e de alta conversão para a **Quatro Estações Piscinas**, concessionária autorizada Aguazul e centro de referência em áreas de lazer em Sete Lagoas - MG (Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG, CEP 35701-240).
+Landing page moderna, ultra-rápida e de alta conversão para a **Piscinas Na Hora BH**, loja física e comércio de pronta entrega situado em Belo Horizonte - MG (**Portão preto de Garagem - R. Bangu, 90 - Caiçaras, Belo Horizonte - MG, CEP 30750-410**).
 
 ### Tecnologias
 - Next.js 16 (App Router)
@@ -12,8 +12,8 @@ Landing page moderna, ultra-rápida e de alta conversão para a **Quatro Estaç�
 - Sharp (Geração de favicons, icons e OG Image)
 
 ### Contatos Oficiais
-- **WhatsApp / Telefone:** (31) 3773-6264
-- **Link Direto WhatsApp:** [wa.me/message/2CWT44DM5H5FJ1](https://wa.me/message/2CWT44DM5H5FJ1)
-- **Endereço:** Esquina com Rua Melo Figueiredo, Av. Marechal Castelo Branco, 2111 - Santo Antonio, Sete Lagoas - MG, CEP 35701-240
-- **Instagram:** [@quatroestacoespiscinas](https://www.instagram.com/quatroestacoespiscinas/)
-- **Liderança & Especialistas:** Leonardo (Leo) & Daniela (Dani)
+- **WhatsApp / Telefone:** (31) 92000-6722
+- **Endereço:** Portão preto de Garagem - R. Bangu, 90 - Caiçaras, Belo Horizonte - MG, CEP 30750-410
+- **Horário:** Aberto · Fecha às 18:00 (Segunda a Sábado)
+- **Instagram:** [@piscinas_na_hora](https://www.instagram.com/piscinas_na_hora/)
+- **Shopee:** [shopee.com.br/piscinasnahorabh](http://shopee.com.br/piscinasnahorabh)
