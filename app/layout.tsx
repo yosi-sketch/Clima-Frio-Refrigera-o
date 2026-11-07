@@ -17,64 +17,74 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#001A78",
+  themeColor: "#0088E0",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.friobel.com.br"),
+  metadataBase: new URL("https://www.isominas.ind.br"),
   title:
-    "Grupo Frio Bel | Refrigeração — Peças para Geladeiras, Lavadoras & Ar-Condicionado em BH (4,6★)",
+    "ISOMINAS | Indústria de Isopainéis EPS & PUR, Câmaras Frigoríficas & Telhas Térmicas (4,7★)",
   description:
-    "Grupo Frio Bel Refrigeração: maior estoque de peças originais para geladeiras, freezers, lavadoras e ar-condicionado em Belo Horizonte e Minas Gerais. Loja física com estacionamento próprio na Av. Dom Pedro I, 2233 (São João Batista / Pampulha). Atendimento técnico qualificado e pronta entrega imediata. WhatsApp: (31) 3024-9261.",
+    "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração: fábrica própria com 10.000m² em Ribeirão das Neves / BH. Isopainéis EPS e PUR de 50mm a 200mm, portas frigoríficas giratórias e de correr, telhas térmicas sanduíche e isolamento para câmaras frigoríficas. Orçamento direto da fábrica! Fone: (31) 3631-1500 · WhatsApp: (31) 98418-3835.",
   keywords: [
-    "Frio Bel Refrigeração",
-    "Grupo Frio Bel",
-    "Peças para geladeira BH",
-    "Peças para máquina de lavar Belo Horizonte",
-    "Peças refrigeração Pampulha BH",
-    "Frio Bel Dom Pedro I",
-    "Compressor Embraco BH",
-    "Gás refrigerante R134a BH",
-    "Ferramentas para refrigeração BH",
-    "Peças lava e seca BH",
-    "Frio Bel São João Batista",
-    "Loja de refrigeração Minas Gerais",
+    "ISOMINAS",
+    "Isominas Isopainéis",
+    "Isopainéis BH",
+    "Isopainel EPS Minas Gerais",
+    "Isopainel PUR",
+    "Portas frigoríficas MG",
+    "Porta frigorífica giratória",
+    "Porta frigorífica de correr",
+    "Telha térmica EPS",
+    "Telha sanduíche BH",
+    "Câmara frigorífica Belo Horizonte",
+    "Placas de EPS isolamento térmico",
+    "Fábrica de isopainel Ribeirão das Neves",
+    "Isolamento térmico industrial",
   ],
-  authors: [{ name: "Grupo Frio Bel Refrigeração" }],
-  creator: "Grupo Frio Bel Refrigeração",
-  publisher: "Frio Bel Refrigeração Ltda",
+  authors: [{ name: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração" }],
+  creator: "ISOMINAS Indústria e Comércio",
+  publisher: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração Ltda",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=fb2", sizes: "any" },
-      { url: "/icon-32x32.png?v=fb2", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=fb2", type: "image/png", sizes: "16x16" },
-      { url: "/icon-192x192.png?v=fb2", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=fb2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=iso1", sizes: "any" },
+      { url: "/icon-32x32.png?v=iso1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=iso1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192.png?v=iso1", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png?v=iso1", type: "image/png", sizes: "512x512" },
+      { url: "/icon.png?v=iso1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=fb2",
-    apple: [{ url: "/apple-icon.png?v=fb2", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=iso1",
+    apple: [{ url: "/apple-icon.png?v=iso1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.friobel.com.br",
+    url: "https://www.isominas.ind.br",
     title:
-      "Grupo Frio Bel | Refrigeração — Peças Originais & Ferramentas em BH (4,6★)",
+      "ISOMINAS | Indústria de Isopainéis, Portas Frigoríficas & Telhas Térmicas (4,7★)",
     description:
-      "Soluções completas em refrigeração! O maior mix de peças para geladeiras, lavadoras, freezers e climatização em Minas Gerais. Estacionamento exclusivo na Av. Dom Pedro I, 2233. Nota 4,6★ no Google com 250+ avaliações.",
-    siteName: "Grupo Frio Bel Refrigeração",
+      "Soluções completas em isolamento térmico e refrigeração industrial! Parque fabril de 10.000m² em Ribeirão das Neves / BH. Isopainéis EPS/PUR, portas frigoríficas, telhas sanduíche e câmaras frias com nota 4,7★ no Google.",
+    siteName: "ISOMINAS Isopainéis e Refrigeração",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Grupo Frio Bel Refrigeração — Soluções Completas em Refrigeração",
+        alt: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ISOMINAS | Indústria de Isopainéis & Refrigeração (4,7★)",
+    description:
+      "Fábrica própria de isopainéis EPS/PUR, portas frigoríficas e telhas térmicas sanduíche em MG. Orçamento direto da fábrica!",
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -85,79 +95,90 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "HVACBusiness",
-    name: "Grupo Frio Bel | Refrigeração",
-    legalName: "Frio Bel Refrigeração Ltda",
-    alternateName: "Frio Bel Refrigeração",
+    "@type": ["ManufacturingBusiness", "HVACBusiness", "LocalBusiness"],
+    name: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração",
+    legalName: "ISOMINAS INDÚSTRIA E COMÉRCIO DE ISOPAINES E REFRIGERAÇÃO LTDA",
+    alternateName: "ISOMINAS Isopainéis",
     description:
-      "Soluções completas em peças originais para geladeiras, máquinas de lavar, freezers, ar-condicionado e ferramentas para refrigeração em Belo Horizonte e Minas Gerais. Loja de referência para técnicos e clientes.",
-    telephone: "+553130249261",
-    url: "https://www.friobel.com.br",
-    image: "https://www.friobel.com.br/logo.png",
+      "Indústria fabricante de isopainéis termoisolantes em EPS e PUR, portas frigoríficas giratórias e de correr, telhas térmicas sanduíche e placas isolantes para câmaras frigoríficas industriais e comerciais.",
+    telephone: "+553136311500",
+    url: "https://www.isominas.ind.br",
+    image: "https://www.isominas.ind.br/og-image.jpg",
+    logo: "https://www.isominas.ind.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. Dom Pedro I, 2233",
-      addressLocality: "Belo Horizonte",
+      streetAddress: "R. Alzira Menezes Nogueira, 151",
+      addressLocality: "Ribeirão das Neves",
       addressRegion: "MG",
-      postalCode: "31515-300",
+      postalCode: "33880-300",
       addressCountry: "BR",
+      neighborhood: "Distrito Industrial João de Almeida",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -19.8277,
-      longitude: -43.9669,
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.6",
-      reviewCount: "250",
-      bestRating: "5",
-      worstRating: "1",
+      latitude: -19.7684,
+      longitude: -44.0865,
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-        ],
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "08:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday"],
-        opens: "08:00",
-        closes: "12:30",
+        closes: "17:30",
       },
     ],
-    sameAs: [
-      "https://www.instagram.com/friobel/",
-      "https://www.friobel.com.br",
-    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.7",
+      reviewCount: "33",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Catálogo de Produtos e Soluções Térmicas",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Isopainéis Termoisolantes EPS 50mm a 200mm",
+            description: "Isopainéis em EPS autoextinguível Classe F-1 para câmaras frias e galpões.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Portas Frigoríficas Giratórias e de Correr",
+            description: "Portas industriais pesadas com ferragens Fermod e resistência térmica.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Telhas Térmicas EPS (Sanduíche)",
+            description: "Coberturas termoacústicas para redução de calor e isolamento sonoro.",
+          },
+        },
+      ],
+    },
   };
 
   return (
-    <html
-      lang="pt-BR"
-      className={`${headingFont.variable} ${bodyFont.variable} antialiased`}
-    >
+    <html lang="pt-BR" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico?v=fb2" sizes="any" />
-        <link rel="icon" href="/icon-32x32.png?v=fb2" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon-16x16.png?v=fb2" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-icon.png?v=fb2" />
+        <link rel="icon" href="/favicon.ico?v=iso1" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=iso1" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=iso1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=iso1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#F8FAFC] text-[#00124D] selection:bg-[#001A78] selection:text-white">
-        {children}
-      </body>
+      <body className="antialiased min-h-screen flex flex-col">{children}</body>
     </html>
   );
 }

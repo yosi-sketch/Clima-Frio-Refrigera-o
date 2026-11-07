@@ -1,6 +1,6 @@
 {
-  "name": "grupo-frio-bel-refrigeracao",
-  "version": "0.1.0",
+  "name": "isominas-isopaineis-refrigeracao",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "node ./node_modules/next/dist/bin/next dev -p 3000",

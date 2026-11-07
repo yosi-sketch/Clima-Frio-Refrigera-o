@@ -3,95 +3,94 @@
 :root {
   color-scheme: light;
   
-  /* GRUPO FRIO BEL — Paleta Oficial Extraída Diretamente do Logotipo */
+  /* ISOMINAS — Paleta Oficial Extraída Diretamente do Logotipo */
   
-  /* Azul Marinho Primário Frio Bel (Letra 'B' e 'FRIO BEL' no logotipo) */
-  --brand-navy-primary: #001A78;
-  --brand-navy-vibrant: #00229E;
-  --brand-navy-dark: #00124D;
-  --brand-navy-darkest: #000D36;
-  --brand-navy-surface: #F0F4FF;
-  --brand-navy-border: #C7D7FE;
+  /* Ciano Primário Isominas (Lettering 'ISOMINAS' no logotipo) */
+  --brand-cyan-primary: #0088E0;
+  --brand-cyan-hover: #0070BA;
+  --brand-cyan-vibrant: #00A3FF;
+  --brand-cyan-glow: #38BDF8;
   
-  /* Amarelo Elétrico / Dinamismo & Ação (Letra 'F' no logotipo) */
-  --brand-yellow-primary: #FDEB01;
-  --brand-yellow-hover: #E5D300;
-  --brand-yellow-dark: #C9B800;
-  --brand-yellow-surface: #FEFCE8;
-  --brand-yellow-border: #FDE047;
+  /* Azul Glacial & Ártico Profundo */
+  --brand-blue-deep: #004B99;
+  --brand-blue-navy: #0A1C38;
+  --brand-blue-midnight: #051329;
+  --brand-blue-darkest: #020A17;
   
-  /* Grafite Metálico / Corporativo (Lettering 'GRUPO' no logotipo) */
-  --brand-slate-group: #414954;
+  /* Superfícies Sanitárias & Gelo */
+  --brand-ice-surface: #F0F8FF;
+  --brand-ice-card: #EBF5FE;
+  --brand-ice-border: #BAE0FD;
+  --brand-ice-border-light: #E0F0FE;
+  
+  /* Grafite Industrial & Aço */
+  --brand-slate-industrial: #334155;
   --brand-slate-muted: #64748B;
-  --brand-slate-dark: #1E293B;
+  --brand-slate-border: #CBD5E1;
   
-  /* Ciano / Gelo & Refrigeração (Toques sutis de frio e tecnologia) */
-  --brand-ice-primary: #0284C7;
-  --brand-ice-light: #38BDF8;
-  --brand-ice-surface: #F0F9FF;
-  --brand-ice-border: #BAE6FD;
-  
-  /* WhatsApp Oficial */
+  /* Acentos de Confiança & WhatsApp */
   --brand-whatsapp: #16A34A;
   --brand-whatsapp-hover: #15803D;
+  --brand-amber-star: #F59E0B;
   
-  /* Neutros e Superfícies */
+  /* Neutros e Fundos */
   --brand-canvas-white: #FFFFFF;
   --brand-canvas-light: #F8FAFC;
   --brand-canvas-alt: #F1F5F9;
-  --brand-canvas-border: #E2E8F0;
 }
 
 @theme inline {
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-navy-primary: #001A78;
-  --color-brand-navy-vibrant: #00229E;
-  --color-brand-navy-dark: #00124D;
-  --color-brand-navy-darkest: #000D36;
-  --color-brand-navy-surface: #F0F4FF;
-  --color-brand-navy-border: #C7D7FE;
+  --color-brand-cyan-primary: #0088E0;
+  --color-brand-cyan-hover: #0070BA;
+  --color-brand-cyan-vibrant: #00A3FF;
+  --color-brand-cyan-glow: #38BDF8;
   
-  --color-brand-yellow-primary: #FDEB01;
-  --color-brand-yellow-hover: #E5D300;
-  --color-brand-yellow-surface: #FEFCE8;
-  --color-brand-yellow-border: #FDE047;
+  --color-brand-blue-deep: #004B99;
+  --color-brand-blue-navy: #0A1C38;
+  --color-brand-blue-midnight: #051329;
+  --color-brand-blue-darkest: #020A17;
   
-  --color-brand-slate-group: #414954;
+  --color-brand-ice-surface: #F0F8FF;
+  --color-brand-ice-card: #EBF5FE;
+  --color-brand-ice-border: #BAE0FD;
+  
+  --color-brand-slate-industrial: #334155;
   --color-brand-slate-muted: #64748B;
   
-  --color-brand-ice-primary: #0284C7;
-  --color-brand-ice-surface: #F0F9FF;
+  --color-brand-whatsapp: #16A34A;
+  --color-brand-whatsapp-hover: #15803D;
+  --color-brand-amber-star: #F59E0B;
   
+  --color-brand-canvas-white: #FFFFFF;
   --color-brand-canvas-light: #F8FAFC;
-  --color-brand-canvas-surface: #FFFFFF;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   background: #F8FAFC;
-  color: #00124D;
+  color: #0A1C38;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #001A78;
+  background: #0088E0;
   color: #FFFFFF;
 }
 
-/* Tipografia e classes utilitárias personalizadas Frio Bel */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), "Montserrat", system-ui, sans-serif;
 }
 
-/* Efeito de badge pulsante de atendimento */
+/* Pulso sutil para selos de status de fábrica / WhatsApp */
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 1;
@@ -107,25 +106,41 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-soft 3s ease-in-out infinite;
 }
 
-/* Gradientes de fundo institucionais */
-.bg-gradient-navy {
-  background: linear-gradient(135deg, #001A78 0%, #00124D 100%);
+/* Brilho glacial em cards e badges */
+@keyframes frost-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-.bg-gradient-hero {
-  background: linear-gradient(180deg, #00124D 0%, #001A78 60%, #00229E 100%);
+.frost-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: frost-shimmer 4s infinite;
 }
 
-.bg-gradient-ice {
-  background: linear-gradient(180deg, #F0F4FF 0%, #F8FAFC 100%);
+/* Scrollbar customizada com visual de refrigeração industrial */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-/* Card Glow Effect sutil */
-.card-hover-effect {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
 }
 
-.card-hover-effect:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -8px rgba(0, 26, 120, 0.12), 0 4px 12px -2px rgba(0, 26, 120, 0.06);
+::-webkit-scrollbar-thumb {
+  background: #0088E0;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0070BA;
 }
