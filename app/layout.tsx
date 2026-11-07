@@ -17,63 +17,62 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#044296",
+  themeColor: "#001A78",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://piscinasnahorabh.com.br"),
+  metadataBase: new URL("https://www.friobel.com.br"),
   title:
-    "Piscinas Na Hora BH — Piscinas de Armação, Infláveis & Lazer em Belo Horizonte (5,0★)",
+    "Grupo Frio Bel | Refrigeração — Peças para Geladeiras, Lavadoras & Ar-Condicionado em BH (4,6★)",
   description:
-    "Piscinas Na Hora BH: especialistas em diversão para toda a família! Piscinas estruturadas de armação e infláveis à pronta entrega em Belo Horizonte, boias, bombas filtrantes, capas, químicos, artigos de camping e lazer. Retirada rápida no Caiçaras ou entrega expressa em BH. WhatsApp: (31) 92000-6722.",
+    "Grupo Frio Bel Refrigeração: maior estoque de peças originais para geladeiras, freezers, lavadoras e ar-condicionado em Belo Horizonte e Minas Gerais. Loja física com estacionamento próprio na Av. Dom Pedro I, 2233 (São João Batista / Pampulha). Atendimento técnico qualificado e pronta entrega imediata. WhatsApp: (31) 3024-9261.",
   keywords: [
-    "Piscinas Na Hora BH",
-    "Piscinas em Belo Horizonte",
-    "Piscinas Caiçaras BH",
-    "Piscina de armação pronta entrega BH",
-    "Piscina inflável Belo Horizonte",
-    "Loja de piscinas BH",
-    "Boias e infláveis BH",
-    "Filtros e bombas de piscina BH",
-    "Cloro e químicos de piscina BH",
-    "Artigos para esportes ao ar livre BH",
-    "Camping e pesca Belo Horizonte",
-    "Piscinas Na Hora Shopee",
-    "Entrega rápida de piscinas BH",
+    "Frio Bel Refrigeração",
+    "Grupo Frio Bel",
+    "Peças para geladeira BH",
+    "Peças para máquina de lavar Belo Horizonte",
+    "Peças refrigeração Pampulha BH",
+    "Frio Bel Dom Pedro I",
+    "Compressor Embraco BH",
+    "Gás refrigerante R134a BH",
+    "Ferramentas para refrigeração BH",
+    "Peças lava e seca BH",
+    "Frio Bel São João Batista",
+    "Loja de refrigeração Minas Gerais",
   ],
-  authors: [{ name: "Piscinas Na Hora BH" }],
-  creator: "Piscinas Na Hora BH",
-  publisher: "Piscinas Na Hora BH",
+  authors: [{ name: "Grupo Frio Bel Refrigeração" }],
+  creator: "Grupo Frio Bel Refrigeração",
+  publisher: "Frio Bel Refrigeração Ltda",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=pnh2", sizes: "any" },
-      { url: "/icon-32x32.png?v=pnh2", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=pnh2", type: "image/png", sizes: "16x16" },
-      { url: "/icon-192x192.png?v=pnh2", type: "image/png", sizes: "192x192" },
-      { url: "/icon.png?v=pnh2", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=fb2", sizes: "any" },
+      { url: "/icon-32x32.png?v=fb2", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=fb2", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192x192.png?v=fb2", type: "image/png", sizes: "192x192" },
+      { url: "/icon.png?v=fb2", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=pnh2",
-    apple: [{ url: "/apple-icon.png?v=pnh2", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=fb2",
+    apple: [{ url: "/apple-icon.png?v=fb2", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://piscinasnahorabh.com.br",
+    url: "https://www.friobel.com.br",
     title:
-      "Piscinas Na Hora BH — Piscinas de Armação, Infláveis & Lazer em Belo Horizonte (5,0★)",
+      "Grupo Frio Bel | Refrigeração — Peças Originais & Ferramentas em BH (4,6★)",
     description:
-      "Especialistas em diversão! Piscinas de armação, infláveis, boias, filtros e artigos de lazer à pronta entrega em BH. Retirada imediata no Caiçaras ou entrega rápida. Nota 5,0★ no Google.",
-    siteName: "Piscinas Na Hora BH",
+      "Soluções completas em refrigeração! O maior mix de peças para geladeiras, lavadoras, freezers e climatização em Minas Gerais. Estacionamento exclusivo na Av. Dom Pedro I, 2233. Nota 4,6★ no Google com 250+ avaliações.",
+    siteName: "Grupo Frio Bel Refrigeração",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Piscinas Na Hora BH — Especialistas em Diversão",
+        alt: "Grupo Frio Bel Refrigeração — Soluções Completas em Refrigeração",
       },
     ],
   },
@@ -86,31 +85,32 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SportingGoodsStore",
-    name: "Piscinas Na Hora BH",
-    alternateName: "Piscinas Na Hora • Artigos de Lazer, Piscinas, Camping e Pesca",
+    "@type": "HVACBusiness",
+    name: "Grupo Frio Bel | Refrigeração",
+    legalName: "Frio Bel Refrigeração Ltda",
+    alternateName: "Frio Bel Refrigeração",
     description:
-      "Loja especializada em piscinas de armação, piscinas infláveis, boias, bombas, filtros, químicos e lazer em Belo Horizonte - MG. Pronta entrega e retirada imediata no Bairro Caiçaras.",
-    telephone: "+5531920006722",
-    url: "https://piscinasnahorabh.com.br",
-    image: "https://piscinasnahorabh.com.br/logo.png",
+      "Soluções completas em peças originais para geladeiras, máquinas de lavar, freezers, ar-condicionado e ferramentas para refrigeração em Belo Horizonte e Minas Gerais. Loja de referência para técnicos e clientes.",
+    telephone: "+553130249261",
+    url: "https://www.friobel.com.br",
+    image: "https://www.friobel.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Portão preto de Garagem - R. Bangu, 90",
+      streetAddress: "Av. Dom Pedro I, 2233",
       addressLocality: "Belo Horizonte",
       addressRegion: "MG",
-      postalCode: "30750-410",
+      postalCode: "31515-300",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -19.9042,
-      longitude: -43.9687,
+      latitude: -19.8277,
+      longitude: -43.9669,
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "6",
+      ratingValue: "4.6",
+      reviewCount: "250",
       bestRating: "5",
       worstRating: "1",
     },
@@ -123,15 +123,20 @@ export default function RootLayout({
           "Wednesday",
           "Thursday",
           "Friday",
-          "Saturday",
         ],
         opens: "08:00",
         closes: "18:00",
       },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "08:00",
+        closes: "12:30",
+      },
     ],
     sameAs: [
-      "https://www.instagram.com/piscinas_na_hora/",
-      "http://shopee.com.br/piscinasnahorabh",
+      "https://www.instagram.com/friobel/",
+      "https://www.friobel.com.br",
     ],
   };
 
@@ -141,16 +146,16 @@ export default function RootLayout({
       className={`${headingFont.variable} ${bodyFont.variable} antialiased`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico?v=pnh2" sizes="any" />
-        <link rel="icon" href="/icon-32x32.png?v=pnh2" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/icon-16x16.png?v=pnh2" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-icon.png?v=pnh2" />
+        <link rel="icon" href="/favicon.ico?v=fb2" sizes="any" />
+        <link rel="icon" href="/icon-32x32.png?v=fb2" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/icon-16x16.png?v=fb2" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=fb2" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#F8FAFC] text-[#031838] selection:bg-[#044296] selection:text-white">
+      <body className="min-h-screen bg-[#F8FAFC] text-[#00124D] selection:bg-[#001A78] selection:text-white">
         {children}
       </body>
     </html>

@@ -3,48 +3,39 @@
 :root {
   color-scheme: light;
   
-  /* PISCINAS NA HORA BH — Paleta Oficial Extraída do Logotipo */
+  /* GRUPO FRIO BEL — Paleta Oficial Extraída Diretamente do Logotipo */
   
-  /* Azul Royal / Piscina Primário (Forma da casa e base do logo) */
-  --brand-blue-primary: #044296;
-  --brand-blue-vibrant: #0253BE;
-  --brand-blue-deep: #02245B;
-  --brand-blue-darkest: #031838;
-  --brand-blue-surface: #EBF3FC;
-  --brand-blue-border: #B9D7F9;
+  /* Azul Marinho Primário Frio Bel (Letra 'B' e 'FRIO BEL' no logotipo) */
+  --brand-navy-primary: #001A78;
+  --brand-navy-vibrant: #00229E;
+  --brand-navy-dark: #00124D;
+  --brand-navy-darkest: #000D36;
+  --brand-navy-surface: #F0F4FF;
+  --brand-navy-border: #C7D7FE;
   
-  /* Ciano / Água & Splash (Losango direito e splash no texto) */
-  --brand-cyan-splash: #04ACD3;
-  --brand-cyan-vibrant: #00BBE4;
-  --brand-cyan-light: #38BDF8;
-  --brand-cyan-surface: #E6F8FC;
-  --brand-cyan-border: #BAEFF8;
-  
-  /* Laranja Solar / Ação & Energia (Losango esquerdo e letra P) */
-  --brand-orange-action: #F97804;
-  --brand-orange-hover: #DF6800;
-  --brand-orange-surface: #FFF5EB;
-  --brand-orange-border: #FED7AA;
-  
-  /* Amarelo Solar / Verão & Alegria (Losango inferior e letra H) */
-  --brand-yellow-sun: #FCD504;
-  --brand-yellow-gold: #F59E0B;
+  /* Amarelo Elétrico / Dinamismo & Ação (Letra 'F' no logotipo) */
+  --brand-yellow-primary: #FDEB01;
+  --brand-yellow-hover: #E5D300;
+  --brand-yellow-dark: #C9B800;
   --brand-yellow-surface: #FEFCE8;
   --brand-yellow-border: #FDE047;
   
-  /* Verde Limão / Frescor & Natureza (Losango superior e letra H) */
-  --brand-green-lime: #83C809;
-  --brand-green-hover: #72B006;
-  --brand-green-surface: #F4FBE8;
-  --brand-green-border: #D9F99D;
+  /* Grafite Metálico / Corporativo (Lettering 'GRUPO' no logotipo) */
+  --brand-slate-group: #414954;
+  --brand-slate-muted: #64748B;
+  --brand-slate-dark: #1E293B;
+  
+  /* Ciano / Gelo & Refrigeração (Toques sutis de frio e tecnologia) */
+  --brand-ice-primary: #0284C7;
+  --brand-ice-light: #38BDF8;
+  --brand-ice-surface: #F0F9FF;
+  --brand-ice-border: #BAE6FD;
   
   /* WhatsApp Oficial */
   --brand-whatsapp: #16A34A;
   --brand-whatsapp-hover: #15803D;
   
   /* Neutros e Superfícies */
-  --brand-slate-dark: #031838;
-  --brand-slate-muted: #475569;
   --brand-canvas-white: #FFFFFF;
   --brand-canvas-light: #F8FAFC;
   --brand-canvas-alt: #F1F5F9;
@@ -55,26 +46,23 @@
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-blue-primary: #044296;
-  --color-brand-blue-deep: #02245B;
-  --color-brand-blue-darkest: #031838;
-  --color-brand-blue-surface: #EBF3FC;
-  --color-brand-blue-border: #B9D7F9;
+  --color-brand-navy-primary: #001A78;
+  --color-brand-navy-vibrant: #00229E;
+  --color-brand-navy-dark: #00124D;
+  --color-brand-navy-darkest: #000D36;
+  --color-brand-navy-surface: #F0F4FF;
+  --color-brand-navy-border: #C7D7FE;
   
-  --color-brand-cyan-splash: #04ACD3;
-  --color-brand-cyan-vibrant: #00BBE4;
-  --color-brand-cyan-surface: #E6F8FC;
-  
-  --color-brand-orange-action: #F97804;
-  --color-brand-orange-hover: #DF6800;
-  --color-brand-orange-surface: #FFF5EB;
-  
-  --color-brand-yellow-sun: #FCD504;
-  --color-brand-yellow-gold: #F59E0B;
+  --color-brand-yellow-primary: #FDEB01;
+  --color-brand-yellow-hover: #E5D300;
   --color-brand-yellow-surface: #FEFCE8;
+  --color-brand-yellow-border: #FDE047;
   
-  --color-brand-green-lime: #83C809;
-  --color-brand-green-surface: #F4FBE8;
+  --color-brand-slate-group: #414954;
+  --color-brand-slate-muted: #64748B;
+  
+  --color-brand-ice-primary: #0284C7;
+  --color-brand-ice-surface: #F0F9FF;
   
   --color-brand-canvas-light: #F8FAFC;
   --color-brand-canvas-surface: #FFFFFF;
@@ -87,204 +75,57 @@ html {
 
 body {
   background: #F8FAFC;
-  color: #031838;
+  color: #00124D;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #044296;
+  background: #001A78;
   color: #FFFFFF;
 }
 
-.font-heading {
-  font-family: var(--font-heading), "Montserrat", sans-serif;
+/* Tipografia e classes utilitárias personalizadas Frio Bel */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), "Montserrat", system-ui, sans-serif;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #044296;
-}
-
-.eyebrow-cyan,
-.eyebrow-blue {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #044296;
-}
-
-.eyebrow-orange {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #F97804;
-}
-
-.eyebrow-green {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #83C809;
-}
-
-.eyebrow-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #D97706;
-}
-
-.eyebrow::before,
-.eyebrow-cyan::before,
-.eyebrow-blue::before {
-  width: 1.5rem;
-  height: 2.5px;
-  flex: none;
-  background: #044296;
-  content: "";
-  border-radius: 999px;
-}
-
-.eyebrow-orange::before {
-  width: 1.5rem;
-  height: 2.5px;
-  flex: none;
-  background: #F97804;
-  content: "";
-  border-radius: 999px;
-}
-
-.eyebrow-green::before {
-  width: 1.5rem;
-  height: 2.5px;
-  flex: none;
-  background: #83C809;
-  content: "";
-  border-radius: 999px;
-}
-
-.eyebrow-gold::before {
-  width: 1.5rem;
-  height: 2.5px;
-  flex: none;
-  background: #FCD504;
-  content: "";
-  border-radius: 999px;
-}
-
-/* Card Styles */
-.card-modelo {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px 0 rgba(3, 24, 56, 0.05), 0 1px 2px -1px rgba(3, 24, 56, 0.05);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-modelo:hover {
-  border-color: #B9D7F9;
-  box-shadow: 0 14px 30px -5px rgba(4, 66, 150, 0.18), 0 8px 12px -6px rgba(2, 36, 91, 0.08);
-  transform: translateY(-2px);
-}
-
-.card-modelo-dark {
-  background: #02245B;
-  border: 1px solid #044296;
-  box-shadow: 0 4px 20px -2px rgba(3, 24, 56, 0.5);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-modelo-dark:hover {
-  border-color: #04ACD3;
-  box-shadow: 0 12px 30px -5px rgba(4, 172, 211, 0.35);
-  transform: translateY(-2px);
-}
-
-/* Water Ripple Gradient Effect */
-.bg-pool-radial {
-  background: radial-gradient(circle at 50% 0%, rgba(4, 66, 150, 0.25), transparent 70%);
-}
-
-.bg-splash-glow {
-  background: radial-gradient(circle at 100% 0%, rgba(4, 172, 211, 0.2), transparent 60%);
-}
-
-/* Subtle glowing pulse animation */
-@keyframes subtlePulse {
+/* Efeito de badge pulsante de atendimento */
+@keyframes pulse-soft {
   0%, 100% {
-    transform: scale(1);
-    opacity: 0.94;
-  }
-  50% {
-    transform: scale(1.04);
     opacity: 1;
-  }
-}
-
-.animate-subtle-pulse {
-  animation: subtlePulse 3s ease-in-out infinite;
-}
-
-/* Wave motion animation */
-@keyframes waveMotion {
-  0% {
-    transform: translateX(0);
+    transform: scale(1);
   }
   50% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(0);
+    opacity: 0.85;
+    transform: scale(1.02);
   }
 }
 
-.animate-wave {
-  animation: waveMotion 10s ease-in-out infinite;
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
 }
 
-/* Scrollbar polish */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Gradientes de fundo institucionais */
+.bg-gradient-navy {
+  background: linear-gradient(135deg, #001A78 0%, #00124D 100%);
 }
 
-::-webkit-scrollbar-track {
-  background: #F1F5F9;
+.bg-gradient-hero {
+  background: linear-gradient(180deg, #00124D 0%, #001A78 60%, #00229E 100%);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #94A3B8;
-  border-radius: 4px;
+.bg-gradient-ice {
+  background: linear-gradient(180deg, #F0F4FF 0%, #F8FAFC 100%);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #044296;
+/* Card Glow Effect sutil */
+.card-hover-effect {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(0, 26, 120, 0.12), 0 4px 12px -2px rgba(0, 26, 120, 0.06);
 }
