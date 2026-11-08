@@ -30,49 +30,54 @@ import {
   Compass,
   Maximize2,
   HelpCircle,
+  Award,
+  Zap,
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
 // ==========================================
-// DADOS OFICIAIS — ISOMINAS ISOPAINEIS E REFRIGERAÇÃO
+// DADOS OFICIAIS — FRIOMAX REFRIGERAÇÃO
 // ==========================================
-const COMPANY_NAME = "ISOMINAS Isopainéis e Refrigeração";
+const COMPANY_NAME = "Friomax Refrigeração";
 const COMPANY_LEGAL_NAME =
-  "ISOMINAS INDÚSTRIA E COMÉRCIO DE ISOPAINES E REFRIGERAÇÃO LTDA";
-const WHATSAPP_NUMBER = "5531984183835";
-const WHATSAPP_DISPLAY = "(31) 98418-3835";
-const PHONE_DISPLAY = "(31) 3631-1500";
-const PHONE_SECONDARY = "(31) 3458-5778";
-const EMAIL_CONTACT = "contato@isominas.ind.br";
-const INSTAGRAM_URL = "https://www.instagram.com/isominas_celio/";
-const FACEBOOK_URL = "https://www.facebook.com/isominas.paineis";
-const WEBSITE_URL = "http://www.isominas.ind.br";
+  "FRIOMAX INDÚSTRIA E COMÉRCIO DE REFRIGERAÇÃO LTDA";
+const COMPANY_SLOGAN = "Friomax, a diferença está na qualidade!";
+const WHATSAPP_NUMBER = "553135032400";
+const WHATSAPP_DISPLAY = "(31) 3503-2400";
+const PHONE_DISPLAY = "(31) 3503-2400";
+const EMAIL_CONTACT = "contato@friomax.com.br";
+const EMAIL_SALES = "vendas@friomax.com.br";
+const INSTAGRAM_URL = "https://www.instagram.com/friomax1991/";
+const WEBSITE_URL = "https://www.friomax.com.br/";
 
 const PRIMARY_FACTORY_ADDRESS =
-  "Rua Alzira Menezes Nogueira, 151 - Distrito Industrial João de Almeida, Ribeirão das Neves - MG, CEP 33880-300";
+  "R. São Paulo, 1500 - Nova Pampulha, Vespasiano - MG, CEP 33200-000";
 
-const GOOGLE_REVIEW_COUNT = "33";
+const GOOGLE_RATING = "4,4";
+const GOOGLE_REVIEW_COUNT = "41";
 const GOOGLE_SEARCH_URL =
-  "https://www.google.com/search?q=Isominas+Isopain%C3%A9is+e+Refrigera%C3%A7%C3%A3o+Botafogo+Ribeir%C3%A3o+das+Neves+MG";
+  "https://www.google.com/search?q=Friomax+Refrigera%C3%A7%C3%A3o+e+Climatiza%C3%A7%C3%A3o+Vespasiano+MG";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=ISOMINAS+Ind%C3%BAstria+e+Com%C3%A9rcio+de+Isopain%C3%A9is+e+Refrigera%C3%A7%C3%A3o+R.+Alzira+Menezes+Nogueira%2C+151+-+Distrito+Industrial+Jo%C3%A3o+de+Almeida%2C+Ribeir%C3%A3o+das+Neves+-+MG%2C+33880-300";
+  "https://www.google.com/maps/search/?api=1&query=Friomax+Refrigera%C3%A7%C3%A3o+R.+S%C3%A3o+Paulo%2C+1500+-+Nova+Pampulha%2C+Vespasiano+-+MG%2C+33200-000";
 
-// Assets Oficiais
-const LOGO_TRANSPARENT_SRC = "/logo-transparent.png";
+// Assets Oficiais Friomax
+const LOGO_SRC = "/logo.png";
+const LOGO_FULL_SRC = "/logo.png";
+const MASCOT_SRC = "/mascot.png";
 
 function getWhatsAppUrl(
   message?: string,
   number: string = WHATSAPP_NUMBER
 ) {
   const defaultText =
-    "Olá! Gostaria de solicitar um orçamento de isopainéis / portas frigoríficas direto da fábrica com a equipe técnica da ISOMINAS.";
+    "Olá! Gostaria de solicitar um orçamento de equipamentos de refrigeração comercial direto da fábrica com a equipe técnica da Friomax.";
   return `https://wa.me/${number}?text=${encodeURIComponent(
     message || defaultText
   )}`;
 }
 
 // ==========================================
-// DESTAQUES DO HERO (SEM CORTES)
+// DESTAQUES DO HERO (SLIDES INTERATIVOS)
 // ==========================================
 interface HeroSlideItem {
   id: string;
@@ -85,47 +90,47 @@ interface HeroSlideItem {
 
 const HERO_SLIDES: HeroSlideItem[] = [
   {
-    id: "camara-fria",
-    title: "Câmaras Frigoríficas & Isopainéis",
-    badge: "50mm a 200mm",
-    range: "De +15°C até -40°C",
+    id: "freezers",
+    title: "Freezers Comerciais & Expositores",
+    badge: "Vidro Térmico Duplo Antiembaçante",
+    range: "De 0°C a -22°C",
     description:
-      "Isolamento térmico hermético para congelados e resfriados. Economia comprovada de energia e montagem rápida.",
+      "Máxima visibilidade e congelamento ultra-rápido para sorvetes, gelo, bebidas e carnes. Ar forçado frost-free e baixo consumo elétrico.",
+    image: "/images/hero/banner-destaque-freezers.jpg",
+  },
+  {
+    id: "camaras",
+    title: "Câmaras Frigoríficas Modulares",
+    badge: "Isolamento PUR de Alta Densidade",
+    range: "De +15°C até -35°C",
+    description:
+      "Projetos sob medida para supermercados, açougues e centros de distribuição. Vedação hermética contínua e economia comprovada.",
     image: "/images/hero/banner-destaque-camara-fria.jpg",
   },
   {
-    id: "portas",
-    title: "Portas Frigoríficas Industriais",
-    badge: "Padrão FERMOD Pesado",
-    range: "Com Resistência no Marco",
+    id: "balcoes",
+    title: "Balcões & Vitrines Refrigeradas",
+    badge: "Aço Inox & Iluminação LED Especial",
+    range: "De +1°C a +7°C",
     description:
-      "Portas giratórias e de correr de alta resistência em ferro fundido para alto fluxo operacional e vedação estanque.",
-    image: "/images/hero/banner-destaque-portas.jpg",
-  },
-  {
-    id: "paineis-modulares",
-    title: "Isopainéis Modulares EPS & PUR",
-    badge: "Norma ABNT-NBR",
-    range: "Classe F-1 Anti-Chamas",
-    description:
-      "Encaixe macho-fêmea de precisão milimétrica que elimina pontes térmicas e infiltrações na sua obra.",
-    image: "/images/hero/banner-destaque-painel-modular.jpg",
+      "Vitrines de alta valorização visual para açougues, padarias e laticínios. Conservação térmica ideal que valoriza a exposição das mercadorias.",
+    image: "/images/hero/banner-destaque-balcoes.jpg",
   },
 ];
 
 // ==========================================
-// TIPAGEM DOS PRODUTOS
+// TIPAGEM DOS PRODUTOS & EQUIPAMENTOS
 // ==========================================
 interface ProductItem {
   id: string;
   name: string;
-  category: "isopaineis" | "portas" | "telhas" | "placas";
+  category: "freezers" | "vitrines" | "industriais" | "camaras";
   categoryLabel: string;
   badge: string;
   tagline: string;
   image: string;
-  thickness: string;
-  core: string;
+  capacity: string;
+  temperature: string;
   specs: { label: string; value: string }[];
   applications: string[];
   description: string;
@@ -133,225 +138,230 @@ interface ProductItem {
 
 const PRODUCTS_DATA: ProductItem[] = [
   {
-    id: "isopainel-eps",
-    name: "Isopainéis Termoisolantes em EPS",
-    category: "isopaineis",
-    categoryLabel: "Isopainéis Térmicos",
-    badge: "Mais Vendido da Fábrica",
-    tagline: "Isolamento de alta performance com núcleo em EPS Classe F-1 autoextinguível",
-    image: "/images/products/isopainel-eps-painel-1.jpg",
-    thickness: "50mm a 200mm",
-    core: "EPS (Poliestireno Expandido) Classe F-1 Anti-chamas",
+    id: "freezer-vertical-expositor",
+    name: "Freezer Vertical Expositor com Vidro Aquecido",
+    category: "freezers",
+    categoryLabel: "Freezers Comerciais",
+    badge: "Líder de Vendas no Comércio",
+    tagline: "Porta de vidro duplo temperado antiembaçante com iluminação vertical em LED",
+    image: "/images/products/freezer-vertical-expositor.jpg",
+    capacity: "450L / 600L / 1.000L",
+    temperature: "-18°C a -22°C (Congelados) ou 0°C a +5°C",
     specs: [
-      { label: "Largura Útil", value: "1.160 mm" },
-      { label: "Espessuras", value: "50, 75, 100, 150 e 200 mm" },
-      { label: "Comprimento", value: "Sob medida (conforme transporte)" },
-      { label: "Condutibilidade", value: "0,028 Kcal/h.m.°C" },
-      { label: "Norma Técnica", value: "ABNT-NBR 11949-9" },
-      { label: "Encaixe", value: "Macho-Fêmea hermético" },
+      { label: "Portas", value: "1 ou 2 portas com fechamento automático" },
+      { label: "Vidro", value: "Duplo temperado com resistência térmica" },
+      { label: "Refrigeração", value: "Ar forçado Frost-Free" },
+      { label: "Controlador", value: "Digital eletrônico com degelo automático" },
+      { label: "Prateleiras", value: "Aramadas reforçadas com regulagem de altura" },
+      { label: "Gabinete", value: "Poliuretano injetado de alta densidade" },
     ],
     applications: [
-      "Câmaras frigoríficas de resfriados e congelados",
-      "Centros de distribuição logística e galpões",
-      "Salas de desossa e frigoríficos de carnes/pescados",
-      "Fechamentos industriais e divisórias higiênicas",
+      "Armazenamento e exposição de gelo e sorvetes",
+      "Bebidas geladas, cervejas e refrigerantes",
+      "Carnes embaladas, congelados e polpas",
+      "Supermercados, padarias e lojas de conveniência",
     ],
     description:
-      "Fabricados com revestimento em chapa de aço zincada e pré-pintada na cor branca lavável em ambas as faces. Encaixe macho-fêmea com vedação de alta precisão que anula infiltrações e pontes térmicas, garantindo máxima economia de energia no sistema de refrigeração.",
+      "Desenvolvido para resistir a aberturas constantes em ambientes comerciais de alto fluxo. O sistema de aquecimento do marco e vidro impede qualquer condensação ou embaçamento, mantendo os produtos 100% visíveis e atraentes para o consumidor final.",
   },
   {
-    id: "isopainel-pur",
-    name: "Isopainéis Injetados em PUR (Poliuretano)",
-    category: "isopaineis",
-    categoryLabel: "Isopainéis Térmicos",
-    badge: "Máxima Densidade Térmica",
-    tagline: "Densidade de 40 kg/m³ para temperaturas ultra-baixas e túneis de congelamento",
-    image: "/images/products/isopainel-pur-poliuretano.jpg",
-    thickness: "50mm a 150mm",
-    core: "Espuma Rígida de Poliuretano PUR (40 kg/m³)",
+    id: "freezer-horizontal-tampa-vidro",
+    name: "Freezer Horizontal Expositor (Tampas Deslizantes)",
+    category: "freezers",
+    categoryLabel: "Freezers Comerciais",
+    badge: "Máxima Eficiência Térmica",
+    tagline: "Tampas de vidro curvo temperado de baixa emissividade e alta retenção de frio",
+    image: "/images/products/freezer-horizontal-tampa-vidro.jpg",
+    capacity: "350L a 750L",
+    temperature: "-18°C a -24°C",
     specs: [
-      { label: "Largura Útil", value: "1.160 mm" },
-      { label: "Densidade PUR", value: "38 a 42 kg/m³" },
-      { label: "Condutibilidade", value: "0,018 Kcal/h.m.°C" },
-      { label: "Comportamento ao Fogo", value: "Retardante de chamas" },
-      { label: "Acabamento", value: "Aço galvanizado pré-pintado" },
-      { label: "Fixação", value: "Sistema modular estanque" },
+      { label: "Tampas", value: "Vidro curvo deslizante com trava" },
+      { label: "Isolamento", value: "Poliuretano PUR 70mm ecológico" },
+      { label: "Dreno", value: "Frontal para escoamento e limpeza rápida" },
+      { label: "Rodízios", value: "Duplos reforçados para fácil locomoção" },
+      { label: "Cestos", value: "Removíveis em aço termoplastificado" },
+      { label: "Consumo", value: "Motor ecológico de classe A" },
     ],
     applications: [
-      "Túneis de congelamento rápido (-35°C a -40°C)",
-      "Câmaras de congelados pesados e sorvetes",
-      "Indústrias farmacêuticas e vacinas",
-      "Processamento de alimentos e laticínios",
+      "Venda de picolés, sorvetes de massa e sobremesas",
+      "Sacos de gelo em cubos e escamas",
+      "Aves, pescados e legumes congelados",
+      "Empórios, mercearias e postos de combustível",
     ],
     description:
-      "Isolamento térmico superior com baixíssimo coeficiente de condutibilidade térmica. Ideal para operações industriais que operam com gradientes térmicos extremos, assegurando estabilidade térmica e consumo elétrico mínimo.",
+      "Estrutura monobloco robusta fabricada com chapa tratada anticorrosiva e injeção de alta pressão de poliuretano expandido. Permite excelente retenção de frio mesmo em caso de interrupção elétrica momentânea.",
   },
   {
-    id: "porta-giratoria-industrial",
-    name: "Porta Frigorífica Giratória",
-    category: "portas",
-    categoryLabel: "Portas Frigoríficas",
-    badge: "Ferragens FERMOD Pesadas",
-    tagline: "Robusta e com vedação perimétrica contínua para câmaras de 0°C a -30°C",
-    image: "/images/products/porta-giratoria-industrial.jpg",
-    thickness: "100mm, 150mm e 200mm",
-    core: "PUR Rígido Injetado ou EPS Alta Densidade",
+    id: "balcao-refrigerado-vitrine",
+    name: "Balcão Vitrine Refrigerado para Açougue & Carnes",
+    category: "vitrines",
+    categoryLabel: "Balcões & Vitrines",
+    badge: "Padrão Sanitário em Aço Inox",
+    tagline: "Bancada de atendimento e bandejas em aço inox com iluminação realçadora de corte",
+    image: "/images/products/balcao-refrigerado-vitrine.jpg",
+    capacity: "1,5m a 3,0m de comprimento",
+    temperature: "+1°C a +6°C (Resfriados)",
     specs: [
-      { label: "Ferragens", value: "Ferro fundido padrão FERMOD" },
-      { label: "Espessura 0°C", value: "100 mm (Resfriados)" },
-      { label: "Espessura < 0°C", value: "150mm / 200mm (Congelados)" },
-      { label: "Resistência", value: "Silicone embutido no marco para congelados" },
-      { label: "Batentes", value: "Injetados com poliuretano rígido" },
-      { label: "Acabamento", value: "Perfil Colorbond tipo U" },
+      { label: "Revestimento", value: "Aço Inox AISI 430/304 escovado" },
+      { label: "Refrigeração", value: "Estática com serpentina aletada e placa fria" },
+      { label: "Vidro Frontal", value: "Curvo ou reto temperado de alta segurança" },
+      { label: "Iluminação", value: "LED especial tonalidade fria para carnes" },
+      { label: "Depósito", value: "Inferior refrigerado com portas independentes" },
+      { label: "Termômetro", value: "Analógico/Digital visível para o cliente" },
     ],
     applications: [
-      "Câmaras frigoríficas comerciais e industriais",
-      "Supermercados, açougues e padarias industriais",
-      "Salas climatizadas de preparo de carnes",
-      "Armazenamento de gelo e polpas de frutas",
+      "Açougues, boutiques de carnes e casas de assados",
+      "Exposição de peças bovinas, suínas e aves frescas",
+      "Queijos e frios em padarias e laticínios",
+      "Supermercados e centros de carnes",
     ],
     description:
-      "Construída com estrutura reforçada e ferragens de ferro fundido padrão industrial Fermod de alta resistência. Para temperaturas negativas, inclui resistência elétrica de silicone instalada no marco para impedir o congelamento e travamento da borracha de vedação.",
+      "Projetado para manter a umidade natural da carne, evitando o ressecamento ou escurecimento dos cortes. O acabamento sanitário facilita a higienização rigorosa exigida pela vigilância sanitária.",
   },
   {
-    id: "porta-frigorifica-correr",
-    name: "Porta Frigorífica de Correr (Manual e Automática)",
-    category: "portas",
-    categoryLabel: "Portas Frigoríficas",
-    badge: "Para Paletes e Empilhadeiras",
-    tagline: "Trilho aéreo de deslizamento suave e vedação por queda gravitacional",
-    image: "/images/products/porta-frigorifica-correr.jpg",
-    thickness: "100mm a 200mm",
-    core: "PUR Injetado ou EPS Classe F-1",
+    id: "balcao-auto-servico",
+    name: "Balcão Auto-Serviço Multi-Deck Aberto",
+    category: "vitrines",
+    categoryLabel: "Balcões & Vitrines",
+    badge: "Acesso Rápido ao Consumidor",
+    tagline: "Cortina de ar contínua que mantém a temperatura com acesso direto para compras por impulso",
+    image: "/images/products/balcao-auto-servico.jpg",
+    capacity: "1,2m a 2,5m modulável",
+    temperature: "+2°C a +8°C",
     specs: [
-      { label: "Operação", value: "Manual ou Automatizada com controle/sensor" },
-      { label: "Trilho Aéreo", value: "Alumínio estrutural extrudado" },
-      { label: "Vedação", value: "Gaxeta elastomérica perimétrica" },
-      { label: "Vão Livre", value: "Projetos sob medida (até 3,5m x 4,0m)" },
-      { label: "Segurança", value: "Destravamento interno de emergência" },
-      { label: "Resistência", value: "Anti-congelamento no marco" },
+      { label: "Cortina de Ar", value: "Fluxo laminar contínuo sem turbulência" },
+      { label: "Prateleiras", value: "4 níveis reguláveis com porta-preços" },
+      { label: "Iluminação", value: "LED em todos os níveis de prateleiras" },
+      { label: "Cortina Noturna", value: "Inclusa para redução de 40% de energia" },
+      { label: "Laterais", value: "Vidro duplo panorâmico ou espelhadas" },
+      { label: "Degelo", value: "Automático programado por gás quente/timer" },
     ],
     applications: [
-      "Centros de distribuição logística com fluxo de empilhadeiras",
-      "Grandes galpões frigorificados e entrepostos",
-      "Docas térmicas e áreas de expedição paletizada",
-      "Armazéns gerais de congelados",
+      "Bebidas lácteas, iogurtes e manteigas",
+      "Embutidos fatiados, presuntos e queijos embalados",
+      "Pratos prontos, massas frescas e sanduíches",
+      "Supermercados, padarias gourmet e cafeterias",
     ],
     description:
-      "A solução definitiva para grandes vãos livres com alto tráfego de carga paletizada. Trilho de alumínio anodizado de alta durabilidade com roldanas de nylon autolubrificantes e vedação hermética.",
+      "A solução ideal para aumentar o ticket médio das lojas com vendas por impulso. O design moderno com cortina de ar otimizada assegura que os produtos permaneçam na temperatura adequada sem desconforto para o cliente.",
   },
   {
-    id: "porta-sala-limpa",
-    name: "Porta Giratória e Correr para Sala Limpa",
-    category: "portas",
-    categoryLabel: "Portas Frigoríficas",
-    badge: "Padrão Sanitário Asséptico",
-    tagline: "Superfície lisa sem retenção de partículas para controle de contaminação",
-    image: "/images/products/porta-giratoria-sala-limpa.jpg",
-    thickness: "50mm a 100mm",
-    core: "Poliuretano Injetado ou EPS",
+    id: "refrigerador-industrial-inox",
+    name: "Refrigerador Industrial 2 a 6 Portas em Aço Inox",
+    category: "industriais",
+    categoryLabel: "Geladeiras Industriais",
+    badge: "Estrutura Pesada para Gastronomia",
+    tagline: "Construção 100% reforçada para cozinhas industriais, restaurantes e hospitais",
+    image: "/images/products/refrigerador-industrial-inox.jpg",
+    capacity: "700L a 1.800L (2, 4 ou 6 portas)",
+    temperature: "0°C a +5°C (Resfriados) ou -15°C (Congelados)",
     specs: [
-      { label: "Superfície", value: "Totalmente lisa e higienizável" },
-      { label: "Visor", value: "Vidro duplo selado opcional" },
-      { label: "Vedação", value: "Silicone sanitário antimicrobiano" },
-      { label: "Normas", value: "Atende ANVISA e Boas Práticas (BPF)" },
-      { label: "Puxadores", value: "Aço Inox 304 escovado" },
+      { label: "Estrutura", value: "Aço Inox AISI 304/430 interno e externo" },
+      { label: "Portas", value: "Com retorno automático e gaxetas magnéticas" },
+      { label: "Compressor", value: "Unidade selada de alto torque de partida" },
+      { label: "Gás Refrigerante", value: "Ecológico R-134a / R-404a" },
+      { label: "Pés", value: "Niveladores em inox com regulagem de altura" },
+      { label: "Gradeamento", value: "Prateleiras reforçadas para GN gastronorm" },
     ],
     applications: [
-      "Indústrias farmacêuticas e cosméticas",
-      "Salas cirúrgicas, hospitais e laboratórios",
-      "Processamento de queijos e laticínios nobres",
-      "Áreas assépticas alimentícias",
+      "Cozinhas industriais e praças de alimentação",
+      "Restaurantes à la carte, buffets e churrascarias",
+      "Confeitarias e cozinhas de panificação",
+      "Hospitais, laboratórios e refeitórios corporativos",
     ],
     description:
-      "Desenvolvida com cantos arredondados e superfícies perfeitamente niveladas que evitam o acúmulo de poeira e bactérias. Resistente a sanitizações químicas rigorosas diárias.",
+      "Projetado para suportar as condições mais severas de calor e umidade em cozinhas profissionais. O motor de alta capacidade garante rápida recuperação térmica a cada abertura de porta, garantindo a conservação dos alimentos conforme as normas ANVISA.",
   },
   {
-    id: "porta-vai-e-vem",
-    name: "Porta Vai-e-Vem e Portinholas de Inspeção",
-    category: "portas",
-    categoryLabel: "Portas Frigoríficas",
-    badge: "Fluxo Contínuo de Pessoas",
-    tagline: "Dobradiças gravitacionais em inox e parachoque para proteção contra carrinhos",
-    image: "/images/products/porta-vai-e-vem.jpg",
-    thickness: "40mm a 50mm",
-    core: "EPS ou PUR de alta densidade",
+    id: "ilha-congelados-supermercado",
+    name: "Ilha de Congelados Panorâmica para Supermercados",
+    category: "freezers",
+    categoryLabel: "Freezers Comerciais",
+    badge: "Alta Capacidade de Venda",
+    tagline: "Visão panorâmica dos produtos com tampas deslizantes de vidro anti-reflexo",
+    image: "/images/products/ilha-congelados-supermercado.jpg",
+    capacity: "800L a 1.500L modulável em linha",
+    temperature: "-18°C a -22°C",
     specs: [
-      { label: "Dobradiça", value: "Gravitacional retorno automático inox" },
-      { label: "Visor", value: "Policarbonato transparente cristal" },
-      { label: "Proteção", value: "Bate-carrinho em polietileno (opcional)" },
-      { label: "Folhas", value: "Folha simples ou folha dupla" },
+      { label: "Vidros", value: "Temperados planos ou curvos de baixa reflexão" },
+      { label: "Compressor", value: "Inverter ou convencional de alta eficiência" },
+      { label: "Modulação", value: "Pode ser instalada individualmente ou em baterias" },
+      { label: "Iluminação", value: "LED embutido de alta intensidade" },
+      { label: "Divisórias", value: "Grades internas móveis organizadoras" },
+      { label: "Proteção", value: "Bate-carrinho em PVC de alta resistência" },
     ],
     applications: [
-      "Passagem entre cozinha e salão em restaurantes",
-      "Supermercados e padarias de fluxo contínuo",
-      "Interligação de antecâmaras e depósitos",
+      "Supermercados, atacarejos e hipermercados",
+      "Exposição de carnes, peixes e hambúrgueres",
+      "Congelados rápidos, pizzas e vegetais",
+      "Distribuidoras de alimentos e empórios",
     ],
     description:
-      "Facilita a passagem rápida de operadores com bandejas e carrinhos manuais, com fechamento automático suave e manutenção simples.",
+      "A linha de ilhas da Friomax reúne máxima visibilidade dos produtos com custo operacional reduzido. O sistema de condensação e evaporador aletado entrega resfriamento constante sem acúmulo excessivo de gelo nas paredes.",
   },
   {
-    id: "telhas-termicas-eps",
-    name: "Telhas Térmicas EPS (Telha Sanduíche)",
-    category: "telhas",
-    categoryLabel: "Telhas Térmicas",
-    badge: "Isolamento Termoacústico Superior",
-    tagline: "Redução de até 70% do calor radiante e até 40dB no ruído de chuva",
-    image: "/images/products/telhas-termicas-eps-sanduiche.jpg",
-    thickness: "30mm a 100mm de núcleo EPS",
-    core: "EPS F-1 Autoextinguível Ignífugo",
+    id: "camara-frigorifica-modular",
+    name: "Câmara Frigorífica Modular Sob Medida",
+    category: "camaras",
+    categoryLabel: "Câmaras Frigoríficas",
+    badge: "Engenharia Térmica Personalizada",
+    tagline: "Isolamento contínuo em poliuretano PUR ou EPS com portas pesadas herméticas",
+    image: "/images/products/camara-frigorifica-modular.jpg",
+    capacity: "De 5 m³ a mais de 500 m³",
+    temperature: "+15°C a -35°C",
     specs: [
-      { label: "Modelos", value: "Telha + EPS + Telha ou Telha + EPS + Filme" },
-      { label: "Chapa Externa", value: "Aço Galvalume AZ150 / Pré-pintada" },
-      { label: "Perfil", value: "Trapezoidal estrutural alta resistência" },
-      { label: "Largura Útil", value: "Padrão 1.000 mm" },
-      { label: "Comprimento", value: "Contínuo até 12 metros" },
-      { label: "Conforto Térmico", value: "Economia de até 50% em ar-condicionado" },
+      { label: "Paredes e Teto", value: "Painéis modulares macho-fêmea com vedação" },
+      { label: "Núcleo", value: "Poliuretano PUR 40 kg/m³ ou EPS Classe F-1" },
+      { label: "Porta", value: "Giratória ou de correr com destravamento interno" },
+      { label: "Piso", value: "Isolamento em placas de alta densidade" },
+      { label: "Unidade Condensadora", value: "Dimensionada para a carga térmica exata" },
+      { label: "Quadro Elétrico", value: "Microprocessado com proteções eletrônicas" },
     ],
     applications: [
-      "Galpões industriais e centros logísticos",
-      "Coberturas de supermercados e lojas atacadistas",
-      "Indústrias alimentícias, metalúrgicas e têxteis",
-      "Residências e escritórios de alto padrão",
+      "Câmaras de congelados para carnes, pescados e gelo",
+      "Câmaras de resfriados para laticínios, verduras e frutas",
+      "Beer Caves para postos de combustíveis e conveniências",
+      "Centros de distribuição de hortifrúti e distribuidores",
     ],
     description:
-      "Proporciona uma barreira térmica insuperável contra a radiação solar, reduzindo drasticamente a temperatura interna do galpão e garantindo ambiente de trabalho saudável e sem gotejamento por condensação.",
+      "Engenharia completa da Friomax desde a medição no local até a entrega e montagem. Cada câmara é dimensionada por técnicos que calculam a carga térmica real considerando fluxo de mercadorias, rotação de estoque e temperatura ambiente da sua região.",
   },
   {
-    id: "placas-eps-piso",
-    name: "Placas Isolantes de EPS para Pisos de Câmaras",
-    category: "placas",
-    categoryLabel: "Placas Isolantes",
-    badge: "Proteção Estrutural de Pisos",
-    tagline: "Impede o congelamento do subleito e a ruptura do concreto da câmara fria",
-    image: "/images/products/placas-eps-isolamento-piso.jpg",
-    thickness: "50mm a 200mm",
-    core: "Poliestireno Expandido de Alta Densidade (12 a 16 kg/m³)",
+    id: "porta-frigorifica-pesada",
+    name: "Porta Frigorífica Industrial Pesada (Giratória e Correr)",
+    category: "camaras",
+    categoryLabel: "Câmaras Frigoríficas",
+    badge: "Ferragens Industriais Robustas",
+    tagline: "Resistência de silicone embutida no marco e vedação perimétrica estanque",
+    image: "/images/products/porta-frigorifica-pesada.jpg",
+    capacity: "Vão livre padrão ou sob medida",
+    temperature: "Até -40°C",
     specs: [
-      { label: "Dimensões Padrão", value: "2.000 x 1.200 mm ou 4.000 x 1.200 mm" },
-      { label: "Densidades", value: "12 a 16 kg/m³ (Tipo P1 a P4)" },
-      { label: "Comportamento", value: "Classe F-1 (não propaga fogo)" },
-      { label: "Compressão", value: "Alta resistência mecânica para cargas pesadas" },
-      { label: "Aplicação", value: "Sob o piso de concreto armado" },
+      { label: "Ferragens", value: "Dobradiças e fechos industriais de alta carga" },
+      { label: "Resistência", value: "Cabo térmico no batente para evitar travamento" },
+      { label: "Batentes", value: "Injetados com poliuretano rígido de alta densidade" },
+      { label: "Segurança", value: "Manípulo de destravamento interno de emergência" },
+      { label: "Revestimento", value: "Aço pré-pintado ou aço inoxidável" },
+      { label: "Vedação", value: "Gaxeta elastomérica com memória elástica" },
     ],
     applications: [
-      "Isolamento de fundo de câmaras frias de congelamento",
-      "Isolamento térmico de lajes de galpões e edifícios",
-      "Juntas de dilatação em pontes e viadutos",
-      "Câmaras frigoríficas para batatas, carnes e pescados",
+      "Docas e antecâmaras de galpões frigorificados",
+      "Câmaras frias comerciais e industriais de grande circulação",
+      "Passagem de paleteiras manuais e carrinhos de carga",
+      "Salas climatizadas de manipulação e desossa",
     ],
     description:
-      "O isolamento de piso com placas de EPS é obrigatório em câmaras frigoríficas de congelados para evitar o fenômeno de frost heave (congelamento e expansão da umidade do solo que rompe a laje de piso).",
+      "Fabricada com reforços internos estruturais para resistir a milhares de ciclos diários sem desregulagem. Nas opções para congelamento, a resistência perimétrica impede que a umidade congele nas borrachas, preservando a vida útil do conjunto.",
   },
 ];
 
 // ==========================================
-// OBRAS REAIS EXECUTADAS
+// OBRAS REAIS EXECUTADAS & CLIENTES
 // ==========================================
 interface ObraItem {
   id: string;
   title: string;
-  category: "camaras" | "frigorificos" | "logistica" | "industria";
+  category: "supermercados" | "acougues" | "padarias" | "distribuidoras";
   categoryLabel: string;
   image: string;
   location: string;
@@ -361,97 +371,75 @@ interface ObraItem {
 
 const OBRAS_DATA: ObraItem[] = [
   {
-    id: "centro-distribuicao",
-    title: "Centro de Distribuição & Logística Refrigerada",
-    category: "logistica",
-    categoryLabel: "Logística & CD",
-    image: "/images/obras/obra-centro-distribuicao-logistica.jpg",
-    location: "Minas Gerais",
+    id: "supermercado-expositores",
+    title: "Supermercado & Bateria de Expositores em Linha",
+    category: "supermercados",
+    categoryLabel: "Supermercados",
+    image: "/images/obras/obra-supermercado-expositores.jpg",
+    location: "Vespasiano / MG",
     description:
-      "Grande complexo de armazenamento com pé-direito livre de 9 metros, fechamentos perimetrais em isopainéis de 150mm e portas de correr para docas paletizadas.",
-    scope: "Fechamento térmico completo, divisórias modulares e docas isotérmicas.",
+      "Instalação completa de corredores refrigerados, ilhas centrais de congelados com vidro curvo e vitrines de auto-serviço multi-deck para laticínios.",
+    scope: "12 módulos de expositores verticais, 4 ilhas de congelados e balcões de corte.",
   },
   {
-    id: "camara-batatas",
-    title: "Câmara Frigorífica de Batatas & Hortifrúti",
-    category: "camaras",
-    categoryLabel: "Câmaras Especiais",
-    image: "/images/obras/obra-camara-frigorifica-batatas.jpg",
-    location: "Polo Agrícola / MG",
-    description:
-      "Instalação climatizada de grande capacidade com controle estrito de umidade e temperatura (+4°C a +8°C) para conservação de sementes e hortifrúti em grande escala.",
-    scope: "Painéis EPS 100mm, isolamento de piso reforçado e portas giratórias com vedação hermética.",
-  },
-  {
-    id: "frigorifico-suino",
-    title: "Frigorífico Suíno & Túnel de Congelamento",
-    category: "frigorificos",
-    categoryLabel: "Frigoríficos S.I.F.",
-    image: "/images/obras/obra-frigorifico-suino-sala-cortes.jpg",
-    location: "Região Central / MG",
-    description:
-      "Estrutura completa para abate, desossa e estocagem refrigerada conforme exigências sanitárias do Ministério da Agricultura (S.I.F.).",
-    scope: "Isopainéis PUR e EPS, portas com passagem de trilho aéreo e portas seccionais.",
-  },
-  {
-    id: "frigorifico-peixes",
-    title: "Frigorífico de Pescados & Frutos do Mar",
-    category: "frigorificos",
-    categoryLabel: "Frigoríficos S.I.F.",
-    image: "/images/obras/obra-frigorifico-peixes-processamento.jpg",
-    location: "Minas Gerais",
-    description:
-      "Salas climatizadas para evisceração, filetagem e câmaras de estocagem negativa a -22°C com chapas resistentes à salinidade e corrosão.",
-    scope: "Isopainéis de alta estanqueidade e portas automáticas de fluxo rápido.",
-  },
-  {
-    id: "fabrica-gelo",
-    title: "Fábrica de Gelo & Silos de Armazenamento",
-    category: "industria",
-    categoryLabel: "Indústria & Gelo",
-    image: "/images/obras/obra-fabrica-de-gelo-armazenamento.jpg",
-    location: "Ribeirão das Neves / MG",
-    description:
-      "Silos e câmaras de estocagem para gelo em cubos e escamas com isolamento contínuo em EPS 150mm e portas reforçadas padrão Fermod.",
-    scope: "Estrutura modular térmica e controle térmico contínuo.",
-  },
-  {
-    id: "galpao-industrial",
-    title: "Galpão Industrial & Cobertura Térmica",
-    category: "industria",
-    categoryLabel: "Indústria & Galpões",
-    image: "/images/obras/obra-galpao-industrial-isopainel.jpg",
-    location: "Distrito Industrial / MG",
-    description:
-      "Fechamento lateral e cobertura com telhas térmicas sanduíche EPS para redução radical de calor e ruído em linha de montagem industrial.",
-    scope: "Telhas térmicas trapezoidais EPS e fechamento perimétrico estrutural.",
-  },
-  {
-    id: "faculdade-unopar",
-    title: "Edificação Institucional e Fachada Térmica",
-    category: "industria",
-    categoryLabel: "Fachadas & Obras Comerciais",
-    image: "/images/obras/obra-fachada-termica-institucional.jpg",
-    location: "Sete Lagoas / MG",
-    description:
-      "Fechamento externo termoacústico para campus universitário, otimizando o conforto térmico das salas de aula e reduzindo consumo elétrico de climatização.",
-    scope: "Painéis arquitetônicos termoisolantes com acabamento de alta durabilidade.",
-  },
-  {
-    id: "shopping-center",
-    title: "Shopping Center & Grandes Varejistas",
-    category: "logistica",
-    categoryLabel: "Varejo & Shoppings",
-    image: "/images/obras/obra-shopping-center-fechamento.jpg",
+    id: "acougue-vitrines",
+    title: "Casa de Carnes & Boutique de Cortes Nobres",
+    category: "acougues",
+    categoryLabel: "Casas de Carnes",
+    image: "/images/obras/obra-acougue-vitrines.jpg",
     location: "Belo Horizonte / MG",
     description:
-      "Câmaras frias para praça de alimentação e entrepostos de hipermercados com atendimento a rigorosas normas de vigilância sanitária.",
-    scope: "Câmaras modulares de lixo refrigerado, estoques e salas de desossa.",
+      "Balcões frigoríficos contínuos em aço inox AISI 304 com iluminação LED especializada para carnes vermelhas e câmara de desossa acoplada.",
+    scope: "Vitrines de atendimento em curva, câmara fria de carcaças e bancadas inox.",
+  },
+  {
+    id: "padaria-balcoes",
+    title: "Rede de Padarias & Confeitarias Gourmet",
+    category: "padarias",
+    categoryLabel: "Padarias & Empórios",
+    image: "/images/obras/obra-padaria-balcoes.jpg",
+    location: "Região Metropolitana / MG",
+    description:
+      "Vitrines refrigeradas panorâmicas para sobremesas, tortas geladas e frios com vidros retos térmicos e refrigeração estática suave.",
+    scope: "Balcões térmicos e refrigerados alinhados com acabamento em marcenaria e inox.",
+  },
+  {
+    id: "distribuidora-camara",
+    title: "Centro de Distribuição & Armazenagem Frigorificada",
+    category: "distribuidoras",
+    categoryLabel: "Centros de Distribuição",
+    image: "/images/obras/obra-distribuidora-camara-fria.jpg",
+    location: "Vetor Norte / MG",
+    description:
+      "Câmara frigorífica de grande porte com controle de temperatura de precisão para estocagem paletizada de produtos lácteos e carnes resfriadas.",
+    scope: "Isolamento térmico em PUR, portas de correr industriais e unidades condensadoras.",
+  },
+  {
+    id: "conveniencia-walkin",
+    title: "Loja de Conveniência & Beer Cave Gelada",
+    category: "supermercados",
+    categoryLabel: "Conveniências & Beer Cave",
+    image: "/images/obras/obra-conveniencia-walk-in.jpg",
+    location: "Minas Gerais",
+    description:
+      "Expositor frontal de vidro térmico com câmara walk-in de abastecimento traseiro (gravitacional) para cervejas em temperatura negativa estalando.",
+    scope: "Portas de vidro expositoras com abastecimento por trás e prateleiras inclinadas.",
+  },
+  {
+    id: "cozinha-industrial",
+    title: "Cozinha Industrial & Restaurante de Alta Demanda",
+    category: "distribuidoras",
+    categoryLabel: "Cozinhas Industriais",
+    image: "/images/obras/obra-cozinha-industrial.jpg",
+    location: "Belo Horizonte / MG",
+    description:
+      "Refrigeradores industriais verticais em aço inox escovado, bancadas de preparo refrigeradas e antecâmara para carnes e hortifrúti.",
+    scope: "Refrigeradores 4 e 6 portas, balcões refrigerados de apoio e câmara de congelamento.",
   },
 ];
 
 // ==========================================
-// GOOGLE REVIEWS REAIS FORNECIDOS
+// GOOGLE REVIEWS REAIS FORNECIDOS (4,4★)
 // ==========================================
 interface ReviewItem {
   author: string;
@@ -463,74 +451,74 @@ interface ReviewItem {
 
 const REVIEWS_DATA: ReviewItem[] = [
   {
-    author: "Jeronimo Campos",
-    badge: "Local Guide · 18 avaliações · 14 fotos",
-    text: "Fui bem atendido pela vendedora Andreia. O carregamento e liberação do material foi muito rápida.",
+    author: "Rayane Meira Leles",
+    badge: "Local Guide · 94 avaliações · 153 fotos",
+    text: "Melhor empresa de equipamento de refrigeração. Friomax, a diferença está na qualidade.",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "Cliente Verificado",
   },
   {
-    author: "Eudes Geraldo",
-    badge: "Local Guide · 40 avaliações · 13 fotos",
-    text: "Super gente fina o Celio Jardins e sua esposa Alaíde! Atendimento humano, direto com os donos e produto de extrema qualidade.",
+    author: "Ana Castro",
+    badge: "18 avaliações no Google",
+    text: "Equipamentos de alta qualidade. Ótimo atendimento. Mercadorias entregue no prazo solicitado.",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "Cliente Verificado",
   },
   {
-    author: "Ricardo Carlos Simão",
-    badge: "9 avaliações",
-    text: "Sensacional o atendimento e a qualidade do serviço. Os isopainéis e as portas vieram sob medida exata para minha câmara frigorífica.",
-    rating: 5,
-    timeAgo: "Avaliação Verificada",
-  },
-  {
-    author: "Cassio Carvalho",
-    badge: "Local Guide · 232 avaliações · 37 fotos",
-    text: "Atendimento excelente! Empresa séria, estrutura fabril de respeito e materiais de primeira linha para refrigeração.",
-    rating: 5,
-    timeAgo: "Avaliação Verificada",
-  },
-  {
-    author: "Fernando Hugo",
-    badge: "Local Guide · 276 avaliações · 2.676 fotos",
-    text: "Excelente estrutura, ótimos produtos. Fácil acesso no Distrito Industrial de Ribeirão das Neves para carregar carretas.",
-    rating: 5,
-    timeAgo: "Avaliação Verificada",
-  },
-  {
-    author: "Deivison Ferreira",
+    author: "Bruno Fabiio",
     badge: "Local Guide · 16 avaliações",
-    text: "Qualidade sem igual nos isopainéis e no acabamento das portas. Vale cada centavo pela durabilidade e isolamento térmico.",
+    text: "Melhor freezers de Vespasiano. Equipamentos robustos que duram muitos anos sem dar problema.",
+    rating: 5,
+    timeAgo: "Cliente Verificado",
+  },
+  {
+    author: "Bruna Araujo",
+    badge: "2 avaliações · 9 fotos",
+    text: "Excelentes equipamentos! Recomendo. Muito bom atendimento da equipe técnica e comercial.",
+    rating: 5,
+    timeAgo: "Cliente Verificado",
+  },
+  {
+    author: "Antônio Jose (Zezé)",
+    badge: "Local Guide · 15 avaliações · 21 fotos",
+    text: "Fiz uma coleta lá e fui muito bem recebido a equipe está de parabéns! Estrutura impecável.",
     rating: 5,
     timeAgo: "Avaliação Verificada",
   },
   {
-    author: "Sebastião Dutra",
-    badge: "10 avaliações",
-    text: "Excelente e também receptividade nota mil. Pessoal capacitado que entende de refrigeração industrial e cálculo térmico.",
+    author: "Frederick Afonso",
+    badge: "4 avaliações no Google",
+    text: "Melhores Equipamentos para refrigeração. Já compramos para nossos estabelecimentos e o frio é constante.",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "Cliente Verificado",
   },
   {
-    author: "GUI Hellison",
-    badge: "6 avaliações",
-    text: "Uma boa empresa. Cumprem rigorosamente os prazos de fabricação e fornecem materiais com acabamento impecável.",
+    author: "Sergio Araujo",
+    badge: "Local Guide · 189 avaliações · 4 fotos",
+    text: "Atendimento muito adequado em serviços de refrigeração. Pessoal técnico experiente e solícito.",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "Cliente Verificado",
   },
   {
-    author: "Alexandre Xande",
-    badge: "3 avaliações",
-    text: "Muito obrigado pelo carinho e atenção de toda a equipe Isominas! Parceria de anos nas nossas montagens.",
+    author: "Flávio Marcus",
+    badge: "Local Guide · 31 avaliações · 3 fotos",
+    text: "Conhecendo os produtos e a qualidade na fabricação. Empresa séria com décadas de tradição.",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "Cliente Verificado",
   },
   {
-    author: "Matheus Bernardes",
-    badge: "4 avaliações",
-    text: "Muito bom! Excelente atendimento comercial e suporte técnico para definir as espessuras corretas do projeto.",
+    author: "Lourenço Ferreira",
+    badge: "2 avaliações no Google",
+    text: "Empresa de Refrigeração comercial com compromisso no pós-venda e peças originais.",
     rating: 5,
-    timeAgo: "Avaliação Verificada",
+    timeAgo: "Cliente Verificado",
+  },
+  {
+    author: "Ayslan Leles",
+    badge: "Local Guide · 71 avaliações · 28 fotos",
+    text: "Equipamentos de qualidade. Vale cada centavo investido para o comércio.",
+    rating: 5,
+    timeAgo: "Cliente Verificado",
   },
 ];
 
@@ -539,34 +527,34 @@ const REVIEWS_DATA: ReviewItem[] = [
 // ==========================================
 const FAQS = [
   {
-    question: "Qual a diferença entre o Isopainel de EPS e o Isopainel de PUR?",
+    question: "A Friomax fabrica equipamentos sob medida para meu comércio?",
     answer:
-      "O EPS (Poliestireno Expandido) é a solução mais econômica e amplamente utilizada para câmaras de resfriados (+0°C a +10°C) e fechamentos de galpões, com núcleo retardante de chamas Classe F-1. Já o PUR (Poliuretano Injetado) possui densidade superior (~40 kg/m³) e menor condutibilidade térmica (0,018 Kcal/h.m.°C), sendo ideal para túneis de congelamento rápido e câmaras de ultracongelados (-20°C a -40°C), permitindo espessuras menores com o mesmo poder isolante.",
+      "Sim! Fabricamos balcões expositores, vitrines em aço inox e câmaras frigoríficas nas dimensões exatas da sua loja, restaurante ou supermercado. Nossa equipe de engenharia térmica projeta cada detalhe para aproveitar ao máximo a sua planta e fluxo de clientes.",
   },
   {
-    question: "Como calcular a espessura necessária para minha câmara frigorífica?",
+    question: "Como os freezers e balcões da Friomax economizam energia elétrica?",
     answer:
-      "A espessura depende da temperatura interna desejada e da temperatura ambiente externa: para salas climatizadas (+10°C a +18°C), utiliza-se 50mm a 75mm; para câmaras de resfriados (0°C a +5°C), recomenda-se 100mm; para câmaras de congelados (-15°C a -25°C), recomenda-se 150mm a 200mm com isolamento de piso em placas de EPS. Nossa equipe técnica auxilia gratuitamente no dimensionamento térmico do seu projeto.",
+      "Nossos equipamentos contam com injeção sob alta pressão de poliuretano expandido (PUR) ecológico de altíssima densidade, vidros duplos térmicos com gás argônio e compressores modernos de alto rendimento. Isso reduz o ciclo de acionamento do motor em até 35%, diminuindo diretamente a conta de luz.",
   },
   {
-    question: "As portas frigoríficas acompanham os batentes e ferragens?",
+    question: "A Friomax entrega em Belo Horizonte, região metropolitana e outros estados?",
     answer:
-      "Sim! As portas frigoríficas ISOMINAS são entregues completas, prontas para instalação: incluem marco/batente com núcleo isolante, gaxetas elastoméricas de vedação perimétrica, dobradiças e fechadura industrial de ferro fundido padrão FERMOD, sistema de destravamento interno de segurança e, no caso de portas para congelados, resistência elétrica de silicone instalada de fábrica no marco.",
+      "Sim. Nossa fábrica está localizada na R. São Paulo, 1500 - Nova Pampulha, em Vespasiano - MG, com fácil acesso pelo Vetor Norte e BR-040. Entregamos e despachamos com frotas seguras para toda a Região Metropolitana de BH, interior de Minas Gerais e para todo o território nacional.",
   },
   {
-    question: "A ISOMINAS entrega fora de Minas Gerais?",
+    question: "Os equipamentos contam com garantia de fábrica e assistência técnica?",
     answer:
-      "Sim. Atendemos e despachamos materiais para todo o Brasil. Nossa fábrica no Distrito Industrial João de Almeida (Ribeirão das Neves / BH) possui pátio pavimentado de 10.000 m² preparado para carregamento rápido de frotas próprias de clientes, caminhões truck, carretas e transportadoras parceiras.",
+      "Com certeza. Como somos fábrica com mais de 30 anos no mercado (desde 1991), oferecemos garantia total de fabricação, assistência técnica especializada e estoque contínuo de peças de reposição originais, garantindo tranquilidade para o seu negócio não parar nunca.",
   },
   {
-    question: "Os isopainéis atendem às exigências sanitárias do Ministério da Agricultura (S.I.F.) e ANVISA?",
+    question: "Quais são as opções de pagamento para equipar meu estabelecimento?",
     answer:
-      "Totalmente. Nossos isopainéis e portas contam com revestimento em chapa de aço galvanizada pré-pintada na cor branca brilhante lavável, totalmente lisa e impermeável, com juntas macho-fêmea estanques que impedem acúmulo de sujidades e proliferação de bactérias, atendendo 100% às normas do S.I.F. e vigilância sanitária.",
+      "Trabalhamos com condições facilitadas para pessoa jurídica e produtores: parcelamento no cartão de crédito, faturamento via boleto para CNPJ sob análise cadastral, condições especiais para compra de lote completo e opções de financiamento para modernização comercial.",
   },
   {
-    question: "Como funciona a garantia e durabilidade das telhas térmicas EPS (sanduíche)?",
+    question: "Qual o prazo médio de fabricação e entrega dos equipamentos?",
     answer:
-      "Nossas telhas térmicas são fabricadas com aço Galvalume de alta resistência à corrosão atmosférica e núcleo em EPS Classe F-1. Proporcionam vida útil superior a 25 anos com redução de até 70% na carga térmica solar incidente e até 40dB no ruído gerado por chuvas e ventos, sem risco de condensação interna.",
+      "Possuímos diversos modelos de freezers verticais, horizontais e refrigeradores padrão à pronta-entrega em nossa expedição. Para projetos sob medida ou câmaras frigoríficas personalizadas, o prazo é combinado no orçamento, com cumprimento rigoroso do cronograma de entrega elogiado por nossos clientes.",
   },
 ];
 
@@ -575,10 +563,10 @@ export default function HomePage() {
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [activeProductTab, setActiveProductTab] = useState<
-    "todos" | "isopaineis" | "portas" | "telhas" | "placas"
+    "todos" | "freezers" | "vitrines" | "industriais" | "camaras"
   >("todos");
   const [activeObraFilter, setActiveObraFilter] = useState<
-    "todos" | "camaras" | "frigorificos" | "logistica" | "industria"
+    "todos" | "supermercados" | "acougues" | "padarias" | "distribuidoras"
   >("todos");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
@@ -590,65 +578,91 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, []);
 
-  // Estados do Simulador de Câmaras & Isopainéis
-  const [simProject, setSimProject] = useState<"resfriados" | "congelados" | "galpao" | "salalimpa">("resfriados");
-  const [simLength, setSimLength] = useState<number>(4);
-  const [simWidth, setSimWidth] = useState<number>(3);
-  const [simHeight, setSimHeight] = useState<number>(2.8);
-  const [simDoor, setSimDoor] = useState<"giratoria" | "correr" | "automatica" | "nenhuma">("giratoria");
-  const [simCore, setSimCore] = useState<"eps" | "pur">("eps");
+  // Estados do Simulador de Refrigeração Comercial
+  const [simBusinessType, setSimBusinessType] = useState<
+    "supermercado" | "acougue" | "padaria" | "restaurante" | "distribuidora" | "conveniencia"
+  >("supermercado");
+  const [simProductCategory, setSimProductCategory] = useState<
+    "freezer" | "balcao" | "camara" | "inox"
+  >("freezer");
+  const [simTempRange, setSimTempRange] = useState<"congelados" | "resfriados" | "ambos">("congelados");
+  const [simStoreSize, setSimStoreSize] = useState<"pequeno" | "medio" | "grande">("medio");
 
-  // Cálculos do Simulador
+  // Resultados calculados do Simulador
   const simResults = useMemo(() => {
-    const areaFloor = simLength * simWidth;
-    const perimeter = 2 * (simLength + simWidth);
-    const areaWalls = perimeter * simHeight;
-    const areaCeiling = areaFloor;
-    const totalPanelArea = Math.round(areaWalls + areaCeiling);
-    const internalVolume = (simLength * simWidth * simHeight).toFixed(1);
+    let recommendation = "Linha de Freezers Expositores Verticais Frost-Free";
+    let estimatedUnits = "2 a 4 módulos";
+    let compressorPower = "1/2 HP a 1 HP de alto rendimento";
+    let idealTemp = "-18°C a -22°C";
 
-    let recommendedThickness = "100mm";
-    if (simProject === "resfriados") recommendedThickness = simCore === "pur" ? "75mm" : "100mm";
-    if (simProject === "congelados") recommendedThickness = simCore === "pur" ? "120mm" : "150mm a 200mm";
-    if (simProject === "galpao") recommendedThickness = "50mm a 75mm";
-    if (simProject === "salalimpa") recommendedThickness = "50mm a 100mm";
+    if (simProductCategory === "freezer") {
+      recommendation =
+        simStoreSize === "grande"
+          ? "Bateria de Ilhas Panorâmicas + Freezers Verticais de 2 Portas"
+          : "Freezers Verticais com Vidro Duplo Aquecido Antiembaçante";
+      estimatedUnits = simStoreSize === "pequeno" ? "1 a 2 unidades" : simStoreSize === "medio" ? "3 a 5 unidades" : "6 a 12 unidades";
+      idealTemp = simTempRange === "congelados" ? "-18°C a -22°C" : "0°C a +4°C";
+      compressorPower = "Compressores ecológicos de baixo ruído e consumo";
+    } else if (simProductCategory === "balcao") {
+      recommendation = "Balcão Vitrine em Aço Inox com Iluminação LED & Placa Fria";
+      estimatedUnits = simStoreSize === "pequeno" ? "1 balcão (1,8m)" : simStoreSize === "medio" ? "2 a 3 balcões modulados (3m a 5m)" : "Linha contínua sob medida";
+      idealTemp = "+1°C a +6°C";
+      compressorPower = "Serpentina aletada com degelo automático e termostato digital";
+    } else if (simProductCategory === "camara") {
+      recommendation = "Câmara Frigorífica Modular em Painéis PUR com Porta Fermod Pesada";
+      estimatedUnits = simStoreSize === "pequeno" ? "Câmara compacta 2x2m (10 m³)" : simStoreSize === "medio" ? "Câmara comercial 3x4m (30 m³)" : "Câmara industrial > 60 m³";
+      idealTemp = simTempRange === "congelados" ? "-18°C a -25°C" : "0°C a +4°C";
+      compressorPower = "Unidade condensadora carenada de alta durabilidade";
+    } else if (simProductCategory === "inox") {
+      recommendation = "Refrigeradores Industriais em Aço Inox AISI 304/430 (2, 4 ou 6 Portas)";
+      estimatedUnits = simStoreSize === "pequeno" ? "1 refrigerador 2 portas" : simStoreSize === "medio" ? "1 a 2 refrigeradores 4 portas" : "3+ refrigeradores 6 portas";
+      idealTemp = "0°C a +4°C (ou -15°C)";
+      compressorPower = "Motor hermético com alta recuperação térmica";
+    }
 
     return {
-      totalPanelArea,
-      areaFloor: Math.round(areaFloor),
-      internalVolume,
-      recommendedThickness,
+      recommendation,
+      estimatedUnits,
+      compressorPower,
+      idealTemp,
     };
-  }, [simLength, simWidth, simHeight, simProject, simCore]);
+  }, [simBusinessType, simProductCategory, simTempRange, simStoreSize]);
 
   // Mensagem customizada para o WhatsApp do Simulador
   const simWhatsAppUrl = useMemo(() => {
-    const projectLabels = {
-      resfriados: "Câmara de Resfriados (0°C a +5°C)",
-      congelados: "Câmara de Congelados (-18°C a -25°C)",
-      galpao: "Fechamento de Galpão / Telhas",
-      salalimpa: "Sala Limpa / Climatizada",
+    const businessLabels = {
+      supermercado: "Supermercado / Mercearia",
+      acougue: "Açougue / Casa de Carnes",
+      padaria: "Padaria / Confeitaria",
+      restaurante: "Restaurante / Cozinha Industrial",
+      distribuidora: "Distribuidora / Atacado",
+      conveniencia: "Conveniência / Posto de Combustível",
     };
-    const doorLabels = {
-      giratoria: "Porta Frigorífica Giratória",
-      correr: "Porta Frigorífica de Correr",
-      automatica: "Porta Automática de Fluxo Rápido",
-      nenhuma: "Sem Porta (Apenas Painéis)",
+    const categoryLabels = {
+      freezer: "Freezers Comerciais & Expositores",
+      balcao: "Balcões & Vitrines Refrigeradas",
+      camara: "Câmara Frigorífica Modular",
+      inox: "Geladeiras e Balcões Industriais Inox",
     };
-    const msg = `Olá, equipe técnica da ISOMINAS!
-Gostaria de um orçamento para o seguinte projeto simulado no site:
+    const sizeLabels = {
+      pequeno: "Pequeno porte (Loja compacta)",
+      medio: "Médio porte (Comércio padrão)",
+      grande: "Grande porte (Alta circulação / Rede)",
+    };
 
-- Tipo: ${projectLabels[simProject]}
-- Dimensões: ${simLength}m comp. x ${simWidth}m larg. x ${simHeight}m alt.
-- Área Estimada de Painéis: ~${simResults.totalPanelArea} m²
-- Volume Útil: ~${simResults.internalVolume} m³
-- Núcleo Desejado: ${simCore.toUpperCase()} (Espessura recomendada: ${simResults.recommendedThickness})
-- Porta: ${doorLabels[simDoor]}
+    const msg = `Olá, equipe técnica da Friomax Refrigeração!
+Fiz uma simulação no site para equipar meu estabelecimento e gostaria de um orçamento direto da fábrica:
 
-Poderiam calcular o melhor valor direto da fábrica para mim?`;
+- Tipo de Negócio: ${businessLabels[simBusinessType]}
+- Solução Desejada: ${categoryLabels[simProductCategory]}
+- Faixa de Temperatura: ${simResults.idealTemp}
+- Porte Estimado: ${sizeLabels[simStoreSize]}
+- Recomendação do Simulador: ${simResults.recommendation} (~${simResults.estimatedUnits})
+
+Poderiam calcular o melhor valor e condições de fábrica para mim?`;
 
     return getWhatsAppUrl(msg);
-  }, [simProject, simLength, simWidth, simHeight, simDoor, simCore, simResults]);
+  }, [simBusinessType, simProductCategory, simStoreSize, simResults]);
 
   // Filtro de produtos
   const filteredProducts = useMemo(() => {
@@ -663,33 +677,33 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
   }, [activeObraFilter]);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0A1C38] flex flex-col font-sans selection:bg-[#0088E0] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#07152B] flex flex-col font-sans selection:bg-[#0047FF] selection:text-white">
       {/* ============================================================== */}
       {/* 1. TOP ANNOUNCEMENT BAR — INDÚSTRIA & ATENDIMENTO DIRETO       */}
       {/* ============================================================== */}
-      <div className="bg-[#051329] text-white border-b border-sky-900/40 text-xs py-2 px-4 sticky top-0 z-50 shadow-md">
+      <div className="bg-[#07152B] text-white border-b border-blue-950/60 text-xs py-2 px-4 sticky top-0 z-50 shadow-md">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#0088E0] text-white font-bold text-[11px] tracking-wide uppercase shadow-xs">
-              <Factory className="w-3 h-3" />
-              Fábrica Própria com 10.000m²
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-gradient-to-r from-[#0047FF] to-[#012B8E] text-white font-bold text-[11px] tracking-wide uppercase shadow-xs">
+              <Factory className="w-3 h-3 text-cyan-300" />
+              Fábrica Própria desde 1991
             </span>
-            <span className="hidden sm:inline text-sky-200/80">
-              Distrito Industrial de Ribeirão das Neves / BH · Atendimento Brasil
+            <span className="hidden sm:inline text-blue-200/80">
+              Vespasiano - MG (R. São Paulo, 1500) · 30+ Anos de Excelência em Refrigeração
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-xs">
             <a
               href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
-              className="flex items-center gap-1.5 text-slate-200 hover:text-sky-300 transition-colors font-medium"
+              className="flex items-center gap-1.5 text-slate-200 hover:text-blue-300 transition-colors font-medium"
             >
-              <Phone className="w-3.5 h-3.5 text-[#00A3FF]" />
+              <Phone className="w-3.5 h-3.5 text-[#38BDF8]" />
               <span className="font-semibold">{PHONE_DISPLAY}</span>
             </a>
 
             <a
-              href={getWhatsAppUrl("Olá! Gostaria de falar com o time comercial da ISOMINAS.")}
+              href={getWhatsAppUrl("Olá! Gostaria de falar com o time comercial da Friomax Refrigeração.")}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-[#4ADE80] hover:text-green-300 transition-colors font-bold"
@@ -705,7 +719,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
               className="hidden md:flex items-center gap-1 text-amber-300 hover:text-amber-200 font-semibold"
             >
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>4,7★ ({GOOGLE_REVIEW_COUNT} Google Reviews)</span>
+              <span>{GOOGLE_RATING}★ ({GOOGLE_REVIEW_COUNT} Google Reviews)</span>
             </a>
           </div>
         </div>
@@ -715,50 +729,72 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       {/* 2. HEADER PRINCIPAL & NAVEGAÇÃO                                */}
       {/* ============================================================== */}
       <header className="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-[37px] z-40 transition-all shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
-          {/* Logo da Marca Oficial Isominas */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative h-11 w-44 sm:h-13 sm:w-52 transition-transform duration-200 group-hover:scale-[1.02]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
+          {/* Logo da Marca Oficial Friomax Completo (Mascote, Estrelas e Emblema) */}
+          <a href="#" className="flex items-center gap-3 group py-1">
+            <div className="relative h-14 w-14 sm:h-16 sm:w-16 md:h-18 md:w-18 shrink-0 transition-transform duration-200 group-hover:scale-105 drop-shadow-sm">
               <Image
-                src={LOGO_TRANSPARENT_SRC}
+                src={LOGO_SRC}
                 alt={COMPANY_NAME}
                 fill
                 priority
-                className="object-contain object-left"
+                className="object-contain"
               />
+            </div>
+            <div className="flex flex-col justify-center">
+              <div className="flex items-center gap-2">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-[#07152B] leading-none group-hover:text-[#0047FF] transition-colors">
+                  FRIOMAX
+                </span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-100 text-[#0047FF] font-extrabold uppercase tracking-wider hidden sm:inline-block">
+                  Desde 1991
+                </span>
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#0047FF] uppercase mt-0.5">
+                Refrigeração Comercial
+              </span>
+              <span className="text-[9px] text-amber-600 font-bold tracking-tight hidden md:block italic">
+                A diferença está na qualidade
+              </span>
             </div>
           </a>
 
           {/* Links Desktop */}
           <nav className="hidden lg:flex items-center gap-6 text-[14px] font-semibold text-slate-700">
-            <a href="#produtos" className="hover:text-[#0088E0] transition-colors">
-              Produtos & Linhas
+            <a href="#produtos" className="hover:text-[#0047FF] transition-colors">
+              Equipamentos & Linhas
             </a>
-            <a href="#simulador" className="hover:text-[#0088E0] transition-colors flex items-center gap-1 text-[#0088E0] font-bold">
-              <Calculator className="w-4 h-4 text-[#0088E0]" />
+            <a
+              href="#simulador"
+              className="hover:text-[#0047FF] transition-colors flex items-center gap-1 text-[#0047FF] font-bold"
+            >
+              <Calculator className="w-4 h-4 text-[#0047FF]" />
               Simulador
             </a>
-            <a href="#obras" className="hover:text-[#0088E0] transition-colors">
-              Obras Realizadas
+            <a href="#obras" className="hover:text-[#0047FF] transition-colors">
+              Instalações Comerciais
             </a>
-            <a href="#fabrica" className="hover:text-[#0088E0] transition-colors">
-              Nossa Fábrica
+            <a href="#fabrica" className="hover:text-[#0047FF] transition-colors">
+              Fábrica (30+ Anos)
             </a>
-            <a href="#avaliacoes" className="hover:text-[#0088E0] transition-colors">
-              Depoimentos (4,7★)
+            <a href="#avaliacoes" className="hover:text-[#0047FF] transition-colors flex items-center gap-1">
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              Avaliações ({GOOGLE_RATING}★)
             </a>
-            <a href="#faq" className="hover:text-[#0088E0] transition-colors">
+            <a href="#faq" className="hover:text-[#0047FF] transition-colors">
               Dúvidas
             </a>
-            <a href="#contato" className="hover:text-[#0088E0] transition-colors">
-              Contato
+            <a href="#contato" className="hover:text-[#0047FF] transition-colors">
+              Contato & Sede
             </a>
           </nav>
 
           {/* CTA Header Desktop */}
           <div className="hidden sm:flex items-center gap-3">
             <GlowingButton
-              href={getWhatsAppUrl("Olá! Gostaria de uma cotação rápida direto da fábrica da ISOMINAS.")}
+              href={getWhatsAppUrl(
+                "Olá! Gostaria de solicitar um orçamento de equipamentos de refrigeração direto da fábrica Friomax."
+              )}
               target="_blank"
               variant="whatsapp"
               size="sm"
@@ -772,7 +808,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-700 hover:text-[#0088E0] hover:bg-slate-100 rounded-lg focus:outline-hidden"
+            className="lg:hidden p-2 text-slate-700 hover:text-[#0047FF] hover:bg-slate-100 rounded-lg focus:outline-hidden"
             aria-label="Abrir Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -791,49 +827,49 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
               <a
                 href="#produtos"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0088E0]"
+                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
               >
-                Isopainéis & Portas Frigoríficas
+                Freezers, Balcões & Câmaras
               </a>
               <a
                 href="#simulador"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-bold text-[#0088E0]"
+                className="block py-2 text-base font-bold text-[#0047FF]"
               >
-                Simulador de Câmaras & Medidas
+                Simulador de Equipamentos
               </a>
               <a
                 href="#obras"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0088E0]"
+                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
               >
-                Obras & Projetos Executados
+                Instalações & Clientes
               </a>
               <a
                 href="#fabrica"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0088E0]"
+                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
               >
-                Estrutura Fabril (10.000 m²)
+                Nossa Fábrica em Vespasiano
               </a>
               <a
                 href="#avaliacoes"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0088E0]"
+                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
               >
-                Depoimentos do Google (4,7★)
+                Depoimentos do Google (4,4★)
               </a>
               <a
                 href="#contato"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0088E0]"
+                className="block py-2 text-base font-semibold text-slate-800 hover:text-[#0047FF]"
               >
                 Endereço & Telefones da Fábrica
               </a>
 
               <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de um orçamento via WhatsApp.")}
+                  href={getWhatsAppUrl("Olá! Gostaria de um orçamento via WhatsApp com a Friomax.")}
                   target="_blank"
                   variant="whatsapp"
                   size="md"
@@ -848,7 +884,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   size="md"
                   className="w-full"
                 >
-                  <Phone className="w-4 h-4 text-[#0088E0]" />
+                  <Phone className="w-4 h-4 text-[#0047FF]" />
                   <span>Ligar para a Fábrica: {PHONE_DISPLAY}</span>
                 </GlowingButton>
               </div>
@@ -860,65 +896,89 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       {/* ============================================================== */}
       {/* 3. HERO SECTION — AUTORIDADE INDUSTRIAL & CONVERSÃO MÁXIMA     */}
       {/* ============================================================== */}
-      <section className="relative bg-gradient-to-br from-[#051329] via-[#0A1C38] to-[#041021] text-white pt-12 pb-20 overflow-hidden border-b border-sky-950">
-        {/* Elementos Visuais Glaciais de Fundo */}
-        <div className="absolute inset-0 pointer-events-none opacity-20">
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#0088E0] rounded-full blur-[120px]" />
-          <div className="absolute top-1/2 -right-32 w-96 h-96 bg-[#00A3FF] rounded-full blur-[130px]" />
+      <section className="relative bg-gradient-to-br from-[#07152B] via-[#0B1E3F] to-[#030A17] text-white pt-12 pb-20 overflow-hidden border-b border-blue-950">
+        {/* Efeitos de Iluminação Fria de Fundo */}
+        <div className="absolute inset-0 pointer-events-none opacity-25">
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#0047FF] rounded-full blur-[140px]" />
+          <div className="absolute top-1/2 -right-32 w-96 h-96 bg-[#38BDF8] rounded-full blur-[140px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Coluna de Texto Hero */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Badge de Destaque */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-900/60 border border-sky-400/30 text-sky-200 text-xs sm:text-sm font-semibold backdrop-blur-xs">
-                <span className="flex h-2 w-2 rounded-full bg-[#00A3FF] animate-ping" />
-                <Snowflake className="w-3.5 h-3.5 text-[#00A3FF]" />
-                <span>Indústria Líder em Isolamento Térmico & Refrigeração em MG</span>
+              {/* Badge de Destaque com 5 Estrelas */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-900/60 border border-blue-400/30 text-blue-100 text-xs sm:text-sm font-semibold backdrop-blur-xs">
+                <span className="flex h-2 w-2 rounded-full bg-[#38BDF8] animate-ping" />
+                <div className="flex items-center gap-0.5 text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <span>Fábrica de Refrigeração Comercial desde 1991 · Vespasiano - MG</span>
               </div>
 
-              {/* H1 Principal */}
+              {/* H1 Principal Solicitado */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
-                Isopainéis Térmicos,{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A3FF] via-[#38BDF8] to-white">
-                  Portas Frigoríficas
+                Fabricante Especialista em{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-white">
+                  Equipamentos de Refrigeração
                 </span>{" "}
-                e Telhas Sanduíche Direto da Fábrica
+                Comercial e Industrial
               </h1>
 
-              {/* Proposta de Valor / Subtítulo */}
+              {/* Subtítulo / Proposta de Valor */}
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-                Mais de 15 anos de tradição industrial. Parque fabril com 10.000 m² no Distrito Industrial de Ribeirão das Neves / BH. Fabricamos isopainéis em EPS Classe F-1 e PUR injetado, telhas termoacústicas e portas pesadas com resistência e máxima eficiência energética.
+                Mais de 30 anos de tradição, engenharia térmica de alta performance e durabilidade inigualável direto da fábrica em Vespasiano - MG. Freezers expositores, vitrines em aço inox, balcões refrigerados e câmaras frias projetadas para valorizar o seu ponto de venda e reduzir o consumo de energia.
               </p>
 
+              {/* Slogan Histórico em Destaque */}
+              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs flex items-center gap-3">
+                <div className="relative w-12 h-12 shrink-0">
+                  <Image
+                    src={MASCOT_SRC}
+                    alt="Mascote Friomax"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-extrabold text-amber-300 italic">
+                    &ldquo;Friomax, a diferença está na qualidade!&rdquo;
+                  </div>
+                  <div className="text-xs text-slate-300">
+                    Compromisso sério com eficiência térmica, robustez e assistência garantida.
+                  </div>
+                </div>
+              </div>
+
               {/* Pilares Rápidos de Confiança */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
                 <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-xs">
                   <ShieldCheck className="w-5 h-5 text-[#38BDF8] shrink-0" />
                   <span className="text-xs sm:text-sm font-semibold text-slate-200">
-                    Norma ABNT NBR 11949
+                    Aço Inox & PUR Ecológico
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-xs">
-                  <Flame className="w-5 h-5 text-amber-400 shrink-0" />
+                  <Zap className="w-5 h-5 text-amber-400 shrink-0" />
                   <span className="text-xs sm:text-sm font-semibold text-slate-200">
-                    EPS F-1 Autoextinguível
+                    Alta Eficiência Energética
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-xs col-span-2 sm:col-span-1">
                   <Star className="w-5 h-5 fill-amber-400 text-amber-400 shrink-0" />
                   <span className="text-xs sm:text-sm font-semibold text-slate-200">
-                    4,7★ Google (33 Avaliações)
+                    4,4★ Google (41 Avaliações)
                   </span>
                 </div>
               </div>
 
               {/* Botões de Ação Hero */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
                 <GlowingButton
                   href={getWhatsAppUrl(
-                    "Olá! Gostaria de consultar preços de isopainéis e solicitar um orçamento técnico com a vendedora Andreia da ISOMINAS."
+                    "Olá! Gostaria de consultar preços de equipamentos de refrigeração comercial e falar com o time de vendas da Friomax."
                   )}
                   target="_blank"
                   variant="whatsapp"
@@ -926,58 +986,61 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   className="shadow-lg shadow-green-950/40 text-base"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>Falar com Vendedor no WhatsApp</span>
+                  <span>Falar com Especialista no WhatsApp</span>
                 </GlowingButton>
 
                 <GlowingButton
                   href="#simulador"
-                  variant="cyan"
+                  variant="gold"
                   size="lg"
-                  className="text-base"
+                  className="text-base font-extrabold"
                 >
                   <Calculator className="w-5 h-5" />
-                  <span>Simular Medidas & Projeto</span>
+                  <span>Simulador de Equipamento</span>
                 </GlowingButton>
               </div>
 
               {/* Atendimento e Carregamento Rápido */}
               <div className="flex items-center gap-4 text-xs text-slate-400 pt-1">
                 <span className="flex items-center gap-1">
-                  <Truck className="w-4 h-4 text-[#00A3FF]" />
-                  Carregamento imediato no Distrito Industrial
+                  <Truck className="w-4 h-4 text-[#38BDF8]" />
+                  Despacho e entrega para todo o Brasil
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4 text-[#00A3FF]" />
-                  Segunda a Sexta: 08:00 às 17:30
+                  <Clock className="w-4 h-4 text-[#38BDF8]" />
+                  Segunda a Sexta: 07:30 às 17:30
                 </span>
               </div>
             </div>
 
             {/* Coluna Visual do Hero — Vitrine de Destaques Sem Cortes */}
             <div className="lg:col-span-5 relative space-y-4">
-              <div className="rounded-2xl overflow-hidden border border-sky-400/30 bg-[#0A1C38] shadow-2xl shadow-sky-950/70 flex flex-col">
+              <div className="rounded-2xl overflow-hidden border border-blue-400/30 bg-[#0B1E3F] shadow-2xl shadow-blue-950/70 flex flex-col">
                 {/* Barra de Status Superior */}
-                <div className="px-4 py-2.5 bg-[#051329] border-b border-sky-900/60 flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#0088E0] text-white font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
-                    <Factory className="w-3 h-3" />
-                    Destaques da Fábrica
+                <div className="px-4 py-2.5 bg-[#07152B] border-b border-blue-900/60 flex items-center justify-between">
+                  <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#0047FF] to-[#012B8E] text-white font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 shadow-xs">
+                    <Factory className="w-3 h-3 text-cyan-300" />
+                    Fabricação Própria Friomax
                   </span>
-                  <span className="text-xs text-sky-300 font-semibold flex items-center gap-1">
+                  <span className="text-xs text-amber-300 font-bold flex items-center gap-1">
                     <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    4,7★ ({GOOGLE_REVIEW_COUNT} Reviews)
+                    {GOOGLE_RATING}★ ({GOOGLE_REVIEW_COUNT} Reviews)
                   </span>
                 </div>
 
-                {/* Imagem do Hero 100% visível sem NENHUM corte — Aspect ratio natural 940/370 */}
-                <div className="relative w-full aspect-[940/370] bg-white overflow-hidden flex items-center justify-center group">
+                {/* Imagem do Hero 100% visível sem cortes — Aspect ratio 16/9 */}
+                <div className="relative w-full aspect-[16/10] bg-slate-900 overflow-hidden flex items-center justify-center group">
                   <Image
                     src={HERO_SLIDES[currentHeroSlide].image}
                     alt={HERO_SLIDES[currentHeroSlide].title}
                     fill
-                    className="object-contain"
+                    className="object-cover"
                     priority
                   />
+
+                  {/* Gradiente sutil */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                   {/* Botões de Navegação discretos */}
                   <button
@@ -1014,7 +1077,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                         onClick={() => setCurrentHeroSlide(idx)}
                         className={`h-1.5 rounded-full transition-all cursor-pointer ${
                           currentHeroSlide === idx
-                            ? "bg-[#0088E0] w-5"
+                            ? "bg-[#0047FF] w-5"
                             : "bg-white/60 w-1.5 hover:bg-white"
                         }`}
                         aria-label={`Slide ${idx + 1}`}
@@ -1024,28 +1087,28 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 </div>
 
                 {/* Conteúdo Informativo ABAIXO da Imagem — 0% de corte ou sobreposição */}
-                <div className="p-4 sm:p-5 space-y-2.5 bg-[#0A1C38] text-white border-t border-sky-900/60">
+                <div className="p-4 sm:p-5 space-y-2.5 bg-[#0B1E3F] text-white border-t border-blue-900/60">
                   <div className="flex items-center justify-between gap-2">
                     <h3 className="text-base sm:text-lg font-bold text-white truncate">
                       {HERO_SLIDES[currentHeroSlide].title}
                     </h3>
-                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-sky-900/80 text-sky-200 border border-sky-400/30 shrink-0">
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-blue-900/80 text-cyan-200 border border-blue-400/30 shrink-0">
                       {HERO_SLIDES[currentHeroSlide].badge}
                     </span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
                     {HERO_SLIDES[currentHeroSlide].description}
                   </p>
-                  <div className="pt-2 flex items-center justify-between text-xs text-sky-300 border-t border-sky-900/40">
-                    <span className="flex items-center gap-1.5">
-                      <ThermometerSnowflake className="w-3.5 h-3.5 text-[#00A3FF]" />
+                  <div className="pt-2 flex items-center justify-between text-xs text-cyan-300 border-t border-blue-900/40">
+                    <span className="flex items-center gap-1.5 font-semibold">
+                      <ThermometerSnowflake className="w-3.5 h-3.5 text-[#38BDF8]" />
                       {HERO_SLIDES[currentHeroSlide].range}
                     </span>
                     <a
                       href="#produtos"
-                      className="font-bold underline hover:text-white flex items-center gap-1 transition-colors"
+                      className="font-bold underline hover:text-white flex items-center gap-1 transition-colors text-amber-300"
                     >
-                      Ver catálogo completo <ArrowRight className="w-3.5 h-3.5" />
+                      Ver todos os modelos <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
@@ -1054,23 +1117,23 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
               {/* Card Informativo Fabril Limpo Abaixo */}
               <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-xs text-slate-200">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#0088E0] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <div className="w-10 h-10 rounded-lg bg-[#0047FF] text-white flex items-center justify-center shrink-0 shadow-md">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-[11px] font-bold text-sky-300 uppercase tracking-wider">
-                      Parque Fabril com 10.000 m²
+                    <div className="text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
+                      Sede Própria em Vespasiano - MG
                     </div>
                     <div className="text-xs font-semibold text-white">
-                      Distrito Industrial João de Almeida · Neves / BH
+                      R. São Paulo, 1500 - Nova Pampulha · Tel: (31) 3503-2400
                     </div>
                   </div>
                 </div>
                 <a
-                  href="#fabrica"
-                  className="hidden sm:inline-flex text-xs font-bold text-sky-300 hover:text-white underline"
+                  href="#contato"
+                  className="hidden sm:inline-flex text-xs font-bold text-cyan-300 hover:text-white underline"
                 >
-                  Conhecer fábrica
+                  Ver no mapa
                 </a>
               </div>
             </div>
@@ -1085,27 +1148,27 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200">
             <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#0088E0]">15+ Anos</div>
+              <div className="text-3xl sm:text-4xl font-black text-[#0047FF]">30+ Anos</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                De atuação na refrigeração industrial e construção civil
+                De tradição fabril contínua na refrigeração comercial (desde 1991)
               </div>
             </div>
             <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#0A1C38]">10.000 m²</div>
+              <div className="text-3xl sm:text-4xl font-black text-[#07152B]">Vespasiano</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                Área fabril total no Distrito Industrial (Ribeirão das Neves)
+                Fábrica própria e sede estruturada na R. São Paulo, 1500 (MG)
               </div>
             </div>
             <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#0088E0]">4,7 ★</div>
+              <div className="text-3xl sm:text-4xl font-black text-[#F59E0B]">4,4 ★</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                Nota no Google Reviews com 33 avaliações autênticas
+                Nota no Google Reviews com 41 avaliações comprovadas
               </div>
             </div>
             <div className="pt-3 md:pt-0">
-              <div className="text-3xl sm:text-4xl font-black text-[#16A34A]">100% S.I.F.</div>
+              <div className="text-3xl sm:text-4xl font-black text-[#16A34A]">100% Qualidade</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">
-                Conforme exigências sanitárias e normas ABNT-NBR
+                &ldquo;A diferença está na qualidade&rdquo; em durabilidade e assistência
               </div>
             </div>
           </div>
@@ -1113,208 +1176,200 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       </section>
 
       {/* ============================================================== */}
-      {/* 5. SIMULADOR INTERATIVO DE CÂMARAS & ISOPAINEIS                */}
+      {/* 5. SIMULADOR INTERATIVO DE EQUIPAMENTOS FRIOMAX                */}
       {/* ============================================================== */}
-      <section id="simulador" className="py-16 sm:py-20 bg-gradient-to-b from-[#F0F8FF] to-white border-b border-sky-100">
+      <section
+        id="simulador"
+        className="py-16 sm:py-20 bg-gradient-to-b from-[#EFF6FF] to-white border-b border-blue-100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-[#EBF5FE] text-[#0088E0] text-xs font-bold uppercase tracking-wider border border-[#BAE0FD]">
-              Ferramenta Exclusiva
+            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
+              Ferramenta Exclusiva Friomax
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0A1C38]">
-              Simulador de Câmaras Frias & Isopainéis
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#07152B]">
+              Simulador de Equipamento & Dimensionamento Comercial
             </h2>
             <p className="text-sm sm:text-base text-slate-600">
-              Informe as dimensões do seu ambiente e descubra a área estimada de painéis, espessura recomendada e envie a cotação pronta para nossa equipe comercial.
+              Selecione o seu segmento e porte de comércio para receber a recomendação exata de equipamentos, temperatura ideal e enviar a cotação pronta para nossa fábrica.
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-xl border border-sky-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+          <div className="bg-white rounded-2xl shadow-xl border border-blue-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
             {/* Controles do Simulador */}
             <div className="lg:col-span-7 p-6 sm:p-8 space-y-6">
-              {/* 1. Tipo de Projeto */}
+              {/* 1. Tipo de Negócio */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                  1. Finalidade do Projeto
+                  1. Segmento do seu Estabelecimento
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {[
-                    { id: "resfriados", label: "Resfriados (0°C a 10°C)" },
-                    { id: "congelados", label: "Congelados (-18°C)" },
-                    { id: "galpao", label: "Galpão / Telhas" },
-                    { id: "salalimpa", label: "Sala Limpa" },
-                  ].map((p) => (
+                    { id: "supermercado", label: "Supermercado / Mercearia" },
+                    { id: "acougue", label: "Açougue / Casa de Carnes" },
+                    { id: "padaria", label: "Padaria / Confeitaria" },
+                    { id: "restaurante", label: "Cozinha / Restaurante" },
+                    { id: "distribuidora", label: "Distribuidora / Atacado" },
+                    { id: "conveniencia", label: "Conveniência / Beer Cave" },
+                  ].map((item) => (
                     <button
-                      key={p.id}
+                      key={item.id}
                       type="button"
-                      onClick={() => setSimProject(p.id as "resfriados" | "congelados" | "galpao" | "salalimpa")}
-                      className={`px-3 py-2.5 rounded-lg text-xs font-bold border transition-all text-center ${
-                        simProject === p.id
-                          ? "bg-[#0088E0] text-white border-[#0088E0] shadow-sm"
-                          : "bg-slate-50 text-slate-700 border-slate-200 hover:border-sky-300"
+                      onClick={() =>
+                        setSimBusinessType(
+                          item.id as
+                            | "supermercado"
+                            | "acougue"
+                            | "padaria"
+                            | "restaurante"
+                            | "distribuidora"
+                            | "conveniencia"
+                        )
+                      }
+                      className={`px-3 py-2.5 rounded-lg text-xs font-bold border transition-all text-center cursor-pointer ${
+                        simBusinessType === item.id
+                          ? "bg-[#0047FF] text-white border-[#0047FF] shadow-sm"
+                          : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-300"
                       }`}
                     >
-                      {p.label}
+                      {item.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* 2. Dimensões em Metros */}
-              <div className="space-y-4">
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  2. Dimensões Estimadas (Comprimento x Largura x Altura)
+              {/* 2. Categoria de Equipamento */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  2. Solução Principal Buscada
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-slate-600 mb-1">
-                      <span>Comprimento:</span>
-                      <span className="font-bold text-[#0088E0]">{simLength} metros</span>
-                    </div>
-                    <input
-                      type="range"
-                      min="2"
-                      max="20"
-                      step="0.5"
-                      value={simLength}
-                      onChange={(e) => setSimLength(parseFloat(e.target.value))}
-                      className="w-full accent-[#0088E0] cursor-pointer"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-slate-600 mb-1">
-                      <span>Largura:</span>
-                      <span className="font-bold text-[#0088E0]">{simWidth} metros</span>
-                    </div>
-                    <input
-                      type="range"
-                      min="2"
-                      max="15"
-                      step="0.5"
-                      value={simWidth}
-                      onChange={(e) => setSimWidth(parseFloat(e.target.value))}
-                      className="w-full accent-[#0088E0] cursor-pointer"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold text-slate-600 mb-1">
-                      <span>Altura (Pé-direito):</span>
-                      <span className="font-bold text-[#0088E0]">{simHeight} metros</span>
-                    </div>
-                    <input
-                      type="range"
-                      min="2.2"
-                      max="8"
-                      step="0.2"
-                      value={simHeight}
-                      onChange={(e) => setSimHeight(parseFloat(e.target.value))}
-                      className="w-full accent-[#0088E0] cursor-pointer"
-                    />
-                  </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { id: "freezer", label: "Freezers Expositores" },
+                    { id: "balcao", label: "Balcões & Vitrines" },
+                    { id: "camara", label: "Câmara Frigorífica" },
+                    { id: "inox", label: "Geladeiras Inox" },
+                  ].map((cat) => (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onClick={() =>
+                        setSimProductCategory(
+                          cat.id as "freezer" | "balcao" | "camara" | "inox"
+                        )
+                      }
+                      className={`p-2.5 rounded-lg text-xs font-bold border transition-all text-center cursor-pointer ${
+                        simProductCategory === cat.id
+                          ? "bg-[#012B8E] text-white border-[#012B8E] shadow-sm"
+                          : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-300"
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              {/* 3. Núcleo Isolante e Porta */}
+              {/* 3. Faixa de Temperatura e Porte da Loja */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    3. Núcleo Térmico
+                    3. Faixa de Temperatura
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setSimCore("eps")}
-                      className={`p-2.5 rounded-lg text-xs font-bold border transition-all text-center ${
-                        simCore === "eps"
-                          ? "bg-[#0088E0] text-white border-[#0088E0]"
-                          : "bg-slate-50 text-slate-700 border-slate-200"
-                      }`}
-                    >
-                      EPS Autoextinguível
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setSimCore("pur")}
-                      className={`p-2.5 rounded-lg text-xs font-bold border transition-all text-center ${
-                        simCore === "pur"
-                          ? "bg-[#0088E0] text-white border-[#0088E0]"
-                          : "bg-slate-50 text-slate-700 border-slate-200"
-                      }`}
-                    >
-                      PUR Injetado (Alta Dens.)
-                    </button>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {[
+                      { id: "congelados", label: "Congelados (-18°C)" },
+                      { id: "resfriados", label: "Resfriados (+2°C)" },
+                      { id: "ambos", label: "Misto / Ambos" },
+                    ].map((t) => (
+                      <button
+                        key={t.id}
+                        type="button"
+                        onClick={() =>
+                          setSimTempRange(t.id as "congelados" | "resfriados" | "ambos")
+                        }
+                        className={`p-2 rounded-lg text-[11px] font-bold border transition-all text-center cursor-pointer ${
+                          simTempRange === t.id
+                            ? "bg-[#0047FF] text-white border-[#0047FF]"
+                            : "bg-slate-50 text-slate-700 border-slate-200"
+                        }`}
+                      >
+                        {t.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    4. Modelo de Porta
+                    4. Porte do Estabelecimento
                   </label>
-                  <select
-                    value={simDoor}
-                    onChange={(e) => setSimDoor(e.target.value as "giratoria" | "correr" | "automatica" | "nenhuma")}
-                    className="w-full p-2.5 rounded-lg text-xs font-bold border border-slate-300 bg-white text-slate-800 focus:outline-hidden focus:border-[#0088E0]"
-                  >
-                    <option value="giratoria">Porta Frigorífica Giratória (Fermod)</option>
-                    <option value="correr">Porta de Correr (Para Paletes)</option>
-                    <option value="automatica">Porta Automática Rápida</option>
-                    <option value="nenhuma">Não incluir porta no cálculo</option>
-                  </select>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {[
+                      { id: "pequeno", label: "Compacto" },
+                      { id: "medio", label: "Médio Porte" },
+                      { id: "grande", label: "Grande Rede" },
+                    ].map((sz) => (
+                      <button
+                        key={sz.id}
+                        type="button"
+                        onClick={() =>
+                          setSimStoreSize(sz.id as "pequeno" | "medio" | "grande")
+                        }
+                        className={`p-2 rounded-lg text-[11px] font-bold border transition-all text-center cursor-pointer ${
+                          simStoreSize === sz.id
+                            ? "bg-[#0047FF] text-white border-[#0047FF]"
+                            : "bg-slate-50 text-slate-700 border-slate-200"
+                        }`}
+                      >
+                        {sz.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Painel de Resultados do Simulador */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-[#0A1C38] to-[#051329] text-white p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-sky-950">
+            <div className="lg:col-span-5 bg-gradient-to-br from-[#0B1E3F] to-[#07152B] text-white p-6 sm:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-blue-950">
               <div className="space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-sky-900/60">
-                  <div className="text-xs font-bold uppercase tracking-wider text-sky-300">
-                    Resumo do Dimensionamento
+                <div className="flex items-center justify-between pb-3 border-b border-blue-900/60">
+                  <div className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+                    Dimensionamento Recomendado
                   </div>
-                  <span className="text-[11px] px-2 py-0.5 rounded bg-sky-500/20 text-sky-200 border border-sky-400/30">
-                    Cálculo Automático
+                  <span className="text-[11px] px-2 py-0.5 rounded bg-blue-500/20 text-cyan-200 border border-blue-400/30">
+                    Engenharia Friomax
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-xs text-slate-400">Área de Painéis:</div>
-                    <div className="text-2xl font-black text-white">
-                      ~{simResults.totalPanelArea} m²
-                    </div>
-                    <div className="text-[11px] text-slate-400">Paredes + Teto</div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="text-xs text-slate-400">Volume Interno:</div>
-                    <div className="text-2xl font-black text-[#38BDF8]">
-                      {simResults.internalVolume} m³
-                    </div>
-                    <div className="text-[11px] text-slate-400">Capacidade de estocagem</div>
-                  </div>
-                </div>
-
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-300">Espessura Recomendada:</span>
-                    <span className="font-bold text-amber-300">
-                      {simResults.recommendedThickness}
-                    </span>
+                  <div className="text-xs text-slate-400">Linha Recomendada:</div>
+                  <div className="text-base font-black text-white">
+                    {simResults.recommendation}
                   </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-300">Área de Piso Isolante:</span>
-                    <span className="font-bold text-white">~{simResults.areaFloor} m²</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-300">Largura Útil dos Painéis:</span>
-                    <span className="font-bold text-sky-300">1.160 mm padrão</span>
+                  <div className="text-xs text-amber-300 font-semibold pt-1">
+                    Estimativa de Carga: {simResults.estimatedUnits}
                   </div>
                 </div>
 
-                <div className="text-[11px] text-slate-400 leading-relaxed bg-black/20 p-2.5 rounded-lg">
-                  💡 Os valores de área são aproximados para estimativa rápida. Nossos engenheiros calculam o plano de corte exato para minimizar sobras na sua obra.
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <div className="text-xs text-slate-400">Temperatura Ideal:</div>
+                    <div className="text-lg font-black text-[#38BDF8]">
+                      {simResults.idealTemp}
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                    <div className="text-xs text-slate-400">Isolamento Térmico:</div>
+                    <div className="text-sm font-bold text-white">
+                      PUR Injetado Alta Densidade
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-[11px] text-slate-400 leading-relaxed bg-black/25 p-2.5 rounded-lg border border-white/5">
+                  💡 Nossos engenheiros analisam a planta do seu comércio para posicionar os balcões e freezers maximizando a circulação de clientes e a economia de energia.
                 </div>
               </div>
 
@@ -1328,10 +1383,10 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   className="w-full text-sm font-bold shadow-lg"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Enviar Medidas para Vendedora Andreia</span>
+                  <span>Enviar Simulação para a Fábrica</span>
                 </GlowingButton>
                 <p className="text-[11px] text-center text-slate-400 mt-2">
-                  Resposta rápida com valores direto da fábrica
+                  Atendimento rápido com preço de fábrica e condições facilitadas
                 </p>
               </div>
             </div>
@@ -1345,32 +1400,36 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       <section id="produtos" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-[#EBF5FE] text-[#0088E0] text-xs font-bold uppercase tracking-wider border border-[#BAE0FD]">
-              Catálogo Industrial
+            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
+              Catálogo Industrial Friomax
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#0A1C38]">
-              Soluções Completas em Isolamento Térmico
+            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
+              Equipamentos Fabricados com Alta Qualidade & Eficiência
             </h2>
             <p className="text-base text-slate-600">
-              Produtos fabricados rigorosamente sob as normas técnicas ABNT, com controle de densidade, encaixes precisos e acabamento sanitário lavável.
+              Linha completa de freezers expositores, vitrines em aço inox, balcões térmicos e câmaras frigoríficas construídos para durar décadas no seu comércio.
             </p>
 
             {/* Filtros de Categorias */}
             <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
               {[
-                { id: "todos", label: "Todos os Produtos" },
-                { id: "isopaineis", label: "Isopainéis EPS & PUR" },
-                { id: "portas", label: "Portas Frigoríficas" },
-                { id: "telhas", label: "Telhas Sanduíche" },
-                { id: "placas", label: "Placas Isolantes" },
+                { id: "todos", label: "Todos os Equipamentos" },
+                { id: "freezers", label: "Freezers & Expositores" },
+                { id: "vitrines", label: "Balcões & Vitrines" },
+                { id: "industriais", label: "Geladeiras Industriais Inox" },
+                { id: "camaras", label: "Câmaras Frigoríficas" },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
-                  onClick={() => setActiveProductTab(tab.id as "todos" | "isopaineis" | "portas" | "telhas" | "placas")}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
+                  onClick={() =>
+                    setActiveProductTab(
+                      tab.id as "todos" | "freezers" | "vitrines" | "industriais" | "camaras"
+                    )
+                  }
+                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     activeProductTab === tab.id
-                      ? "bg-[#0088E0] text-white shadow-md shadow-sky-500/25"
+                      ? "bg-[#0047FF] text-white shadow-md shadow-blue-500/25"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
@@ -1385,7 +1444,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="rounded-2xl border border-slate-200 bg-white hover:border-[#0088E0] transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden group"
+                className="rounded-2xl border border-slate-200 bg-white hover:border-[#0047FF] transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col justify-between overflow-hidden group"
               >
                 <div>
                   {/* Imagem do Produto com Badge */}
@@ -1397,23 +1456,23 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded-md bg-[#0088E0] text-white text-[11px] font-bold tracking-wide uppercase shadow-sm">
+                      <span className="px-2.5 py-1 rounded-md bg-[#0047FF] text-white text-[11px] font-bold tracking-wide uppercase shadow-sm">
                         {product.badge}
                       </span>
                     </div>
                     <div className="absolute bottom-3 right-3">
                       <span className="px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-semibold">
-                        {product.thickness}
+                        {product.temperature}
                       </span>
                     </div>
                   </div>
 
                   {/* Conteúdo do Card */}
                   <div className="p-6 space-y-3">
-                    <div className="text-xs font-bold text-[#0088E0] uppercase tracking-wider">
+                    <div className="text-xs font-bold text-[#0047FF] uppercase tracking-wider">
                       {product.categoryLabel}
                     </div>
-                    <h3 className="text-xl font-black text-[#0A1C38] leading-snug group-hover:text-[#0088E0] transition-colors">
+                    <h3 className="text-xl font-black text-[#07152B] leading-snug group-hover:text-[#0047FF] transition-colors">
                       {product.name}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 line-clamp-2">
@@ -1423,14 +1482,14 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                     {/* Ficha Rápida */}
                     <div className="bg-[#F8FAFC] p-3 rounded-xl border border-slate-200/80 space-y-1.5 text-xs text-slate-700">
                       <div className="flex justify-between">
-                        <span className="text-slate-500">Núcleo Térmico:</span>
-                        <span className="font-semibold text-slate-900 truncate max-w-[160px]">
-                          {product.core}
+                        <span className="text-slate-500">Capacidade / Medidas:</span>
+                        <span className="font-semibold text-slate-900 truncate max-w-[170px]">
+                          {product.capacity}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-500">Espessuras:</span>
-                        <span className="font-semibold text-[#0088E0]">{product.thickness}</span>
+                        <span className="text-slate-500">Faixa de Operação:</span>
+                        <span className="font-semibold text-[#0047FF]">{product.temperature}</span>
                       </div>
                     </div>
                   </div>
@@ -1441,15 +1500,15 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   <button
                     type="button"
                     onClick={() => setSelectedProduct(product)}
-                    className="flex-1 py-2.5 px-3 rounded-lg border border-slate-300 text-slate-800 text-xs font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-1.5"
+                    className="flex-1 py-2.5 px-3 rounded-lg border border-slate-300 text-slate-800 text-xs font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                   >
-                    <Maximize2 className="w-3.5 h-3.5 text-[#0088E0]" />
+                    <Maximize2 className="w-3.5 h-3.5 text-[#0047FF]" />
                     <span>Ver Ficha Técnica</span>
                   </button>
 
                   <GlowingButton
                     href={getWhatsAppUrl(
-                      `Olá! Gostaria de uma cotação para o produto: ${product.name} (${product.thickness}).`
+                      `Olá! Gostaria de uma cotação para o equipamento: ${product.name} (${product.capacity}).`
                     )}
                     target="_blank"
                     variant="whatsapp"
@@ -1467,7 +1526,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       </section>
 
       {/* ============================================================== */}
-      {/* 7. MODAL DE FICHA TÉCNICA DETALHADA                            */}
+      {/* 7. MODAL DE FICHA TÉCNICA DETALHADA DO PRODUTO                 */}
       {/* ============================================================== */}
       <AnimatePresence>
         {selectedProduct && (
@@ -1489,12 +1548,13 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 <button
                   type="button"
                   onClick={() => setSelectedProduct(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors"
+                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/80 transition-colors cursor-pointer"
+                  aria-label="Fechar modal"
                 >
                   <X className="w-5 h-5" />
                 </button>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="px-2.5 py-0.5 rounded bg-[#0088E0] text-white text-[11px] font-bold uppercase tracking-wider">
+                  <span className="px-2.5 py-0.5 rounded bg-[#0047FF] text-white text-[11px] font-bold uppercase tracking-wider">
                     {selectedProduct.categoryLabel}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-black mt-1">
@@ -1506,17 +1566,17 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
               <div className="p-6 space-y-6">
                 <div>
                   <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
-                    Descrição Técnica
+                    Descrição do Equipamento
                   </h4>
                   <p className="text-sm text-slate-700 leading-relaxed">
                     {selectedProduct.description}
                   </p>
                 </div>
 
-                {/* Especificações em Tabela */}
+                {/* Especificações Construtivas */}
                 <div>
                   <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
-                    Especificações Construtivas
+                    Especificações Técnicas
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     {selectedProduct.specs.map((s, idx) => (
@@ -1525,7 +1585,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                         className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 flex justify-between items-center"
                       >
                         <span className="text-slate-500 font-medium">{s.label}:</span>
-                        <span className="font-bold text-[#0A1C38]">{s.value}</span>
+                        <span className="font-bold text-[#07152B]">{s.value}</span>
                       </div>
                     ))}
                   </div>
@@ -1534,7 +1594,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 {/* Aplicações Típicas */}
                 <div>
                   <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
-                    Aplicações Recomendadas
+                    Aplicações Ideais
                   </h4>
                   <ul className="space-y-1.5 text-xs text-slate-700">
                     {selectedProduct.applications.map((app, idx) => (
@@ -1549,11 +1609,11 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 {/* Rodapé do Modal */}
                 <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <div className="text-xs text-slate-500">
-                    Consulte disponibilidade e prazo de fabricação.
+                    Fabricação com garantia de 30+ anos da Friomax.
                   </div>
                   <GlowingButton
                     href={getWhatsAppUrl(
-                      `Olá! Gostaria de encomendar / cotar o produto: ${selectedProduct.name}.`
+                      `Olá! Gostaria de cotar o equipamento: ${selectedProduct.name}.`
                     )}
                     target="_blank"
                     variant="whatsapp"
@@ -1571,37 +1631,41 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       </AnimatePresence>
 
       {/* ============================================================== */}
-      {/* 8. OBRAS & PORTFÓLIO REAL ISOMINAS                             */}
+      {/* 8. INSTALAÇÕES REAIS & CLIENTES ATENDIDOS                      */}
       {/* ============================================================== */}
-      <section id="obras" className="py-16 sm:py-24 bg-[#051329] text-white border-b border-sky-950">
+      <section id="obras" className="py-16 sm:py-24 bg-[#07152B] text-white border-b border-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-sky-900/60 text-[#38BDF8] text-xs font-bold uppercase tracking-wider border border-sky-400/30">
-              Casos Reais & Experiência
+            <span className="px-3 py-1 rounded-full bg-blue-900/60 text-[#38BDF8] text-xs font-bold uppercase tracking-wider border border-blue-400/30">
+              Instalações Comerciais
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Obras Executadas com Padrão ISOMINAS
+              Equipamentos Friomax em Operação no Mercado
             </h2>
             <p className="text-slate-300 text-sm sm:text-base">
-              Conheça grandes instalações industriais, centros de distribuição e câmaras frigoríficas que confiam na qualidade e durabilidade das nossas soluções.
+              Supermercados, açougues, padarias e indústrias que confiam na robustez e no rendimento térmico da Friomax Refrigeração.
             </p>
 
             {/* Filtros de Obras */}
             <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
               {[
-                { id: "todos", label: "Todas as Obras" },
-                { id: "logistica", label: "Logística & CDs" },
-                { id: "camaras", label: "Câmaras Especiais" },
-                { id: "frigorificos", label: "Frigoríficos S.I.F." },
-                { id: "industria", label: "Galpões & Indústria" },
+                { id: "todos", label: "Todas as Instalações" },
+                { id: "supermercados", label: "Supermercados" },
+                { id: "acougues", label: "Casas de Carnes" },
+                { id: "padarias", label: "Padarias & Empórios" },
+                { id: "distribuidoras", label: "CDs & Cozinhas" },
               ].map((f) => (
                 <button
                   key={f.id}
                   type="button"
-                  onClick={() => setActiveObraFilter(f.id as "todos" | "camaras" | "frigorificos" | "logistica" | "industria")}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  onClick={() =>
+                    setActiveObraFilter(
+                      f.id as "todos" | "supermercados" | "acougues" | "padarias" | "distribuidoras"
+                    )
+                  }
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                     activeObraFilter === f.id
-                      ? "bg-[#0088E0] text-white shadow-md"
+                      ? "bg-[#0047FF] text-white shadow-md"
                       : "bg-white/10 text-slate-300 hover:bg-white/20"
                   }`}
                 >
@@ -1611,15 +1675,15 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
             </div>
           </div>
 
-          {/* Grid de Obras */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Grid de Instalações */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredObras.map((obra) => (
               <div
                 key={obra.id}
-                className="rounded-xl overflow-hidden border border-sky-900/40 bg-slate-900/70 hover:border-[#0088E0] transition-all duration-300 flex flex-col justify-between group"
+                className="rounded-xl overflow-hidden border border-blue-900/40 bg-slate-900/70 hover:border-[#0047FF] transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="relative h-48 w-full overflow-hidden bg-slate-800">
+                  <div className="relative h-52 w-full overflow-hidden bg-slate-800">
                     <Image
                       src={obra.image}
                       alt={obra.title}
@@ -1627,7 +1691,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-2.5 left-2.5">
-                      <span className="px-2 py-0.5 rounded bg-black/70 backdrop-blur-xs text-[10px] font-bold text-sky-300 uppercase">
+                      <span className="px-2 py-0.5 rounded bg-black/70 backdrop-blur-xs text-[10px] font-bold text-cyan-300 uppercase">
                         {obra.categoryLabel}
                       </span>
                     </div>
@@ -1635,10 +1699,10 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
 
                   <div className="p-4 space-y-2">
                     <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                      <MapPin className="w-3 h-3 text-[#00A3FF]" />
+                      <MapPin className="w-3 h-3 text-[#38BDF8]" />
                       <span>{obra.location}</span>
                     </div>
-                    <h3 className="text-base font-bold text-white group-hover:text-[#00A3FF] transition-colors leading-tight">
+                    <h3 className="text-base font-bold text-white group-hover:text-[#38BDF8] transition-colors leading-tight">
                       {obra.title}
                     </h3>
                     <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
@@ -1648,7 +1712,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 </div>
 
                 <div className="p-4 pt-0">
-                  <div className="pt-2 border-t border-sky-900/40 text-[11px] text-sky-200/80">
+                  <div className="pt-2 border-t border-blue-900/40 text-[11px] text-blue-200/80">
                     <span className="font-semibold text-white">Escopo:</span> {obra.scope}
                   </div>
                 </div>
@@ -1657,17 +1721,19 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
           </div>
 
           {/* Chamada para Projetos Sob Medida */}
-          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-sky-950 via-[#0A1C38] to-[#0088E0]/40 border border-sky-700/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-950 via-[#0B1E3F] to-[#0047FF]/35 border border-blue-700/40 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="space-y-1 text-center sm:text-left">
               <h3 className="text-lg sm:text-xl font-bold text-white">
-                Tem um projeto ou galpão em fase de planejamento?
+                Está montando ou reformando seu supermercado, padaria ou açougue?
               </h3>
               <p className="text-xs sm:text-sm text-slate-300">
-                Nossos consultores analisam sua planta e geram a lista exata de materiais com economia industrial.
+                Nossos consultores calculam o melhor layout com balcões e freezers sob medida para o seu espaço.
               </p>
             </div>
             <GlowingButton
-              href={getWhatsAppUrl("Olá! Tenho uma planta/projeto para minha obra e gostaria de suporte técnico da ISOMINAS.")}
+              href={getWhatsAppUrl(
+                "Olá! Estou planejando equipar meu comércio e gostaria de um projeto personalizado com a fábrica Friomax."
+              )}
               target="_blank"
               variant="whatsapp"
               size="md"
@@ -1681,68 +1747,68 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       </section>
 
       {/* ============================================================== */}
-      {/* 9. SOBRE A EMPRESA & INFRAESTRUTURA FABRIL                     */}
+      {/* 9. SOBRE A EMPRESA & INFRAESTRUTURA FABRIL EM VESPASIANO       */}
       {/* ============================================================== */}
       <section id="fabrica" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Coluna Texto Institucional */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="px-3 py-1 rounded-full bg-[#EBF5FE] text-[#0088E0] text-xs font-bold uppercase tracking-wider border border-[#BAE0FD]">
-                15+ Anos de Tradição e Confiança
+              <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
+                Mais de 30 Anos de Tradição e Confiança
               </span>
 
-              <h2 className="text-3xl sm:text-4xl font-black text-[#0A1C38] leading-tight">
-                A Força da Nossa Indústria em Minas Gerais
+              <h2 className="text-3xl sm:text-4xl font-black text-[#07152B] leading-tight">
+                Friomax Refrigeração: Fabricando com Qualidade e Eficiência desde 1991
               </h2>
 
               <p className="text-base text-slate-700 leading-relaxed">
-                A <strong>ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração</strong> consolidou-se como referência no mercado nacional através de constante inovação tecnológica, maquinário industrial moderno e atendimento focado nas necessidades reais de instaladores, engenheiros e empresários.
+                A <strong>Friomax Refrigeração</strong> (Friomax Indústria e Comércio de Refrigeração Ltda) construiu ao longo de mais de 30 anos uma sólida reputação no mercado brasileiro, fabricando equipamentos de refrigeração comercial e industrial com excelência técnica, materiais de primeira linha e compromisso inegociável com o cliente.
               </p>
 
               <p className="text-base text-slate-700 leading-relaxed">
-                Fundada e liderada com dedicação por <strong>Célio Jardins e sua esposa Alaíde</strong>, a empresa preserva uma relação próxima, transparente e ética com cada cliente, garantindo desde o dimensionamento térmico até o carregamento ágil no Distrito Industrial.
+                Com sede própria em <strong>Vespasiano - MG (R. São Paulo, 1500 - Nova Pampulha)</strong>, dispomos de infraestrutura completa para conformação de chapas de aço inoxidável, injeção sob pressão de poliuretano de alta densidade e testes rigorosos de rendimento térmico.
               </p>
 
               {/* Destaques da Fábrica */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0088E0]">
+                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
                     <Factory className="w-5 h-5" />
-                    <span>10.000 m² de Parque</span>
+                    <span>Fábrica Própria em MG</span>
                   </div>
                   <p className="text-xs text-slate-600">
-                    Com 5.000 m² de área construída projetada para fabricação seriada de painéis e portas.
+                    Sede estruturada na R. São Paulo, 1500 em Vespasiano com capacidade para grandes encomendas.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0088E0]">
-                    <Truck className="w-5 h-5" />
-                    <span>Carregamento Ágil</span>
+                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
+                    <Award className="w-5 h-5 text-amber-500" />
+                    <span>A Diferença na Qualidade</span>
                   </div>
                   <p className="text-xs text-slate-600">
-                    Acesso facilitado para carretas e transportadoras via BR-040 no polo industrial de Neves.
+                    Slogan histórico que reflete a durabilidade real dos nossos equipamentos em milhares de comércios.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0088E0]">
+                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
                     <ShieldCheck className="w-5 h-5" />
-                    <span>Rigor Normativo ABNT</span>
+                    <span>Aço Inox & PUR Injetado</span>
                   </div>
                   <p className="text-xs text-slate-600">
-                    Poliestireno expandido autoextinguível e poliuretano testados para conformidade térmica.
+                    Isolamento de alta pressão e aço inox AISI 304/430 sanitário aprovado para alimentos.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-[#0088E0]">
-                    <Sparkles className="w-5 h-5" />
-                    <span>Vendedora Andreia & Equipe</span>
+                  <div className="flex items-center gap-2 font-bold text-[#0047FF]">
+                    <Truck className="w-5 h-5" />
+                    <span>Entrega Ágil & Prazos Honrados</span>
                   </div>
                   <p className="text-xs text-slate-600">
-                    Equipe comercial elogiada no Google pela agilidade na emissão de propostas e liberação.
+                    Pontualidade rigorosa elogiada nas avaliações do Google Reviews pelos nossos clientes.
                   </p>
                 </div>
               </div>
@@ -1752,18 +1818,18 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
             <div className="lg:col-span-5 space-y-4">
               <div className="relative h-80 rounded-2xl overflow-hidden shadow-xl border border-slate-200">
                 <Image
-                  src="/images/products/isopainel-estoque-fabrica.jpg"
-                  alt="Estoque e Fabricação de Isopainéis ISOMINAS"
+                  src="/images/fabrica/fabrica-friomax-sede.jpg"
+                  alt="Instalações Fabris da Friomax Refrigeração"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-sky-300">
-                    Capacidade Produtiva
+                  <div className="text-xs font-semibold uppercase tracking-wider text-cyan-300">
+                    Parque Fabril
                   </div>
                   <div className="text-base font-bold">
-                    Linha Contínua de Laminação e Corte Automatizado
+                    Linha de Produção & Montagem de Refrigeração Comercial
                   </div>
                 </div>
               </div>
@@ -1771,27 +1837,27 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative h-36 rounded-xl overflow-hidden shadow-md border border-slate-200">
                   <Image
-                    src="/images/products/isopainel-eps-encaixe-macho-femea.jpg"
-                    alt="Encaixe Macho Fêmea Hermético"
+                    src="/images/fabrica/fabrica-montagem-inox.jpg"
+                    alt="Montagem em Aço Inox"
                     fill
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                   <div className="absolute bottom-2 left-2 text-white text-[11px] font-bold">
-                    Encaixe Estanque
+                    Corte e Dobra em Inox
                   </div>
                 </div>
 
                 <div className="relative h-36 rounded-xl overflow-hidden shadow-md border border-slate-200">
                   <Image
-                    src="/images/products/porta-giratoria-acabamento.jpg"
-                    alt="Acabamento Industrial de Portas"
+                    src="/images/fabrica/fabrica-isolamento-pur.jpg"
+                    alt="Injeção de Poliuretano"
                     fill
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40" />
                   <div className="absolute bottom-2 left-2 text-white text-[11px] font-bold">
-                    Ferragens Fermod
+                    Isolamento PUR Ecológico
                   </div>
                 </div>
               </div>
@@ -1801,7 +1867,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       </section>
 
       {/* ============================================================== */}
-      {/* 10. DEPOIMENTOS DO GOOGLE REVIEWS (4,7★ REAIS)                 */}
+      {/* 10. DEPOIMENTOS DO GOOGLE REVIEWS (4,4★ REAIS)                 */}
       {/* ============================================================== */}
       <section id="avaliacoes" className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1809,13 +1875,13 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>Avaliações Reais no Google</span>
+              <span>Avaliações Verificadas no Google Reviews</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#0A1C38]">
-              O que Dizem os Nossos Clientes
+            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
+              O que Dizem os Clientes da Friomax
             </h2>
             <p className="text-sm sm:text-base text-slate-600">
-              Mais de 33 avaliações públicas e nota 4,7 estrelas no Google. A satisfação de quem compra direto da nossa fábrica.
+              Mais de 41 avaliações públicas e nota {GOOGLE_RATING} estrelas no Google. A satisfação de quem adquire equipamentos de refrigeração direto de quem fabrica com seriedade.
             </p>
 
             {/* Selo Google Oficial */}
@@ -1825,20 +1891,20 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span className="text-xl font-black text-[#0A1C38]">4,7 / 5.0</span>
+              <span className="text-xl font-black text-[#07152B]">{GOOGLE_RATING} / 5.0</span>
               <span className="text-slate-400">|</span>
               <a
                 href={GOOGLE_SEARCH_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-[#0088E0] hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-[#0047FF] hover:underline flex items-center gap-1"
               >
                 Ver todas no Google <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>
 
-          {/* Grid de Depoimentos */}
+          {/* Grid de Depoimentos Reais */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {REVIEWS_DATA.map((review, idx) => (
               <div
@@ -1863,11 +1929,11 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#EBF5FE] text-[#0088E0] font-black text-sm flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-full bg-[#EFF6FF] text-[#0047FF] font-black text-sm flex items-center justify-center shrink-0">
                     {review.author[0]}
                   </div>
                   <div className="overflow-hidden">
-                    <div className="text-sm font-bold text-[#0A1C38] truncate">
+                    <div className="text-sm font-bold text-[#07152B] truncate">
                       {review.author}
                     </div>
                     <div className="text-[11px] text-slate-500 truncate">
@@ -1882,19 +1948,19 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       </section>
 
       {/* ============================================================== */}
-      {/* 11. TABELA COMPARATIVA — ISOMINAS VS CONCORRÊNCIA COMUM        */}
+      {/* 11. TABELA COMPARATIVA — FRIOMAX VS CONCORRÊNCIA COMUM         */}
       {/* ============================================================== */}
       <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3 py-1 rounded-full bg-[#EBF5FE] text-[#0088E0] text-xs font-bold uppercase tracking-wider border border-[#BAE0FD]">
+            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
               Diferenciais de Fábrica
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#0A1C38]">
-              Por que a ISOMINAS é a Escolha Certa?
+            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
+              Por que a Friomax é a Escolha Certa para o seu Negócio?
             </h2>
             <p className="text-sm sm:text-base text-slate-600">
-              Veja a diferença entre comprar direto de uma indústria estruturada versus intermediários ou oficinas improvisadas.
+              Veja a diferença entre comprar direto de uma fábrica consolidada há mais de 30 anos versus revendedores ou oficinas improvisadas.
             </p>
           </div>
 
@@ -1902,81 +1968,81 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead>
-                  <tr className="bg-[#0A1C38] text-white">
+                  <tr className="bg-[#07152B] text-white">
                     <th className="py-4 px-6 font-bold">Critério Técnico</th>
-                    <th className="py-4 px-6 font-black text-[#38BDF8] bg-[#051329]">
-                      ISOMINAS Indústria
+                    <th className="py-4 px-6 font-black text-[#38BDF8] bg-[#030A17]">
+                      Friomax Refrigeração
                     </th>
                     <th className="py-4 px-6 font-semibold text-slate-400">
-                      Concorrência / Revenda Comum
+                      Revenda Comum / Oficinas
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 text-slate-700">
                   <tr>
                     <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Origem do Produto
+                      Origem & Fabricação
                     </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0088E0] bg-sky-50/50">
-                      Direto da Fábrica com 10.000m²
+                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
+                      Fábrica própria há 30+ anos (Vespasiano - MG)
                     </td>
                     <td className="py-3.5 px-6 text-slate-500">
-                      Revendedores intermediários com sobrepreço
+                      Intermediários com margem e sem controle de montagem
                     </td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Segurança contra Fogo
+                      Isolamento Térmico
                     </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0088E0] bg-sky-50/50">
-                      EPS Classe F-1 Autoextinguível
+                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
+                      PUR de alta densidade injetado sob pressão
                     </td>
                     <td className="py-3.5 px-6 text-slate-500">
-                      Frequentemente EPS tipo P sem retardante
+                      Isolamento com falhas e pontes térmicas que gastam energia
                     </td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Ferragens de Portas
+                      Vidros Expositores
                     </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0088E0] bg-sky-50/50">
-                      Ferro fundido padrão FERMOD pesado
+                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
+                      Vidro duplo temperado aquecido antiembaçante
                     </td>
                     <td className="py-3.5 px-6 text-slate-500">
-                      Dobradiças plásticas ou chapas finas
+                      Vidros comuns que embaçam e ocultam as mercadorias
                     </td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Resistência no Marco (Congelados)
+                      Estrutura & Acabamento
                     </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0088E0] bg-sky-50/50">
-                      Silicone elétrico integrado de fábrica
+                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
+                      Aço inox AISI sanitário e pintura eletrostática
                     </td>
                     <td className="py-3.5 px-6 text-slate-500">
-                      Muitas vezes cobrado à parte ou ausente
+                      Chapas finas que enferrujam rapidamente com a umidade
                     </td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-6 font-semibold text-slate-900">
-                      Atendimento & Carregamento
+                      Assistência e Peças
                     </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0088E0] bg-sky-50/50">
-                      Comercial ágil e pátio para carretas
+                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
+                      Peças originais de reposição direto do fabricante
                     </td>
                     <td className="py-3.5 px-6 text-slate-500">
-                      Demora de semanas e locais sem doca
+                      Dificuldade de reposição e falta de suporte técnico
                     </td>
                   </tr>
                   <tr>
                     <td className="py-3.5 px-6 font-semibold text-slate-900">
                       Avaliação no Google
                     </td>
-                    <td className="py-3.5 px-6 font-bold text-[#0088E0] bg-sky-50/50">
-                      Nota 4,7 ★ com 33+ reviews
+                    <td className="py-3.5 px-6 font-bold text-[#0047FF] bg-blue-50/50">
+                      Nota 4,4 ★ com 41 avaliações autênticas
                     </td>
                     <td className="py-3.5 px-6 text-slate-500">
-                      Avaliações baixas ou perfis sem histórico
+                      Avaliações baixas ou perfis sem reputação no mercado
                     </td>
                   </tr>
                 </tbody>
@@ -1992,14 +2058,14 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       <section id="faq" className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center space-y-3">
-            <span className="px-3 py-1 rounded-full bg-[#EBF5FE] text-[#0088E0] text-xs font-bold uppercase tracking-wider border border-[#BAE0FD]">
+            <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
               Tire suas Dúvidas
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#0A1C38]">
-              Perguntas Frequentes
+            <h2 className="text-3xl sm:text-4xl font-black text-[#07152B]">
+              Perguntas Frequentes sobre os Equipamentos Friomax
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
-              Esclareça os principais pontos sobre nossos materiais, dimensionamento e prazos de entrega.
+              Esclareça os principais pontos sobre nossa linha de fabricação, prazos, formas de pagamento e entrega.
             </p>
           </div>
 
@@ -2012,11 +2078,11 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 <button
                   type="button"
                   onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-[#0088E0] transition-colors"
+                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-[#0047FF] transition-colors cursor-pointer"
                 >
                   <span className="text-sm sm:text-base">{faq.question}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#0088E0] shrink-0 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-[#0047FF] shrink-0 transition-transform duration-200 ${
                       openFaqIndex === idx ? "rotate-180" : ""
                     }`}
                   />
@@ -2039,44 +2105,44 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
 
           <div className="text-center pt-4">
             <p className="text-xs sm:text-sm text-slate-500 mb-3">
-              Ficou com alguma dúvida técnica sobre o seu projeto?
+              Ficou com alguma dúvida sobre dimensões ou especificações técnicas?
             </p>
             <GlowingButton
-              href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida sobre especificações técnicas dos isopainéis.")}
+              href={getWhatsAppUrl("Olá! Gostaria de tirar uma dúvida técnica sobre os equipamentos da Friomax.")}
               target="_blank"
-              variant="outline"
+              variant="outlineRoyal"
               size="md"
             >
-              <HelpCircle className="w-4 h-4 text-[#0088E0]" />
-              <span>Falar com o Suporte Técnico</span>
+              <HelpCircle className="w-4 h-4 text-[#0047FF]" />
+              <span>Falar com o Suporte Técnico da Fábrica</span>
             </GlowingButton>
           </div>
         </div>
       </section>
 
       {/* ============================================================== */}
-      {/* 13. LOCALIZAÇÃO & VISITE A FÁBRICA                             */}
+      {/* 13. LOCALIZAÇÃO & VISITE NOSSA FÁBRICA                         */}
       {/* ============================================================== */}
       <section id="contato" className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Informações de Contato e Endereço */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="px-3 py-1 rounded-full bg-[#EBF5FE] text-[#0088E0] text-xs font-bold uppercase tracking-wider border border-[#BAE0FD]">
+              <span className="px-3 py-1 rounded-full bg-[#DBEAFE] text-[#0047FF] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
                 Visite Nossa Sede Fabril
               </span>
 
-              <h2 className="text-3xl sm:text-4xl font-black text-[#0A1C38] leading-tight">
-                Distrito Industrial João de Almeida
+              <h2 className="text-3xl sm:text-4xl font-black text-[#07152B] leading-tight">
+                Friomax Refrigeração em Vespasiano - MG
               </h2>
 
               <p className="text-base text-slate-700 leading-relaxed">
-                Nossa indústria está estrategicamente localizada em <strong>Ribeirão das Neves - MG</strong> (Região Metropolitana de Belo Horizonte), com acesso desimpedido para carretas, sem restrições de tráfego pesado e ligação direta com a BR-040.
+                Nossa indústria está estrategicamente localizada em <strong>Vespasiano - MG</strong> (Região Metropolitana de Belo Horizonte / Vetor Norte), na <strong>R. São Paulo, 1500 - Nova Pampulha</strong>, com fácil acesso para carregamento rápido e despacho rodoviário.
               </p>
 
               <div className="space-y-4 text-sm text-slate-700">
                 <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <MapPin className="w-5 h-5 text-[#0088E0] shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-[#0047FF] shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-slate-900">Endereço da Fábrica:</strong>
                     <span>{PRIMARY_FACTORY_ADDRESS}</span>
@@ -2084,10 +2150,10 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 </div>
 
                 <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <Phone className="w-5 h-5 text-[#0088E0] shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-[#0047FF] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-slate-900">Telefones Oficiais:</strong>
-                    <span>PABX: {PHONE_DISPLAY} · Suporte: {PHONE_SECONDARY}</span>
+                    <strong className="block text-slate-900">Telefone Comercial / PABX:</strong>
+                    <span>{PHONE_DISPLAY}</span>
                   </div>
                 </div>
 
@@ -2100,10 +2166,10 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 </div>
 
                 <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                  <Clock className="w-5 h-5 text-[#0088E0] shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-[#0047FF] shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-slate-900">Horário de Funcionamento:</strong>
-                    <span>Segunda a Sexta: 08:00 às 17:30</span>
+                    <span>Segunda a Sexta: 07:30 às 17:30</span>
                   </div>
                 </div>
               </div>
@@ -2120,7 +2186,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                 </GlowingButton>
 
                 <GlowingButton
-                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma visita à fábrica da ISOMINAS.")}
+                  href={getWhatsAppUrl("Olá! Gostaria de agendar uma visita à fábrica da Friomax em Vespasiano.")}
                   target="_blank"
                   variant="outline"
                   size="md"
@@ -2133,10 +2199,10 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
 
             {/* Card com Mapa Interativo / Iframe Google */}
             <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden border-2 border-sky-100 shadow-xl bg-slate-100 h-96 sm:h-[420px] relative">
+              <div className="rounded-2xl overflow-hidden border-2 border-blue-100 shadow-xl bg-slate-100 h-96 sm:h-[420px] relative">
                 <iframe
-                  title="Localização ISOMINAS"
-                  src="https://maps.google.com/maps?q=ISOMINAS+Ind%C3%BAstria+e+Com%C3%A9rcio+de+Isopain%C3%A9is+e+Refrigera%C3%A7%C3%A3o+Rua+Alzira+Menezes+Nogueira+151+Ribeirao+das+Neves+MG&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  title="Localização Friomax Refrigeração"
+                  src="https://maps.google.com/maps?q=Friomax+Refrigera%C3%A7%C3%A3o+Rua+S%C3%A3o+Paulo+1500+Nova+Pampulha+Vespasiano+MG&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -2154,38 +2220,45 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       {/* ============================================================== */}
       {/* 14. FOOTER INSTITUCIONAL COMPLETO                              */}
       {/* ============================================================== */}
-      <footer className="bg-[#051329] text-white border-t border-sky-950 pt-16 pb-12">
+      <footer className="bg-[#07152B] text-white border-t border-blue-950 pt-16 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Coluna 1: Marca & Síntese */}
             <div className="space-y-4">
-              <div className="relative h-12 w-48">
-                <Image
-                  src={LOGO_TRANSPARENT_SRC}
-                  alt="ISOMINAS Isopainéis e Refrigeração"
-                  fill
-                  className="object-contain object-left"
-                />
+              <div className="flex items-center gap-3.5">
+                <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0">
+                  <Image
+                    src={LOGO_SRC}
+                    alt="Friomax Refrigeração"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="flex flex-col justify-center">
+                  <span className="text-xl sm:text-2xl font-black tracking-tight text-white leading-none">
+                    FRIOMAX
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-cyan-400 uppercase mt-0.5">
+                    Refrigeração Comercial
+                  </span>
+                  <span className="text-[10px] text-amber-300 font-semibold italic mt-0.5">
+                    Desde 1991 · Vespasiano - MG
+                  </span>
+                </div>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Indústria e comércio especializado em isopainéis térmicos EPS e PUR, telhas termoacústicas e portas frigoríficas. Qualidade comprovada e tradição fabril em Minas Gerais.
+                Indústria fabricante de equipamentos de refrigeração comercial e industrial. Freezers expositores, vitrines em aço inox, balcões refrigerados e câmaras frigoríficas sob medida.
+              </p>
+              <p className="text-xs font-bold text-amber-300 italic">
+                &ldquo;Friomax, a diferença está na qualidade!&rdquo;
               </p>
               <div className="flex items-center gap-3 pt-1">
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0088E0] flex items-center justify-center transition-colors text-white"
-                  aria-label="Instagram"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-                <a
-                  href={FACEBOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0088E0] flex items-center justify-center transition-colors text-white"
-                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0047FF] flex items-center justify-center transition-colors text-white"
+                  aria-label="Instagram @friomax1991"
                 >
                   <ExternalLink className="w-4 h-4" />
                 </a>
@@ -2194,7 +2267,7 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-lg bg-white/10 hover:bg-amber-500 flex items-center justify-center transition-colors text-white"
-                  aria-label="Google Reviews"
+                  aria-label="Google Reviews Friomax"
                 >
                   <Star className="w-4 h-4" />
                 </a>
@@ -2203,43 +2276,43 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
 
             {/* Coluna 2: Linha de Produtos */}
             <div className="space-y-3">
-              <div className="text-xs font-bold text-sky-400 uppercase tracking-wider">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
                 Linhas de Fabricação
               </div>
               <ul className="space-y-2 text-xs text-slate-300">
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Isopainéis Térmicos EPS (50mm a 200mm)
+                    Freezers Verticais com Vidro Duplo Aquecido
                   </a>
                 </li>
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Isopainéis PUR (Poliuretano Injetado)
+                    Freezers Horizontais Tampas Deslizantes
                   </a>
                 </li>
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Portas Frigoríficas Giratórias (Fermod)
+                    Ilhas de Congelados para Supermercados
                   </a>
                 </li>
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Portas de Correr Manuais & Automáticas
+                    Balcões Vitrine para Açougues & Carnes
                   </a>
                 </li>
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Portas para Sala Limpa & Hospitalar
+                    Balcões Auto-Serviço Multi-Deck
                   </a>
                 </li>
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Telhas Térmicas EPS (Sanduíche)
+                    Geladeiras Industriais Inox (2, 4 e 6 Portas)
                   </a>
                 </li>
                 <li>
                   <a href="#produtos" className="hover:text-white transition-colors">
-                    Placas de EPS para Isolamento de Piso
+                    Câmaras Frigoríficas Modulares & Walk-in Coolers
                   </a>
                 </li>
               </ul>
@@ -2247,28 +2320,28 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
 
             {/* Coluna 3: Navegação Rápida */}
             <div className="space-y-3">
-              <div className="text-xs font-bold text-sky-400 uppercase tracking-wider">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
                 Acesso Rápido
               </div>
               <ul className="space-y-2 text-xs text-slate-300">
                 <li>
                   <a href="#simulador" className="hover:text-white transition-colors">
-                    Simulador de Câmaras & Medidas
+                    Simulador de Equipamento Comercial
                   </a>
                 </li>
                 <li>
                   <a href="#obras" className="hover:text-white transition-colors">
-                    Obras e Projetos Realizados
+                    Instalações & Clientes Comerciais
                   </a>
                 </li>
                 <li>
                   <a href="#fabrica" className="hover:text-white transition-colors">
-                    Estrutura Fabril (10.000m²)
+                    Nossa Fábrica em Vespasiano - MG
                   </a>
                 </li>
                 <li>
                   <a href="#avaliacoes" className="hover:text-white transition-colors">
-                    Depoimentos no Google (4,7★)
+                    Depoimentos no Google ({GOOGLE_RATING}★)
                   </a>
                 </li>
                 <li>
@@ -2277,8 +2350,13 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
                   </a>
                 </li>
                 <li>
-                  <a href={WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                    Portal Institucional
+                  <a
+                    href={WEBSITE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors"
+                  >
+                    Portal Oficial www.friomax.com.br
                   </a>
                 </li>
               </ul>
@@ -2286,37 +2364,37 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
 
             {/* Coluna 4: Contato & Sede */}
             <div className="space-y-3">
-              <div className="text-xs font-bold text-sky-400 uppercase tracking-wider">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
                 Fale com a Indústria
               </div>
               <div className="space-y-2 text-xs text-slate-300">
                 <p className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-[#00A3FF]" />
-                  <span>{PHONE_DISPLAY} · {PHONE_SECONDARY}</span>
+                  <Phone className="w-3.5 h-3.5 text-[#38BDF8]" />
+                  <span>PABX: {PHONE_DISPLAY}</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <MessageCircle className="w-3.5 h-3.5 text-[#4ADE80]" />
                   <span>WhatsApp: {WHATSAPP_DISPLAY}</span>
                 </p>
                 <p className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-[#00A3FF]" />
+                  <Mail className="w-3.5 h-3.5 text-[#38BDF8]" />
                   <span>{EMAIL_CONTACT}</span>
                 </p>
                 <p className="flex items-start gap-2 pt-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#00A3FF] shrink-0 mt-0.5" />
-                  <span>Rua Alzira Menezes Nogueira, 151 - Distrito Industrial João de Almeida, Ribeirão das Neves - MG</span>
+                  <MapPin className="w-3.5 h-3.5 text-[#38BDF8] shrink-0 mt-0.5" />
+                  <span>{PRIMARY_FACTORY_ADDRESS}</span>
                 </p>
               </div>
             </div>
           </div>
 
           {/* Linha Inferior com Copyright e CNPJ */}
-          <div className="pt-8 border-t border-sky-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="pt-8 border-t border-blue-900/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div>
               © 2026 {COMPANY_LEGAL_NAME}. Todos os direitos reservados.
             </div>
             <div className="flex items-center gap-3">
-              <span>Sede Própria: Ribeirão das Neves - MG</span>
+              <span>Sede Própria: Vespasiano - MG</span>
               <span>•</span>
               <a href="#simulador" className="hover:text-white">
                 Orçamento Direto da Fábrica
@@ -2331,11 +2409,11 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       {/* ============================================================== */}
       <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2">
         <a
-          href={getWhatsAppUrl("Olá! Gostaria de consultar preços de isopainéis com a equipe técnica da ISOMINAS.")}
+          href={getWhatsAppUrl("Olá! Gostaria de consultar preços de equipamentos de refrigeração com a equipe da Friomax.")}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#16A34A] hover:bg-[#15803D] text-white shadow-2xl hover:shadow-green-600/50 transition-all duration-300 hover:scale-105 group font-bold text-sm border-2 border-white/20"
-          aria-label="Atendimento WhatsApp"
+          aria-label="Atendimento WhatsApp Friomax"
         >
           <div className="relative">
             <MessageCircle className="w-6 h-6 fill-white text-[#16A34A]" />
@@ -2359,14 +2437,14 @@ Poderiam calcular o melhor valor direto da fábrica para mim?`;
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center gap-2 shadow-2xl">
         <a
           href={`tel:${PHONE_DISPLAY.replace(/\D/g, "")}`}
-          className="flex-1 py-2.5 px-3 rounded-lg border border-slate-300 bg-slate-50 text-[#0A1C38] text-xs font-bold flex items-center justify-center gap-1.5"
+          className="flex-1 py-2.5 px-3 rounded-lg border border-slate-300 bg-slate-50 text-[#07152B] text-xs font-bold flex items-center justify-center gap-1.5"
         >
-          <Phone className="w-3.5 h-3.5 text-[#0088E0]" />
+          <Phone className="w-3.5 h-3.5 text-[#0047FF]" />
           <span>Ligar Fábrica</span>
         </a>
 
         <a
-          href={getWhatsAppUrl("Olá! Gostaria de um orçamento rápido pelo WhatsApp.")}
+          href={getWhatsAppUrl("Olá! Gostaria de um orçamento rápido pelo WhatsApp com a Friomax.")}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 py-2.5 px-3 rounded-lg bg-[#16A34A] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md"

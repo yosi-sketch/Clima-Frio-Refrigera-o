@@ -3,35 +3,41 @@
 :root {
   color-scheme: light;
   
-  /* ISOMINAS — Paleta Oficial Extraída Diretamente do Logotipo */
+  /* FRIOMAX REFRIGERAÇÃO — Paleta Oficial Extraída Diretamente do Logotipo */
   
-  /* Ciano Primário Isominas (Lettering 'ISOMINAS' no logotipo) */
-  --brand-cyan-primary: #0088E0;
-  --brand-cyan-hover: #0070BA;
-  --brand-cyan-vibrant: #00A3FF;
-  --brand-cyan-glow: #38BDF8;
+  /* Azul Royal / Cobalto Friomax (Lettering 'FRIOMAX' e Boné do Mascote) */
+  --brand-blue-primary: #0047FF;
+  --brand-blue-royal: #012B8E;
+  --brand-blue-hover: #0036CC;
+  --brand-blue-glow: #3B82F6;
   
-  /* Azul Glacial & Ártico Profundo */
-  --brand-blue-deep: #004B99;
-  --brand-blue-navy: #0A1C38;
-  --brand-blue-midnight: #051329;
-  --brand-blue-darkest: #020A17;
+  /* Ouro Imperial & Âmbar Estrelas (5 Estrelas de Excelência do Logotipo) */
+  --brand-gold-primary: #F59E0B;
+  --brand-gold-light: #FDE047;
+  --brand-gold-vibrant: #FACC15;
+  --brand-gold-dark: #D97706;
   
-  /* Superfícies Sanitárias & Gelo */
-  --brand-ice-surface: #F0F8FF;
-  --brand-ice-card: #EBF5FE;
-  --brand-ice-border: #BAE0FD;
-  --brand-ice-border-light: #E0F0FE;
+  /* Azul Noturno Profundo & Ártico Industrial (Contraste Máximo) */
+  --brand-navy-dark: #07152B;
+  --brand-navy-midnight: #0B1E3F;
+  --brand-navy-deep: #030A17;
+  --brand-navy-card: #0E244D;
   
-  /* Grafite Industrial & Aço */
+  /* Ciano Gelo & Gotículas do Mascote */
+  --brand-ice-cyan: #38BDF8;
+  --brand-ice-accent: #0284C7;
+  --brand-ice-surface: #EFF6FF;
+  --brand-ice-card: #EBF3FA;
+  --brand-ice-border: #BFDBFE;
+  
+  /* Grafite Industrial & Aço Inox */
   --brand-slate-industrial: #334155;
   --brand-slate-muted: #64748B;
   --brand-slate-border: #CBD5E1;
   
-  /* Acentos de Confiança & WhatsApp */
+  /* Acentos de Conversão & WhatsApp */
   --brand-whatsapp: #16A34A;
   --brand-whatsapp-hover: #15803D;
-  --brand-amber-star: #F59E0B;
   
   /* Neutros e Fundos */
   --brand-canvas-white: #FFFFFF;
@@ -43,26 +49,29 @@
   --font-heading: var(--font-heading), "Montserrat", system-ui, sans-serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   
-  --color-brand-cyan-primary: #0088E0;
-  --color-brand-cyan-hover: #0070BA;
-  --color-brand-cyan-vibrant: #00A3FF;
-  --color-brand-cyan-glow: #38BDF8;
+  --color-brand-blue-primary: #0047FF;
+  --color-brand-blue-royal: #012B8E;
+  --color-brand-blue-hover: #0036CC;
+  --color-brand-blue-glow: #3B82F6;
   
-  --color-brand-blue-deep: #004B99;
-  --color-brand-blue-navy: #0A1C38;
-  --color-brand-blue-midnight: #051329;
-  --color-brand-blue-darkest: #020A17;
+  --color-brand-gold-primary: #F59E0B;
+  --color-brand-gold-light: #FDE047;
+  --color-brand-gold-vibrant: #FACC15;
   
-  --color-brand-ice-surface: #F0F8FF;
-  --color-brand-ice-card: #EBF5FE;
-  --color-brand-ice-border: #BAE0FD;
+  --color-brand-navy-dark: #07152B;
+  --color-brand-navy-midnight: #0B1E3F;
+  --color-brand-navy-deep: #030A17;
+  
+  --color-brand-ice-cyan: #38BDF8;
+  --color-brand-ice-surface: #EFF6FF;
+  --color-brand-ice-card: #EBF3FA;
+  --color-brand-ice-border: #BFDBFE;
   
   --color-brand-slate-industrial: #334155;
   --color-brand-slate-muted: #64748B;
   
   --color-brand-whatsapp: #16A34A;
   --color-brand-whatsapp-hover: #15803D;
-  --color-brand-amber-star: #F59E0B;
   
   --color-brand-canvas-white: #FFFFFF;
   --color-brand-canvas-light: #F8FAFC;
@@ -75,14 +84,14 @@ html {
 
 body {
   background: #F8FAFC;
-  color: #0A1C38;
+  color: #07152B;
   font-family: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #0088E0;
+  background: #0047FF;
   color: #FFFFFF;
 }
 
@@ -90,14 +99,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), "Montserrat", system-ui, sans-serif;
 }
 
-/* Pulso sutil para selos de status de fábrica / WhatsApp */
+/* Pulso suave para badges e botões de ação */
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
   }
   50% {
-    opacity: 0.85;
+    opacity: 0.88;
     transform: scale(1.02);
   }
 }
@@ -106,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse-soft 3s ease-in-out infinite;
 }
 
-/* Brilho glacial em cards e badges */
+/* Brilho sutil em cards */
 @keyframes frost-shimmer {
   0% {
     background-position: -200% 0;
@@ -137,10 +146,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0088E0;
+  background: #0047FF;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0070BA;
+  background: #012B8E;
 }

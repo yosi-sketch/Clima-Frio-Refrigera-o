@@ -17,73 +17,72 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0088E0",
+  themeColor: "#0047FF",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.isominas.ind.br"),
+  metadataBase: new URL("https://www.friomax.com.br"),
   title:
-    "ISOMINAS | Indústria de Isopainéis EPS & PUR, Câmaras Frigoríficas & Telhas Térmicas (4,7★)",
+    "Friomax Refrigeração | Fábrica de Freezers, Expositores & Câmaras Frigoríficas (4,4★)",
   description:
-    "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração: fábrica própria com 10.000m² em Ribeirão das Neves / BH. Isopainéis EPS e PUR de 50mm a 200mm, portas frigoríficas giratórias e de correr, telhas térmicas sanduíche e isolamento para câmaras frigoríficas. Orçamento direto da fábrica! Fone: (31) 3631-1500 · WhatsApp: (31) 98418-3835.",
+    "Friomax Refrigeração: mais de 30 anos de tradição em Vespasiano - MG fabricando equipamentos de refrigeração comercial e industrial. Freezers expositores, vitrines refrigeradas, balcões térmicos, geladeiras em aço inox e câmaras frigoríficas. Orçamento direto da fábrica: (31) 3503-2400.",
   keywords: [
-    "ISOMINAS",
-    "Isominas Isopainéis",
-    "Isopainéis BH",
-    "Isopainel EPS Minas Gerais",
-    "Isopainel PUR",
-    "Portas frigoríficas MG",
-    "Porta frigorífica giratória",
-    "Porta frigorífica de correr",
-    "Telha térmica EPS",
-    "Telha sanduíche BH",
+    "Friomax Refrigeração",
+    "Friomax Vespasiano",
+    "Fábrica de freezers MG",
+    "Equipamentos de refrigeração comercial",
+    "Freezer expositor bebidas",
+    "Freezer horizontal comercial",
+    "Balcão refrigerado açougue",
+    "Vitrine expositora padaria",
+    "Geladeira industrial aço inox",
     "Câmara frigorífica Belo Horizonte",
-    "Placas de EPS isolamento térmico",
-    "Fábrica de isopainel Ribeirão das Neves",
-    "Isolamento térmico industrial",
+    "Ilha de congelados supermercado",
+    "Refrigeração comercial Minas Gerais",
+    "Vespasiano refrigeração",
   ],
-  authors: [{ name: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração" }],
-  creator: "ISOMINAS Indústria e Comércio",
-  publisher: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração Ltda",
+  authors: [{ name: "Friomax Indústria e Comércio de Refrigeração" }],
+  creator: "Friomax Refrigeração",
+  publisher: "Friomax Indústria e Comércio de Refrigeração Ltda",
   formatDetection: {
     telephone: true,
     address: true,
   },
   icons: {
     icon: [
-      { url: "/favicon.ico?v=iso1", sizes: "any" },
-      { url: "/icon-32x32.png?v=iso1", type: "image/png", sizes: "32x32" },
-      { url: "/icon-16x16.png?v=iso1", type: "image/png", sizes: "16x16" },
-      { url: "/icon-192.png?v=iso1", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512.png?v=iso1", type: "image/png", sizes: "512x512" },
-      { url: "/icon.png?v=iso1", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=fm1", sizes: "any" },
+      { url: "/icon-32x32.png?v=fm1", type: "image/png", sizes: "32x32" },
+      { url: "/icon-16x16.png?v=fm1", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192.png?v=fm1", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png?v=fm1", type: "image/png", sizes: "512x512" },
+      { url: "/icon.png?v=fm1", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.ico?v=iso1",
-    apple: [{ url: "/apple-icon.png?v=iso1", sizes: "180x180" }],
+    shortcut: "/favicon.ico?v=fm1",
+    apple: [{ url: "/apple-icon.png?v=fm1", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://www.isominas.ind.br",
+    url: "https://www.friomax.com.br",
     title:
-      "ISOMINAS | Indústria de Isopainéis, Portas Frigoríficas & Telhas Térmicas (4,7★)",
-    description:
-      "Soluções completas em isolamento térmico e refrigeração industrial! Parque fabril de 10.000m² em Ribeirão das Neves / BH. Isopainéis EPS/PUR, portas frigoríficas, telhas sanduíche e câmaras frias com nota 4,7★ no Google.",
-    siteName: "ISOMINAS Isopainéis e Refrigeração",
+      "Friomax Refrigeração | Equipamentos de Refrigeração Comercial & Industrial (4,4★)",
+  description:
+    "Mais de 30 anos fabricando produtos com qualidade e eficiência na refrigeração comercial! Fábrica própria em Vespasiano - MG. Freezers, vitrines, balcões e câmaras com nota 4,4★ no Google.",
+    siteName: "Friomax Refrigeração",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração",
+        alt: "Friomax Refrigeração Comercial & Industrial - A diferença está na qualidade",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ISOMINAS | Indústria de Isopainéis & Refrigeração (4,7★)",
+    title: "Friomax Refrigeração | Fábrica de Freezers & Refrigeração (4,4★)",
     description:
-      "Fábrica própria de isopainéis EPS/PUR, portas frigoríficas e telhas térmicas sanduíche em MG. Orçamento direto da fábrica!",
+      "Fábrica própria de equipamentos de refrigeração comercial e industrial em Vespasiano - MG. Orçamento direto da fábrica!",
     images: ["/og-image.jpg"],
   },
 };
@@ -96,70 +95,78 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["ManufacturingBusiness", "HVACBusiness", "LocalBusiness"],
-    name: "ISOMINAS Indústria e Comércio de Isopainéis e Refrigeração",
-    legalName: "ISOMINAS INDÚSTRIA E COMÉRCIO DE ISOPAINES E REFRIGERAÇÃO LTDA",
-    alternateName: "ISOMINAS Isopainéis",
+    name: "Friomax Refrigeração Comercial & Industrial",
+    legalName: "Friomax Indústria e Comércio de Refrigeração Ltda",
+    alternateName: "Friomax Refrigeração",
     description:
-      "Indústria fabricante de isopainéis termoisolantes em EPS e PUR, portas frigoríficas giratórias e de correr, telhas térmicas sanduíche e placas isolantes para câmaras frigoríficas industriais e comerciais.",
-    telephone: "+553136311500",
-    url: "https://www.isominas.ind.br",
-    image: "https://www.isominas.ind.br/og-image.jpg",
-    logo: "https://www.isominas.ind.br/logo.png",
+      "Indústria fabricante de equipamentos de refrigeração comercial e industrial: freezers expositores verticais e horizontais, vitrines refrigeradas, balcões térmicos, geladeiras em aço inox e câmaras frigoríficas sob medida.",
+    telephone: "+553135032400",
+    url: "https://www.friomax.com.br",
+    image: "https://www.friomax.com.br/og-image.jpg",
+    logo: "https://www.friomax.com.br/logo.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. Alzira Menezes Nogueira, 151",
-      addressLocality: "Ribeirão das Neves",
+      streetAddress: "R. São Paulo, 1500",
+      addressLocality: "Vespasiano",
       addressRegion: "MG",
-      postalCode: "33880-300",
+      postalCode: "33200-000",
       addressCountry: "BR",
-      neighborhood: "Distrito Industrial João de Almeida",
+      neighborhood: "Nova Pampulha",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -19.7684,
-      longitude: -44.0865,
+      latitude: -19.7042,
+      longitude: -43.9189,
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
+        opens: "07:30",
         closes: "17:30",
       },
     ],
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.7",
-      reviewCount: "33",
+      ratingValue: "4.4",
+      reviewCount: "41",
       bestRating: "5",
       worstRating: "1",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Catálogo de Produtos e Soluções Térmicas",
+      name: "Catálogo de Equipamentos de Refrigeração Comercial",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Product",
-            name: "Isopainéis Termoisolantes EPS 50mm a 200mm",
-            description: "Isopainéis em EPS autoextinguível Classe F-1 para câmaras frias e galpões.",
+            name: "Freezers Comerciais Expositores Verticais e Horizontais",
+            description: "Freezers para conservação de gelo, sorvetes e bebidas com portas antiembaçantes.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Product",
-            name: "Portas Frigoríficas Giratórias e de Correr",
-            description: "Portas industriais pesadas com ferragens Fermod e resistência térmica.",
+            name: "Balcões e Vitrines Refrigeradas",
+            description: "Expositores para açougues, padarias, empórios e laticínios com iluminação LED.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Product",
-            name: "Telhas Térmicas EPS (Sanduíche)",
-            description: "Coberturas termoacústicas para redução de calor e isolamento sonoro.",
+            name: "Geladeiras e Refrigeradores Industriais em Aço Inox",
+            description: "Refrigeradores pesados de 2, 4 e 6 portas para cozinhas industriais e restaurantes.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Product",
+            name: "Câmaras Frigoríficas Modulares & Walk-in Coolers",
+            description: "Projetos sob medida com painéis térmicos herméticos e economia de energia.",
           },
         },
       ],
@@ -169,10 +176,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${headingFont.variable} ${bodyFont.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico?v=iso1" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=iso1" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=iso1" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=iso1" />
+        <link rel="icon" href="/favicon.ico?v=fm1" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png?v=fm1" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png?v=fm1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon.png?v=fm1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

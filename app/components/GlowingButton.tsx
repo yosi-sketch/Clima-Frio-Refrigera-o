@@ -11,14 +11,16 @@ interface GlowingButtonProps {
   size?: "sm" | "md" | "lg";
   variant?:
     | "primary"
-    | "cyan"
+    | "gold"
+    | "royal"
     | "navy"
     | "ice"
     | "dark"
     | "whatsapp"
     | "outline"
-    | "outlineCyan"
+    | "outlineRoyal"
     | "outlineNavy"
+    | "outlineGold"
     | "white";
 }
 
@@ -37,33 +39,37 @@ export default function GlowingButton({
     lg: "px-6 py-3.5 text-[15px] font-bold tracking-wide",
   }[size];
 
-  // ISOMINAS Brand Palette:
-  // Cyan (#0088E0), Electric Ice (#00A3FF), Deep Navy (#0A1C38), Ice Surface (#EBF5FE), WhatsApp (#16A34A)
+  // FRIOMAX Brand Palette:
+  // Royal Cobalt (#0047FF / #012B8E), Imperial Gold (#F59E0B / #FACC15), Deep Navy (#07152B), Ice Surface (#EFF6FF), WhatsApp (#16A34A)
   const variantClasses = {
     primary:
-      "bg-[#0088E0] hover:bg-[#0070BA] text-white font-bold shadow-sm hover:shadow-lg hover:shadow-sky-500/30 transition-all border border-[#0088E0] hover:-translate-y-0.5 active:translate-y-0",
-    cyan:
-      "bg-[#00A3FF] hover:bg-[#0088E0] text-white font-black shadow-sm hover:shadow-lg hover:shadow-sky-400/35 transition-all border border-[#0090E8] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-gradient-to-r from-[#0047FF] to-[#012B8E] hover:from-[#0036CC] hover:to-[#001D66] text-white font-bold shadow-md hover:shadow-lg hover:shadow-blue-600/35 transition-all border border-blue-500/30 hover:-translate-y-0.5 active:translate-y-0",
+    royal:
+      "bg-[#012B8E] hover:bg-[#001D66] text-white font-bold shadow-md hover:shadow-lg hover:shadow-blue-900/35 transition-all border border-[#012B8E] hover:-translate-y-0.5 active:translate-y-0",
+    gold:
+      "bg-gradient-to-r from-[#FACC15] via-[#F59E0B] to-[#D97706] hover:from-[#EAB308] hover:to-[#B45309] text-[#07152B] font-extrabold shadow-md hover:shadow-lg hover:shadow-amber-500/35 transition-all border border-amber-300 hover:-translate-y-0.5 active:translate-y-0",
     navy:
-      "bg-[#0A1C38] hover:bg-[#051329] text-white font-bold shadow-sm hover:shadow-lg hover:shadow-blue-950/30 transition-all border border-[#0A1C38] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#07152B] hover:bg-[#030A17] text-white font-bold shadow-sm hover:shadow-lg hover:shadow-blue-950/40 transition-all border border-slate-700/60 hover:-translate-y-0.5 active:translate-y-0",
     dark:
-      "bg-[#051329] hover:bg-[#020A17] text-white font-bold shadow-sm hover:shadow-lg transition-all border border-[#004B99] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#0B1E3F] hover:bg-[#07152B] text-white font-bold shadow-sm hover:shadow-lg transition-all border border-blue-900 hover:-translate-y-0.5 active:translate-y-0",
     ice:
-      "bg-[#EBF5FE] hover:bg-[#D6ECFD] text-[#0070BA] font-bold shadow-xs hover:shadow-md transition-all border border-[#BAE0FD] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#012B8E] font-bold shadow-xs hover:shadow-md transition-all border border-[#BFDBFE] hover:-translate-y-0.5 active:translate-y-0",
     whatsapp:
-      "bg-[#16A34A] hover:bg-[#15803D] text-white font-bold shadow-sm hover:shadow-md hover:shadow-green-600/35 transition-all border border-[#16A34A] hover:-translate-y-0.5 active:translate-y-0",
+      "bg-[#16A34A] hover:bg-[#15803D] text-white font-bold shadow-md hover:shadow-lg hover:shadow-green-600/35 transition-all border border-[#16A34A] hover:-translate-y-0.5 active:translate-y-0",
     outline:
-      "border border-slate-300 bg-white text-slate-800 hover:text-[#0088E0] hover:border-[#0088E0] hover:bg-[#F0F8FF] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
-    outlineCyan:
-      "border-2 border-[#0088E0] bg-transparent text-[#0088E0] hover:bg-[#0088E0] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
+      "border border-slate-300 bg-white text-slate-800 hover:text-[#0047FF] hover:border-[#0047FF] hover:bg-[#EFF6FF] shadow-xs hover:-translate-y-0.5 active:translate-y-0",
+    outlineRoyal:
+      "border-2 border-[#0047FF] bg-transparent text-[#0047FF] hover:bg-[#0047FF] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
     outlineNavy:
-      "border-2 border-[#0A1C38] bg-transparent text-[#0A1C38] hover:bg-[#0A1C38] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
+      "border-2 border-[#07152B] bg-transparent text-[#07152B] hover:bg-[#07152B] hover:text-white shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
+    outlineGold:
+      "border-2 border-[#F59E0B] bg-transparent text-[#D97706] hover:bg-[#F59E0B] hover:text-[#07152B] shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
     white:
-      "border border-slate-200 bg-white text-[#0A1C38] hover:text-[#0088E0] hover:bg-slate-50 shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
+      "border border-slate-200 bg-white text-[#07152B] hover:text-[#0047FF] hover:bg-slate-50 shadow-xs hover:-translate-y-0.5 active:translate-y-0 font-bold",
   }[variant];
 
   const classes =
-    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0088E0] select-none text-center cursor-pointer whitespace-nowrap " +
+    "inline-flex items-center justify-center gap-2 rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0047FF] select-none text-center cursor-pointer whitespace-nowrap " +
     sizeClasses +
     " " +
     variantClasses +
